@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3Stars Entertainers - About Us</title>
+    <!-- FontAwesome for Modern Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: Arial, sans-serif; background-color: #d8edf8; color: #000; overflow-x: hidden; }
+
+        /* ==========================================
+           TOP BANNER
+           ========================================== */
+        .top-banner { background: #ffffff; color: #222; padding: 10px 40px; display: flex; justify-content: space-between; align-items: center; font-size: 14px; font-weight: 600; letter-spacing: 0.5px; border-bottom: 1px solid #e0e0e0; gap: 15px; flex-wrap: wrap; }
+        .top-banner > div:first-child { display: flex; align-items: center; min-width: 0; }
+        .top-banner img { flex-shrink: 0; }
+        .welcome-text { color: #555; font-weight: 500; font-size: 14px; }
+        .welcome-text strong { background: linear-gradient(135deg, #0c101d, #4bb5f5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800; font-size: 15px; }
+        .welcome-text i { color: #ff3366; margin: 0 4px; font-size: 12px; }
+        .social-icons { display: flex; align-items: center; gap: 15px; flex-wrap: wrap; }
+        .social-icons a { display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; background: #f5f5f5; color: #444; text-decoration: none; border-radius: 50%; font-size: 16px; transition: all 0.3s ease; border: 1px solid #ddd; }
+        .social-icons a:hover { background: #ff3366; color: #fff; border-color: #ff3366; transform: translateY(-3px); box-shadow: 0 5px 12px rgba(255, 51, 102, 0.4); }
+        .login-btn { font-size: 14px; font-weight: bold; background: linear-gradient(135deg, #7cd3fc, #4bb5f5); color: #0c101d; padding: 8px 20px; border-radius: 30px; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(124, 211, 252, 0.3); display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+        .login-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(124, 211, 252, 0.5); filter: brightness(1.1); }
+        .signup-btn { font-size: 14px; font-weight: bold; background: linear-gradient(135deg, #ff3366, #ff7799); color: #fff; padding: 8px 20px; border-radius: 30px; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(255, 51, 102, 0.3); display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+        .signup-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(255, 51, 102, 0.5); filter: brightness(1.1); }
+        .header-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
+
+        /* ==========================================
+           HERO WRAPPER
+           ========================================== */
+        .hero-wrapper { background: linear-gradient(to bottom, rgba(3, 20, 41, 0.7) 0%, rgba(3, 20, 41, 0.95) 100%), url('https://images.unsplash.com/photo-1598387993441-a364f854c3e1?q=80&w=1476&auto=format&fit=crop') center center/cover; position: relative; overflow: hidden; border-bottom: 2px solid #005082; }
+
+        /* ==========================================
+           MAIN HEADER
+           ========================================== */
+        header { padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 100; background: rgba(3, 20, 41, 0.95); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); gap: 15px; }
+        .logo-area h1 { font-size: 26px; color: #fff; font-weight: 700; letter-spacing: 0.5px; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); white-space: nowrap; }
+        nav { display: flex; gap: 30px; align-items: center; }
+        nav a { color: #fff; text-decoration: none; font-weight: 600; font-size: 16px; transition: color 0.2s; white-space: nowrap; }
+        nav a:hover, nav a.active { color: #00d2ff; }
+        .dropdown { position: relative; display: inline-block; padding-bottom: 10px; margin-bottom: -10px; }
+        .dropdown-content { display: none; position: absolute; background-color: rgba(6, 21, 41, 0.95); min-width: 200px; box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.6); z-index: 10; top: 100%; left: 0; border-radius: 4px; border: 1px solid rgba(255, 255, 255, 0.1); padding: 10px 0; backdrop-filter: blur(5px); }
+        .dropdown-content a { color: #ddd; padding: 10px 20px; text-decoration: none; display: block; font-size: 13px; font-weight: 500; }
+        .dropdown-content a:hover { background-color: rgba(255, 255, 255, 0.05); color: #fff; }
+        .dropdown:hover .dropdown-content { display: block; }
+        .mobile-menu-toggle { display: none; font-size: 24px; color: #fff; cursor: pointer; padding: 5px; }
+
+        /* ==========================================
+           HERO SECTION (About Hero)
+           ========================================== */
+        .hero { position: relative; min-height: 550px; display: flex; align-items: center; justify-content: space-between; padding: 60px 40px; color: #fff; z-index: 1; }
+        .hero-inner { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: 1200px; margin: 0 auto; gap: 40px; }
+
+        /* HERO CONTENT — Properly Responsive */
+        .hero-content { flex: 1; display: flex; flex-direction: column; justify-content: center; transition: opacity 0.3s ease; min-width: 0; }
+        .hero-content h2 { font-size: 3.5rem; color: #fff; margin-bottom: 25px; line-height: 1.1; font-weight: 800; text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4); word-wrap: break-word; overflow-wrap: break-word; }
+        .hero-content h2 .highlight-red { color: #ff1c43; display: block; text-shadow: 2px 2px 10px rgba(255, 28, 67, 0.3); }
+        .hero-desc { font-size: 16px; color: #f0f0f0; line-height: 1.6; max-width: 500px; margin-bottom: 30px; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); }
+        .hero-read-btn { width: fit-content; padding: 12px 30px; font-size: 16px; }
+
+        .hero-image { flex: 1; display: flex; justify-content: flex-end; position: relative; min-width: 0; }
+        .hero-image img { max-height: 420px; width: 100%; max-width: 500px; object-fit: cover; border-radius: 20px; border: 4px solid rgba(255, 51, 102, 0.3); filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.5)); }
+
+        /* ==========================================
+           SECTION TITLE
+           ========================================== */
+        .section-title { font-size: 20px; font-weight: 800; color: #fff; background: linear-gradient(135deg, #0c101d, #1b5394); display: block; width: 90%; max-width: 950px; padding: 16px 20px; box-sizing: border-box; border-radius: 10px; margin: 30px auto; box-shadow: 0 10px 20px rgba(27, 83, 148, 0.25); text-transform: uppercase; letter-spacing: 1.5px; border: 1px solid rgba(255, 255, 255, 0.1); position: relative; text-align: center; }
+        .section-title::after { content: ''; position: absolute; bottom: -1px; left: 10%; width: 80%; height: 3px; background: #ff3366; border-radius: 10px; }
+
+        /* ==========================================
+           ABOUT US SECTION
+           ========================================== */
+        .about-container { width: 90%; max-width: 1200px; margin: 0 auto 40px auto; background: #fff; color: #0c101d; padding: 40px; border: 1px solid #eee; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); }
+        .about-subtitle { text-align: center; color: #ff3366; font-size: 1.2rem; font-weight: 800; margin-bottom: 25px; letter-spacing: 1px; }
+        .about-grid { display: flex; gap: 40px; align-items: center; }
+        .about-logo-box { flex: 1; text-align: center; background: #fafafa; padding: 40px; border: 1px solid #eee; border-radius: 12px; box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.02); min-width: 0; }
+        .about-logo-box h3 { color: #1b5394; font-size: 2.2rem; margin-bottom: 10px; font-weight: 800; }
+        .about-logo-box p { font-size: 14px; color: #555; }
+        .about-text-box { flex: 2; font-size: 15px; line-height: 1.7; color: #444; min-width: 0; }
+        .about-text-box p { margin-bottom: 15px; }
+
+        /* ==========================================
+           OUR SERVICES SECTION — Properly Responsive
+           ========================================== */
+        .services-container { width: 90%; max-width: 1200px; margin: 0 auto 40px auto; background: #fff; color: #0c101d; padding: 40px; border: 1px solid #eee; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); }
+        .services-top-title { text-align: center; color: #ff8800; font-size: 1.1rem; font-weight: bold; margin-bottom: 25px; letter-spacing: 1px; }
+        .services-content-flex { display: flex; gap: 40px; align-items: flex-start; }
+        .packages-box { flex: 1; min-width: 0; }
+        .packages-box h3 { color: #1b5394; font-size: 2rem; margin-bottom: 15px; line-height: 1.2; font-weight: 800; word-wrap: break-word; }
+        .packages-box p { font-size: 14px; line-height: 1.6; color: #555; margin-bottom: 15px; }
+        .try-btn { background: #ff3366; color: #fff; border: none; padding: 12px 30px; font-weight: bold; font-size: 14px; border-radius: 6px; cursor: pointer; display: inline-block; transition: all 0.3s; box-shadow: 0 4px 10px rgba(255, 51, 102, 0.3); }
+        .try-btn:hover { background: #e02454; transform: translateY(-2px); box-shadow: 0 6px 15px rgba(255, 51, 102, 0.4); }
+        .features-box { flex: 1; background: #fafafa; padding: 30px; border-radius: 12px; border: 1px solid #eee; box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.02); min-width: 0; }
+        .features-list { list-style: none; }
+        .features-list li { font-size: 14px; margin-bottom: 15px; display: flex; align-items: flex-start; gap: 12px; color: #444; font-weight: 500; }
+        .features-list li::before { content: "\f00c"; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: #ff3366; flex-shrink: 0; }
+
+        /* ==========================================
+           FEEDBACK SECTION
+           ========================================== */
+        .feedback-container { width: 90%; max-width: 1200px; margin: 0 auto 40px auto; background: #fff; color: #0c101d; padding: 40px; border: 1px solid #eee; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); display: flex; gap: 40px; }
+        .feedback-col { flex: 1; background: #fafafa; padding: 30px; border-radius: 12px; border: 1px solid #eee; min-width: 0; }
+        .feedback-col h3 { text-align: center; color: #1b5394; font-size: 1.2rem; margin-bottom: 25px; font-weight: 800; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; font-size: 13px; margin-bottom: 6px; color: #555; font-weight: 600; }
+        .form-control { width: 100%; padding: 12px; background: #fff; border: 1px solid #ddd; border-radius: 6px; font-size: 14px; color: #333; transition: border-color 0.3s; font-family: inherit; }
+        .form-control:focus { outline: none; border-color: #ff3366; }
+        textarea.form-control { resize: vertical; height: 100px; }
+        .submit-btn { background: linear-gradient(135deg, #1b5394, #0c101d); color: #fff; border: none; padding: 12px 25px; font-weight: bold; border-radius: 6px; cursor: pointer; display: block; margin: 20px auto 0 auto; transition: all 0.3s; box-shadow: 0 4px 10px rgba(27, 83, 148, 0.3); }
+        .submit-btn:hover { filter: brightness(1.2); transform: translateY(-2px); }
+
+        /* ==========================================
+           FOOTER
+           ========================================== */
+        footer { background: rgba(3, 20, 41, 0.95); color: #fff; padding: 50px 40px 20px 40px; margin-top: 40px; border-top: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3); backdrop-filter: blur(10px); }
+        .footer-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; max-width: 1200px; margin: 0 auto; font-size: 14px; }
+        .footer-cols h4 { color: #fff; margin-bottom: 15px; border-bottom: 2px solid #005082; padding-bottom: 8px; font-weight: 700; letter-spacing: 0.5px; }
+        .footer-cols ul { list-style: none; }
+        .footer-cols ul li { margin-bottom: 10px; }
+        .footer-cols ul li a { color: #aaa; text-decoration: none; transition: color 0.3s; }
+        .footer-cols ul li a:hover { color: #00d2ff; }
+        .footer-bottom { text-align: center; margin-top: 30px; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 20px; font-size: 13px; color: #888; }
+        .footer-widgets { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 25px; padding-bottom: 25px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); gap: 15px; }
+        .social-row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+        .social-row a { display: flex; align-items: center; justify-content: center; width: 42px; height: 42px; background: rgba(255, 255, 255, 0.1); color: #fff; text-decoration: none; border-radius: 50%; font-size: 18px; transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.2); }
+        .social-row a:hover { background: #00d2ff; color: #000; border-color: #00d2ff; transform: translateY(-3px); box-shadow: 0 5px 12px rgba(0, 210, 255, 0.4); }
+        .payment-methods { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+        .payment-methods img { height: 34px; background: #fff; padding: 3px 8px; border-radius: 4px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); }
+
+        /* ==========================================
+           RESPONSIVE — LARGE DESKTOP (1440px)
+           ========================================== */
+        @media (max-width: 1440px) {
+            .hero-content h2 { font-size: 3.2rem; }
+        }
+
+        /* ==========================================
+           RESPONSIVE — DESKTOP (1280px)
+           ========================================== */
+        @media (max-width: 1280px) {
+            .hero-content h2 { font-size: 3rem; }
+            .hero-inner { gap: 25px; }
+            .hero { padding: 50px 30px; }
+        }
+
+        /* ==========================================
+           RESPONSIVE — TABLET LANDSCAPE (1024px)
+           ========================================== */
+        @media (max-width: 1024px) {
+            .top-banner { padding: 10px 20px; font-size: 13px; }
+            header { padding: 15px 20px; }
+            nav { gap: 15px; }
+            nav a { font-size: 14px; }
+
+            /* HERO */
+            .hero { min-height: 420px; padding: 40px 25px; }
+            .hero-content h2 { font-size: 2.6rem; margin-bottom: 20px; }
+            .hero-desc { font-size: 15px; margin-bottom: 25px; }
+            .hero-image img { max-height: 360px; }
+
+            /* CONTAINERS */
+            .about-container,
+            .services-container,
+            .feedback-container { padding: 32px; }
+            .about-grid { gap: 30px; }
+            .about-logo-box { padding: 30px; }
+            .services-content-flex { gap: 30px; }
+            .packages-box h3 { font-size: 1.7rem; }
+            .feedback-container { gap: 30px; }
+            .feedback-col { padding: 25px; }
+
+            .footer-cols { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        }
+
+        /* ==========================================
+           RESPONSIVE — TABLET PORTRAIT (900px)
+           ========================================== */
+        @media (max-width: 900px) {
+            /* HERO — keep two-column but tighter */
+            .hero { padding: 35px 22px; min-height: auto; }
+            .hero-inner { gap: 22px; }
+            .hero-content h2 { font-size: 2.2rem; margin-bottom: 18px; }
+            .hero-desc { font-size: 14px; line-height: 1.55; margin-bottom: 22px; }
+            .hero-read-btn { padding: 11px 24px; font-size: 15px; }
+            .hero-image img { max-height: 320px; }
+
+            /* ABOUT */
+            .about-grid { flex-direction: column; gap: 25px; }
+            .about-logo-box { width: 100%; padding: 30px 20px; }
+            .about-text-box { width: 100%; }
+
+            /* SERVICES */
+            .services-content-flex { flex-direction: column; gap: 25px; }
+            .packages-box,
+            .features-box { width: 100%; }
+            .packages-box h3 { font-size: 1.6rem; }
+
+            /* FEEDBACK */
+            .feedback-container { flex-direction: column; gap: 25px; }
+            .feedback-col { width: 100%; }
+        }
+
+        /* ==========================================
+           RESPONSIVE — MOBILE (768px and below)
+           ========================================== */
+        @media (max-width: 768px) {
+            /* TOP BANNER */
+            .top-banner { flex-direction: column; text-align: center; gap: 12px; padding: 15px; }
+            .top-banner > div:first-child { flex-direction: column; gap: 8px; }
+            .social-icons { margin-top: 0; justify-content: center; }
+            .header-buttons { justify-content: center; }
+
+            /* HEADER + MOBILE NAV */
+            .mobile-menu-toggle { display: block; }
+            nav { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: rgba(3, 20, 41, 0.98); padding: 20px; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); gap: 15px; align-items: flex-start; z-index: 999; border-top: 1px solid rgba(255, 255, 255, 0.1); width: 100%; }
+            nav.active { display: flex; }
+            .dropdown { width: 100%; }
+            .dropdown-content { position: static; box-shadow: none; display: none; padding-left: 20px; border: none; background: transparent; width: 100%; }
+            .dropdown.open .dropdown-content { display: block; }
+
+            /* HERO — stack column-reverse (image on top) */
+            .hero { padding: 30px 18px 40px 18px; min-height: auto; }
+            .hero-inner { flex-direction: column-reverse; text-align: center; gap: 25px; }
+            .hero-content { align-items: center; width: 100%; }
+            .hero-content h2 { font-size: 2rem; margin-bottom: 16px; line-height: 1.15; }
+            .hero-content h2 br { display: none; }
+            .hero-content h2 .highlight-red { display: inline; }
+            .hero-desc { font-size: 14px; max-width: 100%; text-align: center; margin-bottom: 20px; line-height: 1.6; }
+            .hero-read-btn { margin: 0 auto; padding: 11px 26px; font-size: 14px; }
+            .hero-image { justify-content: center !important; width: 100%; }
+            .hero-image img { max-height: 260px; width: 100%; max-width: 100%; }
+
+            /* SECTION TITLES */
+            .section-title { font-size: 15px; padding: 13px 18px; letter-spacing: 1px; margin: 24px auto; }
+
+            /* CONTAINERS */
+            .about-container,
+            .services-container,
+            .feedback-container { padding: 24px 20px; border-radius: 10px; width: 92%; margin-bottom: 28px; }
+
+            /* ABOUT */
+            .about-subtitle { font-size: 1rem; margin-bottom: 20px; }
+            .about-logo-box { padding: 24px 16px; }
+            .about-logo-box h3 { font-size: 1.6rem; }
+            .about-text-box { font-size: 14px; line-height: 1.65; }
+
+            /* SERVICES */
+            .services-top-title { font-size: 0.98rem; margin-bottom: 20px; }
+            .packages-box h3 { font-size: 1.5rem; margin-bottom: 12px; }
+            .packages-box p { font-size: 13.5px; }
+            .features-box { padding: 22px 18px; }
+            .features-list li { font-size: 13.5px; margin-bottom: 12px; gap: 10px; }
+            .try-btn { padding: 11px 26px; font-size: 13.5px; }
+
+            /* FEEDBACK */
+            .feedback-col { padding: 22px 18px; }
+            .feedback-col h3 { font-size: 1.05rem; margin-bottom: 20px; }
+            .form-control { padding: 11px; font-size: 13.5px; }
+
+            /* FOOTER */
+            .footer-cols { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+            .footer-widgets { flex-direction: column; justify-content: center; gap: 18px; }
+            .payment-methods { justify-content: center; }
+            .footer-widgets > div { justify-content: center; }
+        }
+
+        /* ==========================================
+           RESPONSIVE — SMALL MOBILE (480px and below)
+           ========================================== */
+        @media (max-width: 480px) {
+            .welcome-text { font-size: 12px; }
+            .welcome-text strong { font-size: 13px; }
+            .logo-area h1 { font-size: 18px; }
+
+            /* HERO */
+            .hero { padding: 25px 15px 35px 15px; }
+            .hero-content h2 { font-size: 1.7rem; margin-bottom: 14px; }
+            .hero-desc { font-size: 13px; line-height: 1.55; margin-bottom: 18px; }
+            .hero-read-btn { padding: 10px 22px; font-size: 13px; }
+            .hero-image img { max-height: 210px; border-width: 3px; border-radius: 14px; }
+
+            /* SECTION TITLE */
+            .section-title { font-size: 13px; padding: 11px 14px; letter-spacing: 0.8px; }
+
+            /* CONTAINERS */
+            .about-container,
+            .services-container,
+            .feedback-container { padding: 20px 16px; width: 94%; }
+
+            /* ABOUT */
+            .about-logo-box { padding: 20px 14px; }
+            .about-logo-box h3 { font-size: 1.4rem; }
+            .about-text-box { font-size: 13px; line-height: 1.65; }
+
+            /* SERVICES */
+            .services-top-title { font-size: 0.9rem; }
+            .packages-box h3 { font-size: 1.3rem; }
+            .packages-box p { font-size: 13px; }
+            .features-box { padding: 18px 14px; }
+            .features-list li { font-size: 13px; gap: 9px; }
+            .try-btn { padding: 10px 20px; font-size: 13px; width: 100%; text-align: center; }
+
+            /* FEEDBACK */
+            .feedback-col { padding: 18px 14px; }
+            .feedback-col h3 { font-size: 0.98rem; }
+            .form-group label { font-size: 12px; }
+            .form-control { padding: 10px; font-size: 13px; }
+            .submit-btn { padding: 11px 22px; font-size: 13px; }
+
+            /* FOOTER */
+            .footer-cols { grid-template-columns: 1fr; gap: 18px; }
+            .footer-widgets { flex-direction: column; gap: 15px; }
+            .payment-methods { justify-content: center; }
+            .social-row { justify-content: center; }
+        }
+
+        /* ==========================================
+           RESPONSIVE — EXTRA SMALL (375px and below)
+           ========================================== */
+        @media (max-width: 375px) {
+            .top-banner { padding: 10px; }
+            header { padding: 12px 10px; }
+            .welcome-text strong { display: block; margin-top: 4px; }
+            .logo-area h1 { font-size: 16px; }
+
+            .hero { padding: 22px 12px 30px 12px; }
+            .hero-content h2 { font-size: 1.5rem; }
+            .hero-desc { font-size: 12.5px; }
+            .hero-read-btn { padding: 9px 20px; font-size: 12.5px; }
+            .hero-image img { max-height: 180px; }
+
+            .section-title { font-size: 12px; padding: 10px 12px; }
+
+            .about-container,
+            .services-container,
+            .feedback-container { padding: 16px 12px; }
+            .about-logo-box h3 { font-size: 1.25rem; }
+            .packages-box h3 { font-size: 1.2rem; }
+            .features-list li { font-size: 12.5px; }
+            .feedback-col h3 { font-size: 0.92rem; }
+
+            .login-btn, .signup-btn { padding: 7px 14px; font-size: 12px; }
+        }
+
+        /* ==========================================
+           RESPONSIVE — TINY (320px and below)
+           ========================================== */
+        @media (max-width: 320px) {
+            .hero-content h2 { font-size: 1.35rem; }
+            .hero-desc { font-size: 12px; }
+            .logo-area h1 { font-size: 15px; }
+            .header-buttons { flex-direction: column; width: 100%; }
+            .login-btn, .signup-btn { width: 100%; justify-content: center; }
+            .section-title { font-size: 11px; padding: 9px 10px; letter-spacing: 0.5px; }
+            .packages-box h3 { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Top Banner -->
+    <div class="top-banner">
+        <div style="display: flex; align-items: center;">
+            <img src="images/logo/logo.png" alt="3Stars Logo" style="height: 45px; margin-right: 15px;">
+            <span class="welcome-text">Welcome to the official website of <i class="fas fa-star"></i> <strong>3Stars Entertainers Pvt Ltd</strong> <i class="fas fa-star"></i></span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap; justify-content: center;">
+            <div class="social-icons">
+                <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="#" title="Google"><i class="fab fa-google"></i></a>
+                <a href="#" title="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+            <div class="header-buttons">
+                <a href="login.html" class="login-btn"><i class="fas fa-user-circle"></i> Log In</a>
+                <a href="signup.html" class="signup-btn"><i class="fas fa-user-plus"></i> Sign Up</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero-wrapper">
+        <!-- Main Navigation Header -->
+        <header>
+            <div class="logo-area">
+                <h1>3 Stars Entertainers</h1>
+            </div>
+            <div class="mobile-menu-toggle" id="mobileMenuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav id="mainNav">
+                <a href="index.html">Home</a>
+                <a href="about.html" class="active">About</a>
+                <div class="dropdown">
+                    <a href="category.html">Category ▾</a>
+                    <div class="dropdown-content">
+                        <a href="category.html">Tamil Movie Songs</a>
+                        <a href="category.html">Gana Songs</a>
+                        <a href="category.html">Devotional Songs</a>
+                        <a href="category.html">Remix and Folk Songs</a>
+                        <a href="category.html">Cover Songs Karaoke</a>
+                    </div>
+                </div>
+                <a href="mystage.html">My Stage</a>
+                <a href="career.html">Career</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </header>
+
+        <!-- About Hero Section -->
+        <section class="hero">
+            <div class="hero-inner">
+                <div class="hero-content">
+                    <h2>Discover the Heart of<br><span class="highlight-red">3Stars Entertainers</span></h2>
+                    <p class="hero-desc">
+                        We are passionate about delivering the ultimate karaoke experience. For over 3 years, we've been
+                        providing high-quality tracks and a platform for music lovers worldwide to sing their favorite
+                        songs.
+                    </p>
+                    <a href="#about-details" class="login-btn hero-read-btn"><i class="fas fa-arrow-down"></i> Read Our Story</a>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=1470&auto=format&fit=crop" alt="About Us">
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- About Us Section -->
+    <div class="section-title">About Us</div>
+    <div class="about-container">
+        <div class="about-subtitle">WE ARE THE BEST KARAOKE SPECIALIST</div>
+        <div class="about-grid">
+            <div class="about-logo-box">
+                <img src="images/logo/logo.png" alt="3Stars Logo" style="height: 100px; margin-bottom: 15px; object-fit: contain;">
+                <div style="margin-top: 15px; font-size: 28px; color: #ff3366;">
+                    <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i>
+                </div>
+            </div>
+            <div class="about-text-box">
+                <p>For about 3 years, we have the name of a Karaoke YouTube Channel to win the minds of all music fans
+                    by providing the songs of famous background singers free of charge to the best Tamil songs for the
+                    music fans with a full-fledged Lyrics Video We have kept.</p>
+                <p>We have now decided to build our website and provide karaoke for our music fans, as we are currently
+                    uploading Karaoke songs through our YouTube Channel. We know that we have the true love and support
+                    of all of you.</p>
+                <p>Dear friends who are currently joining our YouTube Channel are up to worldwide 20,000, and about
+                    worldwide 5million viewers in the field, supporting our Channel. In addition, Who buy our karaoke
+                    songs to us and give us full cooperation with lovers and music fans are still travelling with us, I
+                    thank all of you and thank you to be affectionately affectionate to give you all the cooperation of
+                    this website.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Our Services Section -->
+    <div class="section-title">Our Services</div>
+    <div class="services-container">
+        <div class="services-top-title">YOUR ULTIMATE KARAOKE DESTINATION</div>
+        <div class="services-content-flex">
+            <div class="packages-box">
+                <h3>Subscription from<br><span style="color:#ff3366;">Our Packages</span></h3>
+                <p>You can download our karaoke tracks by paying the membership fee for 6 Months or 1 year. You can also
+                    avail our various offers.</p>
+                <p>You can download karaoke music formats of your favorite songs and singers with high quality and
+                    accurate music and enjoy singing.</p>
+                <p>You can get full tamil lyrics with video format and more lyrics PDF collection.</p>
+                <p>Subscribe today to enjoy the music with more amazing music offers.</p>
+                <button class="try-btn">TRY IT NOW</button>
+            </div>
+            <div class="features-box">
+                <ul class="features-list">
+                    <li>Browse thousand more songs across all genres and decades.</li>
+                    <li>New Karaoke added weekly !</li>
+                    <li>Sing along with popular Artists</li>
+                    <li>Experience high-quality audio and lyrics video.</li>
+                    <li>Customize your karaoke experience with our advanced</li>
+                    <li>Record and share your performances with our karaoke community</li>
+                    <li>Find and attend karaoke events near you.</li>
+                    <li>Get exclusive access to premium features with our VIP membership</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Customers Feed Back Section -->
+    <div class="section-title">Customers Feed Back</div>
+    <div class="feedback-container">
+        <!-- Send a Message Form -->
+        <div class="feedback-col">
+            <h3>SEND A MESSAGE TO US</h3>
+            <form>
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Whatsapp Number</label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea class="form-control"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+
+        <!-- Song Order Request Form -->
+        <div class="feedback-col">
+            <h3>SONG ORDER REQUEST</h3>
+            <form>
+                <div class="form-group">
+                    <label>Customer's Name</label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Song Name and Movie</label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Karaoke Type</label>
+                    <select class="form-control" name="karaokeType">
+                        <option value="" disabled selected>Select Karaoke Type</option>
+                        <option value="remove-both">Remove Male & Female Voice</option>
+                        <option value="keep-male">Keep Male Voice and Remove Female Voice</option>
+                        <option value="keep-chorus-medley-acapella">Keep Chorus and Medley, Acapella</option>
+                        <option value="sing-now">Show "Sing Now" on Starting</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Other Info</label>
+                    <textarea class="form-control"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div class="footer-widgets">
+                <div style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap;">
+                    <span style="color: #aaa; font-size: 15px; font-weight: 600;">Secure Payments:</span>
+                    <div class="payment-methods">
+                        <img src="https://img.icons8.com/color/48/000000/visa.png" alt="Visa">
+                        <img src="https://img.icons8.com/color/48/000000/mastercard.png" alt="MasterCard">
+                        <img src="https://img.icons8.com/color/48/000000/paypal.png" alt="PayPal">
+                        <img src="https://img.icons8.com/color/48/000000/amex.png" alt="Amex">
+                    </div>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap;">
+                    <span style="color: #aaa; font-size: 15px; font-weight: 600;">Follow Us:</span>
+                    <div class="social-row">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-cols">
+                <div>
+                    <h4>3Stars Entertainers</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="career.html">Careers</a></li>
+                        <li><a href="mystage.html">My Stage</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                        <li><a href="#">Copyright Information</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Help & Support</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">How to Download</a></li>
+                        <li><a href="#">Subscription Plans</a></li>
+                        <li><a href="#">Report an Issue</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Get In Touch</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt" style="margin-right:8px;"></i> 123 Music Avenue, SL</li>
+                        <li><i class="fas fa-phone-alt" style="margin-right:8px;"></i> +94 77 123 4567</li>
+                        <li><i class="fas fa-envelope" style="margin-right:8px;"></i> info@3stars.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 Music Platform. All Rights Reserved. | Designed & Developed by WebNest Private Limited.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Smooth scroll to About Section
+        const readStoryBtn = document.querySelector('a[href="#about-details"]');
+        if (readStoryBtn) {
+            readStoryBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector('.about-container').scrollIntoView({ behavior: 'smooth' });
+            });
+        }
+
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('mobileMenuToggle');
+        const mainNav = document.getElementById('mainNav');
+        if (menuToggle && mainNav) {
+            menuToggle.addEventListener('click', () => {
+                mainNav.classList.toggle('active');
+            });
+        }
+
+        // Mobile dropdown toggle (tap to open)
+        const dropdowns = document.querySelectorAll('.dropdown');
+        dropdowns.forEach(dd => {
+            const link = dd.querySelector('a');
+            if (link) {
+                link.addEventListener('click', (e) => {
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        dd.classList.toggle('open');
+                    }
+                });
+            }
+        });
+
+        // Close mobile menu on outside click
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768 && mainNav && mainNav.classList.contains('active')) {
+                if (!mainNav.contains(e.target) && !menuToggle.contains(e.target)) {
+                    mainNav.classList.remove('active');
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

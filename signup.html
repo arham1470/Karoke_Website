@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3Stars Entertainers - Sign Up</title>
+    <!-- FontAwesome for Modern Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: Arial, sans-serif; background-color: #d8edf8; color: #000; min-height: 100vh; display: flex; flex-direction: column; overflow-x: hidden; }
+
+        /* ==========================================
+           TOP BANNER
+           ========================================== */
+        .top-banner { background: #ffffff; color: #222; padding: 10px 40px; display: flex; justify-content: space-between; align-items: center; font-size: 14px; font-weight: 600; letter-spacing: 0.5px; border-bottom: 1px solid #e0e0e0; gap: 15px; flex-wrap: wrap; }
+        .top-banner > div:first-child { display: flex; align-items: center; min-width: 0; }
+        .top-banner img { flex-shrink: 0; }
+        .welcome-text { color: #555; font-weight: 500; font-size: 14px; }
+        .welcome-text strong { background: linear-gradient(135deg, #0c101d, #4bb5f5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800; font-size: 15px; }
+        .welcome-text i { color: #ff3366; margin: 0 4px; font-size: 12px; }
+        .social-icons { display: flex; align-items: center; gap: 15px; flex-wrap: wrap; }
+        .social-icons a { display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; background: #f5f5f5; color: #444; text-decoration: none; border-radius: 50%; font-size: 16px; transition: all 0.3s ease; border: 1px solid #ddd; }
+        .social-icons a:hover { background: #ff3366; color: #fff; border-color: #ff3366; transform: translateY(-3px); box-shadow: 0 5px 12px rgba(255, 51, 102, 0.4); }
+        .login-btn { font-size: 14px; font-weight: bold; background: linear-gradient(135deg, #7cd3fc, #4bb5f5); color: #0c101d; padding: 8px 20px; border-radius: 30px; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(124, 211, 252, 0.3); display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+        .login-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(124, 211, 252, 0.5); filter: brightness(1.1); }
+        .signup-btn { font-size: 14px; font-weight: bold; background: linear-gradient(135deg, #ff3366, #ff7799); color: #fff; padding: 8px 20px; border-radius: 30px; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(255, 51, 102, 0.3); display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+        .signup-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(255, 51, 102, 0.5); filter: brightness(1.1); }
+        .header-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
+
+        /* ==========================================
+           MAIN HEADER
+           ========================================== */
+        header { padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 100; background: rgba(3, 20, 41, 0.8); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); gap: 15px; }
+        .logo-area h1 { font-size: 26px; color: #fff; font-weight: 700; letter-spacing: 0.5px; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); white-space: nowrap; }
+        nav { display: flex; gap: 30px; align-items: center; }
+        nav a { color: #fff; text-decoration: none; font-weight: 600; font-size: 16px; transition: color 0.2s; white-space: nowrap; }
+        nav a:hover, nav a.active { color: #00d2ff; }
+        .dropdown { position: relative; display: inline-block; padding-bottom: 10px; margin-bottom: -10px; }
+        .dropdown-content { display: none; position: absolute; background-color: rgba(6, 21, 41, 0.95); min-width: 200px; box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.6); z-index: 10; top: 100%; left: 0; border-radius: 4px; border: 1px solid rgba(255, 255, 255, 0.1); padding: 10px 0; backdrop-filter: blur(5px); }
+        .dropdown-content a { color: #ddd; padding: 10px 20px; text-decoration: none; display: block; font-size: 13px; font-weight: 500; }
+        .dropdown-content a:hover { background-color: rgba(255, 255, 255, 0.05); color: #fff; }
+        .dropdown:hover .dropdown-content { display: block; }
+        .mobile-menu-toggle { display: none; font-size: 24px; color: #fff; cursor: pointer; padding: 5px; }
+
+        /* ==========================================
+           HERO WRAPPER
+           ========================================== */
+        .signup-hero-wrapper { background: linear-gradient(to bottom, rgba(3, 20, 41, 0.7) 0%, rgba(3, 20, 41, 0.95) 100%), url('https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=1470&auto=format&fit=crop') center center/cover; position: relative; overflow: hidden; border-bottom: 2px solid #005082; flex: 1; display: flex; flex-direction: column; }
+
+        /* ==========================================
+           SIGNUP WRAPPER
+           ========================================== */
+        .signup-wrapper { flex: 1; display: flex; justify-content: center; align-items: center; padding: 60px 20px; position: relative; }
+
+        /* ==========================================
+           SIGNUP CARD
+           ========================================== */
+        .signup-card { background: rgba(255, 255, 255, 0.98); width: 100%; max-width: 950px; padding: 45px 50px; box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5); border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.2); backdrop-filter: blur(20px); position: relative; overflow: hidden; }
+        .signup-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(135deg, #0c101d, #1b5394, #00d2ff); }
+
+        /* ==========================================
+           FORM LOGO & HEADINGS
+           ========================================== */
+        .form-logo { text-align: center; margin-bottom: 18px; }
+        .form-logo img { width: 230px; max-width: 100%; height: auto; display: block; margin: 0 auto; }
+        .form-heading { text-align: center; font-size: 26px; font-weight: 900; color: #0c101d; letter-spacing: 1.5px; margin-bottom: 6px; text-transform: uppercase; }
+        .form-subheading { text-align: center; font-size: 13px; color: #64748b; font-weight: 500; margin-bottom: 30px; }
+
+        /* ==========================================
+           HORIZONTAL TWO-COLUMN LAYOUT
+           ========================================== */
+        .form-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; position: relative; }
+        .form-columns::before { content: ''; position: absolute; top: 0; bottom: 0; left: 50%; width: 1px; background: linear-gradient(to bottom, transparent, #e2e8f0 15%, #e2e8f0 85%, transparent); transform: translateX(-50%); }
+        .form-col { display: flex; flex-direction: column; }
+
+        /* ==========================================
+           SECTION DIVIDER
+           ========================================== */
+        .section-divider { display: flex; align-items: center; gap: 12px; margin: 0 0 20px 0; }
+        .section-divider::before, .section-divider::after { content: ''; flex: 1; height: 1px; background: linear-gradient(to right, transparent, #cbd5e1, transparent); }
+        .section-divider span { font-size: 11px; font-weight: 800; color: #94a3b8; text-transform: uppercase; letter-spacing: 1.5px; white-space: nowrap; }
+
+        /* ==========================================
+           FORM CONTROLS
+           ========================================== */
+        .form-group { margin-bottom: 18px; }
+        .form-label { display: block; font-size: 11px; font-weight: 800; color: #1b5394; text-transform: uppercase; margin-bottom: 8px; letter-spacing: 1px; }
+        .form-label .required { color: #ff3366; margin-left: 2px; }
+        .input-container { position: relative; }
+        .input-icon { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: #94a3b8; font-size: 14px; transition: color 0.3s ease; pointer-events: none; }
+        .form-input { width: 100%; height: 46px; background-color: #f1f5f9; border: 2px solid #e2e8f0; border-radius: 30px; padding: 0 16px 0 44px; font-size: 13px; color: #0c101d; outline: none; transition: all 0.3s ease; font-weight: 600; }
+        .form-input::placeholder { color: #94a3b8; font-weight: 500; }
+        .form-input:focus { background-color: #ffffff; border-color: #00d2ff; box-shadow: 0 0 0 4px rgba(0, 210, 255, 0.15); }
+        .input-container:focus-within .input-icon { color: #1b5394; }
+
+        /* Validation states */
+        .form-input.valid { border-color: #22c55e; background-color: #f0fdf4; }
+        .form-input.invalid { border-color: #ff3366; background-color: #fff1f4; }
+        .validation-msg { font-size: 10px; font-weight: 700; margin-top: 5px; margin-left: 16px; display: none; }
+        .validation-msg.error { color: #ff3366; display: block; }
+        .validation-msg.success { color: #22c55e; display: block; }
+
+        .toggle-password { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; font-size: 11px; color: #1b5394; font-weight: 800; letter-spacing: 0.5px; padding: 4px 6px; border-radius: 6px; transition: all 0.3s ease; }
+        .toggle-password:hover { background: #f1f5f9; color: #00d2ff; }
+
+        /* ==========================================
+           PASSWORD STRENGTH METER
+           ========================================== */
+        .password-strength { display: flex; gap: 4px; margin-top: 8px; padding: 0 4px; }
+        .strength-bar { flex: 1; height: 3px; background: #e2e8f0; border-radius: 4px; transition: all 0.3s ease; }
+        .strength-bar.weak { background: #ff3366; }
+        .strength-bar.medium { background: #f59e0b; }
+        .strength-bar.strong { background: #22c55e; }
+        .strength-text { font-size: 10px; font-weight: 800; margin-top: 5px; margin-left: 16px; text-transform: uppercase; letter-spacing: 0.5px; display: none; }
+        .strength-text.weak { color: #ff3366; display: block; }
+        .strength-text.medium { color: #f59e0b; display: block; }
+        .strength-text.strong { color: #22c55e; display: block; }
+
+        /* ==========================================
+           TERMS CHECKBOX
+           ========================================== */
+        .terms-check { display: flex; align-items: flex-start; gap: 12px; margin: 25px 0 20px 0; font-size: 12px; color: #64748b; font-weight: 600; line-height: 1.5; padding-top: 20px; border-top: 1px solid #f1f5f9; }
+        .terms-check input { width: 18px; height: 18px; margin-top: 2px; cursor: pointer; accent-color: #1b5394; flex-shrink: 0; }
+        .terms-check a { color: #1b5394; text-decoration: none; font-weight: 800; }
+        .terms-check a:hover { color: #00d2ff; text-decoration: underline; }
+
+        /* ==========================================
+           SUBMIT BUTTON
+           ========================================== */
+        .btn-submit { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; background: linear-gradient(135deg, #0c101d, #1b5394); border: none; border-radius: 30px; padding: 15px 20px; font-size: 15px; font-weight: 800; color: #fff; text-transform: uppercase; letter-spacing: 1.5px; cursor: pointer; box-shadow: 0 10px 25px rgba(27, 83, 148, 0.3); transition: all 0.3s ease; position: relative; overflow: hidden; }
+        .btn-submit::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent); transition: left 0.5s ease; }
+        .btn-submit:hover::before { left: 100%; }
+        .btn-submit:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(27, 83, 148, 0.4); background: linear-gradient(135deg, #1b5394, #0c101d); }
+        .btn-submit:active { transform: translateY(0); box-shadow: 0 5px 15px rgba(27, 83, 148, 0.2); }
+
+        /* ==========================================
+           ALERT BOX
+           ========================================== */
+        .alert-box { display: none; padding: 12px 18px; border-radius: 10px; margin-bottom: 20px; font-size: 13px; font-weight: bold; text-align: center; animation: slideDown 0.3s ease; }
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+        .alert-success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .alert-error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+
+        /* ==========================================
+           LOGIN LINK
+           ========================================== */
+        .login-link { text-align: center; margin-top: 20px; font-size: 13px; color: #64748b; font-weight: 600; }
+        .login-link a { color: #1b5394; text-decoration: none; font-weight: 800; transition: color 0.3s ease; }
+        .login-link a:hover { color: #00d2ff; text-decoration: underline; }
+
+        /* ==========================================
+           FOOTER
+           ========================================== */
+        footer { background: rgba(3, 20, 41, 0.95); color: #fff; padding: 50px 40px 20px 40px; border-top: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3); backdrop-filter: blur(10px); }
+        .footer-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; max-width: 1200px; margin: 0 auto; font-size: 14px; }
+        .footer-cols h4 { color: #fff; margin-bottom: 15px; border-bottom: 2px solid #005082; padding-bottom: 8px; font-weight: 700; letter-spacing: 0.5px; }
+        .footer-cols ul { list-style: none; }
+        .footer-cols ul li { margin-bottom: 10px; }
+        .footer-cols ul li a { color: #aaa; text-decoration: none; transition: color 0.3s; }
+        .footer-cols ul li a:hover { color: #00d2ff; }
+        .footer-bottom { text-align: center; margin-top: 30px; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 20px; font-size: 13px; color: #888; }
+        .footer-widgets { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 25px; padding-bottom: 25px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); gap: 15px; }
+        .social-row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+        .social-row a { display: flex; align-items: center; justify-content: center; width: 42px; height: 42px; background: rgba(255, 255, 255, 0.1); color: #fff; text-decoration: none; border-radius: 50%; font-size: 18px; transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.2); }
+        .social-row a:hover { background: #00d2ff; color: #000; border-color: #00d2ff; transform: translateY(-3px); box-shadow: 0 5px 12px rgba(0, 210, 255, 0.4); }
+        .payment-methods { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+        .payment-methods img { height: 34px; background: #fff; padding: 3px 8px; border-radius: 4px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); }
+
+        /* ==========================================
+           RESPONSIVE — LARGE DESKTOP (1440px)
+           ========================================== */
+        @media (max-width: 1440px) {
+            .signup-wrapper { padding: 55px 20px; }
+        }
+
+        /* ==========================================
+           RESPONSIVE — DESKTOP (1280px)
+           ========================================== */
+        @media (max-width: 1280px) {
+            .signup-wrapper { padding: 50px 20px; }
+            .signup-card { max-width: 900px; padding: 42px 42px; }
+        }
+
+        /* ==========================================
+           RESPONSIVE — TABLET LANDSCAPE (1024px)
+           ========================================== */
+        @media (max-width: 1024px) {
+            .top-banner { padding: 10px 20px; font-size: 13px; }
+            header { padding: 15px 20px; }
+            nav { gap: 15px; }
+            nav a { font-size: 14px; }
+
+            .signup-wrapper { padding: 45px 20px; }
+            .signup-card { max-width: 850px; padding: 38px 34px; }
+            .form-columns { gap: 32px; }
+
+            .footer-cols { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        }
+
+        /* ==========================================
+           RESPONSIVE — TABLET PORTRAIT (900px)
+           ========================================== */
+        @media (max-width: 900px) {
+            .signup-wrapper { padding: 40px 18px; }
+            .signup-card { padding: 35px 30px; }
+            .form-columns { gap: 28px; }
+        }
+
+        /* ==========================================
+           RESPONSIVE — MOBILE (768px and below)
+           ========================================== */
+        @media (max-width: 768px) {
+            /* TOP BANNER */
+            .top-banner { flex-direction: column; text-align: center; gap: 12px; padding: 15px; }
+            .top-banner > div:first-child { flex-direction: column; gap: 8px; }
+            .social-icons { margin-top: 0; justify-content: center; }
+            .header-buttons { justify-content: center; }
+
+            /* HEADER + MOBILE NAV */
+            .mobile-menu-toggle { display: block; }
+            nav { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: rgba(3, 20, 41, 0.98); padding: 20px; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); gap: 15px; align-items: flex-start; z-index: 999; border-top: 1px solid rgba(255, 255, 255, 0.1); width: 100%; }
+            nav.active { display: flex; }
+            .dropdown { width: 100%; }
+            .dropdown-content { position: static; box-shadow: none; display: none; padding-left: 20px; border: none; background: transparent; width: 100%; }
+            .dropdown.open .dropdown-content { display: block; }
+
+            /* SIGNUP CARD */
+            .signup-wrapper { padding: 35px 16px; }
+            .signup-card { padding: 32px 24px; border-radius: 14px; }
+            .form-logo img { width: 200px; }
+            .form-heading { font-size: 22px; letter-spacing: 1px; }
+            .form-subheading { font-size: 12.5px; margin-bottom: 24px; }
+
+            /* STACK COLUMNS */
+            .form-columns { grid-template-columns: 1fr; gap: 0; }
+            .form-columns::before { display: none; }
+
+            .section-divider { margin: 5px 0 18px 0; }
+            .section-divider span { font-size: 10.5px; }
+
+            .form-input { height: 44px; font-size: 13px; }
+            .form-label { font-size: 10.5px; margin-bottom: 7px; }
+            .form-group { margin-bottom: 16px; }
+
+            .btn-submit { font-size: 14px; padding: 14px 20px; letter-spacing: 1.2px; }
+            .terms-check { font-size: 11.5px; margin: 22px 0 18px 0; padding-top: 18px; }
+            .login-link { font-size: 12.5px; margin-top: 18px; }
+
+            /* FOOTER */
+            .footer-cols { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+            .footer-widgets { flex-direction: column; justify-content: center; gap: 18px; }
+            .payment-methods { justify-content: center; }
+            .footer-widgets > div { justify-content: center; }
+        }
+
+        /* ==========================================
+           RESPONSIVE — SMALL MOBILE (480px and below)
+           ========================================== */
+        @media (max-width: 480px) {
+            .welcome-text { font-size: 12px; }
+            .welcome-text strong { font-size: 13px; }
+            .logo-area h1 { font-size: 18px; }
+
+            .signup-wrapper { padding: 28px 14px; }
+            .signup-card { padding: 26px 18px; border-radius: 12px; }
+            .form-logo { margin-bottom: 14px; }
+            .form-logo img { width: 170px; }
+            .form-heading { font-size: 19px; letter-spacing: 0.8px; }
+            .form-subheading { font-size: 12px; margin-bottom: 20px; }
+
+            .section-divider span { font-size: 10px; letter-spacing: 1.2px; }
+
+            .form-label { font-size: 10px; margin-bottom: 6px; }
+            .form-input { height: 42px; font-size: 12.5px; padding: 0 14px 0 40px; }
+            .input-icon { left: 14px; font-size: 13px; }
+            .toggle-password { right: 12px; font-size: 10px; padding: 3px 5px; }
+            .validation-msg { font-size: 9.5px; margin-left: 14px; }
+
+            .btn-submit { font-size: 13px; padding: 13px 18px; letter-spacing: 1px; gap: 8px; }
+            .terms-check { font-size: 11px; gap: 10px; margin: 20px 0 16px 0; padding-top: 16px; }
+            .terms-check input { width: 16px; height: 16px; }
+            .login-link { font-size: 12px; margin-top: 16px; }
+
+            .footer-cols { grid-template-columns: 1fr; gap: 18px; }
+            .footer-widgets { flex-direction: column; gap: 15px; }
+            .payment-methods { justify-content: center; }
+            .social-row { justify-content: center; }
+        }
+
+        /* ==========================================
+           RESPONSIVE — EXTRA SMALL (375px and below)
+           ========================================== */
+        @media (max-width: 375px) {
+            .top-banner { padding: 10px; }
+            header { padding: 12px 10px; }
+            .welcome-text strong { display: block; margin-top: 4px; }
+            .logo-area h1 { font-size: 16px; }
+
+            .signup-wrapper { padding: 24px 12px; }
+            .signup-card { padding: 22px 15px; }
+            .form-logo img { width: 150px; }
+            .form-heading { font-size: 17.5px; }
+            .form-subheading { font-size: 11.5px; }
+
+            .form-input { height: 40px; font-size: 12px; padding: 0 12px 0 38px; }
+            .input-icon { left: 12px; font-size: 12px; }
+            .form-label { font-size: 9.5px; }
+
+            .btn-submit { font-size: 12.5px; padding: 12px 16px; letter-spacing: 0.8px; }
+
+            .login-btn, .signup-btn { padding: 7px 14px; font-size: 12px; }
+        }
+
+        /* ==========================================
+           RESPONSIVE — TINY (320px and below)
+           ========================================== */
+        @media (max-width: 320px) {
+            .logo-area h1 { font-size: 15px; }
+            .header-buttons { flex-direction: column; width: 100%; }
+            .login-btn, .signup-btn { width: 100%; justify-content: center; }
+
+            .signup-card { padding: 20px 12px; }
+            .form-logo img { width: 135px; }
+            .form-heading { font-size: 16px; }
+            .form-subheading { font-size: 11px; }
+
+            .form-input { height: 38px; font-size: 11.5px; padding: 0 12px 0 36px; }
+            .input-icon { left: 11px; font-size: 11px; }
+            .form-label { font-size: 9px; }
+
+            .section-divider span { font-size: 9px; letter-spacing: 1px; }
+            .btn-submit { font-size: 12px; padding: 11px 14px; letter-spacing: 0.6px; }
+            .terms-check { font-size: 10px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Top Banner -->
+    <div class="top-banner">
+        <div style="display: flex; align-items: center;">
+            <img src="images/logo/logo.png" alt="3Stars Logo" style="height: 45px; margin-right: 15px;">
+            <span class="welcome-text">Welcome to the official website of <i class="fas fa-star"></i> <strong>3Stars Entertainers Pvt Ltd</strong> <i class="fas fa-star"></i></span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap; justify-content: center;">
+            <div class="social-icons">
+                <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="#" title="Google"><i class="fab fa-google"></i></a>
+                <a href="#" title="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+            <div class="header-buttons">
+                <a href="login.html" class="login-btn"><i class="fas fa-user-circle"></i> Log In</a>
+                <a href="signup.html" class="signup-btn"><i class="fas fa-user-plus"></i> Sign Up</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Wrapper with Header and Sign Up Form -->
+    <div class="signup-hero-wrapper">
+        <!-- Main Navigation Header -->
+        <header>
+            <div class="logo-area">
+                <h1>3 Stars Entertainers</h1>
+            </div>
+            <div class="mobile-menu-toggle" id="mobileMenuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav id="mainNav">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <div class="dropdown">
+                    <a href="category.html">Category ▾</a>
+                    <div class="dropdown-content">
+                        <a href="category.html">Tamil Movie Songs</a>
+                        <a href="category.html">Gana Songs</a>
+                        <a href="category.html">Devotional Songs</a>
+                        <a href="category.html">Remix and Folk Songs</a>
+                        <a href="category.html">Cover Songs Karaoke</a>
+                    </div>
+                </div>
+                <a href="mystage.html">My Stage</a>
+                <a href="career.html">Career</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </header>
+
+        <!-- Main Sign Up Area -->
+        <div class="signup-wrapper">
+            <div class="signup-card">
+
+                <!-- Logo Section -->
+                <div class="form-logo">
+                    <img src="images/logo/logo.png" alt="3STARS ENTERTAINERS">
+                </div>
+
+                <!-- Form Heading -->
+                <h2 class="form-heading">Create Account</h2>
+                <p class="form-subheading">Join 3Stars Entertainers and start your karaoke journey</p>
+
+                <!-- Feedback Alert -->
+                <div id="alert-msg" class="alert-box"></div>
+
+                <!-- Sign Up Form -->
+                <form id="signupForm" onsubmit="handleSignup(event)" novalidate>
+
+                    <!-- HORIZONTAL TWO-COLUMN LAYOUT -->
+                    <div class="form-columns">
+
+                        <!-- LEFT COLUMN: Personal Information -->
+                        <div class="form-col">
+                            <div class="section-divider"><span>Personal Information</span></div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="fullName">Full Name <span class="required">*</span></label>
+                                <div class="input-container">
+                                    <i class="fas fa-user input-icon"></i>
+                                    <input type="text" id="fullName" class="form-input" placeholder="John Doe" required>
+                                </div>
+                                <div class="validation-msg" id="fullName-msg"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="email">Email Address <span class="required">*</span></label>
+                                <div class="input-container">
+                                    <i class="fas fa-envelope input-icon"></i>
+                                    <input type="email" id="email" class="form-input" placeholder="you@example.com" required>
+                                </div>
+                                <div class="validation-msg" id="email-msg"></div>
+                            </div>
+
+                        </div>
+
+                        <!-- RIGHT COLUMN: Account Security -->
+                        <div class="form-col">
+                            <div class="section-divider"><span>Account Security</span></div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="username">Username <span class="required">*</span></label>
+                                <div class="input-container">
+                                    <i class="fas fa-at input-icon"></i>
+                                    <input type="text" id="username" class="form-input" placeholder="johndoe" required>
+                                </div>
+                                <div class="validation-msg" id="username-msg"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="password">Password <span class="required">*</span></label>
+                                <div class="input-container">
+                                    <i class="fas fa-lock input-icon"></i>
+                                    <input type="password" id="password" class="form-input" placeholder="Create a strong password" required>
+                                    <button type="button" class="toggle-password" onclick="togglePasswordVisibility('password', this)">SHOW</button>
+                                </div>
+                                <div class="password-strength">
+                                    <div class="strength-bar" id="bar1"></div>
+                                    <div class="strength-bar" id="bar2"></div>
+                                    <div class="strength-bar" id="bar3"></div>
+                                    <div class="strength-bar" id="bar4"></div>
+                                </div>
+                                <div class="strength-text" id="strength-text"></div>
+                                <div class="validation-msg" id="password-msg"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="confirmPassword">Confirm Password <span class="required">*</span></label>
+                                <div class="input-container">
+                                    <i class="fas fa-lock input-icon"></i>
+                                    <input type="password" id="confirmPassword" class="form-input" placeholder="Re-enter your password" required>
+                                    <button type="button" class="toggle-password" onclick="togglePasswordVisibility('confirmPassword', this)">SHOW</button>
+                                </div>
+                                <div class="validation-msg" id="confirmPassword-msg"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- END HORIZONTAL TWO-COLUMN LAYOUT -->
+
+                    <!-- Terms & Conditions -->
+                    <label class="terms-check">
+                        <input type="checkbox" id="terms" required>
+                        <span>
+                            I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a> of 3Stars Entertainers Pvt Ltd.
+                        </span>
+                    </label>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn-submit">
+                        <i class="fas fa-user-plus"></i> Create Account
+                    </button>
+
+                    <!-- Login Link -->
+                    <p class="login-link">
+                        Already have an account? <a href="login.html">Log In</a>
+                    </p>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div class="footer-widgets">
+                <div style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap;">
+                    <span style="color: #aaa; font-size: 15px; font-weight: 600;">Secure Payments:</span>
+                    <div class="payment-methods">
+                        <img src="https://img.icons8.com/color/48/000000/visa.png" alt="Visa">
+                        <img src="https://img.icons8.com/color/48/000000/mastercard.png" alt="MasterCard">
+                        <img src="https://img.icons8.com/color/48/000000/paypal.png" alt="PayPal">
+                        <img src="https://img.icons8.com/color/48/000000/amex.png" alt="Amex">
+                    </div>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap;">
+                    <span style="color: #aaa; font-size: 15px; font-weight: 600;">Follow Us:</span>
+                    <div class="social-row">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-cols">
+                <div>
+                    <h4>3Stars Entertainers</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="career.html">Careers</a></li>
+                        <li><a href="mystage.html">My Stage</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                        <li><a href="#">Copyright Information</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Help & Support</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">How to Download</a></li>
+                        <li><a href="#">Subscription Plans</a></li>
+                        <li><a href="#">Report an Issue</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Get In Touch</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt" style="margin-right:8px;"></i> 123 Music Avenue, SL</li>
+                        <li><i class="fas fa-phone-alt" style="margin-right:8px;"></i> +94 77 123 4567</li>
+                        <li><i class="fas fa-envelope" style="margin-right:8px;"></i> info@3stars.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 Music Platform. All Rights Reserved. | Designed & Developed by WebNest Private Limited.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Script -->
+    <script>
+        /* ==========================================
+           PASSWORD VISIBILITY TOGGLE
+           ========================================== */
+        function togglePasswordVisibility(inputId, btn) {
+            const input = document.getElementById(inputId);
+            if (input.type === 'password') {
+                input.type = 'text';
+                btn.innerText = 'HIDE';
+            } else {
+                input.type = 'password';
+                btn.innerText = 'SHOW';
+            }
+        }
+
+        /* ==========================================
+           PASSWORD STRENGTH METER
+           ========================================== */
+        const passwordInput = document.getElementById('password');
+        const strengthBars = [
+            document.getElementById('bar1'),
+            document.getElementById('bar2'),
+            document.getElementById('bar3'),
+            document.getElementById('bar4')
+        ];
+        const strengthText = document.getElementById('strength-text');
+
+        passwordInput.addEventListener('input', function () {
+            const val = this.value;
+            let score = 0;
+
+            if (val.length >= 8) score++;
+            if (/[A-Z]/.test(val)) score++;
+            if (/[0-9]/.test(val)) score++;
+            if (/[^A-Za-z0-9]/.test(val)) score++;
+
+            strengthBars.forEach(bar => { bar.className = 'strength-bar'; });
+
+            if (val.length === 0) {
+                strengthText.className = 'strength-text';
+                strengthText.innerText = '';
+                return;
+            }
+
+            if (score <= 1) {
+                strengthBars[0].classList.add('weak');
+                strengthText.className = 'strength-text weak';
+                strengthText.innerText = 'Weak Password';
+            } else if (score === 2) {
+                strengthBars[0].classList.add('medium');
+                strengthBars[1].classList.add('medium');
+                strengthText.className = 'strength-text medium';
+                strengthText.innerText = 'Medium Password';
+            } else if (score === 3) {
+                strengthBars[0].classList.add('strong');
+                strengthBars[1].classList.add('strong');
+                strengthBars[2].classList.add('strong');
+                strengthText.className = 'strength-text strong';
+                strengthText.innerText = 'Strong Password';
+            } else {
+                strengthBars.forEach(bar => bar.classList.add('strong'));
+                strengthText.className = 'strength-text strong';
+                strengthText.innerText = 'Very Strong Password';
+            }
+        });
+
+        /* ==========================================
+           FIELD VALIDATION HELPERS
+           ========================================== */
+        function setValidation(inputId, msgId, isValid, message) {
+            const input = document.getElementById(inputId);
+            const msg = document.getElementById(msgId);
+            if (!input || !msg) return;
+
+            if (isValid) {
+                input.classList.remove('invalid');
+                input.classList.add('valid');
+                msg.className = 'validation-msg success';
+                msg.innerText = message || '';
+            } else {
+                input.classList.remove('valid');
+                input.classList.add('invalid');
+                msg.className = 'validation-msg error';
+                msg.innerText = message || '';
+            }
+        }
+
+        function clearValidation(inputId, msgId) {
+            const input = document.getElementById(inputId);
+            const msg = document.getElementById(msgId);
+            if (input) input.classList.remove('valid', 'invalid');
+            if (msg) { msg.className = 'validation-msg'; msg.innerText = ''; }
+        }
+
+        /* ==========================================
+           REAL-TIME FIELD VALIDATION
+           ========================================== */
+        document.getElementById('fullName').addEventListener('blur', function () {
+            if (this.value.trim().length >= 3) {
+                setValidation('fullName', 'fullName-msg', true, '✓ Looks good!');
+            } else if (this.value.trim().length > 0) {
+                setValidation('fullName', 'fullName-msg', false, 'Name must be at least 3 characters.');
+            } else {
+                clearValidation('fullName', 'fullName-msg');
+            }
+        });
+
+        document.getElementById('email').addEventListener('blur', function () {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (emailRegex.test(this.value.trim())) {
+                setValidation('email', 'email-msg', true, '✓ Valid email address.');
+            } else if (this.value.trim().length > 0) {
+                setValidation('email', 'email-msg', false, 'Please enter a valid email address.');
+            } else {
+                clearValidation('email', 'email-msg');
+            }
+        });
+
+        document.getElementById('username').addEventListener('blur', function () {
+            if (this.value.trim().length >= 4) {
+                setValidation('username', 'username-msg', true, '✓ Username available.');
+            } else if (this.value.trim().length > 0) {
+                setValidation('username', 'username-msg', false, 'Username must be at least 4 characters.');
+            } else {
+                clearValidation('username', 'username-msg');
+            }
+        });
+
+        document.getElementById('confirmPassword').addEventListener('blur', function () {
+            const pwd = document.getElementById('password').value;
+            if (this.value.length === 0) {
+                clearValidation('confirmPassword', 'confirmPassword-msg');
+            } else if (this.value === pwd) {
+                setValidation('confirmPassword', 'confirmPassword-msg', true, '✓ Passwords match.');
+            } else {
+                setValidation('confirmPassword', 'confirmPassword-msg', false, 'Passwords do not match.');
+            }
+        });
+
+        /* ==========================================
+           SIGN UP FORM SUBMISSION
+           ========================================== */
+        function handleSignup(event) {
+            event.preventDefault();
+
+            const fullName = document.getElementById('fullName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const terms = document.getElementById('terms').checked;
+
+            if (!fullName || !email || !username || !password || !confirmPassword) {
+                showAlert('error', 'Please fill in all required fields marked with *');
+                return;
+            }
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showAlert('error', 'Please enter a valid email address.');
+                return;
+            }
+
+            if (username.length < 4) {
+                showAlert('error', 'Username must be at least 4 characters long.');
+                return;
+            }
+
+            if (password.length < 8) {
+                showAlert('error', 'Password must be at least 8 characters long.');
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                showAlert('error', 'Passwords do not match. Please try again.');
+                return;
+            }
+
+            if (!terms) {
+                showAlert('error', 'Please agree to the Terms of Service and Privacy Policy.');
+                return;
+            }
+
+            showAlert('success', '🎉 Account created successfully! Redirecting to login...');
+
+            setTimeout(() => {
+                window.location.href = 'login.html';
+            }, 2000);
+        }
+
+        function showAlert(type, message) {
+            const alertMsg = document.getElementById('alert-msg');
+            const icon = type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle';
+            alertMsg.className = 'alert-box alert-' + type;
+            alertMsg.innerHTML = '<i class="fas ' + icon + '" style="margin-right:8px;"></i> ' + message;
+            alertMsg.style.display = 'block';
+            alertMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        /* ==========================================
+           MOBILE MENU TOGGLE
+           ========================================== */
+        const menuToggle = document.getElementById('mobileMenuToggle');
+        const mainNav = document.getElementById('mainNav');
+        if (menuToggle && mainNav) {
+            menuToggle.addEventListener('click', () => {
+                mainNav.classList.toggle('active');
+            });
+        }
+
+        // Mobile dropdown toggle (tap to open on mobile)
+        const dropdowns = document.querySelectorAll('.dropdown');
+        dropdowns.forEach(dd => {
+            const link = dd.querySelector('a');
+            if (link) {
+                link.addEventListener('click', (e) => {
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        dd.classList.toggle('open');
+                    }
+                });
+            }
+        });
+
+        // Close mobile menu on outside click
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768 && mainNav && mainNav.classList.contains('active')) {
+                if (!mainNav.contains(e.target) && !menuToggle.contains(e.target)) {
+                    mainNav.classList.remove('active');
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

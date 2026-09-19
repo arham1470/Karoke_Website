@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3Stars Entertainers - Categories</title>
+    <!-- FontAwesome for Modern Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: Arial, sans-serif; background-color: #d8edf8; color: #000; overflow-x: hidden; }
+
+        /* ==========================================
+           TOP BANNER
+           ========================================== */
+        .top-banner { background: #ffffff; color: #222; padding: 10px 40px; display: flex; justify-content: space-between; align-items: center; font-size: 14px; font-weight: 600; letter-spacing: 0.5px; border-bottom: 1px solid #e0e0e0; gap: 15px; flex-wrap: wrap; }
+        .top-banner > div:first-child { display: flex; align-items: center; min-width: 0; }
+        .top-banner img { flex-shrink: 0; }
+        .welcome-text { color: #555; font-weight: 500; font-size: 14px; }
+        .welcome-text strong { background: linear-gradient(135deg, #0c101d, #4bb5f5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800; font-size: 15px; }
+        .welcome-text i { color: #ff3366; margin: 0 4px; font-size: 12px; }
+        .social-icons { display: flex; align-items: center; gap: 15px; flex-wrap: wrap; }
+        .social-icons a { display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; background: #f5f5f5; color: #444; text-decoration: none; border-radius: 50%; font-size: 16px; transition: all 0.3s ease; border: 1px solid #ddd; }
+        .social-icons a:hover { background: #ff3366; color: #fff; border-color: #ff3366; transform: translateY(-3px); box-shadow: 0 5px 12px rgba(255, 51, 102, 0.4); }
+        .login-btn { font-size: 14px; font-weight: bold; background: linear-gradient(135deg, #7cd3fc, #4bb5f5); color: #0c101d; padding: 8px 20px; border-radius: 30px; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(124, 211, 252, 0.3); display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+        .login-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(124, 211, 252, 0.5); filter: brightness(1.1); }
+        .signup-btn { font-size: 14px; font-weight: bold; background: linear-gradient(135deg, #ff3366, #ff7799); color: #fff; padding: 8px 20px; border-radius: 30px; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(255, 51, 102, 0.3); display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+        .signup-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(255, 51, 102, 0.5); filter: brightness(1.1); }
+        .header-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
+
+        /* ==========================================
+           HERO WRAPPER
+           ========================================== */
+        .hero-wrapper { background: linear-gradient(to bottom, rgba(3, 20, 41, 0.7) 0%, rgba(3, 20, 41, 0.95) 100%), url('https://images.unsplash.com/photo-1598387993441-a364f854c3e1?q=80&w=1476&auto=format&fit=crop') center center/cover; position: relative; overflow: hidden; border-bottom: 2px solid #005082; }
+
+        /* ==========================================
+           MAIN HEADER
+           ========================================== */
+        header { padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 100; background: rgba(3, 20, 41, 0.95); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); gap: 15px; }
+        .logo-area h1 { font-size: 26px; color: #fff; font-weight: 700; letter-spacing: 0.5px; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); white-space: nowrap; }
+        nav { display: flex; gap: 30px; align-items: center; }
+        nav a { color: #fff; text-decoration: none; font-weight: 600; font-size: 16px; transition: color 0.2s; white-space: nowrap; }
+        nav a:hover, nav a.active { color: #00d2ff; }
+        .dropdown { position: relative; display: inline-block; padding-bottom: 10px; margin-bottom: -10px; }
+        .dropdown-content { display: none; position: absolute; background-color: rgba(6, 21, 41, 0.95); min-width: 200px; box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.6); z-index: 10; top: 100%; left: 0; border-radius: 4px; border: 1px solid rgba(255, 255, 255, 0.1); padding: 10px 0; backdrop-filter: blur(5px); }
+        .dropdown-content a { color: #ddd; padding: 10px 20px; text-decoration: none; display: block; font-size: 13px; font-weight: 500; }
+        .dropdown-content a:hover { background-color: rgba(255, 255, 255, 0.05); color: #fff; }
+        .dropdown:hover .dropdown-content { display: block; }
+        .mobile-menu-toggle { display: none; font-size: 24px; color: #fff; cursor: pointer; padding: 5px; }
+
+        /* ==========================================
+           CATEGORY HERO
+           ========================================== */
+        .hero { position: relative; min-height: 350px; display: flex; align-items: center; justify-content: center; padding: 40px; color: #fff; z-index: 1; text-align: center; }
+        .hero-content h2 { font-size: 3.5rem; color: #fff; margin-bottom: 20px; line-height: 1.1; font-weight: 800; text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4); word-wrap: break-word; overflow-wrap: break-word; }
+        .hero-content h2 .highlight-red { color: #ff3366; display: block; text-shadow: 2px 2px 10px rgba(255, 51, 102, 0.3); }
+
+        /* ==========================================
+           SECTION TITLE
+           ========================================== */
+        .section-title { font-size: 20px; font-weight: 800; color: #fff; background: linear-gradient(135deg, #0c101d, #1b5394); display: block; width: 90%; max-width: 950px; padding: 16px 20px; box-sizing: border-box; border-radius: 10px; margin: 30px auto; box-shadow: 0 10px 20px rgba(27, 83, 148, 0.25); text-transform: uppercase; letter-spacing: 1.5px; border: 1px solid rgba(255, 255, 255, 0.1); position: relative; text-align: center; }
+        .section-title::after { content: ''; position: absolute; bottom: -1px; left: 10%; width: 80%; height: 3px; background: #ff3366; border-radius: 10px; }
+
+        /* ==========================================
+           CATEGORY CONTAINER
+           ========================================== */
+        .category-container { width: 95%; max-width: 1200px; margin: 0 auto 40px auto; background: #eef5f9; color: #0c101d; padding: 40px; border-radius: 12px; }
+        .categories-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; align-items: stretch; }
+
+        /* Card — flex column so button sticks to bottom */
+        .category-card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .category-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); border-color: #ff3366; }
+
+        .category-card img { width: 100%; height: 200px; object-fit: cover; flex-shrink: 0; }
+
+        .category-card h3 { font-size: 1.3rem; margin: 20px 10px 10px 10px; color: #1b5394; font-weight: 800; }
+
+        .category-card p {
+            font-size: 14px;
+            color: #555;
+            padding: 0 20px;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            flex-grow: 1;              /* pushes button to bottom */
+        }
+
+        /* Button wrapper — always aligned at bottom */
+        .card-btn-wrap {
+            padding: 0 20px 25px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .explore-btn {
+            background: #ff3366;
+            color: #fff;
+            border: none;
+            padding: 11px 26px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(255, 51, 102, 0.3);
+            min-width: 150px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .explore-btn:hover { background: #e02454; transform: translateY(-2px); box-shadow: 0 6px 15px rgba(255, 51, 102, 0.4); }
+
+        /* ==========================================
+           FOOTER
+           ========================================== */
+        footer { background: rgba(3, 20, 41, 0.95); color: #fff; padding: 50px 40px 20px 40px; margin-top: 40px; border-top: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3); backdrop-filter: blur(10px); }
+        .footer-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; max-width: 1200px; margin: 0 auto; font-size: 14px; }
+        .footer-cols h4 { color: #fff; margin-bottom: 15px; border-bottom: 2px solid #005082; padding-bottom: 8px; font-weight: 700; letter-spacing: 0.5px; }
+        .footer-cols ul { list-style: none; }
+        .footer-cols ul li { margin-bottom: 10px; }
+        .footer-cols ul li a { color: #aaa; text-decoration: none; transition: color 0.3s; }
+        .footer-cols ul li a:hover { color: #00d2ff; }
+        .footer-bottom { text-align: center; margin-top: 30px; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 20px; font-size: 13px; color: #888; }
+        .footer-widgets { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 25px; padding-bottom: 25px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); gap: 15px; }
+        .social-row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+        .social-row a { display: flex; align-items: center; justify-content: center; width: 42px; height: 42px; background: rgba(255, 255, 255, 0.1); color: #fff; text-decoration: none; border-radius: 50%; font-size: 18px; transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.2); }
+        .social-row a:hover { background: #00d2ff; color: #000; border-color: #00d2ff; transform: translateY(-3px); box-shadow: 0 5px 12px rgba(0, 210, 255, 0.4); }
+        .payment-methods { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+        .payment-methods img { height: 34px; background: #fff; padding: 3px 8px; border-radius: 4px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); }
+
+        /* ==========================================
+           RESPONSIVE — LARGE DESKTOP (1440px)
+           ========================================== */
+        @media (max-width: 1440px) {
+            .hero-content h2 { font-size: 3.2rem; }
+        }
+
+        /* ==========================================
+           RESPONSIVE — DESKTOP (1280px)
+           ========================================== */
+        @media (max-width: 1280px) {
+            .hero-content h2 { font-size: 3rem; }
+            .categories-grid { gap: 25px; }
+        }
+
+        /* ==========================================
+           RESPONSIVE — TABLET LANDSCAPE (1024px)
+           ========================================== */
+        @media (max-width: 1024px) {
+            .top-banner { padding: 10px 20px; font-size: 13px; }
+            header { padding: 15px 20px; }
+            nav { gap: 15px; }
+            nav a { font-size: 14px; }
+
+            .hero { min-height: 300px; padding: 30px 25px; }
+            .hero-content h2 { font-size: 2.6rem; }
+
+            .section-title { font-size: 17px; padding: 14px 18px; }
+
+            .category-container { padding: 30px; }
+            .categories-grid { grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 22px; }
+            .category-card img { height: 180px; }
+            .category-card h3 { font-size: 1.2rem; }
+
+            .footer-cols { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        }
+
+        /* ==========================================
+           RESPONSIVE — TABLET PORTRAIT (900px)
+           ========================================== */
+        @media (max-width: 900px) {
+            .hero { min-height: 260px; padding: 25px 20px; }
+            .hero-content h2 { font-size: 2.2rem; }
+
+            .categories-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+            .category-card img { height: 170px; }
+        }
+
+        /* ==========================================
+           RESPONSIVE — MOBILE (768px and below)
+           ========================================== */
+        @media (max-width: 768px) {
+            /* TOP BANNER */
+            .top-banner { flex-direction: column; text-align: center; gap: 12px; padding: 15px; }
+            .top-banner > div:first-child { flex-direction: column; gap: 8px; }
+            .social-icons { margin-top: 0; justify-content: center; }
+            .header-buttons { justify-content: center; }
+
+            /* HEADER + MOBILE NAV */
+            .mobile-menu-toggle { display: block; }
+            nav { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: rgba(3, 20, 41, 0.98); padding: 20px; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); gap: 15px; align-items: flex-start; z-index: 999; border-top: 1px solid rgba(255, 255, 255, 0.1); width: 100%; }
+            nav.active { display: flex; }
+            .dropdown { width: 100%; }
+            .dropdown-content { position: static; box-shadow: none; display: none; padding-left: 20px; border: none; background: transparent; width: 100%; }
+            .dropdown.open .dropdown-content { display: block; }
+
+            /* HERO */
+            .hero { min-height: 220px; padding: 25px 18px; }
+            .hero-content h2 { font-size: 1.9rem; margin-bottom: 0; }
+            .hero-content h2 br { display: none; }
+            .hero-content h2 .highlight-red { display: inline; }
+
+            /* SECTION TITLE */
+            .section-title { font-size: 15px; padding: 13px 18px; letter-spacing: 1px; margin: 24px auto; }
+
+            /* CATEGORY CONTAINER */
+            .category-container { padding: 24px 18px; border-radius: 10px; width: 94%; margin-bottom: 28px; }
+            .categories-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 18px; }
+            .category-card img { height: 160px; }
+            .category-card h3 { font-size: 1.1rem; margin: 16px 10px 8px 10px; }
+            .category-card p { font-size: 13px; padding: 0 16px; margin-bottom: 16px; }
+            .card-btn-wrap { padding: 0 16px 20px 16px; }
+            .explore-btn { padding: 10px 22px; font-size: 12.5px; min-width: 140px; }
+
+            /* FOOTER */
+            .footer-cols { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+            .footer-widgets { flex-direction: column; justify-content: center; gap: 18px; }
+            .payment-methods { justify-content: center; }
+            .footer-widgets > div { justify-content: center; }
+        }
+
+        /* ==========================================
+           RESPONSIVE — SMALL MOBILE (480px and below)
+           ========================================== */
+        @media (max-width: 480px) {
+            .welcome-text { font-size: 12px; }
+            .welcome-text strong { font-size: 13px; }
+            .logo-area h1 { font-size: 18px; }
+
+            .hero { min-height: 180px; padding: 22px 15px; }
+            .hero-content h2 { font-size: 1.6rem; }
+
+            .section-title { font-size: 13px; padding: 11px 14px; letter-spacing: 0.8px; }
+
+            .category-container { padding: 20px 14px; width: 95%; }
+            .categories-grid { grid-template-columns: 1fr; gap: 16px; }
+            .category-card img { height: 190px; }
+            .category-card h3 { font-size: 1.05rem; }
+            .category-card p { font-size: 13px; }
+            .card-btn-wrap { padding: 0 14px 18px 14px; }
+            .explore-btn { padding: 11px 24px; font-size: 13px; width: 100%; min-width: 0; }
+
+            .footer-cols { grid-template-columns: 1fr; gap: 18px; }
+            .footer-widgets { flex-direction: column; gap: 15px; }
+            .payment-methods { justify-content: center; }
+            .social-row { justify-content: center; }
+        }
+
+        /* ==========================================
+           RESPONSIVE — EXTRA SMALL (375px and below)
+           ========================================== */
+        @media (max-width: 375px) {
+            .top-banner { padding: 10px; }
+            header { padding: 12px 10px; }
+            .welcome-text strong { display: block; margin-top: 4px; }
+            .logo-area h1 { font-size: 16px; }
+
+            .hero { min-height: 160px; padding: 20px 12px; }
+            .hero-content h2 { font-size: 1.4rem; }
+
+            .section-title { font-size: 12px; padding: 10px 12px; }
+
+            .category-container { padding: 16px 12px; }
+            .category-card img { height: 170px; }
+            .category-card h3 { font-size: 1rem; }
+            .category-card p { font-size: 12.5px; }
+            .explore-btn { padding: 10px 20px; font-size: 12.5px; }
+
+            .login-btn, .signup-btn { padding: 7px 14px; font-size: 12px; }
+        }
+
+        /* ==========================================
+           RESPONSIVE — TINY (320px and below)
+           ========================================== */
+        @media (max-width: 320px) {
+            .hero-content h2 { font-size: 1.25rem; }
+            .logo-area h1 { font-size: 15px; }
+            .header-buttons { flex-direction: column; width: 100%; }
+            .login-btn, .signup-btn { width: 100%; justify-content: center; }
+            .section-title { font-size: 11px; padding: 9px 10px; letter-spacing: 0.5px; }
+            .category-card img { height: 150px; }
+            .category-card h3 { font-size: 0.95rem; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Top Banner -->
+    <div class="top-banner">
+        <div style="display: flex; align-items: center;">
+            <img src="images/logo/logo.png" alt="3Stars Logo" style="height: 45px; margin-right: 15px;">
+            <span class="welcome-text">Welcome to the official website of <i class="fas fa-star"></i> <strong>3Stars Entertainers Pvt Ltd</strong> <i class="fas fa-star"></i></span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap; justify-content: center;">
+            <div class="social-icons">
+                <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="#" title="Google"><i class="fab fa-google"></i></a>
+                <a href="#" title="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+            <div class="header-buttons">
+                <a href="login.html" class="login-btn"><i class="fas fa-user-circle"></i> Log In</a>
+                <a href="signup.html" class="signup-btn"><i class="fas fa-user-plus"></i> Sign Up</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero-wrapper">
+        <!-- Main Navigation Header -->
+        <header>
+            <div class="logo-area">
+                <h1>3 Stars Entertainers</h1>
+            </div>
+            <div class="mobile-menu-toggle" id="mobileMenuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav id="mainNav">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <div class="dropdown">
+                    <a href="category.html" class="active">Category ▾</a>
+                    <div class="dropdown-content">
+                        <a href="category.html">Tamil Movie Songs</a>
+                        <a href="category.html">Gana Songs</a>
+                        <a href="category.html">Devotional Songs</a>
+                        <a href="category.html">Remix and Folk Songs</a>
+                        <a href="category.html">Cover Songs Karaoke</a>
+                    </div>
+                </div>
+                <a href="mystage.html">My Stage</a>
+                <a href="career.html">Career</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </header>
+
+        <!-- Category Hero Banner -->
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Explore Our Entertainment<br><span class="highlight-red">Categories</span></h2>
+            </div>
+        </section>
+    </div>
+
+    <!-- Categories Section -->
+    <div class="section-title">Select a Category to Enjoy</div>
+
+    <div class="category-container">
+        <div class="categories-grid">
+            <!-- Category 1 -->
+            <div class="category-card">
+                <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=400&auto=format&fit=crop" alt="Karaoke">
+                <h3>Karaoke & Singing</h3>
+                <p>Sing solo or duets, record your tracks, and share your talent with our vibrant community.</p>
+                <div class="card-btn-wrap">
+                    <button class="explore-btn"><i class="fas fa-arrow-right"></i> View Category</button>
+                </div>
+            </div>
+
+            <!-- Category 2 -->
+            <div class="category-card">
+                <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=400&auto=format&fit=crop" alt="Live Events">
+                <h3>Live Events & Shows</h3>
+                <p>Discover upcoming musical concerts, stage shows, and exclusive community weekend events.</p>
+                <div class="card-btn-wrap">
+                    <button class="explore-btn"><i class="fas fa-arrow-right"></i> View Category</button>
+                </div>
+            </div>
+
+            <!-- Category 3 -->
+            <div class="category-card">
+                <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=400&auto=format&fit=crop" alt="Performers">
+                <h3>Star Performers</h3>
+                <p>Watch top-rated performances by talented artists and interact through comments and likes.</p>
+                <div class="card-btn-wrap">
+                    <button class="explore-btn"><i class="fas fa-arrow-right"></i> View Category</button>
+                </div>
+            </div>
+
+            <!-- Category 4 -->
+            <div class="category-card">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=400&auto=format&fit=crop" alt="Career">
+                <h3>Career & Auditions</h3>
+                <p>Join our growing network of designers, marketers, and video editors or participate in auditions.</p>
+                <div class="card-btn-wrap">
+                    <button class="explore-btn"><i class="fas fa-arrow-right"></i> View Category</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div class="footer-widgets">
+                <div style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap;">
+                    <span style="color: #aaa; font-size: 15px; font-weight: 600;">Secure Payments:</span>
+                    <div class="payment-methods">
+                        <img src="https://img.icons8.com/color/48/000000/visa.png" alt="Visa">
+                        <img src="https://img.icons8.com/color/48/000000/mastercard.png" alt="MasterCard">
+                        <img src="https://img.icons8.com/color/48/000000/paypal.png" alt="PayPal">
+                        <img src="https://img.icons8.com/color/48/000000/amex.png" alt="Amex">
+                    </div>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap;">
+                    <span style="color: #aaa; font-size: 15px; font-weight: 600;">Follow Us:</span>
+                    <div class="social-row">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-cols">
+                <div>
+                    <h4>3Stars Entertainers</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="career.html">Careers</a></li>
+                        <li><a href="mystage.html">My Stage</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                        <li><a href="#">Copyright Information</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Help & Support</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">How to Download</a></li>
+                        <li><a href="#">Subscription Plans</a></li>
+                        <li><a href="#">Report an Issue</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Get In Touch</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt" style="margin-right:8px;"></i> 123 Music Avenue, SL</li>
+                        <li><i class="fas fa-phone-alt" style="margin-right:8px;"></i> +94 77 123 4567</li>
+                        <li><i class="fas fa-envelope" style="margin-right:8px;"></i> info@3stars.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 Music Platform. All Rights Reserved. | Designed & Developed by WebNest Private Limited.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Script -->
+    <script>
+        const menuToggle = document.getElementById('mobileMenuToggle');
+        const mainNav = document.getElementById('mainNav');
+        if (menuToggle && mainNav) {
+            menuToggle.addEventListener('click', () => {
+                mainNav.classList.toggle('active');
+            });
+        }
+
+        // Mobile dropdown toggle (tap to open on mobile)
+        const dropdowns = document.querySelectorAll('.dropdown');
+        dropdowns.forEach(dd => {
+            const link = dd.querySelector('a');
+            if (link) {
+                link.addEventListener('click', (e) => {
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        dd.classList.toggle('open');
+                    }
+                });
+            }
+        });
+
+        // Close mobile menu on outside click
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768 && mainNav && mainNav.classList.contains('active')) {
+                if (!mainNav.contains(e.target) && !menuToggle.contains(e.target)) {
+                    mainNav.classList.remove('active');
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
