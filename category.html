@@ -4,8 +4,8 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="theme-color" content="#0B1A33" />
-<title>Careers — 3Stars Entertainers</title>
-<meta name="description" content="Join 3Stars Entertainers. We're hiring designers, marketers, and video creators to build the future of karaoke." />
+<title>Categories — 3Stars Entertainers</title>
+<meta name="description" content="Browse karaoke by category — Tamil movie songs, Gana, devotional, remix, folk, cover tracks and more." />
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -17,7 +17,7 @@
 
 <style>
 /* ============================================================
-   DESIGN TOKENS (shared with homepage / about)
+   DESIGN TOKENS (shared)
    ============================================================ */
 :root {
   --brand-primary: #0B1A33;
@@ -164,9 +164,20 @@ h1, h2, h3, h4 {
   font-size: var(--fs-h2);
   color: var(--text-primary);
 }
-.section {
-  padding-block: var(--space-8);
+.section-head .view-all {
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: var(--brand-primary-soft);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  transition: gap var(--dur-base) var(--ease-out), color var(--dur-fast);
 }
+.section-head .view-all:hover {
+  color: var(--brand-accent);
+  gap: var(--space-2);
+}
+.section { padding-block: var(--space-8); }
 .section--tight { padding-block: var(--space-7); }
 .section--alt { background: var(--surface-0); }
 
@@ -376,7 +387,8 @@ h1, h2, h3, h4 {
   border-radius: var(--radius-md);
   transition: background var(--dur-fast);
 }
-.mega a:hover { background: var(--brand-sky-soft); }
+.mega a:hover,
+.mega a.is-current { background: var(--brand-sky-soft); }
 .mega a strong {
   font-family: var(--font-display);
   font-weight: 600;
@@ -435,13 +447,9 @@ h1, h2, h3, h4 {
 }
 .page-hero__inner {
   position: relative;
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: var(--space-7);
-  align-items: center;
-  padding-block: clamp(48px, 6vw, 96px);
+  padding-block: clamp(48px, 6vw, 80px);
+  max-width: 780px;
 }
-.page-hero__content { max-width: 640px; }
 .page-hero h1 {
   font-size: var(--fs-hero);
   line-height: 1.05;
@@ -460,462 +468,358 @@ h1, h2, h3, h4 {
   font-size: 1.0625rem;
   line-height: 1.6;
   color: var(--text-muted-inverse);
-  max-width: 520px;
+  max-width: 560px;
   margin-bottom: var(--space-5);
 }
-.page-hero__ctas {
-  display: flex;
-  gap: var(--space-3);
-  flex-wrap: wrap;
-  margin-bottom: var(--space-6);
-}
-.page-hero__stats {
-  display: flex;
-  gap: var(--space-5);
-  flex-wrap: wrap;
-  padding-top: var(--space-5);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-.stat { display: flex; flex-direction: column; }
-.stat__value {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: clamp(1.5rem, 1vw + 1.25rem, 2rem);
-  color: var(--text-inverse);
-  line-height: 1;
-  margin-bottom: 6px;
-}
-.stat__label {
-  font-size: 0.8125rem;
-  color: var(--text-muted-inverse);
-  font-weight: 500;
-}
 
-/* Perks card inside hero */
-.perks-card {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-radius: var(--radius-xl);
-  padding: var(--space-5);
+/* Hero search */
+.hero-search {
+  position: relative;
+  max-width: 560px;
+  margin-bottom: var(--space-5);
 }
-.perks-card__title {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.0625rem;
+.hero-search__icon {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-secondary);
+  pointer-events: none;
+}
+.hero-search input {
+  width: 100%;
+  padding: 16px 130px 16px 52px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.95);
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: border-color var(--dur-fast), box-shadow var(--dur-fast);
+}
+.hero-search input::placeholder { color: var(--text-secondary); }
+.hero-search input:focus {
+  outline: none;
+  border-color: var(--brand-sky);
+  box-shadow: 0 0 0 4px rgba(75, 181, 245, 0.25);
+}
+.hero-search__btn {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 10px 20px;
+  border-radius: var(--radius-pill);
+  background: var(--grad-accent);
   color: var(--text-inverse);
-  margin-bottom: var(--space-4);
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-}
-.perks-card__title svg { color: var(--brand-gold); }
-.perks-list {
-  display: grid;
-  gap: var(--space-3);
-}
-.perks-list li {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--space-3);
+  font-weight: 600;
   font-size: 0.9375rem;
-  color: var(--text-muted-inverse);
-  line-height: 1.5;
+  cursor: pointer;
+  transition: filter var(--dur-fast);
 }
-.perks-list__icon {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background: rgba(75, 181, 245, 0.18);
-  color: var(--brand-sky);
-  display: grid;
-  place-items: center;
-  flex-shrink: 0;
-}
-.perks-list__icon svg { width: 14px; height: 14px; }
+.hero-search__btn:hover { filter: brightness(1.08); }
 
-/* ============================================================
-   JOB LISTINGS
-   ============================================================ */
-.jobs-toolbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-4);
-  flex-wrap: wrap;
-  margin-bottom: var(--space-5);
-}
-.filter-chips {
+/* Quick chips */
+.hero-quick {
   display: flex;
   gap: var(--space-2);
   flex-wrap: wrap;
 }
-.filter-chip {
+.hero-quick__chip {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-2);
-  padding: 8px 16px;
+  gap: 6px;
+  padding: 8px 14px;
   border-radius: var(--radius-pill);
-  background: var(--surface-1);
-  border: 1px solid var(--border-subtle);
-  font-size: 0.875rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  font-size: 0.8125rem;
   font-weight: 500;
-  color: var(--text-primary);
+  color: var(--text-muted-inverse);
   cursor: pointer;
   transition: all var(--dur-fast);
-  white-space: nowrap;
 }
-.filter-chip:hover {
-  border-color: var(--brand-primary);
+.hero-quick__chip:hover {
+  background: rgba(255, 255, 255, 0.14);
+  color: var(--text-inverse);
   transform: translateY(-1px);
 }
-.filter-chip.is-active {
-  background: var(--brand-primary);
+.hero-quick__chip.is-active {
+  background: var(--brand-accent);
+  border-color: var(--brand-accent);
   color: var(--text-inverse);
-  border-color: var(--brand-primary);
 }
-.jobs-count {
+.hero-quick__chip svg { width: 14px; height: 14px; }
+
+/* ============================================================
+   SPOTLIGHT CATEGORY
+   ============================================================ */
+.spotlight {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: var(--surface-0);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-md);
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  min-height: 320px;
+  transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base);
+}
+.spotlight:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+.spotlight__body {
+  padding: clamp(24px, 4vw, 48px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.spotlight__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  background: var(--brand-gold);
+  color: var(--brand-primary);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  align-self: flex-start;
+  margin-bottom: var(--space-4);
+}
+.spotlight h2 {
+  font-size: clamp(1.5rem, 2.2vw + 1rem, 2.25rem);
+  margin-bottom: var(--space-3);
+  color: var(--text-primary);
+}
+.spotlight p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: var(--space-5);
+  max-width: 480px;
+}
+.spotlight__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--border-subtle);
+}
+.spotlight__meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-size: 0.875rem;
   color: var(--text-secondary);
   font-weight: 500;
 }
-.jobs-count strong { color: var(--text-primary); font-weight: 700; }
-
-.jobs-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: var(--space-4);
+.spotlight__meta-item svg { color: var(--brand-primary-soft); }
+.spotlight__meta-item strong {
+  color: var(--text-primary);
+  font-weight: 700;
+  font-family: var(--font-display);
+}
+.spotlight__visual {
+  position: relative;
+  overflow: hidden;
+  background: var(--surface-2);
+}
+.spotlight__visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--dur-slow) var(--ease-out);
+}
+.spotlight:hover .spotlight__visual img { transform: scale(1.04); }
+.spotlight__visual::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(255,255,255,0.15), transparent 40%);
+  pointer-events: none;
 }
 
-.job-card {
+/* ============================================================
+   CATEGORY GRID
+   ============================================================ */
+.cats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+}
+
+.cat-card {
+  position: relative;
   background: var(--surface-0);
-  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
-  padding: var(--space-5);
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
   transition: transform var(--dur-base) var(--ease-out),
               box-shadow var(--dur-base),
               border-color var(--dur-base);
-  position: relative;
+  cursor: pointer;
 }
-.job-card:hover {
+.cat-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
   border-color: var(--brand-sky);
 }
-.job-card__head {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: var(--space-3);
+
+.cat-card__media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--surface-2);
 }
-.job-card__icon {
-  width: 44px;
-  height: 44px;
-  border-radius: var(--radius-md);
-  background: var(--brand-sky-soft);
-  color: var(--brand-primary-soft);
-  display: grid;
-  place-items: center;
-  flex-shrink: 0;
+.cat-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--dur-slow) var(--ease-out);
 }
-.job-card__icon svg { width: 22px; height: 22px; }
-.job-card__badge {
+.cat-card:hover .cat-card__media img { transform: scale(1.06); }
+
+.cat-card__media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 45%, rgba(11, 26, 51, 0.85) 100%);
+  pointer-events: none;
+}
+
+.cat-card__count {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
   display: inline-flex;
   align-items: center;
   gap: 6px;
   padding: 5px 12px;
   border-radius: var(--radius-pill);
-  background: rgba(225, 29, 72, 0.08);
-  color: var(--brand-accent);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  color: var(--brand-primary);
   font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-}
-.job-card__badge.is-open {
-  background: rgba(16, 185, 129, 0.1);
-  color: #059669;
-}
-.job-card__title {
-  font-size: 1.125rem;
   font-weight: 700;
+  font-family: var(--font-display);
+  letter-spacing: 0.01em;
+  z-index: 2;
+}
+
+.cat-card__icon {
+  position: absolute;
+  bottom: var(--space-3);
+  left: var(--space-3);
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: var(--grad-accent);
+  color: var(--text-inverse);
+  display: grid;
+  place-items: center;
+  box-shadow: 0 8px 20px rgba(225, 29, 72, 0.4);
+  z-index: 2;
+}
+.cat-card__icon svg { width: 22px; height: 22px; }
+
+.cat-card__body {
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.cat-card__body h3 {
+  font-size: 1.125rem;
   color: var(--text-primary);
   margin-bottom: var(--space-2);
 }
-.job-card__meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-3);
-  margin-bottom: var(--space-3);
-}
-.job-meta-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.8125rem;
-  color: var(--text-secondary);
-  font-weight: 500;
-}
-.job-meta-item svg { width: 14px; height: 14px; flex-shrink: 0; }
-.job-card__desc {
+.cat-card__body p {
   font-size: 0.9375rem;
   color: var(--text-secondary);
   line-height: 1.6;
   flex-grow: 1;
-}
-.job-card__skills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-.skill-tag {
-  font-size: 0.75rem;
-  padding: 4px 10px;
-  border-radius: var(--radius-pill);
-  background: var(--surface-2);
-  color: var(--text-primary);
-  font-weight: 500;
-}
-.job-card__actions {
-  display: flex;
-  gap: var(--space-2);
-  padding-top: var(--space-3);
-  border-top: 1px solid var(--border-subtle);
-  margin-top: auto;
-}
-.job-card__actions .btn { flex: 1; }
-
-/* Empty state */
-.jobs-empty {
-  grid-column: 1 / -1;
-  text-align: center;
-  padding: var(--space-8) var(--space-4);
-  background: var(--surface-0);
-  border: 1px dashed var(--border-strong);
-  border-radius: var(--radius-lg);
-}
-.jobs-empty svg {
-  margin: 0 auto var(--space-4);
-  color: var(--text-secondary);
-}
-.jobs-empty h3 {
-  font-size: 1.125rem;
-  margin-bottom: var(--space-2);
-}
-.jobs-empty p {
-  color: var(--text-secondary);
-  font-size: 0.9375rem;
-}
-
-/* ============================================================
-   HIRING PROCESS
-   ============================================================ */
-.process__grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-4);
-  position: relative;
-}
-.process__grid::before {
-  content: '';
-  position: absolute;
-  top: 24px;
-  left: 10%;
-  right: 10%;
-  height: 2px;
-  background: repeating-linear-gradient(
-    to right,
-    var(--border-strong) 0,
-    var(--border-strong) 6px,
-    transparent 6px,
-    transparent 12px
-  );
-  z-index: 0;
-}
-.process-step {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.process-step__num {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: var(--surface-0);
-  border: 2px solid var(--brand-sky);
-  color: var(--brand-primary);
-  display: grid;
-  place-items: center;
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 1.125rem;
-  margin-bottom: var(--space-3);
-  box-shadow: 0 0 0 8px var(--surface-1);
-}
-.process-step h3 {
-  font-size: 1rem;
-  margin-bottom: var(--space-2);
-  color: var(--text-primary);
-}
-.process-step p {
-  font-size: 0.875rem;
-  color: var(--text-secondary);
-  line-height: 1.5;
-  max-width: 220px;
-}
-
-/* ============================================================
-   APPLICATION FORM
-   ============================================================ */
-.apply-layout {
-  display: grid;
-  grid-template-columns: 0.8fr 1.4fr;
-  gap: var(--space-6);
-  align-items: flex-start;
-}
-.apply-intro h2 {
-  font-size: var(--fs-h2);
-  margin-bottom: var(--space-3);
-  color: var(--text-primary);
-}
-.apply-intro p {
-  color: var(--text-secondary);
   margin-bottom: var(--space-4);
-  line-height: 1.7;
 }
-.apply-intro__list {
-  display: grid;
-  gap: var(--space-3);
-  margin-top: var(--space-4);
-  padding-top: var(--space-4);
-  border-top: 1px solid var(--border-subtle);
-}
-.apply-intro__item {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--space-3);
-  font-size: 0.9375rem;
-  color: var(--text-primary);
-}
-.apply-intro__item svg {
-  color: var(--brand-accent);
-  flex-shrink: 0;
-  margin-top: 3px;
-  width: 18px; height: 18px;
-}
-
-.apply-form {
-  background: var(--surface-0);
-  border-radius: var(--radius-xl);
-  padding: var(--space-6);
-  border: 1px solid var(--border-subtle);
-  box-shadow: var(--shadow-md);
-}
-.form-section {
-  margin-bottom: var(--space-5);
-}
-.form-section:last-of-type { margin-bottom: 0; }
-.form-section__head {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-  margin-bottom: var(--space-4);
-  padding-bottom: var(--space-3);
-  border-bottom: 1px solid var(--border-subtle);
-}
-.form-section__num {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background: var(--brand-primary);
-  color: var(--text-inverse);
-  display: grid;
-  place-items: center;
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 0.8125rem;
-  flex-shrink: 0;
-}
-.form-section__head h3 {
-  font-size: 1rem;
-  color: var(--text-primary);
-}
-.form-section__head p {
-  font-size: 0.8125rem;
-  color: var(--text-secondary);
-  font-weight: 500;
-}
-
-.form-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-4);
-}
-.form-grid--full { grid-template-columns: 1fr; }
-
-.form-field { margin-bottom: 0; }
-.form-field label {
-  display: block;
-  font-size: 0.8125rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 6px;
-}
-.form-field label .req { color: var(--brand-accent); margin-left: 2px; }
-.form-control {
-  width: 100%;
-  padding: 12px 14px;
-  background: var(--surface-1);
-  border: 1.5px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  font-size: 0.9375rem;
-  color: var(--text-primary);
-  transition: border-color var(--dur-fast), background var(--dur-fast);
-}
-.form-control::placeholder { color: var(--text-secondary); }
-.form-control:hover { border-color: var(--border-strong); }
-.form-control:focus {
-  outline: none;
-  border-color: var(--brand-sky);
-  background: var(--surface-0);
-  box-shadow: 0 0 0 4px rgba(75, 181, 245, 0.15);
-}
-textarea.form-control {
-  resize: vertical;
-  min-height: 110px;
-  font-family: inherit;
-}
-select.form-control {
-  appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748B' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 14px center;
-  padding-right: 42px;
-}
-.form-actions {
-  display: flex;
-  gap: var(--space-3);
-  align-items: center;
-  padding-top: var(--space-5);
-  margin-top: var(--space-5);
-  border-top: 1px solid var(--border-subtle);
-  flex-wrap: wrap;
-}
-.form-actions .btn { flex: 1; min-width: 200px; }
-.form-hint {
-  font-size: 0.8125rem;
-  color: var(--text-secondary);
+.cat-card__cta {
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--brand-primary-soft);
+  align-self: flex-start;
+  transition: gap var(--dur-base) var(--ease-out), color var(--dur-fast);
 }
-.form-hint svg { width: 14px; height: 14px; }
+.cat-card__cta svg {
+  width: 16px; height: 16px;
+  transition: transform var(--dur-base) var(--ease-out);
+}
+.cat-card:hover .cat-card__cta {
+  color: var(--brand-accent);
+  gap: var(--space-2);
+}
+
+/* ============================================================
+   CTA BAND
+   ============================================================ */
+.cta-band {
+  background: var(--grad-brand);
+  color: var(--text-inverse);
+  border-radius: var(--radius-xl);
+  padding: clamp(32px, 5vw, 64px);
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: var(--space-6);
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-band::before {
+  content: '';
+  position: absolute;
+  width: 400px; height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(225, 29, 72, 0.35), transparent 70%);
+  top: -150px; right: -100px;
+  pointer-events: none;
+}
+.cta-band h2 {
+  font-size: var(--fs-h2);
+  margin-bottom: var(--space-3);
+  position: relative;
+}
+.cta-band p {
+  color: var(--text-muted-inverse);
+  margin-bottom: var(--space-5);
+  max-width: 480px;
+  position: relative;
+}
+.cta-band__actions {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  position: relative;
+}
+.cta-band__visual {
+  position: relative;
+  aspect-ratio: 5/4;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+}
+.cta-band__visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
 /* ============================================================
    FOOTER
@@ -1164,23 +1068,17 @@ body.is-locked { overflow: hidden; }
   .utility-bar__trust span { display: none; }
   .utility-socials { display: none; }
 
-  .page-hero__inner {
+  .spotlight {
     grid-template-columns: 1fr;
-    gap: var(--space-6);
   }
-  .page-hero__content { max-width: 640px; }
-  .perks-card { max-width: 560px; }
+  .spotlight__visual { aspect-ratio: 16/9; }
 
-  .process__grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-5) var(--space-4);
-  }
-  .process__grid::before { display: none; }
+  .cats-grid { grid-template-columns: repeat(2, 1fr); }
 
-  .apply-layout {
-    grid-template-columns: 1fr;
-    gap: var(--space-5);
-  }
+  .cta-band { grid-template-columns: 1fr; text-align: center; }
+  .cta-band p { margin-inline: auto; }
+  .cta-band__actions { justify-content: center; }
+  .cta-band__visual { max-width: 480px; margin-inline: auto; }
 
   .footer__top {
     grid-template-columns: 1fr 1fr;
@@ -1196,26 +1094,16 @@ body.is-locked { overflow: hidden; }
   .section { padding-block: var(--space-6); }
   .section--tight { padding-block: var(--space-5); }
 
-  .page-hero__ctas { flex-direction: column; }
-  .page-hero__ctas .btn { width: 100%; }
+  .hero-search input { padding: 14px 110px 14px 46px; font-size: 0.9375rem; }
+  .hero-search__btn { padding: 9px 16px; font-size: 0.875rem; }
 
-  .jobs-grid {
-    grid-template-columns: 1fr;
-  }
+  .cats-grid { grid-template-columns: 1fr; gap: var(--space-4); }
 
-  .jobs-toolbar { flex-direction: column; align-items: stretch; }
-  .filter-chips { overflow-x: auto; padding-bottom: 4px; flex-wrap: nowrap; }
+  .spotlight__body { padding: var(--space-5) var(--space-4); }
+  .spotlight__meta { gap: var(--space-3); }
 
-  .process__grid {
-    grid-template-columns: 1fr;
-    gap: var(--space-5);
-  }
-  .process-step { text-align: left; align-items: flex-start; }
-  .process-step p { max-width: 100%; }
-
-  .apply-form { padding: var(--space-5) var(--space-4); }
-  .form-grid { grid-template-columns: 1fr; }
-  .form-actions { flex-direction: column; align-items: stretch; }
+  .cta-band { padding: var(--space-6) var(--space-5); }
+  .cta-band__actions .btn { flex: 1; min-width: 0; }
 
   .footer__top {
     grid-template-columns: 1fr;
@@ -1231,13 +1119,13 @@ body.is-locked { overflow: hidden; }
 }
 
 @media (max-width: 479px) {
-  .page-hero__stats {
-    gap: var(--space-4);
-    padding-top: var(--space-4);
-  }
-  .perks-card { padding: var(--space-4); }
-  .job-card { padding: var(--space-4); }
-  .form-section__head { flex-wrap: wrap; }
+  .page-hero__inner { padding-block: var(--space-6); }
+  .hero-search input { padding: 12px 96px 12px 42px; font-size: 0.875rem; }
+  .hero-search__icon { left: 14px; width: 18px; height: 18px; }
+  .hero-search__btn { padding: 8px 14px; font-size: 0.8125rem; }
+
+  .spotlight__body { padding: var(--space-4); }
+  .cat-card__body { padding: var(--space-4) var(--space-4) var(--space-5); }
 }
 </style>
 </head>
@@ -1284,7 +1172,7 @@ body.is-locked { overflow: hidden; }
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
       <li class="has-mega">
-        <a href="category.html" aria-haspopup="true" aria-expanded="false">
+        <a href="category.html" aria-current="page" aria-haspopup="true" aria-expanded="false">
           Category <i data-lucide="chevron-down" width="14" height="14"></i>
         </a>
         <div class="mega" role="menu">
@@ -1315,7 +1203,7 @@ body.is-locked { overflow: hidden; }
         </div>
       </li>
       <li><a href="mystage.html">My Stage</a></li>
-      <li><a href="career.html" aria-current="page">Career</a></li>
+      <li><a href="career.html">Career</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
 
@@ -1333,276 +1221,147 @@ body.is-locked { overflow: hidden; }
 <!-- ============================================================
      PAGE HERO
      ============================================================ -->
-<section class="page-hero" aria-labelledby="career-title">
+<section class="page-hero" aria-labelledby="cat-title">
   <div class="container">
     <div class="page-hero__inner">
-      <div class="page-hero__content">
-        <span class="eyebrow" style="color:var(--brand-sky)">Careers at 3Stars</span>
-        <h1 id="career-title">
-          Build your future with
-          <span class="accent">3Stars Entertainers</span>
-        </h1>
-        <p class="page-hero__sub">
-          We're a small, fast-moving team on a mission to make karaoke
-          joyful and accessible for every Tamil music fan worldwide. If
-          you love music and want to shape how millions experience it —
-          you'll fit right in.
+      <span class="eyebrow" style="color:var(--brand-sky)">Browse library</span>
+      <h1 id="cat-title">
+        Explore our
+        <span class="accent">entertainment categories</span>
+      </h1>
+      <p class="page-hero__sub">
+        From Tamil movie classics to Gana and devotional tracks —
+        find the exact karaoke you're looking for in seconds.
+      </p>
+
+      <div class="hero-search" role="search">
+        <i data-lucide="search" width="20" height="20" class="hero-search__icon"></i>
+        <label for="catSearch" class="sr-only">Search categories</label>
+        <input id="catSearch" type="search" placeholder="Search songs, singers, movies…" autocomplete="off" />
+        <button type="button" class="hero-search__btn">Search</button>
+      </div>
+
+      <div class="hero-quick" role="tablist" aria-label="Quick category filter">
+        <button class="hero-quick__chip is-active" role="tab" aria-selected="true" data-quick="all">
+          <i data-lucide="sparkles"></i> All
+        </button>
+        <button class="hero-quick__chip" role="tab" aria-selected="false" data-quick="trending">
+          <i data-lucide="trending-up"></i> Trending
+        </button>
+        <button class="hero-quick__chip" role="tab" aria-selected="false" data-quick="new">
+          <i data-lucide="sparkle"></i> New releases
+        </button>
+        <button class="hero-quick__chip" role="tab" aria-selected="false" data-quick="classics">
+          <i data-lucide="disc-3"></i> Evergreen
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SPOTLIGHT CATEGORY
+     ============================================================ -->
+<section class="section--tight" aria-labelledby="spotlight-title">
+  <div class="container">
+    <article class="spotlight">
+      <div class="spotlight__body">
+        <span class="spotlight__tag">
+          <i data-lucide="crown" width="12" height="12"></i>
+          Most popular
+        </span>
+        <h2 id="spotlight-title">Karaoke & Singing</h2>
+        <p>
+          The heart of 3Stars. Sing solo or duets, record your tracks,
+          and share your performances with a community of 50,000+
+          singers worldwide.
         </p>
-        <div class="page-hero__ctas">
-          <a href="#openings" class="btn btn--primary">
-            <i data-lucide="briefcase" width="18" height="18"></i>
-            See open roles
+
+        <div class="spotlight__meta">
+          <span class="spotlight__meta-item">
+            <i data-lucide="music-2" width="16" height="16"></i>
+            <strong>1,400+</strong> tracks
+          </span>
+          <span class="spotlight__meta-item">
+            <i data-lucide="users" width="16" height="16"></i>
+            <strong>50k</strong> singers
+          </span>
+          <span class="spotlight__meta-item">
+            <i data-lucide="star" width="16" height="16" fill="currentColor"></i>
+            <strong>4.9</strong> rating
+          </span>
+        </div>
+
+        <a href="category.html?c=karaoke" class="btn btn--primary">
+          <i data-lucide="play" width="16" height="16" fill="currentColor"></i>
+          Explore Karaoke
+        </a>
+      </div>
+
+      <div class="spotlight__visual">
+        <img
+          src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=1200"
+          alt="Singer performing karaoke"
+          loading="lazy"
+        />
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============================================================
+     CATEGORY GRID
+     ============================================================ -->
+<section class="section" aria-labelledby="all-cats-title">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">All categories</span>
+        <h2 id="all-cats-title">Pick a category to enjoy</h2>
+      </div>
+      <a href="#" class="view-all" aria-label="View full catalog">
+        Full catalog
+        <i data-lucide="arrow-right" width="16" height="16"></i>
+      </a>
+    </div>
+
+    <div class="cats-grid" id="catsGrid" role="list">
+      <!-- Cards injected by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CTA BAND
+     ============================================================ -->
+<section class="section" aria-labelledby="cta-title">
+  <div class="container">
+    <div class="cta-band">
+      <div>
+        <span class="eyebrow" style="color:var(--brand-sky)">Can't find it?</span>
+        <h2 id="cta-title">Request any song — we'll make it for you.</h2>
+        <p>
+          Our team creates custom karaoke tracks on request. Send us the
+          song name and movie, and we'll have it ready for you within days.
+        </p>
+        <div class="cta-band__actions">
+          <a href="contact.html" class="btn btn--primary">
+            <i data-lucide="music-2" width="18" height="18"></i>
+            Request a song
           </a>
-          <a href="#applyForm" class="btn btn--ghost">
-            Submit a proposal
+          <a href="mystage.html" class="btn btn--ghost">
+            Join My Stage
             <i data-lucide="arrow-right" width="18" height="18"></i>
           </a>
         </div>
-        <div class="page-hero__stats">
-          <div class="stat">
-            <span class="stat__value">100%</span>
-            <span class="stat__label">Remote-friendly</span>
-          </div>
-          <div class="stat">
-            <span class="stat__value">3</span>
-            <span class="stat__label">Open roles</span>
-          </div>
-          <div class="stat">
-            <span class="stat__value">7 days</span>
-            <span class="stat__label">Avg. response time</span>
-          </div>
-        </div>
       </div>
-
-      <div class="perks-card" aria-label="Why work with us">
-        <div class="perks-card__title">
-          <i data-lucide="sparkles" width="18" height="18"></i>
-          Why you'll love it here
-        </div>
-        <ul class="perks-list" role="list">
-          <li>
-            <span class="perks-list__icon"><i data-lucide="home"></i></span>
-            Work from anywhere — fully remote team
-          </li>
-          <li>
-            <span class="perks-list__icon"><i data-lucide="music-2"></i></span>
-            Free premium access to our entire library
-          </li>
-          <li>
-            <span class="perks-list__icon"><i data-lucide="trending-up"></i></span>
-            Fast growth path in a fast-growing company
-          </li>
-          <li>
-            <span class="perks-list__icon"><i data-lucide="graduation-cap"></i></span>
-            Annual budget for courses and tools
-          </li>
-          <li>
-            <span class="perks-list__icon"><i data-lucide="heart"></i></span>
-            Friendly, music-obsessed teammates
-          </li>
-        </ul>
+      <div class="cta-band__visual">
+        <img
+          src="https://images.unsplash.com/photo-1524650359799-842906ca1c06?q=80&w=800"
+          alt="Studio recording session"
+          loading="lazy"
+        />
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     JOB LISTINGS
-     ============================================================ -->
-<section class="section" id="openings" aria-labelledby="openings-title">
-  <div class="container">
-    <div class="section-head">
-      <div>
-        <span class="eyebrow">Open positions</span>
-        <h2 id="openings-title">Current career openings</h2>
-      </div>
-    </div>
-
-    <div class="jobs-toolbar">
-      <div class="filter-chips" role="tablist" aria-label="Filter jobs by department">
-        <button class="filter-chip is-active" role="tab" aria-selected="true" data-filter="all">
-          <i data-lucide="layers" width="14" height="14"></i> All roles
-        </button>
-        <button class="filter-chip" role="tab" aria-selected="false" data-filter="design">
-          <i data-lucide="palette" width="14" height="14"></i> Design
-        </button>
-        <button class="filter-chip" role="tab" aria-selected="false" data-filter="marketing">
-          <i data-lucide="megaphone" width="14" height="14"></i> Marketing
-        </button>
-        <button class="filter-chip" role="tab" aria-selected="false" data-filter="content">
-          <i data-lucide="video" width="14" height="14"></i> Content
-        </button>
-      </div>
-      <div class="jobs-count" id="jobsCount"></div>
-    </div>
-
-    <div class="jobs-grid" id="jobsGrid" role="list">
-      <!-- Job cards injected by JS -->
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     HIRING PROCESS
-     ============================================================ -->
-<section class="section section--alt" aria-labelledby="process-title">
-  <div class="container">
-    <div class="section-head">
-      <div>
-        <span class="eyebrow">What to expect</span>
-        <h2 id="process-title">Our hiring process</h2>
-      </div>
-    </div>
-
-    <div class="process__grid">
-      <div class="process-step">
-        <span class="process-step__num">1</span>
-        <h3>Apply</h3>
-        <p>Send us your portfolio and a short note about why you're a great fit.</p>
-      </div>
-      <div class="process-step">
-        <span class="process-step__num">2</span>
-        <h3>Intro call</h3>
-        <p>A 30-minute chat with our team to discuss your goals and expectations.</p>
-      </div>
-      <div class="process-step">
-        <span class="process-step__num">3</span>
-        <h3>Skill review</h3>
-        <p>A short, paid task based on real work you'd do here — no trick questions.</p>
-      </div>
-      <div class="process-step">
-        <span class="process-step__num">4</span>
-        <h3>Offer</h3>
-        <p>We make a decision within a week and send over a written offer.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     APPLICATION FORM
-     ============================================================ -->
-<section class="section" id="applyForm" aria-labelledby="apply-title">
-  <div class="container">
-    <div class="apply-layout">
-      <div class="apply-intro">
-        <span class="eyebrow">Submit your proposal</span>
-        <h2 id="apply-title">Don't see the perfect role?</h2>
-        <p>
-          We're always looking for talented people who love music. Send
-          us your portfolio and tell us how you'd like to contribute —
-          we read every application.
-        </p>
-        <ul class="apply-intro__list" role="list">
-          <li class="apply-intro__item">
-            <i data-lucide="clock"></i>
-            We reply to every applicant within 7 days.
-          </li>
-          <li class="apply-intro__item">
-            <i data-lucide="shield-check"></i>
-            Your portfolio stays private and confidential.
-          </li>
-          <li class="apply-intro__item">
-            <i data-lucide="user-check"></i>
-            No automated screening — a real human reads this.
-          </li>
-        </ul>
-      </div>
-
-      <form class="apply-form" id="careerForm" novalidate
-            onsubmit="event.preventDefault(); this.reset(); alert('Thanks — we\'ve received your application and will be in touch within 7 days.');">
-
-        <!-- Section 1: Personal -->
-        <div class="form-section">
-          <div class="form-section__head">
-            <span class="form-section__num">1</span>
-            <div>
-              <h3>Your details</h3>
-              <p>How can we reach you?</p>
-            </div>
-          </div>
-          <div class="form-grid">
-            <div class="form-field">
-              <label for="fullName">Full name <span class="req">*</span></label>
-              <input class="form-control" id="fullName" name="fullName" type="text"
-                     placeholder="Your full name" required />
-            </div>
-            <div class="form-field">
-              <label for="email">Email address <span class="req">*</span></label>
-              <input class="form-control" id="email" name="email" type="email"
-                     placeholder="you@example.com" required />
-            </div>
-            <div class="form-field">
-              <label for="whatsapp">WhatsApp number</label>
-              <input class="form-control" id="whatsapp" name="whatsapp" type="tel"
-                     placeholder="+94 77 123 4567" />
-            </div>
-            <div class="form-field">
-              <label for="location">Location</label>
-              <input class="form-control" id="location" name="location" type="text"
-                     placeholder="City, Country" />
-            </div>
-          </div>
-        </div>
-
-        <!-- Section 2: Position -->
-        <div class="form-section">
-          <div class="form-section__head">
-            <span class="form-section__num">2</span>
-            <div>
-              <h3>Position</h3>
-              <p>Which role are you applying for?</p>
-            </div>
-          </div>
-          <div class="form-grid form-grid--full">
-            <div class="form-field">
-              <label for="position">Role <span class="req">*</span></label>
-              <select class="form-control" id="position" name="position" required>
-                <option value="" disabled selected>Select a position</option>
-                <option value="designer">Graphic & UI/UX Designer</option>
-                <option value="marketer">Digital Marketing Specialist</option>
-                <option value="video-editor">Video Editor & AI Content Creator</option>
-                <option value="other">Other entertainment role</option>
-              </select>
-            </div>
-          </div>
-        </div>
-
-        <!-- Section 3: Portfolio -->
-        <div class="form-section">
-          <div class="form-section__head">
-            <span class="form-section__num">3</span>
-            <div>
-              <h3>Portfolio & experience</h3>
-              <p>Show us what you've built</p>
-            </div>
-          </div>
-          <div class="form-grid form-grid--full">
-            <div class="form-field">
-              <label for="portfolio">Portfolio link (Drive, website, Behance) <span class="req">*</span></label>
-              <input class="form-control" id="portfolio" name="portfolio" type="url"
-                     placeholder="https://" required />
-            </div>
-            <div class="form-field" style="margin-top:var(--space-4);">
-              <label for="experience">Experience details <span class="req">*</span></label>
-              <textarea class="form-control" id="experience" name="experience"
-                        placeholder="Briefly describe your experience — past projects, tools, notable achievements…"
-                        required></textarea>
-            </div>
-          </div>
-        </div>
-
-        <div class="form-actions">
-          <button type="submit" class="btn btn--primary btn--lg">
-            <i data-lucide="send" width="16" height="16"></i>
-            Submit application
-          </button>
-          <span class="form-hint">
-            <i data-lucide="lock"></i>
-            Your data stays private
-          </span>
-        </div>
-      </form>
     </div>
   </div>
 </section>
@@ -1732,7 +1491,7 @@ body.is-locked { overflow: hidden; }
         <a href="category.html?c=cover">Cover & Karaoke</a>
       </div>
       <a href="mystage.html">My Stage</a>
-      <a href="career.html" aria-current="page">Career</a>
+      <a href="career.html">Career</a>
       <a href="contact.html">Contact</a>
     </nav>
 
@@ -1750,178 +1509,161 @@ body.is-locked { overflow: hidden; }
 (function () {
   'use strict';
 
-  /* ---------- Job data ---------- */
-  const jobs = [
+  /* ---------- Category data ---------- */
+  const categories = [
     {
-      id: 'designer',
-      title: 'Graphic & UI/UX Designer',
-      department: 'design',
-      departmentLabel: 'Design',
-      icon: 'palette',
-      badge: 'Open',
-      type: 'Full-time',
-      location: 'Remote',
-      experience: '1–3 years',
-      salary: 'Negotiable',
-      description:
-        'Design engaging branding and digital marketing visuals — from social posts to product UI. You\'ll work closely with marketing and content to shape how 3Stars looks everywhere.',
-      skills: ['Figma', 'Canva', 'Adobe Express', 'Branding']
+      slug: 'tamil',
+      title: 'Tamil Movie Songs',
+      icon: 'film',
+      count: '1,200+',
+      image: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=800',
+      description: 'Timeless hits and modern blockbusters from Kollywood — sorted by movie, year, and singer.',
+      tags: ['trending']
     },
     {
-      id: 'marketer',
-      title: 'Digital Marketing Specialist',
-      department: 'marketing',
-      departmentLabel: 'Marketing',
-      icon: 'megaphone',
-      badge: 'Open',
-      type: 'Full-time',
-      location: 'Remote / Hybrid',
-      experience: '2+ years',
-      salary: 'Negotiable',
-      description:
-        'Own social media outreach, promotion strategy, and campaign management across our entertainment events. You\'ll grow our reach and drive subscriber growth.',
-      skills: ['Meta Ads', 'Google Ads', 'Analytics', 'SEO']
+      slug: 'gana',
+      title: 'Gana Songs',
+      icon: 'drum',
+      count: '340+',
+      image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=800',
+      description: 'Raw, energetic Gana tracks that light up any party. Perfect for group karaoke.',
+      tags: ['trending']
     },
     {
-      id: 'video-editor',
-      title: 'Video Editor & AI Content Creator',
-      department: 'content',
-      departmentLabel: 'Content',
-      icon: 'video',
-      badge: 'Open',
-      type: 'Full-time',
-      location: 'Remote',
-      experience: '1+ years',
-      salary: 'Negotiable',
-      description:
-        'Produce high-resolution promotional clips and text-to-video content using modern AI tools. You\'ll help us scale our karaoke content pipeline without sacrificing quality.',
-      skills: ['Premiere Pro', 'After Effects', 'AI tools', 'Motion']
+      slug: 'devotional',
+      title: 'Devotional Songs',
+      icon: 'flame',
+      count: '520+',
+      image: 'https://images.unsplash.com/photo-1544967082-d9d25d867d66?q=80&w=800',
+      description: 'Sacred melodies for prayer, festivals, and quiet reflection — rendered with respect.',
+      tags: ['classics']
+    },
+    {
+      slug: 'remix',
+      title: 'Remix & Folk',
+      icon: 'disc-3',
+      count: '210+',
+      image: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=800',
+      description: 'Modern remixes and traditional folk tracks — from dappankuthu to oppari.',
+      tags: ['new']
+    },
+    {
+      slug: 'cover',
+      title: 'Cover & Karaoke',
+      icon: 'mic-2',
+      count: '890+',
+      image: 'https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=800',
+      description: 'Covers and karaoke tracks across every genre — sing along with professional backing.',
+      tags: ['trending', 'new']
+    },
+    {
+      slug: 'new',
+      title: 'New Releases',
+      icon: 'sparkle',
+      count: '50/wk',
+      image: 'https://images.unsplash.com/photo-1524650359799-842906ca1c06?q=80&w=800',
+      description: 'Freshly added karaoke tracks — updated every Monday. Never miss a new favourite.',
+      tags: ['new']
     }
   ];
 
-  /* ---------- Render jobs ---------- */
-  const jobsGrid = document.getElementById('jobsGrid');
-  const jobsCount = document.getElementById('jobsCount');
-  let activeFilter = 'all';
-
+  /* ---------- Helpers ---------- */
   function escapeHtml(str) {
     return String(str).replace(/[&<>"']/g, (s) => ({
       '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
     }[s]));
   }
 
-  function renderJobs() {
-    const filtered = activeFilter === 'all'
-      ? jobs
-      : jobs.filter(j => j.department === activeFilter);
+  /* ---------- Render category grid ---------- */
+  const catsGrid = document.getElementById('catsGrid');
 
-    if (filtered.length === 0) {
-      jobsGrid.innerHTML = `
-        <div class="jobs-empty">
-          <i data-lucide="search-x" width="40" height="40"></i>
-          <h3>No open roles in this category</h3>
-          <p>We're not hiring here right now — but send us your proposal anyway!</p>
+  function renderCategories() {
+    catsGrid.innerHTML = categories.map(cat => `
+      <article class="cat-card" role="listitem" tabindex="0"
+        aria-labelledby="cat-${escapeHtml(cat.slug)}-title"
+        onclick="location.href='category.html?c=${encodeURIComponent(cat.slug)}'"
+        onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();location.href='category.html?c=${encodeURIComponent(cat.slug)}';}">
+        <div class="cat-card__media">
+          <img src="${escapeHtml(cat.image)}" alt="${escapeHtml(cat.title)}"
+               loading="lazy"
+               onerror="this.src='https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=800'">
+          <span class="cat-card__count">${escapeHtml(cat.count)}</span>
+          <span class="cat-card__icon" aria-hidden="true">
+            <i data-lucide="${escapeHtml(cat.icon)}"></i>
+          </span>
         </div>
-      `;
-    } else {
-      jobsGrid.innerHTML = filtered.map(job => `
-        <article class="job-card" role="listitem" aria-labelledby="job-${job.id}-title">
-          <div class="job-card__head">
-            <span class="job-card__icon" aria-hidden="true">
-              <i data-lucide="${escapeHtml(job.icon)}"></i>
-            </span>
-            <span class="job-card__badge is-open">
-              <i data-lucide="circle-dot" width="10" height="10" fill="currentColor"></i>
-              ${escapeHtml(job.badge)}
-            </span>
-          </div>
-
-          <div>
-            <h3 class="job-card__title" id="job-${job.id}-title">${escapeHtml(job.title)}</h3>
-            <div class="job-card__meta">
-              <span class="job-meta-item">
-                <i data-lucide="clock"></i> ${escapeHtml(job.type)}
-              </span>
-              <span class="job-meta-item">
-                <i data-lucide="map-pin"></i> ${escapeHtml(job.location)}
-              </span>
-              <span class="job-meta-item">
-                <i data-lucide="briefcase"></i> ${escapeHtml(job.experience)}
-              </span>
-            </div>
-            <p class="job-card__desc">${escapeHtml(job.description)}</p>
-          </div>
-
-          <div class="job-card__skills">
-            ${job.skills.map(s => `<span class="skill-tag">${escapeHtml(s)}</span>`).join('')}
-          </div>
-
-          <div class="job-card__actions">
-            <button type="button" class="btn btn--primary btn--sm"
-              data-apply-job="${escapeHtml(job.id)}">
-              <i data-lucide="send" width="14" height="14"></i>
-              Quick apply
-            </button>
-            <button type="button" class="btn btn--outline btn--sm"
-              aria-label="Share ${escapeHtml(job.title)}" data-share-job="${escapeHtml(job.id)}">
-              <i data-lucide="share-2" width="14" height="14"></i>
-            </button>
-          </div>
-        </article>
-      `).join('');
-    }
-
-    jobsCount.innerHTML = `<strong>${filtered.length}</strong> open role${filtered.length === 1 ? '' : 's'}`;
+        <div class="cat-card__body">
+          <h3 id="cat-${escapeHtml(cat.slug)}-title">${escapeHtml(cat.title)}</h3>
+          <p>${escapeHtml(cat.description)}</p>
+          <span class="cat-card__cta">
+            View category
+            <i data-lucide="arrow-right"></i>
+          </span>
+        </div>
+      </article>
+    `).join('');
     if (window.lucide) window.lucide.createIcons();
   }
 
-  /* ---------- Filter chips ---------- */
-  function initFilters() {
-    document.querySelectorAll('.filter-chip').forEach(chip => {
+  /* ---------- Quick filter chips ---------- */
+  function initQuickFilters() {
+    const chips = document.querySelectorAll('.hero-quick__chip');
+    chips.forEach(chip => {
       chip.addEventListener('click', () => {
-        document.querySelectorAll('.filter-chip').forEach(c => {
+        chips.forEach(c => {
           c.classList.remove('is-active');
           c.setAttribute('aria-selected', 'false');
         });
         chip.classList.add('is-active');
         chip.setAttribute('aria-selected', 'true');
-        activeFilter = chip.dataset.filter;
-        renderJobs();
+
+        const filter = chip.dataset.quick;
+        document.querySelectorAll('.cat-card').forEach(card => {
+          if (filter === 'all') {
+            card.style.display = '';
+            return;
+          }
+          const slug = card.querySelector('h3').id.replace('cat-', '').replace('-title', '');
+          const cat = categories.find(c => c.slug === slug);
+          const match = cat && cat.tags && cat.tags.includes(filter);
+          card.style.display = match ? '' : 'none';
+        });
       });
     });
   }
 
-  /* ---------- Quick apply ---------- */
-  function initQuickApply() {
-    jobsGrid.addEventListener('click', (e) => {
-      const applyBtn = e.target.closest('[data-apply-job]');
-      if (applyBtn) {
-        const jobId = applyBtn.dataset.applyJob;
-        const select = document.getElementById('position');
-        if (select) {
-          select.value = jobId;
-        }
-        const form = document.getElementById('applyForm');
-        if (form) {
-          form.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          setTimeout(() => {
-            const firstField = document.getElementById('fullName');
-            if (firstField) firstField.focus();
-          }, 500);
-        }
-        return;
-      }
+  /* ---------- Search ---------- */
+  function initSearch() {
+    const input = document.getElementById('catSearch');
+    const btn = input && input.parentElement.querySelector('.hero-search__btn');
+    if (!input) return;
 
-      const shareBtn = e.target.closest('[data-share-job]');
-      if (shareBtn) {
-        const url = window.location.href.split('#')[0] + '#applyForm';
-        if (navigator.share) {
-          navigator.share({ title: '3Stars Careers', url }).catch(() => {});
-        } else if (navigator.clipboard) {
-          navigator.clipboard.writeText(url);
-          alert('Link copied to clipboard');
-        }
-      }
+    function doSearch() {
+      const q = input.value.trim().toLowerCase();
+      document.querySelectorAll('.cat-card').forEach(card => {
+        if (!q) { card.style.display = ''; return; }
+        const text = card.textContent.toLowerCase();
+        card.style.display = text.includes(q) ? '' : 'none';
+      });
+      document.getElementById('all-cats-title')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') { e.preventDefault(); doSearch(); }
+    });
+    if (btn) btn.addEventListener('click', doSearch);
+  }
+
+  /* ---------- Highlight current category from URL ---------- */
+  function highlightFromUrl() {
+    const params = new URLSearchParams(window.location.search);
+    const current = params.get('c');
+    if (!current) return;
+
+    // Highlight mega-menu link
+    document.querySelectorAll('.mega a').forEach(a => {
+      const href = a.getAttribute('href') || '';
+      if (href.includes(`c=${current}`)) a.classList.add('is-current');
     });
   }
 
@@ -1995,9 +1737,10 @@ body.is-locked { overflow: hidden; }
 
   /* ---------- Init ---------- */
   function init() {
-    renderJobs();
-    initFilters();
-    initQuickApply();
+    renderCategories();
+    initQuickFilters();
+    initSearch();
+    highlightFromUrl();
     initNavbarShrink();
     initDrawer();
     initSmoothScroll();
