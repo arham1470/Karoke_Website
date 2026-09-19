@@ -1,509 +1,2016 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3Stars Entertainers - Categories</title>
-    <!-- FontAwesome for Modern Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: Arial, sans-serif; background-color: #d8edf8; color: #000; overflow-x: hidden; }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#0B1A33" />
+<title>Careers — 3Stars Entertainers</title>
+<meta name="description" content="Join 3Stars Entertainers. We're hiring designers, marketers, and video creators to build the future of karaoke." />
 
-        /* ==========================================
-           TOP BANNER
-           ========================================== */
-        .top-banner { background: #ffffff; color: #222; padding: 10px 40px; display: flex; justify-content: space-between; align-items: center; font-size: 14px; font-weight: 600; letter-spacing: 0.5px; border-bottom: 1px solid #e0e0e0; gap: 15px; flex-wrap: wrap; }
-        .top-banner > div:first-child { display: flex; align-items: center; min-width: 0; }
-        .top-banner img { flex-shrink: 0; }
-        .welcome-text { color: #555; font-weight: 500; font-size: 14px; }
-        .welcome-text strong { background: linear-gradient(135deg, #0c101d, #4bb5f5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800; font-size: 15px; }
-        .welcome-text i { color: #ff3366; margin: 0 4px; font-size: 12px; }
-        .social-icons { display: flex; align-items: center; gap: 15px; flex-wrap: wrap; }
-        .social-icons a { display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; background: #f5f5f5; color: #444; text-decoration: none; border-radius: 50%; font-size: 16px; transition: all 0.3s ease; border: 1px solid #ddd; }
-        .social-icons a:hover { background: #ff3366; color: #fff; border-color: #ff3366; transform: translateY(-3px); box-shadow: 0 5px 12px rgba(255, 51, 102, 0.4); }
-        .login-btn { font-size: 14px; font-weight: bold; background: linear-gradient(135deg, #7cd3fc, #4bb5f5); color: #0c101d; padding: 8px 20px; border-radius: 30px; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(124, 211, 252, 0.3); display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
-        .login-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(124, 211, 252, 0.5); filter: brightness(1.1); }
-        .signup-btn { font-size: 14px; font-weight: bold; background: linear-gradient(135deg, #ff3366, #ff7799); color: #fff; padding: 8px 20px; border-radius: 30px; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(255, 51, 102, 0.3); display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
-        .signup-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(255, 51, 102, 0.5); filter: brightness(1.1); }
-        .header-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet" />
 
-        /* ==========================================
-           HERO WRAPPER
-           ========================================== */
-        .hero-wrapper { background: linear-gradient(to bottom, rgba(3, 20, 41, 0.7) 0%, rgba(3, 20, 41, 0.95) 100%), url('https://images.unsplash.com/photo-1598387993441-a364f854c3e1?q=80&w=1476&auto=format&fit=crop') center center/cover; position: relative; overflow: hidden; border-bottom: 2px solid #005082; }
+<!-- Icons -->
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
 
-        /* ==========================================
-           MAIN HEADER
-           ========================================== */
-        header { padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 100; background: rgba(3, 20, 41, 0.95); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); gap: 15px; }
-        .logo-area h1 { font-size: 26px; color: #fff; font-weight: 700; letter-spacing: 0.5px; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); white-space: nowrap; }
-        nav { display: flex; gap: 30px; align-items: center; }
-        nav a { color: #fff; text-decoration: none; font-weight: 600; font-size: 16px; transition: color 0.2s; white-space: nowrap; }
-        nav a:hover, nav a.active { color: #00d2ff; }
-        .dropdown { position: relative; display: inline-block; padding-bottom: 10px; margin-bottom: -10px; }
-        .dropdown-content { display: none; position: absolute; background-color: rgba(6, 21, 41, 0.95); min-width: 200px; box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.6); z-index: 10; top: 100%; left: 0; border-radius: 4px; border: 1px solid rgba(255, 255, 255, 0.1); padding: 10px 0; backdrop-filter: blur(5px); }
-        .dropdown-content a { color: #ddd; padding: 10px 20px; text-decoration: none; display: block; font-size: 13px; font-weight: 500; }
-        .dropdown-content a:hover { background-color: rgba(255, 255, 255, 0.05); color: #fff; }
-        .dropdown:hover .dropdown-content { display: block; }
-        .mobile-menu-toggle { display: none; font-size: 24px; color: #fff; cursor: pointer; padding: 5px; }
+<style>
+/* ============================================================
+   DESIGN TOKENS (shared with homepage / about)
+   ============================================================ */
+:root {
+  --brand-primary: #0B1A33;
+  --brand-primary-soft: #1B5394;
+  --brand-accent: #E11D48;
+  --brand-accent-hover: #BE123C;
+  --brand-sky: #4BB5F5;
+  --brand-sky-soft: #E8F4FC;
+  --brand-gold: #F5B301;
 
-        /* ==========================================
-           CATEGORY HERO
-           ========================================== */
-        .hero { position: relative; min-height: 350px; display: flex; align-items: center; justify-content: center; padding: 40px; color: #fff; z-index: 1; text-align: center; }
-        .hero-content h2 { font-size: 3.5rem; color: #fff; margin-bottom: 20px; line-height: 1.1; font-weight: 800; text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4); word-wrap: break-word; overflow-wrap: break-word; }
-        .hero-content h2 .highlight-red { color: #ff3366; display: block; text-shadow: 2px 2px 10px rgba(255, 51, 102, 0.3); }
+  --surface-0: #FFFFFF;
+  --surface-1: #F8FAFC;
+  --surface-2: #F1F5F9;
 
-        /* ==========================================
-           SECTION TITLE
-           ========================================== */
-        .section-title { font-size: 20px; font-weight: 800; color: #fff; background: linear-gradient(135deg, #0c101d, #1b5394); display: block; width: 90%; max-width: 950px; padding: 16px 20px; box-sizing: border-box; border-radius: 10px; margin: 30px auto; box-shadow: 0 10px 20px rgba(27, 83, 148, 0.25); text-transform: uppercase; letter-spacing: 1.5px; border: 1px solid rgba(255, 255, 255, 0.1); position: relative; text-align: center; }
-        .section-title::after { content: ''; position: absolute; bottom: -1px; left: 10%; width: 80%; height: 3px; background: #ff3366; border-radius: 10px; }
+  --text-primary: #0F172A;
+  --text-secondary: #64748B;
+  --text-inverse: #FFFFFF;
+  --text-muted-inverse: rgba(255, 255, 255, 0.7);
 
-        /* ==========================================
-           CATEGORY CONTAINER
-           ========================================== */
-        .category-container { width: 95%; max-width: 1200px; margin: 0 auto 40px auto; background: #eef5f9; color: #0c101d; padding: 40px; border-radius: 12px; }
-        .categories-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; align-items: stretch; }
+  --border-subtle: #E2E8F0;
+  --border-strong: #CBD5E1;
 
-        /* Card — flex column so button sticks to bottom */
-        .category-card {
-            background: #fff;
-            border: 1px solid #ddd;
-            border-radius: 12px;
-            overflow: hidden;
-            text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-        .category-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); border-color: #ff3366; }
+  --grad-brand: linear-gradient(135deg, #0B1A33 0%, #1B5394 100%);
+  --grad-accent: linear-gradient(135deg, #E11D48 0%, #F43F5E 100%);
 
-        .category-card img { width: 100%; height: 200px; object-fit: cover; flex-shrink: 0; }
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+  --space-6: 48px;
+  --space-7: 64px;
+  --space-8: 80px;
+  --space-9: 120px;
 
-        .category-card h3 { font-size: 1.3rem; margin: 20px 10px 10px 10px; color: #1b5394; font-weight: 800; }
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-pill: 999px;
 
-        .category-card p {
-            font-size: 14px;
-            color: #555;
-            padding: 0 20px;
-            margin-bottom: 20px;
-            line-height: 1.6;
-            flex-grow: 1;              /* pushes button to bottom */
-        }
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 12px 32px rgba(15, 23, 42, 0.12);
+  --shadow-xl: 0 24px 48px rgba(15, 23, 42, 0.16);
 
-        /* Button wrapper — always aligned at bottom */
-        .card-btn-wrap {
-            padding: 0 20px 25px 20px;
-            display: flex;
-            justify-content: center;
-        }
+  --dur-fast: 150ms;
+  --dur-base: 250ms;
+  --dur-slow: 400ms;
+  --ease-out: cubic-bezier(0.4, 0, 0.2, 1);
 
-        .explore-btn {
-            background: #ff3366;
-            color: #fff;
-            border: none;
-            padding: 11px 26px;
-            font-weight: bold;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 13px;
-            transition: all 0.3s;
-            box-shadow: 0 4px 10px rgba(255, 51, 102, 0.3);
-            min-width: 150px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-        .explore-btn:hover { background: #e02454; transform: translateY(-2px); box-shadow: 0 6px 15px rgba(255, 51, 102, 0.4); }
+  --container: 1280px;
+  --header-h: 72px;
+  --header-h-scrolled: 56px;
 
-        /* ==========================================
-           FOOTER
-           ========================================== */
-        footer { background: rgba(3, 20, 41, 0.95); color: #fff; padding: 50px 40px 20px 40px; margin-top: 40px; border-top: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3); backdrop-filter: blur(10px); }
-        .footer-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; max-width: 1200px; margin: 0 auto; font-size: 14px; }
-        .footer-cols h4 { color: #fff; margin-bottom: 15px; border-bottom: 2px solid #005082; padding-bottom: 8px; font-weight: 700; letter-spacing: 0.5px; }
-        .footer-cols ul { list-style: none; }
-        .footer-cols ul li { margin-bottom: 10px; }
-        .footer-cols ul li a { color: #aaa; text-decoration: none; transition: color 0.3s; }
-        .footer-cols ul li a:hover { color: #00d2ff; }
-        .footer-bottom { text-align: center; margin-top: 30px; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 20px; font-size: 13px; color: #888; }
-        .footer-widgets { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 25px; padding-bottom: 25px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); gap: 15px; }
-        .social-row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
-        .social-row a { display: flex; align-items: center; justify-content: center; width: 42px; height: 42px; background: rgba(255, 255, 255, 0.1); color: #fff; text-decoration: none; border-radius: 50%; font-size: 18px; transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.2); }
-        .social-row a:hover { background: #00d2ff; color: #000; border-color: #00d2ff; transform: translateY(-3px); box-shadow: 0 5px 12px rgba(0, 210, 255, 0.4); }
-        .payment-methods { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
-        .payment-methods img { height: 34px; background: #fff; padding: 3px 8px; border-radius: 4px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); }
+  --fs-hero: clamp(2rem, 4.5vw + 1rem, 3.75rem);
+  --fs-h2: clamp(1.5rem, 2vw + 1rem, 2.25rem);
+  --fs-h3: clamp(1.125rem, 0.8vw + 0.9rem, 1.5rem);
+  --fs-body: clamp(0.9375rem, 0.2vw + 0.9rem, 1.0625rem);
+  --fs-caption: 0.8125rem;
 
-        /* ==========================================
-           RESPONSIVE — LARGE DESKTOP (1440px)
-           ========================================== */
-        @media (max-width: 1440px) {
-            .hero-content h2 { font-size: 3.2rem; }
-        }
+  --font-display: 'Poppins', system-ui, -apple-system, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+}
 
-        /* ==========================================
-           RESPONSIVE — DESKTOP (1280px)
-           ========================================== */
-        @media (max-width: 1280px) {
-            .hero-content h2 { font-size: 3rem; }
-            .categories-grid { gap: 25px; }
-        }
+/* ============================================================
+   RESET
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  color: var(--text-primary);
+  background: var(--surface-1);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+img, svg, video { display: block; max-width: 100%; height: auto; }
+button, input, select, textarea { font: inherit; color: inherit; }
+button { background: none; border: none; cursor: pointer; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+:focus-visible {
+  outline: 2px solid var(--brand-sky);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
 
-        /* ==========================================
-           RESPONSIVE — TABLET LANDSCAPE (1024px)
-           ========================================== */
-        @media (max-width: 1024px) {
-            .top-banner { padding: 10px 20px; font-size: 13px; }
-            header { padding: 15px 20px; }
-            nav { gap: 15px; }
-            nav a { font-size: 14px; }
+/* ============================================================
+   UTILITIES
+   ============================================================ */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: clamp(16px, 4vw, 40px);
+}
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--brand-accent);
+  margin-bottom: var(--space-2);
+}
+.section-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+  flex-wrap: wrap;
+}
+.section-head h2 {
+  font-size: var(--fs-h2);
+  color: var(--text-primary);
+}
+.section {
+  padding-block: var(--space-8);
+}
+.section--tight { padding-block: var(--space-7); }
+.section--alt { background: var(--surface-0); }
 
-            .hero { min-height: 300px; padding: 30px 25px; }
-            .hero-content h2 { font-size: 2.6rem; }
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  padding: 12px 22px;
+  border-radius: var(--radius-pill);
+  transition: transform var(--dur-fast), box-shadow var(--dur-base), background var(--dur-fast), color var(--dur-fast);
+  white-space: nowrap;
+  cursor: pointer;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+.btn--primary {
+  background: var(--grad-accent);
+  color: var(--text-inverse);
+  box-shadow: 0 8px 20px rgba(225, 29, 72, 0.32);
+}
+.btn--primary:hover { box-shadow: 0 12px 28px rgba(225, 29, 72, 0.42); }
+.btn--ghost {
+  background: transparent;
+  color: var(--text-inverse);
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+}
+.btn--ghost:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+.btn--outline {
+  background: transparent;
+  color: var(--brand-primary);
+  border: 1.5px solid var(--border-strong);
+}
+.btn--outline:hover { border-color: var(--brand-primary); }
+.btn--sm { padding: 8px 16px; font-size: 0.875rem; }
+.btn--lg { padding: 14px 28px; font-size: 1rem; }
 
-            .section-title { font-size: 17px; padding: 14px 18px; }
+/* ============================================================
+   UTILITY BAR
+   ============================================================ */
+.utility-bar {
+  background: var(--brand-primary);
+  color: var(--text-inverse);
+  font-size: 0.8125rem;
+  padding-block: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.utility-bar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+.utility-bar__trust {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--text-muted-inverse);
+  font-weight: 500;
+}
+.utility-bar__trust svg { color: var(--brand-gold); flex-shrink: 0; }
+.utility-bar__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+.utility-socials { display: flex; align-items: center; gap: var(--space-2); }
+.utility-socials a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-pill);
+  color: var(--text-muted-inverse);
+  transition: color var(--dur-fast), background var(--dur-fast);
+}
+.utility-socials a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-inverse);
+}
+.utility-auth {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+.utility-auth a { font-weight: 600; transition: color var(--dur-fast); }
+.utility-auth a:hover { color: var(--brand-sky); }
+.utility-auth .signup-link { color: var(--brand-sky); }
 
-            .category-container { padding: 30px; }
-            .categories-grid { grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 22px; }
-            .category-card img { height: 180px; }
-            .category-card h3 { font-size: 1.2rem; }
+/* ============================================================
+   NAVBAR
+   ============================================================ */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(11, 26, 51, 0.92);
+  backdrop-filter: saturate(180%) blur(12px);
+  -webkit-backdrop-filter: saturate(180%) blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transition: background var(--dur-base), border-color var(--dur-base);
+}
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  height: var(--header-h);
+  transition: height var(--dur-base) var(--ease-out);
+}
+.navbar.is-scrolled .navbar__inner { height: var(--header-h-scrolled); }
+.navbar__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: var(--text-inverse);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.25rem;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+.navbar__brand-mark {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--grad-accent);
+  display: grid;
+  place-items: center;
+  color: var(--text-inverse);
+  flex-shrink: 0;
+  box-shadow: 0 6px 16px rgba(225, 29, 72, 0.35);
+}
+.navbar__brand-mark svg { width: 20px; height: 20px; }
+.navbar__links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+}
+.navbar__links > li { position: relative; }
+.navbar__links a {
+  color: var(--text-muted-inverse);
+  font-weight: 500;
+  font-size: 0.9375rem;
+  padding-block: var(--space-3);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color var(--dur-fast);
+  white-space: nowrap;
+}
+.navbar__links a:hover,
+.navbar__links a[aria-current="page"] { color: var(--text-inverse); }
+.navbar__links a[aria-current="page"]::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0;
+  bottom: 8px;
+  height: 2px;
+  background: var(--brand-accent);
+  border-radius: 2px;
+}
+.has-mega > a svg { transition: transform var(--dur-base) var(--ease-out); }
+.has-mega:hover > a svg,
+.has-mega:focus-within > a svg { transform: rotate(180deg); }
+.mega {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  min-width: 560px;
+  padding: var(--space-5);
+  background: var(--surface-0);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--dur-base), transform var(--dur-base), visibility var(--dur-base);
+}
+.has-mega:hover .mega,
+.has-mega:focus-within .mega {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+.mega a {
+  color: var(--text-primary) !important;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  font-size: 0.875rem;
+  padding: var(--space-3) !important;
+  border-radius: var(--radius-md);
+  transition: background var(--dur-fast);
+}
+.mega a:hover { background: var(--brand-sky-soft); }
+.mega a strong {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.9375rem;
+}
+.mega a span {
+  color: var(--text-secondary);
+  font-size: 0.8125rem;
+  font-weight: 400;
+}
+.navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+.icon-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-pill);
+  display: inline-grid;
+  place-items: center;
+  color: var(--text-muted-inverse);
+  transition: color var(--dur-fast), background var(--dur-fast);
+}
+.icon-btn:hover {
+  color: var(--text-inverse);
+  background: rgba(255, 255, 255, 0.1);
+}
+.navbar__toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  color: var(--text-inverse);
+  border-radius: var(--radius-pill);
+  place-items: center;
+}
+.navbar__toggle:hover { background: rgba(255, 255, 255, 0.1); }
 
-            .footer-cols { grid-template-columns: repeat(2, 1fr); gap: 20px; }
-        }
+/* ============================================================
+   PAGE HERO
+   ============================================================ */
+.page-hero {
+  position: relative;
+  background: var(--grad-brand);
+  color: var(--text-inverse);
+  overflow: hidden;
+}
+.page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(60% 50% at 80% 20%, rgba(75, 181, 245, 0.18), transparent 60%),
+    radial-gradient(50% 60% at 10% 90%, rgba(225, 29, 72, 0.15), transparent 60%);
+  pointer-events: none;
+}
+.page-hero__inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: var(--space-7);
+  align-items: center;
+  padding-block: clamp(48px, 6vw, 96px);
+}
+.page-hero__content { max-width: 640px; }
+.page-hero h1 {
+  font-size: var(--fs-hero);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  font-weight: 800;
+  margin-bottom: var(--space-4);
+}
+.page-hero h1 .accent {
+  background: linear-gradient(135deg, #F43F5E, #4BB5F5);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+.page-hero__sub {
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--text-muted-inverse);
+  max-width: 520px;
+  margin-bottom: var(--space-5);
+}
+.page-hero__ctas {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-6);
+}
+.page-hero__stats {
+  display: flex;
+  gap: var(--space-5);
+  flex-wrap: wrap;
+  padding-top: var(--space-5);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.stat { display: flex; flex-direction: column; }
+.stat__value {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.5rem, 1vw + 1.25rem, 2rem);
+  color: var(--text-inverse);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.stat__label {
+  font-size: 0.8125rem;
+  color: var(--text-muted-inverse);
+  font-weight: 500;
+}
 
-        /* ==========================================
-           RESPONSIVE — TABLET PORTRAIT (900px)
-           ========================================== */
-        @media (max-width: 900px) {
-            .hero { min-height: 260px; padding: 25px 20px; }
-            .hero-content h2 { font-size: 2.2rem; }
+/* Perks card inside hero */
+.perks-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: var(--radius-xl);
+  padding: var(--space-5);
+}
+.perks-card__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.0625rem;
+  color: var(--text-inverse);
+  margin-bottom: var(--space-4);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+.perks-card__title svg { color: var(--brand-gold); }
+.perks-list {
+  display: grid;
+  gap: var(--space-3);
+}
+.perks-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  font-size: 0.9375rem;
+  color: var(--text-muted-inverse);
+  line-height: 1.5;
+}
+.perks-list__icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(75, 181, 245, 0.18);
+  color: var(--brand-sky);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.perks-list__icon svg { width: 14px; height: 14px; }
 
-            .categories-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
-            .category-card img { height: 170px; }
-        }
+/* ============================================================
+   JOB LISTINGS
+   ============================================================ */
+.jobs-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-5);
+}
+.filter-chips {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+.filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  background: var(--surface-1);
+  border: 1px solid var(--border-subtle);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all var(--dur-fast);
+  white-space: nowrap;
+}
+.filter-chip:hover {
+  border-color: var(--brand-primary);
+  transform: translateY(-1px);
+}
+.filter-chip.is-active {
+  background: var(--brand-primary);
+  color: var(--text-inverse);
+  border-color: var(--brand-primary);
+}
+.jobs-count {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+.jobs-count strong { color: var(--text-primary); font-weight: 700; }
 
-        /* ==========================================
-           RESPONSIVE — MOBILE (768px and below)
-           ========================================== */
-        @media (max-width: 768px) {
-            /* TOP BANNER */
-            .top-banner { flex-direction: column; text-align: center; gap: 12px; padding: 15px; }
-            .top-banner > div:first-child { flex-direction: column; gap: 8px; }
-            .social-icons { margin-top: 0; justify-content: center; }
-            .header-buttons { justify-content: center; }
+.jobs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--space-4);
+}
 
-            /* HEADER + MOBILE NAV */
-            .mobile-menu-toggle { display: block; }
-            nav { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: rgba(3, 20, 41, 0.98); padding: 20px; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); gap: 15px; align-items: flex-start; z-index: 999; border-top: 1px solid rgba(255, 255, 255, 0.1); width: 100%; }
-            nav.active { display: flex; }
-            .dropdown { width: 100%; }
-            .dropdown-content { position: static; box-shadow: none; display: none; padding-left: 20px; border: none; background: transparent; width: 100%; }
-            .dropdown.open .dropdown-content { display: block; }
+.job-card {
+  background: var(--surface-0);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  transition: transform var(--dur-base) var(--ease-out),
+              box-shadow var(--dur-base),
+              border-color var(--dur-base);
+  position: relative;
+}
+.job-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--brand-sky);
+}
+.job-card__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+.job-card__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: var(--brand-sky-soft);
+  color: var(--brand-primary-soft);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.job-card__icon svg { width: 22px; height: 22px; }
+.job-card__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  background: rgba(225, 29, 72, 0.08);
+  color: var(--brand-accent);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.job-card__badge.is-open {
+  background: rgba(16, 185, 129, 0.1);
+  color: #059669;
+}
+.job-card__title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-2);
+}
+.job-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+.job-meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+.job-meta-item svg { width: 14px; height: 14px; flex-shrink: 0; }
+.job-card__desc {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  flex-grow: 1;
+}
+.job-card__skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.skill-tag {
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  background: var(--surface-2);
+  color: var(--text-primary);
+  font-weight: 500;
+}
+.job-card__actions {
+  display: flex;
+  gap: var(--space-2);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--border-subtle);
+  margin-top: auto;
+}
+.job-card__actions .btn { flex: 1; }
 
-            /* HERO */
-            .hero { min-height: 220px; padding: 25px 18px; }
-            .hero-content h2 { font-size: 1.9rem; margin-bottom: 0; }
-            .hero-content h2 br { display: none; }
-            .hero-content h2 .highlight-red { display: inline; }
+/* Empty state */
+.jobs-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: var(--space-8) var(--space-4);
+  background: var(--surface-0);
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius-lg);
+}
+.jobs-empty svg {
+  margin: 0 auto var(--space-4);
+  color: var(--text-secondary);
+}
+.jobs-empty h3 {
+  font-size: 1.125rem;
+  margin-bottom: var(--space-2);
+}
+.jobs-empty p {
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+}
 
-            /* SECTION TITLE */
-            .section-title { font-size: 15px; padding: 13px 18px; letter-spacing: 1px; margin: 24px auto; }
+/* ============================================================
+   HIRING PROCESS
+   ============================================================ */
+.process__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+  position: relative;
+}
+.process__grid::before {
+  content: '';
+  position: absolute;
+  top: 24px;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: repeating-linear-gradient(
+    to right,
+    var(--border-strong) 0,
+    var(--border-strong) 6px,
+    transparent 6px,
+    transparent 12px
+  );
+  z-index: 0;
+}
+.process-step {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.process-step__num {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--surface-0);
+  border: 2px solid var(--brand-sky);
+  color: var(--brand-primary);
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.125rem;
+  margin-bottom: var(--space-3);
+  box-shadow: 0 0 0 8px var(--surface-1);
+}
+.process-step h3 {
+  font-size: 1rem;
+  margin-bottom: var(--space-2);
+  color: var(--text-primary);
+}
+.process-step p {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  max-width: 220px;
+}
 
-            /* CATEGORY CONTAINER */
-            .category-container { padding: 24px 18px; border-radius: 10px; width: 94%; margin-bottom: 28px; }
-            .categories-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 18px; }
-            .category-card img { height: 160px; }
-            .category-card h3 { font-size: 1.1rem; margin: 16px 10px 8px 10px; }
-            .category-card p { font-size: 13px; padding: 0 16px; margin-bottom: 16px; }
-            .card-btn-wrap { padding: 0 16px 20px 16px; }
-            .explore-btn { padding: 10px 22px; font-size: 12.5px; min-width: 140px; }
+/* ============================================================
+   APPLICATION FORM
+   ============================================================ */
+.apply-layout {
+  display: grid;
+  grid-template-columns: 0.8fr 1.4fr;
+  gap: var(--space-6);
+  align-items: flex-start;
+}
+.apply-intro h2 {
+  font-size: var(--fs-h2);
+  margin-bottom: var(--space-3);
+  color: var(--text-primary);
+}
+.apply-intro p {
+  color: var(--text-secondary);
+  margin-bottom: var(--space-4);
+  line-height: 1.7;
+}
+.apply-intro__list {
+  display: grid;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border-subtle);
+}
+.apply-intro__item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+}
+.apply-intro__item svg {
+  color: var(--brand-accent);
+  flex-shrink: 0;
+  margin-top: 3px;
+  width: 18px; height: 18px;
+}
 
-            /* FOOTER */
-            .footer-cols { grid-template-columns: repeat(2, 1fr); gap: 20px; }
-            .footer-widgets { flex-direction: column; justify-content: center; gap: 18px; }
-            .payment-methods { justify-content: center; }
-            .footer-widgets > div { justify-content: center; }
-        }
+.apply-form {
+  background: var(--surface-0);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-md);
+}
+.form-section {
+  margin-bottom: var(--space-5);
+}
+.form-section:last-of-type { margin-bottom: 0; }
+.form-section__head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--border-subtle);
+}
+.form-section__num {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--brand-primary);
+  color: var(--text-inverse);
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.8125rem;
+  flex-shrink: 0;
+}
+.form-section__head h3 {
+  font-size: 1rem;
+  color: var(--text-primary);
+}
+.form-section__head p {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
 
-        /* ==========================================
-           RESPONSIVE — SMALL MOBILE (480px and below)
-           ========================================== */
-        @media (max-width: 480px) {
-            .welcome-text { font-size: 12px; }
-            .welcome-text strong { font-size: 13px; }
-            .logo-area h1 { font-size: 18px; }
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+.form-grid--full { grid-template-columns: 1fr; }
 
-            .hero { min-height: 180px; padding: 22px 15px; }
-            .hero-content h2 { font-size: 1.6rem; }
+.form-field { margin-bottom: 0; }
+.form-field label {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.form-field label .req { color: var(--brand-accent); margin-left: 2px; }
+.form-control {
+  width: 100%;
+  padding: 12px 14px;
+  background: var(--surface-1);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+  transition: border-color var(--dur-fast), background var(--dur-fast);
+}
+.form-control::placeholder { color: var(--text-secondary); }
+.form-control:hover { border-color: var(--border-strong); }
+.form-control:focus {
+  outline: none;
+  border-color: var(--brand-sky);
+  background: var(--surface-0);
+  box-shadow: 0 0 0 4px rgba(75, 181, 245, 0.15);
+}
+textarea.form-control {
+  resize: vertical;
+  min-height: 110px;
+  font-family: inherit;
+}
+select.form-control {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748B' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 42px;
+}
+.form-actions {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+  padding-top: var(--space-5);
+  margin-top: var(--space-5);
+  border-top: 1px solid var(--border-subtle);
+  flex-wrap: wrap;
+}
+.form-actions .btn { flex: 1; min-width: 200px; }
+.form-hint {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.form-hint svg { width: 14px; height: 14px; }
 
-            .section-title { font-size: 13px; padding: 11px 14px; letter-spacing: 0.8px; }
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer {
+  background: var(--brand-primary);
+  color: var(--text-inverse);
+  padding-top: var(--space-8);
+  margin-top: var(--space-8);
+}
+.footer__top {
+  display: grid;
+  grid-template-columns: 1.4fr repeat(3, 1fr);
+  gap: var(--space-6);
+  padding-bottom: var(--space-7);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.footer__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.25rem;
+}
+.footer__brand .navbar__brand-mark { width: 40px; height: 40px; }
+.footer__about {
+  color: var(--text-muted-inverse);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin-bottom: var(--space-5);
+  max-width: 340px;
+}
+.footer__newsletter {
+  display: flex;
+  gap: var(--space-2);
+  max-width: 360px;
+}
+.footer__newsletter input {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 16px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--text-inverse);
+  font-size: 0.875rem;
+  transition: border-color var(--dur-fast), background var(--dur-fast);
+}
+.footer__newsletter input::placeholder { color: rgba(255, 255, 255, 0.5); }
+.footer__newsletter input:focus {
+  outline: none;
+  border-color: var(--brand-sky);
+  background: rgba(255, 255, 255, 0.12);
+}
+.footer__col h4 {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  margin-bottom: var(--space-4);
+  color: var(--text-inverse);
+}
+.footer__col ul li { margin-bottom: var(--space-3); }
+.footer__col ul li a {
+  color: var(--text-muted-inverse);
+  font-size: 0.875rem;
+  transition: color var(--dur-fast);
+}
+.footer__col ul li a:hover { color: var(--brand-sky); }
+.footer__contact li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  color: var(--text-muted-inverse);
+  font-size: 0.875rem;
+}
+.footer__contact svg {
+  color: var(--brand-sky);
+  flex-shrink: 0;
+  margin-top: 3px;
+  width: 16px; height: 16px;
+}
+.footer__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  padding-block: var(--space-5);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.footer__legal {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  font-size: 0.8125rem;
+  color: var(--text-muted-inverse);
+}
+.footer__legal a:hover { color: var(--brand-sky); }
+.footer__payments {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+.footer__payments span {
+  font-size: 0.75rem;
+  color: var(--text-muted-inverse);
+  font-weight: 500;
+}
+.footer__payments img {
+  height: 24px;
+  border-radius: 4px;
+  background: #fff;
+  padding: 2px 6px;
+}
+.footer__socials { display: flex; gap: var(--space-2); }
+.footer__socials a {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--text-muted-inverse);
+  transition: all var(--dur-fast);
+}
+.footer__socials a:hover {
+  background: var(--brand-sky);
+  color: var(--brand-primary);
+  border-color: var(--brand-sky);
+  transform: translateY(-2px);
+}
+.footer__copyright {
+  text-align: center;
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.45);
+  padding-block: var(--space-4);
+}
 
-            .category-container { padding: 20px 14px; width: 95%; }
-            .categories-grid { grid-template-columns: 1fr; gap: 16px; }
-            .category-card img { height: 190px; }
-            .category-card h3 { font-size: 1.05rem; }
-            .category-card p { font-size: 13px; }
-            .card-btn-wrap { padding: 0 14px 18px 14px; }
-            .explore-btn { padding: 11px 24px; font-size: 13px; width: 100%; min-width: 0; }
+/* ============================================================
+   DRAWER
+   ============================================================ */
+.drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: none;
+}
+.drawer.is-open { display: block; }
+.drawer__scrim {
+  position: absolute;
+  inset: 0;
+  background: rgba(11, 26, 51, 0.6);
+  backdrop-filter: blur(4px);
+  animation: fadeIn var(--dur-base) var(--ease-out);
+}
+.drawer__panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(90vw, 380px);
+  background: var(--brand-primary);
+  color: var(--text-inverse);
+  padding: var(--space-5) var(--space-4);
+  overflow-y: auto;
+  animation: slideIn var(--dur-base) var(--ease-out);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+@keyframes slideIn {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.drawer__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.drawer__head .navbar__brand { font-size: 1.125rem; }
+.drawer__close {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  display: grid; place-items: center;
+  color: var(--text-inverse);
+}
+.drawer__close:hover { background: rgba(255, 255, 255, 0.1); }
+.drawer__links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+.drawer__links a,
+.drawer__toggle {
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  color: var(--text-muted-inverse);
+  transition: background var(--dur-fast), color var(--dur-fast);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  width: 100%;
+}
+.drawer__links a:hover,
+.drawer__links a[aria-current="page"],
+.drawer__toggle:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-inverse);
+}
+.drawer__sub {
+  padding-left: var(--space-5);
+  display: none;
+  flex-direction: column;
+  gap: 2px;
+}
+.drawer__sub.is-open { display: flex; }
+.drawer__sub a {
+  font-size: 0.875rem;
+  padding: var(--space-2) var(--space-3);
+}
+.drawer__ctas {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding-top: var(--space-4);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.drawer__ctas .btn { width: 100%; }
 
-            .footer-cols { grid-template-columns: 1fr; gap: 18px; }
-            .footer-widgets { flex-direction: column; gap: 15px; }
-            .payment-methods { justify-content: center; }
-            .social-row { justify-content: center; }
-        }
+body.is-locked { overflow: hidden; }
 
-        /* ==========================================
-           RESPONSIVE — EXTRA SMALL (375px and below)
-           ========================================== */
-        @media (max-width: 375px) {
-            .top-banner { padding: 10px; }
-            header { padding: 12px 10px; }
-            .welcome-text strong { display: block; margin-top: 4px; }
-            .logo-area h1 { font-size: 16px; }
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1023px) {
+  .navbar__links { display: none; }
+  .navbar__toggle { display: grid; }
+  .utility-bar__trust span { display: none; }
+  .utility-socials { display: none; }
 
-            .hero { min-height: 160px; padding: 20px 12px; }
-            .hero-content h2 { font-size: 1.4rem; }
+  .page-hero__inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+  .page-hero__content { max-width: 640px; }
+  .perks-card { max-width: 560px; }
 
-            .section-title { font-size: 12px; padding: 10px 12px; }
+  .process__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-5) var(--space-4);
+  }
+  .process__grid::before { display: none; }
 
-            .category-container { padding: 16px 12px; }
-            .category-card img { height: 170px; }
-            .category-card h3 { font-size: 1rem; }
-            .category-card p { font-size: 12.5px; }
-            .explore-btn { padding: 10px 20px; font-size: 12.5px; }
+  .apply-layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
 
-            .login-btn, .signup-btn { padding: 7px 14px; font-size: 12px; }
-        }
+  .footer__top {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-5);
+  }
+  .footer__brand-col { grid-column: 1 / -1; }
+}
 
-        /* ==========================================
-           RESPONSIVE — TINY (320px and below)
-           ========================================== */
-        @media (max-width: 320px) {
-            .hero-content h2 { font-size: 1.25rem; }
-            .logo-area h1 { font-size: 15px; }
-            .header-buttons { flex-direction: column; width: 100%; }
-            .login-btn, .signup-btn { width: 100%; justify-content: center; }
-            .section-title { font-size: 11px; padding: 9px 10px; letter-spacing: 0.5px; }
-            .category-card img { height: 150px; }
-            .category-card h3 { font-size: 0.95rem; }
-        }
-    </style>
+@media (max-width: 767px) {
+  .utility-bar__inner { justify-content: center; }
+  .utility-auth .signup-link { display: none; }
+
+  .section { padding-block: var(--space-6); }
+  .section--tight { padding-block: var(--space-5); }
+
+  .page-hero__ctas { flex-direction: column; }
+  .page-hero__ctas .btn { width: 100%; }
+
+  .jobs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .jobs-toolbar { flex-direction: column; align-items: stretch; }
+  .filter-chips { overflow-x: auto; padding-bottom: 4px; flex-wrap: nowrap; }
+
+  .process__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+  .process-step { text-align: left; align-items: flex-start; }
+  .process-step p { max-width: 100%; }
+
+  .apply-form { padding: var(--space-5) var(--space-4); }
+  .form-grid { grid-template-columns: 1fr; }
+  .form-actions { flex-direction: column; align-items: stretch; }
+
+  .footer__top {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+  .footer__bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+  .footer__legal { justify-content: center; }
+  .footer__payments { justify-content: center; }
+  .footer__socials { justify-content: center; }
+}
+
+@media (max-width: 479px) {
+  .page-hero__stats {
+    gap: var(--space-4);
+    padding-top: var(--space-4);
+  }
+  .perks-card { padding: var(--space-4); }
+  .job-card { padding: var(--space-4); }
+  .form-section__head { flex-wrap: wrap; }
+}
+</style>
 </head>
 
 <body>
 
-    <!-- Top Banner -->
-    <div class="top-banner">
-        <div style="display: flex; align-items: center;">
-            <img src="images/logo/logo.png" alt="3Stars Logo" style="height: 45px; margin-right: 15px;">
-            <span class="welcome-text">Welcome to the official website of <i class="fas fa-star"></i> <strong>3Stars Entertainers Pvt Ltd</strong> <i class="fas fa-star"></i></span>
+<!-- ============================================================
+     UTILITY BAR
+     ============================================================ -->
+<div class="utility-bar">
+  <div class="container utility-bar__inner">
+    <div class="utility-bar__trust">
+      <i data-lucide="star" width="14" height="14"></i>
+      <span>Official website of <strong style="color:#fff">3Stars Entertainers Pvt Ltd</strong></span>
+    </div>
+    <div class="utility-bar__actions">
+      <div class="utility-socials">
+        <a href="#" aria-label="Facebook"><i data-lucide="facebook" width="16" height="16"></i></a>
+        <a href="#" aria-label="Instagram"><i data-lucide="instagram" width="16" height="16"></i></a>
+        <a href="#" aria-label="YouTube"><i data-lucide="youtube" width="16" height="16"></i></a>
+        <a href="#" aria-label="Email"><i data-lucide="mail" width="16" height="16"></i></a>
+      </div>
+      <div class="utility-auth">
+        <a href="login.html">Log in</a>
+        <a href="signup.html" class="signup-link">Sign up →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     NAVBAR
+     ============================================================ -->
+<nav class="navbar" id="navbar" aria-label="Primary">
+  <div class="container navbar__inner">
+    <a href="index.html" class="navbar__brand" aria-label="3Stars Entertainers home">
+      <span class="navbar__brand-mark">
+        <i data-lucide="star" width="20" height="20" fill="currentColor"></i>
+      </span>
+      3Stars
+    </a>
+
+    <ul class="navbar__links" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li class="has-mega">
+        <a href="category.html" aria-haspopup="true" aria-expanded="false">
+          Category <i data-lucide="chevron-down" width="14" height="14"></i>
+        </a>
+        <div class="mega" role="menu">
+          <a href="category.html?c=tamil" role="menuitem">
+            <strong>Tamil Movie Songs</strong>
+            <span>1,200+ tracks</span>
+          </a>
+          <a href="category.html?c=gana" role="menuitem">
+            <strong>Gana Songs</strong>
+            <span>340+ tracks</span>
+          </a>
+          <a href="category.html?c=devotional" role="menuitem">
+            <strong>Devotional Songs</strong>
+            <span>520+ tracks</span>
+          </a>
+          <a href="category.html?c=remix" role="menuitem">
+            <strong>Remix & Folk</strong>
+            <span>210+ tracks</span>
+          </a>
+          <a href="category.html?c=cover" role="menuitem">
+            <strong>Cover & Karaoke</strong>
+            <span>890+ tracks</span>
+          </a>
+          <a href="category.html?c=new" role="menuitem">
+            <strong>New Releases</strong>
+            <span>Updated weekly</span>
+          </a>
         </div>
-        <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap; justify-content: center;">
-            <div class="social-icons">
-                <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
-                <a href="#" title="Google"><i class="fab fa-google"></i></a>
-                <a href="#" title="Email"><i class="fas fa-envelope"></i></a>
-            </div>
-            <div class="header-buttons">
-                <a href="login.html" class="login-btn"><i class="fas fa-user-circle"></i> Log In</a>
-                <a href="signup.html" class="signup-btn"><i class="fas fa-user-plus"></i> Sign Up</a>
-            </div>
+      </li>
+      <li><a href="mystage.html">My Stage</a></li>
+      <li><a href="career.html" aria-current="page">Career</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <div class="navbar__actions">
+      <button class="icon-btn" aria-label="Search" type="button">
+        <i data-lucide="search" width="20" height="20"></i>
+      </button>
+      <button class="navbar__toggle" id="drawerOpen" aria-label="Open menu" aria-expanded="false" type="button">
+        <i data-lucide="menu" width="24" height="24"></i>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================================================
+     PAGE HERO
+     ============================================================ -->
+<section class="page-hero" aria-labelledby="career-title">
+  <div class="container">
+    <div class="page-hero__inner">
+      <div class="page-hero__content">
+        <span class="eyebrow" style="color:var(--brand-sky)">Careers at 3Stars</span>
+        <h1 id="career-title">
+          Build your future with
+          <span class="accent">3Stars Entertainers</span>
+        </h1>
+        <p class="page-hero__sub">
+          We're a small, fast-moving team on a mission to make karaoke
+          joyful and accessible for every Tamil music fan worldwide. If
+          you love music and want to shape how millions experience it —
+          you'll fit right in.
+        </p>
+        <div class="page-hero__ctas">
+          <a href="#openings" class="btn btn--primary">
+            <i data-lucide="briefcase" width="18" height="18"></i>
+            See open roles
+          </a>
+          <a href="#applyForm" class="btn btn--ghost">
+            Submit a proposal
+            <i data-lucide="arrow-right" width="18" height="18"></i>
+          </a>
         </div>
+        <div class="page-hero__stats">
+          <div class="stat">
+            <span class="stat__value">100%</span>
+            <span class="stat__label">Remote-friendly</span>
+          </div>
+          <div class="stat">
+            <span class="stat__value">3</span>
+            <span class="stat__label">Open roles</span>
+          </div>
+          <div class="stat">
+            <span class="stat__value">7 days</span>
+            <span class="stat__label">Avg. response time</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="perks-card" aria-label="Why work with us">
+        <div class="perks-card__title">
+          <i data-lucide="sparkles" width="18" height="18"></i>
+          Why you'll love it here
+        </div>
+        <ul class="perks-list" role="list">
+          <li>
+            <span class="perks-list__icon"><i data-lucide="home"></i></span>
+            Work from anywhere — fully remote team
+          </li>
+          <li>
+            <span class="perks-list__icon"><i data-lucide="music-2"></i></span>
+            Free premium access to our entire library
+          </li>
+          <li>
+            <span class="perks-list__icon"><i data-lucide="trending-up"></i></span>
+            Fast growth path in a fast-growing company
+          </li>
+          <li>
+            <span class="perks-list__icon"><i data-lucide="graduation-cap"></i></span>
+            Annual budget for courses and tools
+          </li>
+          <li>
+            <span class="perks-list__icon"><i data-lucide="heart"></i></span>
+            Friendly, music-obsessed teammates
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     JOB LISTINGS
+     ============================================================ -->
+<section class="section" id="openings" aria-labelledby="openings-title">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Open positions</span>
+        <h2 id="openings-title">Current career openings</h2>
+      </div>
     </div>
 
-    <div class="hero-wrapper">
-        <!-- Main Navigation Header -->
-        <header>
-            <div class="logo-area">
-                <h1>3 Stars Entertainers</h1>
-            </div>
-            <div class="mobile-menu-toggle" id="mobileMenuToggle">
-                <i class="fas fa-bars"></i>
-            </div>
-            <nav id="mainNav">
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <div class="dropdown">
-                    <a href="category.html" class="active">Category ▾</a>
-                    <div class="dropdown-content">
-                        <a href="category.html">Tamil Movie Songs</a>
-                        <a href="category.html">Gana Songs</a>
-                        <a href="category.html">Devotional Songs</a>
-                        <a href="category.html">Remix and Folk Songs</a>
-                        <a href="category.html">Cover Songs Karaoke</a>
-                    </div>
-                </div>
-                <a href="mystage.html">My Stage</a>
-                <a href="career.html">Career</a>
-                <a href="contact.html">Contact</a>
-            </nav>
-        </header>
-
-        <!-- Category Hero Banner -->
-        <section class="hero">
-            <div class="hero-content">
-                <h2>Explore Our Entertainment<br><span class="highlight-red">Categories</span></h2>
-            </div>
-        </section>
+    <div class="jobs-toolbar">
+      <div class="filter-chips" role="tablist" aria-label="Filter jobs by department">
+        <button class="filter-chip is-active" role="tab" aria-selected="true" data-filter="all">
+          <i data-lucide="layers" width="14" height="14"></i> All roles
+        </button>
+        <button class="filter-chip" role="tab" aria-selected="false" data-filter="design">
+          <i data-lucide="palette" width="14" height="14"></i> Design
+        </button>
+        <button class="filter-chip" role="tab" aria-selected="false" data-filter="marketing">
+          <i data-lucide="megaphone" width="14" height="14"></i> Marketing
+        </button>
+        <button class="filter-chip" role="tab" aria-selected="false" data-filter="content">
+          <i data-lucide="video" width="14" height="14"></i> Content
+        </button>
+      </div>
+      <div class="jobs-count" id="jobsCount"></div>
     </div>
 
-    <!-- Categories Section -->
-    <div class="section-title">Select a Category to Enjoy</div>
+    <div class="jobs-grid" id="jobsGrid" role="list">
+      <!-- Job cards injected by JS -->
+    </div>
+  </div>
+</section>
 
-    <div class="category-container">
-        <div class="categories-grid">
-            <!-- Category 1 -->
-            <div class="category-card">
-                <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=400&auto=format&fit=crop" alt="Karaoke">
-                <h3>Karaoke & Singing</h3>
-                <p>Sing solo or duets, record your tracks, and share your talent with our vibrant community.</p>
-                <div class="card-btn-wrap">
-                    <button class="explore-btn"><i class="fas fa-arrow-right"></i> View Category</button>
-                </div>
-            </div>
-
-            <!-- Category 2 -->
-            <div class="category-card">
-                <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=400&auto=format&fit=crop" alt="Live Events">
-                <h3>Live Events & Shows</h3>
-                <p>Discover upcoming musical concerts, stage shows, and exclusive community weekend events.</p>
-                <div class="card-btn-wrap">
-                    <button class="explore-btn"><i class="fas fa-arrow-right"></i> View Category</button>
-                </div>
-            </div>
-
-            <!-- Category 3 -->
-            <div class="category-card">
-                <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=400&auto=format&fit=crop" alt="Performers">
-                <h3>Star Performers</h3>
-                <p>Watch top-rated performances by talented artists and interact through comments and likes.</p>
-                <div class="card-btn-wrap">
-                    <button class="explore-btn"><i class="fas fa-arrow-right"></i> View Category</button>
-                </div>
-            </div>
-
-            <!-- Category 4 -->
-            <div class="category-card">
-                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=400&auto=format&fit=crop" alt="Career">
-                <h3>Career & Auditions</h3>
-                <p>Join our growing network of designers, marketers, and video editors or participate in auditions.</p>
-                <div class="card-btn-wrap">
-                    <button class="explore-btn"><i class="fas fa-arrow-right"></i> View Category</button>
-                </div>
-            </div>
-        </div>
+<!-- ============================================================
+     HIRING PROCESS
+     ============================================================ -->
+<section class="section section--alt" aria-labelledby="process-title">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">What to expect</span>
+        <h2 id="process-title">Our hiring process</h2>
+      </div>
     </div>
 
-    <!-- Footer Section -->
-    <footer>
-        <div style="max-width: 1200px; margin: 0 auto;">
-            <div class="footer-widgets">
-                <div style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap;">
-                    <span style="color: #aaa; font-size: 15px; font-weight: 600;">Secure Payments:</span>
-                    <div class="payment-methods">
-                        <img src="https://img.icons8.com/color/48/000000/visa.png" alt="Visa">
-                        <img src="https://img.icons8.com/color/48/000000/mastercard.png" alt="MasterCard">
-                        <img src="https://img.icons8.com/color/48/000000/paypal.png" alt="PayPal">
-                        <img src="https://img.icons8.com/color/48/000000/amex.png" alt="Amex">
-                    </div>
-                </div>
+    <div class="process__grid">
+      <div class="process-step">
+        <span class="process-step__num">1</span>
+        <h3>Apply</h3>
+        <p>Send us your portfolio and a short note about why you're a great fit.</p>
+      </div>
+      <div class="process-step">
+        <span class="process-step__num">2</span>
+        <h3>Intro call</h3>
+        <p>A 30-minute chat with our team to discuss your goals and expectations.</p>
+      </div>
+      <div class="process-step">
+        <span class="process-step__num">3</span>
+        <h3>Skill review</h3>
+        <p>A short, paid task based on real work you'd do here — no trick questions.</p>
+      </div>
+      <div class="process-step">
+        <span class="process-step__num">4</span>
+        <h3>Offer</h3>
+        <p>We make a decision within a week and send over a written offer.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-                <div style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap;">
-                    <span style="color: #aaa; font-size: 15px; font-weight: 600;">Follow Us:</span>
-                    <div class="social-row">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-tiktok"></i></a>
-                        <a href="#"><i class="fas fa-envelope"></i></a>
-                    </div>
-                </div>
-            </div>
+<!-- ============================================================
+     APPLICATION FORM
+     ============================================================ -->
+<section class="section" id="applyForm" aria-labelledby="apply-title">
+  <div class="container">
+    <div class="apply-layout">
+      <div class="apply-intro">
+        <span class="eyebrow">Submit your proposal</span>
+        <h2 id="apply-title">Don't see the perfect role?</h2>
+        <p>
+          We're always looking for talented people who love music. Send
+          us your portfolio and tell us how you'd like to contribute —
+          we read every application.
+        </p>
+        <ul class="apply-intro__list" role="list">
+          <li class="apply-intro__item">
+            <i data-lucide="clock"></i>
+            We reply to every applicant within 7 days.
+          </li>
+          <li class="apply-intro__item">
+            <i data-lucide="shield-check"></i>
+            Your portfolio stays private and confidential.
+          </li>
+          <li class="apply-intro__item">
+            <i data-lucide="user-check"></i>
+            No automated screening — a real human reads this.
+          </li>
+        </ul>
+      </div>
 
-            <div class="footer-cols">
-                <div>
-                    <h4>3Stars Entertainers</h4>
-                    <ul>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
-                        <li><a href="career.html">Careers</a></li>
-                        <li><a href="mystage.html">My Stage</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Legal</h4>
-                    <ul>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Refund Policy</a></li>
-                        <li><a href="#">Copyright Information</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Help & Support</h4>
-                    <ul>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">How to Download</a></li>
-                        <li><a href="#">Subscription Plans</a></li>
-                        <li><a href="#">Report an Issue</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Get In Touch</h4>
-                    <ul>
-                        <li><i class="fas fa-map-marker-alt" style="margin-right:8px;"></i> 123 Music Avenue, SL</li>
-                        <li><i class="fas fa-phone-alt" style="margin-right:8px;"></i> +94 77 123 4567</li>
-                        <li><i class="fas fa-envelope" style="margin-right:8px;"></i> info@3stars.com</li>
-                    </ul>
-                </div>
+      <form class="apply-form" id="careerForm" novalidate
+            onsubmit="event.preventDefault(); this.reset(); alert('Thanks — we\'ve received your application and will be in touch within 7 days.');">
+
+        <!-- Section 1: Personal -->
+        <div class="form-section">
+          <div class="form-section__head">
+            <span class="form-section__num">1</span>
+            <div>
+              <h3>Your details</h3>
+              <p>How can we reach you?</p>
             </div>
-            <div class="footer-bottom">
-                &copy; 2026 Music Platform. All Rights Reserved. | Designed & Developed by WebNest Private Limited.
+          </div>
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="fullName">Full name <span class="req">*</span></label>
+              <input class="form-control" id="fullName" name="fullName" type="text"
+                     placeholder="Your full name" required />
             </div>
+            <div class="form-field">
+              <label for="email">Email address <span class="req">*</span></label>
+              <input class="form-control" id="email" name="email" type="email"
+                     placeholder="you@example.com" required />
+            </div>
+            <div class="form-field">
+              <label for="whatsapp">WhatsApp number</label>
+              <input class="form-control" id="whatsapp" name="whatsapp" type="tel"
+                     placeholder="+94 77 123 4567" />
+            </div>
+            <div class="form-field">
+              <label for="location">Location</label>
+              <input class="form-control" id="location" name="location" type="text"
+                     placeholder="City, Country" />
+            </div>
+          </div>
         </div>
-    </footer>
 
-    <!-- Mobile Menu Script -->
-    <script>
-        const menuToggle = document.getElementById('mobileMenuToggle');
-        const mainNav = document.getElementById('mainNav');
-        if (menuToggle && mainNav) {
-            menuToggle.addEventListener('click', () => {
-                mainNav.classList.toggle('active');
-            });
+        <!-- Section 2: Position -->
+        <div class="form-section">
+          <div class="form-section__head">
+            <span class="form-section__num">2</span>
+            <div>
+              <h3>Position</h3>
+              <p>Which role are you applying for?</p>
+            </div>
+          </div>
+          <div class="form-grid form-grid--full">
+            <div class="form-field">
+              <label for="position">Role <span class="req">*</span></label>
+              <select class="form-control" id="position" name="position" required>
+                <option value="" disabled selected>Select a position</option>
+                <option value="designer">Graphic & UI/UX Designer</option>
+                <option value="marketer">Digital Marketing Specialist</option>
+                <option value="video-editor">Video Editor & AI Content Creator</option>
+                <option value="other">Other entertainment role</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 3: Portfolio -->
+        <div class="form-section">
+          <div class="form-section__head">
+            <span class="form-section__num">3</span>
+            <div>
+              <h3>Portfolio & experience</h3>
+              <p>Show us what you've built</p>
+            </div>
+          </div>
+          <div class="form-grid form-grid--full">
+            <div class="form-field">
+              <label for="portfolio">Portfolio link (Drive, website, Behance) <span class="req">*</span></label>
+              <input class="form-control" id="portfolio" name="portfolio" type="url"
+                     placeholder="https://" required />
+            </div>
+            <div class="form-field" style="margin-top:var(--space-4);">
+              <label for="experience">Experience details <span class="req">*</span></label>
+              <textarea class="form-control" id="experience" name="experience"
+                        placeholder="Briefly describe your experience — past projects, tools, notable achievements…"
+                        required></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn--primary btn--lg">
+            <i data-lucide="send" width="16" height="16"></i>
+            Submit application
+          </button>
+          <span class="form-hint">
+            <i data-lucide="lock"></i>
+            Your data stays private
+          </span>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__brand-col">
+        <a href="index.html" class="footer__brand">
+          <span class="navbar__brand-mark">
+            <i data-lucide="star" width="20" height="20" fill="currentColor"></i>
+          </span>
+          3Stars Entertainers
+        </a>
+        <p class="footer__about">
+          High-quality karaoke tracks of Tamil cinema's greatest playback
+          singers — recreated with studio precision and updated weekly.
+        </p>
+        <form class="footer__newsletter" onsubmit="event.preventDefault(); this.reset();">
+          <label for="newsletter-email" class="sr-only">Email address</label>
+          <input id="newsletter-email" type="email" placeholder="Get new tracks in your inbox" required />
+          <button type="submit" class="btn btn--primary btn--sm">Subscribe</button>
+        </form>
+      </div>
+
+      <div class="footer__col">
+        <h4>Company</h4>
+        <ul role="list">
+          <li><a href="about.html">About us</a></li>
+          <li><a href="contact.html">Contact us</a></li>
+          <li><a href="career.html">Careers</a></li>
+          <li><a href="mystage.html">My Stage</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4>Help</h4>
+        <ul role="list">
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">How to download</a></li>
+          <li><a href="#">Subscription plans</a></li>
+          <li><a href="#">Report an issue</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4>Get in touch</h4>
+        <ul class="footer__contact" role="list">
+          <li>
+            <i data-lucide="map-pin" width="16" height="16"></i>
+            123 Music Avenue, Sri Lanka
+          </li>
+          <li>
+            <i data-lucide="phone" width="16" height="16"></i>
+            +94 77 123 4567
+          </li>
+          <li>
+            <i data-lucide="mail" width="16" height="16"></i>
+            info@3stars.com
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <div class="footer__legal">
+        <a href="#">Terms</a>
+        <a href="#">Privacy</a>
+        <a href="#">Refunds</a>
+        <a href="#">Copyright</a>
+      </div>
+
+      <div class="footer__payments">
+        <span>Secure payments</span>
+        <img src="https://img.icons8.com/color/48/000000/visa.png" alt="Visa" />
+        <img src="https://img.icons8.com/color/48/000000/mastercard.png" alt="Mastercard" />
+        <img src="https://img.icons8.com/color/48/000000/paypal.png" alt="PayPal" />
+      </div>
+
+      <div class="footer__socials">
+        <a href="#" aria-label="Facebook"><i data-lucide="facebook" width="16" height="16"></i></a>
+        <a href="#" aria-label="Instagram"><i data-lucide="instagram" width="16" height="16"></i></a>
+        <a href="#" aria-label="YouTube"><i data-lucide="youtube" width="16" height="16"></i></a>
+        <a href="#" aria-label="TikTok"><i data-lucide="music-2" width="16" height="16"></i></a>
+      </div>
+    </div>
+
+    <div class="footer__copyright">
+      &copy; 2026 3Stars Entertainers Pvt Ltd · All rights reserved · Designed by WebNest
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     MOBILE DRAWER
+     ============================================================ -->
+<div class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer__scrim" data-drawer-close></div>
+  <aside class="drawer__panel" role="dialog" aria-label="Menu" aria-modal="true">
+    <div class="drawer__head">
+      <a href="index.html" class="navbar__brand">
+        <span class="navbar__brand-mark">
+          <i data-lucide="star" width="20" height="20" fill="currentColor"></i>
+        </span>
+        3Stars
+      </a>
+      <button class="drawer__close" data-drawer-close aria-label="Close menu" type="button">
+        <i data-lucide="x" width="22" height="22"></i>
+      </button>
+    </div>
+
+    <nav class="drawer__links" aria-label="Mobile">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <button type="button" class="drawer__toggle" data-drawer-toggle aria-expanded="false">
+        Category
+        <i data-lucide="chevron-down" width="16" height="16"></i>
+      </button>
+      <div class="drawer__sub" data-drawer-sub>
+        <a href="category.html?c=tamil">Tamil Movie</a>
+        <a href="category.html?c=gana">Gana</a>
+        <a href="category.html?c=devotional">Devotional</a>
+        <a href="category.html?c=remix">Remix & Folk</a>
+        <a href="category.html?c=cover">Cover & Karaoke</a>
+      </div>
+      <a href="mystage.html">My Stage</a>
+      <a href="career.html" aria-current="page">Career</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="drawer__ctas">
+      <a href="login.html" class="btn btn--ghost">Log in</a>
+      <a href="signup.html" class="btn btn--primary">Sign up free</a>
+    </div>
+  </aside>
+</div>
+
+<!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
+<script>
+(function () {
+  'use strict';
+
+  /* ---------- Job data ---------- */
+  const jobs = [
+    {
+      id: 'designer',
+      title: 'Graphic & UI/UX Designer',
+      department: 'design',
+      departmentLabel: 'Design',
+      icon: 'palette',
+      badge: 'Open',
+      type: 'Full-time',
+      location: 'Remote',
+      experience: '1–3 years',
+      salary: 'Negotiable',
+      description:
+        'Design engaging branding and digital marketing visuals — from social posts to product UI. You\'ll work closely with marketing and content to shape how 3Stars looks everywhere.',
+      skills: ['Figma', 'Canva', 'Adobe Express', 'Branding']
+    },
+    {
+      id: 'marketer',
+      title: 'Digital Marketing Specialist',
+      department: 'marketing',
+      departmentLabel: 'Marketing',
+      icon: 'megaphone',
+      badge: 'Open',
+      type: 'Full-time',
+      location: 'Remote / Hybrid',
+      experience: '2+ years',
+      salary: 'Negotiable',
+      description:
+        'Own social media outreach, promotion strategy, and campaign management across our entertainment events. You\'ll grow our reach and drive subscriber growth.',
+      skills: ['Meta Ads', 'Google Ads', 'Analytics', 'SEO']
+    },
+    {
+      id: 'video-editor',
+      title: 'Video Editor & AI Content Creator',
+      department: 'content',
+      departmentLabel: 'Content',
+      icon: 'video',
+      badge: 'Open',
+      type: 'Full-time',
+      location: 'Remote',
+      experience: '1+ years',
+      salary: 'Negotiable',
+      description:
+        'Produce high-resolution promotional clips and text-to-video content using modern AI tools. You\'ll help us scale our karaoke content pipeline without sacrificing quality.',
+      skills: ['Premiere Pro', 'After Effects', 'AI tools', 'Motion']
+    }
+  ];
+
+  /* ---------- Render jobs ---------- */
+  const jobsGrid = document.getElementById('jobsGrid');
+  const jobsCount = document.getElementById('jobsCount');
+  let activeFilter = 'all';
+
+  function escapeHtml(str) {
+    return String(str).replace(/[&<>"']/g, (s) => ({
+      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+    }[s]));
+  }
+
+  function renderJobs() {
+    const filtered = activeFilter === 'all'
+      ? jobs
+      : jobs.filter(j => j.department === activeFilter);
+
+    if (filtered.length === 0) {
+      jobsGrid.innerHTML = `
+        <div class="jobs-empty">
+          <i data-lucide="search-x" width="40" height="40"></i>
+          <h3>No open roles in this category</h3>
+          <p>We're not hiring here right now — but send us your proposal anyway!</p>
+        </div>
+      `;
+    } else {
+      jobsGrid.innerHTML = filtered.map(job => `
+        <article class="job-card" role="listitem" aria-labelledby="job-${job.id}-title">
+          <div class="job-card__head">
+            <span class="job-card__icon" aria-hidden="true">
+              <i data-lucide="${escapeHtml(job.icon)}"></i>
+            </span>
+            <span class="job-card__badge is-open">
+              <i data-lucide="circle-dot" width="10" height="10" fill="currentColor"></i>
+              ${escapeHtml(job.badge)}
+            </span>
+          </div>
+
+          <div>
+            <h3 class="job-card__title" id="job-${job.id}-title">${escapeHtml(job.title)}</h3>
+            <div class="job-card__meta">
+              <span class="job-meta-item">
+                <i data-lucide="clock"></i> ${escapeHtml(job.type)}
+              </span>
+              <span class="job-meta-item">
+                <i data-lucide="map-pin"></i> ${escapeHtml(job.location)}
+              </span>
+              <span class="job-meta-item">
+                <i data-lucide="briefcase"></i> ${escapeHtml(job.experience)}
+              </span>
+            </div>
+            <p class="job-card__desc">${escapeHtml(job.description)}</p>
+          </div>
+
+          <div class="job-card__skills">
+            ${job.skills.map(s => `<span class="skill-tag">${escapeHtml(s)}</span>`).join('')}
+          </div>
+
+          <div class="job-card__actions">
+            <button type="button" class="btn btn--primary btn--sm"
+              data-apply-job="${escapeHtml(job.id)}">
+              <i data-lucide="send" width="14" height="14"></i>
+              Quick apply
+            </button>
+            <button type="button" class="btn btn--outline btn--sm"
+              aria-label="Share ${escapeHtml(job.title)}" data-share-job="${escapeHtml(job.id)}">
+              <i data-lucide="share-2" width="14" height="14"></i>
+            </button>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    jobsCount.innerHTML = `<strong>${filtered.length}</strong> open role${filtered.length === 1 ? '' : 's'}`;
+    if (window.lucide) window.lucide.createIcons();
+  }
+
+  /* ---------- Filter chips ---------- */
+  function initFilters() {
+    document.querySelectorAll('.filter-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        document.querySelectorAll('.filter-chip').forEach(c => {
+          c.classList.remove('is-active');
+          c.setAttribute('aria-selected', 'false');
+        });
+        chip.classList.add('is-active');
+        chip.setAttribute('aria-selected', 'true');
+        activeFilter = chip.dataset.filter;
+        renderJobs();
+      });
+    });
+  }
+
+  /* ---------- Quick apply ---------- */
+  function initQuickApply() {
+    jobsGrid.addEventListener('click', (e) => {
+      const applyBtn = e.target.closest('[data-apply-job]');
+      if (applyBtn) {
+        const jobId = applyBtn.dataset.applyJob;
+        const select = document.getElementById('position');
+        if (select) {
+          select.value = jobId;
         }
+        const form = document.getElementById('applyForm');
+        if (form) {
+          form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          setTimeout(() => {
+            const firstField = document.getElementById('fullName');
+            if (firstField) firstField.focus();
+          }, 500);
+        }
+        return;
+      }
 
-        // Mobile dropdown toggle (tap to open on mobile)
-        const dropdowns = document.querySelectorAll('.dropdown');
-        dropdowns.forEach(dd => {
-            const link = dd.querySelector('a');
-            if (link) {
-                link.addEventListener('click', (e) => {
-                    if (window.innerWidth <= 768) {
-                        e.preventDefault();
-                        dd.classList.toggle('open');
-                    }
-                });
-            }
-        });
+      const shareBtn = e.target.closest('[data-share-job]');
+      if (shareBtn) {
+        const url = window.location.href.split('#')[0] + '#applyForm';
+        if (navigator.share) {
+          navigator.share({ title: '3Stars Careers', url }).catch(() => {});
+        } else if (navigator.clipboard) {
+          navigator.clipboard.writeText(url);
+          alert('Link copied to clipboard');
+        }
+      }
+    });
+  }
 
-        // Close mobile menu on outside click
-        document.addEventListener('click', (e) => {
-            if (window.innerWidth <= 768 && mainNav && mainNav.classList.contains('active')) {
-                if (!mainNav.contains(e.target) && !menuToggle.contains(e.target)) {
-                    mainNav.classList.remove('active');
-                }
-            }
-        });
-    </script>
+  /* ---------- Navbar shrink ---------- */
+  function initNavbarShrink() {
+    const nav = document.getElementById('navbar');
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        nav.classList.toggle('is-scrolled', window.scrollY > 40);
+        ticking = false;
+      });
+    }, { passive: true });
+  }
+
+  /* ---------- Drawer ---------- */
+  function initDrawer() {
+    const drawer = document.getElementById('drawer');
+    const openBtn = document.getElementById('drawerOpen');
+    const closeBtns = drawer.querySelectorAll('[data-drawer-close]');
+    const toggleBtn = drawer.querySelector('[data-drawer-toggle]');
+    const sub = drawer.querySelector('[data-drawer-sub]');
+
+    function open() {
+      drawer.classList.add('is-open');
+      drawer.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('is-locked');
+      openBtn.setAttribute('aria-expanded', 'true');
+      const first = drawer.querySelector('.drawer__close');
+      if (first) first.focus();
+    }
+    function close() {
+      drawer.classList.remove('is-open');
+      drawer.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('is-locked');
+      openBtn.setAttribute('aria-expanded', 'false');
+      openBtn.focus();
+    }
+
+    openBtn.addEventListener('click', open);
+    closeBtns.forEach(b => b.addEventListener('click', close));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && drawer.classList.contains('is-open')) close();
+    });
+
+    if (toggleBtn && sub) {
+      toggleBtn.addEventListener('click', () => {
+        const isOpen = sub.classList.toggle('is-open');
+        toggleBtn.setAttribute('aria-expanded', isOpen);
+        const icon = toggleBtn.querySelector('svg');
+        if (icon) icon.style.transform = isOpen ? 'rotate(180deg)' : '';
+      });
+    }
+  }
+
+  /* ---------- Smooth scroll ---------- */
+  function initSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const id = link.getAttribute('href');
+        if (id.length < 2) return;
+        const target = document.querySelector(id);
+        if (!target) return;
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  }
+
+  /* ---------- Init ---------- */
+  function init() {
+    renderJobs();
+    initFilters();
+    initQuickApply();
+    initNavbarShrink();
+    initDrawer();
+    initSmoothScroll();
+    if (window.lucide) window.lucide.createIcons();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+
 </body>
-
 </html>
