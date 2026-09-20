@@ -45,35 +45,73 @@
         .mobile-menu-toggle { display: none; font-size: 24px; color: #fff; cursor: pointer; padding: 5px; }
 
         /* ==========================================
-           LOGIN HERO WRAPPER
+           LOGIN HERO WRAPPER (FLEX CENTERING)
            ========================================== */
-        .login-hero-wrapper { background: linear-gradient(to bottom, rgba(3, 20, 41, 0.7) 0%, rgba(3, 20, 41, 0.95) 100%), url('https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=1470&auto=format&fit=crop') center center/cover; position: relative; overflow: hidden; border-bottom: 2px solid #005082; flex: 1; display: flex; flex-direction: column; }
+        .login-hero-wrapper { 
+            background: linear-gradient(to bottom, rgba(3, 20, 41, 0.7) 0%, rgba(3, 20, 41, 0.95) 100%), url('https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=1470&auto=format&fit=crop') center center/cover; 
+            position: relative; 
+            overflow: hidden; 
+            border-bottom: 2px solid #005082; 
+            flex: 1; 
+            display: flex; 
+            flex-direction: column; 
+        }
 
         /* ==========================================
-           LOGIN WRAPPER
+           LOGIN WRAPPER - PERFECT CENTERING
            ========================================== */
-        .login-wrapper { flex: 1; display: flex; justify-content: center; align-items: center; padding: 80px 20px; position: relative; }
+        .login-wrapper { 
+            flex: 1; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            padding: 40px 20px; 
+            width: 100%;
+            min-height: 100%;
+            /* ensure vertical centering even if card is short */
+            margin: 0 auto;
+        }
 
         /* ==========================================
-           LOGIN CARD - Glassmorphism
+           LOGIN CARD - BALANCED PROPORTIONS
            ========================================== */
-        .login-card { background: rgba(255, 255, 255, 0.98); width: 100%; max-width: 520px; padding: 45px 50px; box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5); border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.2); backdrop-filter: blur(20px); position: relative; overflow: hidden; }
-        .login-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(135deg, #0c101d, #1b5394, #00d2ff); }
+        .login-card { 
+            background: rgba(255, 255, 255, 0.98); 
+            width: 100%; 
+            max-width: 480px; 
+            padding: 40px 42px; 
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5); 
+            border-radius: 16px; 
+            border: 1px solid rgba(255, 255, 255, 0.2); 
+            backdrop-filter: blur(20px); 
+            position: relative; 
+            overflow: hidden;
+            margin: 0 auto;  /* horizontal centering as fallback */
+        }
+        .login-card::before { 
+            content: ''; 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            right: 0; 
+            height: 5px; 
+            background: linear-gradient(135deg, #0c101d, #1b5394, #00d2ff); 
+        }
 
         /* Form Logo */
         .form-logo { text-align: center; margin-bottom: 25px; }
-        .form-logo img { width: 280px; max-width: 100%; height: auto; display: block; margin: 0 auto; }
+        .form-logo img { width: 220px; max-width: 100%; height: auto; display: block; margin: 0 auto; }
 
         /* Form Headings */
-        .form-heading { text-align: center; font-size: 28px; font-weight: 900; color: #0c101d; letter-spacing: 1.5px; margin-bottom: 8px; text-transform: uppercase; }
-        .form-subheading { text-align: center; font-size: 14px; color: #64748b; font-weight: 500; margin-bottom: 35px; }
+        .form-heading { text-align: center; font-size: 26px; font-weight: 900; color: #0c101d; letter-spacing: 1.5px; margin-bottom: 8px; text-transform: uppercase; }
+        .form-subheading { text-align: center; font-size: 14px; color: #64748b; font-weight: 500; margin-bottom: 30px; }
 
         /* Form Controls */
-        .form-group { margin-bottom: 24px; }
+        .form-group { margin-bottom: 22px; }
         .form-label { display: block; font-size: 12px; font-weight: 800; color: #1b5394; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 1px; }
         .input-container { position: relative; }
         .input-icon { position: absolute; left: 18px; top: 50%; transform: translateY(-50%); color: #94a3b8; font-size: 16px; transition: color 0.3s ease; pointer-events: none; }
-        .form-input { width: 100%; height: 54px; background-color: #f1f5f9; border: 2px solid #e2e8f0; border-radius: 30px; padding: 0 20px 0 50px; font-size: 15px; color: #0c101d; outline: none; transition: all 0.3s ease; font-weight: 600; }
+        .form-input { width: 100%; height: 52px; background-color: #f1f5f9; border: 2px solid #e2e8f0; border-radius: 30px; padding: 0 20px 0 50px; font-size: 15px; color: #0c101d; outline: none; transition: all 0.3s ease; font-weight: 600; }
         .form-input::placeholder { color: #94a3b8; font-weight: 500; }
         .form-input:focus { background-color: #ffffff; border-color: #00d2ff; box-shadow: 0 0 0 4px rgba(0, 210, 255, 0.15); }
         .input-container:focus-within .input-icon { color: #1b5394; }
@@ -82,7 +120,7 @@
         .toggle-password:hover { background: #f1f5f9; color: #00d2ff; }
 
         /* Form Options */
-        .form-options { display: flex; justify-content: space-between; align-items: center; margin-top: 20px; margin-bottom: 35px; font-size: 13px; gap: 12px; flex-wrap: wrap; }
+        .form-options { display: flex; justify-content: space-between; align-items: center; margin-top: 18px; margin-bottom: 30px; font-size: 13px; gap: 12px; flex-wrap: wrap; }
         .remember-me { display: flex; align-items: center; gap: 10px; cursor: pointer; font-weight: 700; color: #64748b; transition: color 0.3s ease; }
         .remember-me:hover { color: #1b5394; }
         .remember-me input { width: 18px; height: 18px; cursor: pointer; accent-color: #1b5394; border-radius: 4px; }
@@ -90,20 +128,20 @@
         .forgot-password:hover { color: #00d2ff; text-decoration: underline; }
 
         /* Submit Button */
-        .btn-submit { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; margin: 0; background: linear-gradient(135deg, #0c101d, #1b5394); border: none; border-radius: 30px; padding: 16px 20px; font-size: 16px; font-weight: 800; color: #fff; text-align: center; text-transform: uppercase; letter-spacing: 1.5px; cursor: pointer; box-shadow: 0 10px 25px rgba(27, 83, 148, 0.3); transition: all 0.3s ease; position: relative; overflow: hidden; }
+        .btn-submit { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; margin: 0; background: linear-gradient(135deg, #0c101d, #1b5394); border: none; border-radius: 30px; padding: 15px 20px; font-size: 16px; font-weight: 800; color: #fff; text-align: center; text-transform: uppercase; letter-spacing: 1.5px; cursor: pointer; box-shadow: 0 10px 25px rgba(27, 83, 148, 0.3); transition: all 0.3s ease; position: relative; overflow: hidden; }
         .btn-submit::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent); transition: left 0.5s ease; }
         .btn-submit:hover::before { left: 100%; }
         .btn-submit:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(27, 83, 148, 0.4); background: linear-gradient(135deg, #1b5394, #0c101d); }
         .btn-submit:active { transform: translateY(0); box-shadow: 0 5px 15px rgba(27, 83, 148, 0.2); }
 
         /* Alert Box */
-        .alert-box { display: none; padding: 14px 18px; border-radius: 10px; margin-bottom: 25px; font-size: 14px; font-weight: bold; text-align: center; animation: slideDown 0.3s ease; }
+        .alert-box { display: none; padding: 14px 18px; border-radius: 10px; margin-bottom: 22px; font-size: 14px; font-weight: bold; text-align: center; animation: slideDown 0.3s ease; }
         @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
         .alert-success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
         .alert-error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
 
         /* Sign Up Link */
-        .signup-link { text-align: center; margin-top: 25px; font-size: 14px; color: #64748b; font-weight: 600; }
+        .signup-link { text-align: center; margin-top: 24px; font-size: 14px; color: #64748b; font-weight: 600; }
         .signup-link a { color: #1b5394; text-decoration: none; font-weight: 800; transition: color 0.3s ease; }
         .signup-link a:hover { color: #00d2ff; text-decoration: underline; }
 
@@ -129,14 +167,14 @@
            RESPONSIVE — LARGE DESKTOP (1440px)
            ========================================== */
         @media (max-width: 1440px) {
-            .login-wrapper { padding: 70px 20px; }
+            .login-wrapper { padding: 40px 20px; }
         }
 
         /* ==========================================
            RESPONSIVE — DESKTOP (1280px)
            ========================================== */
         @media (max-width: 1280px) {
-            .login-wrapper { padding: 60px 20px; }
+            .login-wrapper { padding: 35px 20px; }
         }
 
         /* ==========================================
@@ -148,9 +186,9 @@
             nav { gap: 15px; }
             nav a { font-size: 14px; }
 
-            .login-wrapper { padding: 50px 20px; }
-            .login-card { max-width: 500px; padding: 40px 40px; }
-            .form-logo img { width: 240px; }
+            .login-wrapper { padding: 30px 20px; }
+            .login-card { max-width: 460px; padding: 35px 35px; }
+            .form-logo img { width: 200px; }
 
             .footer-cols { grid-template-columns: repeat(2, 1fr); gap: 20px; }
         }
@@ -159,8 +197,8 @@
            RESPONSIVE — TABLET PORTRAIT (900px)
            ========================================== */
         @media (max-width: 900px) {
-            .login-wrapper { padding: 45px 18px; }
-            .login-card { padding: 38px 34px; }
+            .login-wrapper { padding: 28px 18px; }
+            .login-card { padding: 32px 30px; }
         }
 
         /* ==========================================
@@ -182,11 +220,11 @@
             .dropdown.open .dropdown-content { display: block; }
 
             /* LOGIN WRAPPER */
-            .login-wrapper { padding: 40px 18px; }
-            .login-card { padding: 34px 26px; border-radius: 14px; }
-            .form-logo img { width: 220px; }
-            .form-heading { font-size: 24px; letter-spacing: 1px; }
-            .form-subheading { font-size: 13.5px; margin-bottom: 28px; }
+            .login-wrapper { padding: 25px 18px; }
+            .login-card { padding: 30px 24px; border-radius: 14px; max-width: 420px; }
+            .form-logo img { width: 180px; }
+            .form-heading { font-size: 23px; letter-spacing: 1px; }
+            .form-subheading { font-size: 13.5px; margin-bottom: 25px; }
             .form-input { height: 50px; font-size: 14px; }
             .form-label { font-size: 11.5px; }
             .btn-submit { font-size: 15px; padding: 14px 20px; letter-spacing: 1.2px; }
@@ -207,20 +245,20 @@
             .welcome-text strong { font-size: 13px; }
             .logo-area h1 { font-size: 18px; }
 
-            .login-wrapper { padding: 30px 14px; }
-            .login-card { padding: 28px 20px; border-radius: 12px; }
-            .form-logo img { width: 180px; margin-bottom: 5px; }
-            .form-heading { font-size: 21px; letter-spacing: 0.8px; }
-            .form-subheading { font-size: 13px; margin-bottom: 24px; }
-            .form-group { margin-bottom: 20px; }
+            .login-wrapper { padding: 20px 14px; }
+            .login-card { padding: 26px 18px; border-radius: 12px; max-width: 100%; }
+            .form-logo img { width: 160px; margin-bottom: 5px; }
+            .form-heading { font-size: 20px; letter-spacing: 0.8px; }
+            .form-subheading { font-size: 12.5px; margin-bottom: 20px; }
+            .form-group { margin-bottom: 18px; }
             .form-label { font-size: 11px; letter-spacing: 0.8px; margin-bottom: 8px; }
             .form-input { height: 48px; font-size: 13.5px; padding: 0 16px 0 44px; }
             .input-icon { left: 16px; font-size: 15px; }
             .toggle-password { right: 14px; font-size: 12px; padding: 4px 6px; }
-            .form-options { flex-direction: column; align-items: flex-start; gap: 12px; margin-bottom: 26px; }
+            .form-options { flex-direction: column; align-items: flex-start; gap: 10px; margin-bottom: 22px; }
             .remember-me, .forgot-password { font-size: 13px; }
             .btn-submit { font-size: 14px; padding: 13px 18px; letter-spacing: 1px; }
-            .signup-link { font-size: 13px; margin-top: 20px; }
+            .signup-link { font-size: 13px; margin-top: 18px; }
 
             /* FOOTER */
             .footer-cols { grid-template-columns: 1fr; gap: 18px; }
@@ -238,11 +276,11 @@
             .welcome-text strong { display: block; margin-top: 4px; }
             .logo-area h1 { font-size: 16px; }
 
-            .login-wrapper { padding: 25px 12px; }
-            .login-card { padding: 24px 16px; }
-            .form-logo img { width: 160px; }
-            .form-heading { font-size: 19px; }
-            .form-subheading { font-size: 12.5px; }
+            .login-wrapper { padding: 18px 12px; }
+            .login-card { padding: 22px 14px; }
+            .form-logo img { width: 140px; }
+            .form-heading { font-size: 18px; }
+            .form-subheading { font-size: 12px; }
             .form-input { height: 46px; font-size: 13px; padding: 0 14px 0 42px; }
             .input-icon { left: 14px; font-size: 14px; }
             .btn-submit { font-size: 13.5px; padding: 12px 16px; }
@@ -258,8 +296,8 @@
             .header-buttons { flex-direction: column; width: 100%; }
             .login-btn, .signup-btn { width: 100%; justify-content: center; }
 
-            .login-card { padding: 22px 14px; }
-            .form-logo img { width: 140px; }
+            .login-card { padding: 20px 12px; }
+            .form-logo img { width: 130px; }
             .form-heading { font-size: 17px; }
             .form-subheading { font-size: 12px; }
             .form-input { height: 44px; font-size: 12.5px; }
@@ -307,11 +345,11 @@
                 <div class="dropdown">
                     <a href="category.html">Category ▾</a>
                     <div class="dropdown-content">
-                        <a href="category.html">Tamil Movie Songs</a>
-                        <a href="category.html">Gana Songs</a>
-                        <a href="category.html">Devotional Songs</a>
-                        <a href="category.html">Remix and Folk Songs</a>
-                        <a href="category.html">Cover Songs Karaoke</a>
+                        <a href="category.html?c=tamil">Tamil Movie Songs</a>
+                        <a href="category.html?c=gana">Gana Songs</a>
+                        <a href="category.html?c=devotional">Devotional Songs</a>
+                        <a href="category.html?c=remix">Remix and Folk Songs</a>
+                        <a href="category.html?c=cover">Cover Songs Karaoke</a>
                     </div>
                 </div>
                 <a href="mystage.html">My Stage</a>

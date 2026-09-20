@@ -293,6 +293,54 @@
             .category-card img { height: 150px; }
             .category-card h3 { font-size: 0.95rem; }
         }
+    
+        /* ==========================================
+           WHITE CARD CONTAINER
+           ========================================== */
+        .white-card-container { width: 95%; max-width: 1200px; margin: 25px auto; background: #ffffff; border-radius: 12px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); overflow: hidden; display: none; }
+
+        /* ==========================================
+           SONGS CONTAINER
+           ========================================== */
+        .songs-container { padding: 25px; }
+        .song-tabs { display: flex; gap: 30px; margin-bottom: 25px; font-weight: bold; font-size: 16px; border-bottom: 2px solid #f1f5f9; padding-bottom: 12px; flex-wrap: wrap; }
+        .song-tabs span { cursor: pointer; color: #64748b; transition: 0.3s; position: relative; padding-bottom: 4px; }
+        .song-tabs span.active { color: #1b5394; }
+        .song-tabs span.active::after { content: ''; position: absolute; bottom: -14px; left: 0; width: 100%; height: 3px; background: #1b5394; border-radius: 3px; }
+
+        .song-row { display: flex; align-items: center; justify-content: space-between; background: #f8fafc; padding: 15px; margin-bottom: 12px; border: 1px solid #e2e8f0; border-radius: 8px; transition: all 0.2s; gap: 15px; flex-wrap: wrap; }
+        .song-row:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); border-color: #cbd5e1; }
+        .song-info { display: flex; align-items: center; gap: 15px; flex: 1; min-width: 0; }
+        .song-info img { width: 70px; height: 50px; object-fit: cover; border-radius: 6px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); flex-shrink: 0; }
+        .song-details { min-width: 0; }
+        .song-details p { font-size: 13px; color: #64748b; line-height: 1.5; word-wrap: break-word; overflow-wrap: break-word; }
+        .song-details p b { color: #0f172a; font-size: 14px; }
+
+        .song-actions { display: flex; gap: 12px; flex-shrink: 0; }
+        .btn-action { background: transparent; color: #1b5394; border: 1px solid #1b5394; padding: 8px 20px; font-size: 12px; font-weight: bold; border-radius: 30px; cursor: pointer; text-decoration: none; transition: all 0.2s; display: inline-flex; align-items: center; justify-content: center; white-space: nowrap; }
+        .btn-action:hover { background: #1b5394; color: #fff; }
+        .btn-buy { background: linear-gradient(135deg, #0c101d, #1b5394); color: #fff; border: none; }
+        .btn-buy:hover { box-shadow: 0 4px 10px rgba(27, 83, 148, 0.3); }
+
+        /* ==========================================
+           PAGINATION
+           ========================================== */
+        .pagination-bar { display: flex; justify-content: center; align-items: center; gap: 10px; margin-top: 30px; font-size: 14px; font-weight: bold; flex-wrap: wrap; }
+        .page-num { background: #fff; color: #64748b; border: 1px solid #e2e8f0; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border-radius: 50%; cursor: pointer; transition: 0.2s; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); }
+        .page-num:hover, .page-num.active { background: #1b5394; color: #fff; border-color: #1b5394; }
+
+        /* Responsive adjustments for songs */
+        @media (max-width: 768px) {
+            .song-row { padding: 12px; flex-direction: column; align-items: stretch; gap: 12px; }
+            .song-info { width: 100%; gap: 12px; }
+            .song-actions { width: 100%; justify-content: flex-end; gap: 10px; }
+            .btn-action { padding: 8px 18px; font-size: 11.5px; flex: 1; max-width: 130px; }
+        }
+        @media (max-width: 480px) {
+            .song-actions { justify-content: stretch; }
+            .btn-action { font-size: 11px; padding: 7px 14px; max-width: none; }
+        }
+
     </style>
 </head>
 
@@ -334,11 +382,11 @@
                 <div class="dropdown">
                     <a href="category.html" class="active">Category ▾</a>
                     <div class="dropdown-content">
-                        <a href="category.html">Tamil Movie Songs</a>
-                        <a href="category.html">Gana Songs</a>
-                        <a href="category.html">Devotional Songs</a>
-                        <a href="category.html">Remix and Folk Songs</a>
-                        <a href="category.html">Cover Songs Karaoke</a>
+                        <a href="category.html?c=tamil">Tamil Movie Songs</a>
+                        <a href="category.html?c=gana">Gana Songs</a>
+                        <a href="category.html?c=devotional">Devotional Songs</a>
+                        <a href="category.html?c=remix">Remix and Folk Songs</a>
+                        <a href="category.html?c=cover">Cover Songs Karaoke</a>
                     </div>
                 </div>
                 <a href="mystage.html">My Stage</a>
@@ -356,48 +404,87 @@
     </div>
 
     <!-- Categories Section -->
-    <div class="section-title">Select a Category to Enjoy</div>
+    <div id="categoryView">
+        <div class="section-title">Select a Category to Enjoy</div>
 
-    <div class="category-container">
-        <div class="categories-grid">
-            <!-- Category 1 -->
-            <div class="category-card">
-                <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=400&auto=format&fit=crop" alt="Karaoke">
-                <h3>Karaoke & Singing</h3>
-                <p>Sing solo or duets, record your tracks, and share your talent with our vibrant community.</p>
-                <div class="card-btn-wrap">
-                    <button class="explore-btn"><i class="fas fa-arrow-right"></i> View Category</button>
+        <div class="category-container">
+            <div class="categories-grid">
+                <!-- Category 1 -->
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?q=80&w=400&auto=format&fit=crop" alt="Tamil Movie Songs">
+                    <h3>Tamil Movie Songs</h3>
+                    <p>Sing along to your favorite Kollywood hits, from timeless classics to modern chartbusters.</p>
+                    <div class="card-btn-wrap">
+                        <a href="category.html?c=tamil" style="text-decoration:none;"><button class="explore-btn"><i class="fas fa-music"></i> View Songs</button></a>
+                    </div>
+                </div>
+
+                <!-- Category 2 -->
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=400&auto=format&fit=crop" alt="Gana Songs">
+                    <h3>Gana Songs</h3>
+                    <p>Experience the local flavor with the best foot-tapping Chennai Gana songs and beats.</p>
+                    <div class="card-btn-wrap">
+                        <a href="category.html?c=gana" style="text-decoration:none;"><button class="explore-btn"><i class="fas fa-music"></i> View Songs</button></a>
+                    </div>
+                </div>
+
+                <!-- Category 3 -->
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=400&auto=format&fit=crop" alt="Devotional Songs">
+                    <h3>Devotional Songs</h3>
+                    <p>Find inner peace with our wide collection of devotional and spiritual tracks.</p>
+                    <div class="card-btn-wrap">
+                        <a href="category.html?c=devotional" style="text-decoration:none;"><button class="explore-btn"><i class="fas fa-music"></i> View Songs</button></a>
+                    </div>
+                </div>
+
+                <!-- Category 4 -->
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=400&auto=format&fit=crop" alt="Remix and Folk Songs">
+                    <h3>Remix and Folk Songs</h3>
+                    <p>Dance to the fusion of traditional folk sounds and modern electronic remixes.</p>
+                    <div class="card-btn-wrap">
+                        <a href="category.html?c=remix" style="text-decoration:none;"><button class="explore-btn"><i class="fas fa-music"></i> View Songs</button></a>
+                    </div>
+                </div>
+
+                <!-- Category 5 -->
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=400&auto=format&fit=crop" alt="Cover Songs Karaoke">
+                    <h3>Cover Songs Karaoke</h3>
+                    <p>Perform popular cover tracks and showcase your unique singing style to everyone.</p>
+                    <div class="card-btn-wrap">
+                        <a href="category.html?c=cover" style="text-decoration:none;"><button class="explore-btn"><i class="fas fa-music"></i> View Songs</button></a>
+                    </div>
                 </div>
             </div>
+        </div>
+    </div>
 
-            <!-- Category 2 -->
-            <div class="category-card">
-                <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=400&auto=format&fit=crop" alt="Live Events">
-                <h3>Live Events & Shows</h3>
-                <p>Discover upcoming musical concerts, stage shows, and exclusive community weekend events.</p>
-                <div class="card-btn-wrap">
-                    <button class="explore-btn"><i class="fas fa-arrow-right"></i> View Category</button>
-                </div>
+    <!-- Songs List Section (Hidden by default) -->
+    <div id="songsView" style="display: none;">
+        <div class="section-title" id="songsCategoryTitle" style="margin-top:40px;">Songs Loading...</div>
+        
+        <div class="white-card-container songs-container" style="display: block;">
+            <div class="song-tabs">
+                <span class="active" onclick="switchTab('ALL', this)">ALL SONGS</span>
+                <span onclick="switchTab('POPULAR', this)">POPULAR</span>
+                <span onclick="switchTab('NEW', this)">NEW RELEASES</span>
             </div>
 
-            <!-- Category 3 -->
-            <div class="category-card">
-                <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=400&auto=format&fit=crop" alt="Performers">
-                <h3>Star Performers</h3>
-                <p>Watch top-rated performances by talented artists and interact through comments and likes.</p>
-                <div class="card-btn-wrap">
-                    <button class="explore-btn"><i class="fas fa-arrow-right"></i> View Category</button>
-                </div>
+            <div id="songsListArea">
+                <!-- Dynamically populated -->
             </div>
 
-            <!-- Category 4 -->
-            <div class="category-card">
-                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=400&auto=format&fit=crop" alt="Career">
-                <h3>Career & Auditions</h3>
-                <p>Join our growing network of designers, marketers, and video editors or participate in auditions.</p>
-                <div class="card-btn-wrap">
-                    <button class="explore-btn"><i class="fas fa-arrow-right"></i> View Category</button>
-                </div>
+            <div class="pagination-bar" id="paginationBar">
+                <span class="page-num active">1</span>
+                <span class="page-num">2</span>
+                <span class="page-num">3</span>
+            </div>
+            
+            <div style="text-align: center; margin-top: 20px;">
+                <a href="category.html" style="color:#1b5394; font-weight:bold; text-decoration:none;"><i class="fas fa-arrow-left"></i> Back to Categories</a>
             </div>
         </div>
     </div>
@@ -501,6 +588,96 @@
                 if (!mainNav.contains(e.target) && !menuToggle.contains(e.target)) {
                     mainNav.classList.remove('active');
                 }
+            }
+        });
+    </script>
+
+    <script>
+        const categoryData = {
+            "tamil": {
+                title: "Tamil Movie Songs Karaoke",
+                songs: [
+                    { song: "Aathangara Marame", singers: "S.P.B", movie: "Kizhakku Cheemayile", img: "https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?q=80&w=100&auto=format&fit=crop" },
+                    { song: "Senthazham Poovil", singers: "S.P.B", movie: "Mullum Malarum", img: "https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?q=80&w=100&auto=format&fit=crop" },
+                    { song: "Oru Kathal Devathai", singers: "S.P.B, Chithra", movie: "Idaya Thamarai", img: "https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?q=80&w=100&auto=format&fit=crop" },
+                    { song: "Munbe Vaa", singers: "Shreya Ghoshal, Naresh Iyer", movie: "Sillunu Oru Kaadhal", img: "https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?q=80&w=100&auto=format&fit=crop" },
+                    { song: "Adiye Kolluthey", singers: "Benny Dayal, Krish", movie: "Vaaranam Aayiram", img: "https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?q=80&w=100&auto=format&fit=crop" }
+                ]
+            },
+            "gana": {
+                title: "Gana Songs Karaoke",
+                songs: [
+                    { song: "Naan Autokaaran", singers: "S.P.B", movie: "Baasha", img: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=100&auto=format&fit=crop" },
+                    { song: "Aaluma Doluma", singers: "Anirudh Ravichander", movie: "Vedalam", img: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=100&auto=format&fit=crop" },
+                    { song: "Danga Maari", singers: "Dhanush, Marana Gana Viji", movie: "Anegan", img: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=100&auto=format&fit=crop" },
+                    { song: "Rowdy Baby", singers: "Dhanush, Dhee", movie: "Maari 2", img: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=100&auto=format&fit=crop" }
+                ]
+            },
+            "devotional": {
+                title: "Devotional Songs Karaoke",
+                songs: [
+                    { song: "Kandha Sasti Kavasam", singers: "Sulamantha", movie: "Album", img: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=100&auto=format&fit=crop" },
+                    { song: "Muthai Tharu", singers: "T.M.S", movie: "Thirupugazh", img: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=100&auto=format&fit=crop" },
+                    { song: "Pullanguzhal Kodutha", singers: "T.M.S", movie: "Album", img: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=100&auto=format&fit=crop" },
+                    { song: "Harivarasanam", singers: "K. J. Yesudas", movie: "Album", img: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=100&auto=format&fit=crop" }
+                ]
+            },
+            "remix": {
+                title: "Remix and Folk Songs Karaoke",
+                songs: [
+                    { song: "Nattu Sarakku", singers: "Pushpavanam Kuppusamy", movie: "Pudhukottaiyilirundhu Saravanan", img: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=100&auto=format&fit=crop" },
+                    { song: "Otha Roova Tharen", singers: "Karthik, Chithra", movie: "Nattamai", img: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=100&auto=format&fit=crop" },
+                    { song: "Karupputhaan Enakku", singers: "Anuradha Sriram", movie: "Vetri Kodi Kattu", img: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=100&auto=format&fit=crop" },
+                    { song: "Kumbida Pona Deivam", singers: "Shankar Mahadevan", movie: "Thirupaachi", img: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=100&auto=format&fit=crop" }
+                ]
+            },
+            "cover": {
+                title: "Cover Songs Karaoke",
+                songs: [
+                    { song: "Anbenum (Cover)", singers: "Community Artist", movie: "Leo", img: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=100&auto=format&fit=crop" },
+                    { song: "Tum Hi Ho (Tamil Cover)", singers: "Community Artist", movie: "Aashiqui 2", img: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=100&auto=format&fit=crop" },
+                    { song: "Nira (Acoustic Cover)", singers: "Community Artist", movie: "Takkar", img: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=100&auto=format&fit=crop" },
+                    { song: "Vaseegara (Unplugged)", singers: "Community Artist", movie: "Minnale", img: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=100&auto=format&fit=crop" }
+                ]
+            }
+        };
+
+        function switchTab(tabName, el) {
+            document.querySelectorAll('.song-tabs span').forEach(s => s.classList.remove('active'));
+            if(el) el.classList.add('active');
+            // Mock re-render logic
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const cat = params.get('c');
+            
+            if (cat && categoryData[cat]) {
+                document.getElementById('categoryView').style.display = 'none';
+                document.getElementById('songsView').style.display = 'block';
+                
+                const data = categoryData[cat];
+                document.getElementById('songsCategoryTitle').innerText = data.title;
+                
+                let html = '';
+                data.songs.forEach(song => {
+                    html += `
+                        <div class="song-row">
+                            <div class="song-info">
+                                <img src="${song.img}" alt="Song thumbnail">
+                                <div class="song-details">
+                                    <p><b>${song.song}</b></p>
+                                    <p>Singers: ${song.singers} | Movie: ${song.movie}</p>
+                                </div>
+                            </div>
+                            <div class="song-actions">
+                                <a href="#" class="btn-action"><i class="fas fa-play"></i> Play</a>
+                                <button class="btn-action btn-buy"><i class="fas fa-shopping-cart"></i> Buy</button>
+                            </div>
+                        </div>
+                    `;
+                });
+                document.getElementById('songsListArea').innerHTML = html;
             }
         });
     </script>
