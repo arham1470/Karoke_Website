@@ -139,22 +139,26 @@ window.auth = {
                     style.id = 'profile-dropdown-style';
                     style.innerHTML = `
                         .top-banner { position: relative; z-index: 2000; }
-                        .profile-dropdown-container { position: relative; display: inline-block; margin-left: 10px; }
-                        .profile-circle { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, #00d2ff, #1b5394); color: white; display: flex; align-items: center; justify-content: center; cursor: pointer; font-weight: bold; font-size: 18px; border: 2px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.2); transition: transform 0.2s; }
+                        .profile-dropdown-container { position: relative; display: flex; align-items: center; margin-left: 10px; cursor: pointer; }
+                        .profile-name { display: none; font-weight: 600; color: #555; margin-right: 12px; font-size: 14px; }
+                        @media (min-width: 769px) { .profile-name { display: inline-block; } }
+                        .profile-circle { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, #00d2ff, #1b5394); color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 18px; border: 2px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.2); transition: transform 0.2s; flex-shrink: 0; }
                         .profile-circle:hover { transform: scale(1.05); }
                         .profile-dropdown-menu { position: absolute; right: 0; top: 50px; background: white; box-shadow: 0 4px 15px rgba(0,0,0,0.15); border-radius: 8px; overflow: hidden; z-index: 1000; min-width: 160px; opacity: 0; visibility: hidden; transition: all 0.3s ease; transform: translateY(-10px); }
                         .profile-dropdown-menu.show { opacity: 1; visibility: visible; transform: translateY(0); }
                         .profile-dropdown-item { display: block; padding: 12px 16px; color: #333; text-decoration: none; border-bottom: 1px solid #eee; transition: background 0.2s; font-size: 14px; text-align: left; }
                         .profile-dropdown-item:hover { background: #f8f9fa; }
                         .profile-dropdown-item:last-child { border-bottom: none; }
-                        .profile-welcome { padding: 12px 16px; border-bottom: 1px solid #eee; font-size: 13px; color: #666; background: #fafafa; margin: 0; text-align: left; }
+                        .profile-welcome { padding: 12px 16px; border-bottom: 1px solid #eee; font-size: 13px; color: #666; background: #fafafa; margin: 0; text-align: left; display: none; }
+                        @media (max-width: 768px) { .profile-welcome { display: block; } }
                     `;
                     document.head.appendChild(style);
                 }
 
                 headerButtons.innerHTML = `
-                    <div class="profile-dropdown-container">
-                        <div class="profile-circle" onclick="document.getElementById('profile-dropdown-menu').classList.toggle('show')">
+                    <div class="profile-dropdown-container" onclick="document.getElementById('profile-dropdown-menu').classList.toggle('show')">
+                        <span class="profile-name">Hi, ${userName}</span>
+                        <div class="profile-circle">
                             ${initial}
                         </div>
                         <div id="profile-dropdown-menu" class="profile-dropdown-menu">
