@@ -69,7 +69,8 @@
         @keyframes fadeInDown { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
         .nav-upload-btn { background: #ff3366; color: #fff !important; padding: 5px 14px; border-radius: 20px; font-size: 13px !important; display: inline-flex; align-items: center; gap: 6px; transition: all 0.2s; }
         .nav-upload-btn:hover { background: #e62040; transform: scale(1.05); }
-        .mobile-menu-toggle { display: none; font-size: 24px; color: #fff; cursor: pointer; padding: 5px; }
+        .mobile-menu-toggle { display: none; font-size: 24px; color: #fff; cursor: pointer; padding: 5px; transition: transform 0.3s ease; }
+        .mobile-menu-toggle:active { transform: scale(0.9); }
 
         /* ==========================================
            HERO SLIDER
@@ -350,99 +351,135 @@
             .header-buttons { justify-content: center; }
 
             /* HEADER + MOBILE NAV */
+            header { position: relative; z-index: 1000; }
             .mobile-menu-toggle { display: block; }
-            nav { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: rgba(3, 20, 41, 0.98); padding: 20px; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); gap: 15px; align-items: flex-start; z-index: 999; border-top: 1px solid rgba(255, 255, 255, 0.1); width: 100%; }
-            nav.active { display: flex; }
-            .dropdown { width: 100%; }
-            .dropdown-content { position: static; box-shadow: none; display: none; padding-left: 20px; border: none; background: transparent; width: 100%; }
+
+            nav {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(3, 20, 41, 0.98);
+                backdrop-filter: blur(16px);
+                -webkit-backdrop-filter: blur(16px);
+                padding: 0 20px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+                gap: 0;
+                align-items: stretch;
+                z-index: 9999;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+                width: 100%;
+                max-height: 0;
+                overflow: hidden;
+                opacity: 0;
+                transform: translateY(-12px);
+                transition: max-height 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+                            opacity 0.35s ease,
+                            transform 0.35s ease,
+                            padding 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+            }
+            nav.active {
+                max-height: 700px;
+                opacity: 1;
+                transform: translateY(0);
+                padding: 10px 20px;
+            }
+
+            /* ==========================================
+               EQUAL HEIGHT ROWS FOR ALL MENU ITEMS
+               ========================================== */
+            nav > a,
+            nav > .dropdown {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                height: 52px;                /* same fixed height for every row */
+                min-height: 52px;
+                padding: 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+                opacity: 0;
+                transform: translateX(-14px);
+                transition: opacity 0.35s ease, transform 0.35s ease, color 0.2s ease;
+                box-sizing: border-box;
+            }
+            nav > a:last-child { border-bottom: none; }
+            nav > .dropdown { border-bottom: none; }
+
+            nav > a,
+            nav > .dropdown > a {
+                color: #fff;
+                font-size: 15px;
+                font-weight: 600;
+                text-decoration: none;
+                padding: 0 4px;
+            }
+
+            /* The dropdown trigger row — same fixed height */
+            nav > .dropdown > a {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                height: 52px;
+                min-height: 52px;
+                padding: 0 4px;
+                box-sizing: border-box;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            }
+            nav > .dropdown:last-child > a { border-bottom: none; }
+
+            nav.active > a,
+            nav.active > .dropdown {
+                opacity: 1;
+                transform: translateX(0);
+            }
+
+            /* Staggered entrance */
+            nav.active > *:nth-child(1) { transition-delay: 0.06s; }
+            nav.active > *:nth-child(2) { transition-delay: 0.10s; }
+            nav.active > *:nth-child(3) { transition-delay: 0.14s; }
+            nav.active > *:nth-child(4) { transition-delay: 0.18s; }
+            nav.active > *:nth-child(5) { transition-delay: 0.22s; }
+            nav.active > *:nth-child(6) { transition-delay: 0.26s; }
+            nav.active > *:nth-child(7) { transition-delay: 0.30s; }
+
+            /* Hamburger icon animation */
+            .mobile-menu-toggle i {
+                transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+                display: inline-block;
+            }
+            .mobile-menu-toggle.open i {
+                transform: rotate(90deg);
+            }
+
+            /* Dropdown inside mobile nav */
+            .dropdown { position: relative; padding-bottom: 0; margin-bottom: 0; display: block; }
+            .dropdown-content {
+                position: static;
+                box-shadow: none;
+                display: none;
+                padding: 0 0 0 20px;
+                border: none;
+                background: transparent;
+                width: 100%;
+                overflow: hidden;
+            }
             .dropdown.open .dropdown-content { display: block; }
+            .dropdown-content a {
+                display: flex;
+                align-items: center;
+                height: 44px;               /* fixed height for sub-items too */
+                min-height: 44px;
+                padding: 0 4px;
+                font-size: 13px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+                opacity: 1;
+                transform: none;
+                box-sizing: border-box;
+            }
+            .dropdown-content a:last-child { border-bottom: none; }
 
-            /* HERO SLIDER */
-            .hero-slider-section { height: 420px; }
-            .slide { padding: 0 18px; }
-            .slide-content-wrapper { flex-direction: column; justify-content: center; text-align: center; gap: 15px; }
-            .slide-left-text { padding: 22px 20px; max-width: 100%; }
-            .slide-left-text h2 { font-size: 1.6rem; }
-            .slide-left-text p { font-size: 13px; }
-            .slide-right-text { text-align: center; }
-            .slide-right-text h2 { font-size: 2.2rem; }
-
-            .slider-arrow { width: 36px; height: 36px; font-size: 16px; top: auto; bottom: 20px; transform: none; }
-            .slider-arrow.prev { left: 20px; }
-            .slider-arrow.next { right: 20px; }
-            .dot { width: 10px; height: 10px; }
-
-            /* SECTION BAR */
-            .section-bar { font-size: 0.9rem; padding: 11px 16px; margin: 22px auto 16px auto; letter-spacing: 0.4px; }
-
-            /* CARDS */
-            .white-card-container { padding: 22px 18px; width: 94%; border-radius: 10px; margin-bottom: 22px; }
-            .player-card-container { width: 94%; margin-bottom: 22px; }
-
-            /* KARAOKE STAGE */
-            .karaoke-stage-grid { flex-direction: column; text-align: center; gap: 25px; }
-            .stage-box-left { width: 100%; }
-            .join-now-header { font-size: 1.9rem; text-align: center; }
-            .share-perf-title { text-align: center; font-size: 1.35rem; }
-            .singer-female-img { width: 200px; height: 200px; }
-            .stage-benefits-list li { font-size: 1.05rem; text-align: left; }
-
-            /* UPLOAD FORM */
-            .upload-header-row { flex-direction: column; align-items: flex-start; }
-            .upload-header-row h3 { font-size: 1.15rem; }
-            .upload-header-row p { font-size: 13px; }
-            .upload-grid-fields { grid-template-columns: 1fr; gap: 16px; }
-            .form-field-group label { font-size: 13px; }
-            .input-box, .select-box, .textarea-box { padding: 11px; font-size: 13.5px; }
-            .dropzone-container { padding: 18px 12px; }
-            .dropzone-icon { font-size: 24px; }
-            .dropzone-title { font-size: 13px; }
-            .btn-publish-performance { padding: 13px 22px; font-size: 14px; width: 100%; }
-
-            /* PERFORMERS GRID */
-            .performers-video-row { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-            .video-card-thumb-wrapper { height: 120px; }
-            .video-play-overlay { font-size: 26px; }
-            .video-card-footer { padding: 10px; }
-            .video-card-footer p { font-size: 12px; }
-
-            /* PLAYER */
-            .player-viewport-screen { height: 260px; }
-            .now-playing-label { font-size: 11px; padding: 6px 12px; max-width: 75%; }
-            .player-watermark { padding: 6px 10px; top: 12px; right: 12px; }
-            .player-watermark span.title { font-size: 9px; }
-            .player-controls-row { padding: 12px 14px; gap: 10px; }
-            .ctrl-btn { padding: 7px 12px; font-size: 12px; }
-            .controls-right { font-size: 16px; gap: 12px; }
-
-            /* CAREER */
-            .career-banner-top { flex-direction: column; text-align: center; padding: 15px; }
-            .career-banner-left { flex-direction: column; width: 100%; }
-            .career-banner-img { width: 100%; height: 130px; }
-            .career-banner-text { padding: 12px 0 0 0; text-align: center; }
-            .career-banner-text h3 { font-size: 1.6rem; }
-            .career-banner-text h3 span.sub { font-size: 1.1rem; }
-            .career-mug-img { margin: 12px 0 0 0; }
-            .career-cards-grid { grid-template-columns: 1fr; gap: 18px; }
-            .poster1-header h3 { font-size: 15px; }
-            .poster1-body { padding: 16px; }
-            .poster2-content { grid-template-columns: 1fr; padding: 16px; gap: 14px; }
-            .poster2-img { max-height: 180px; margin: 0 auto; display: block; }
-            .poster2-footer { flex-direction: column; align-items: flex-start; font-size: 12px; }
-
-            /* EVENTS */
-            .events-karaoke-night-card { flex-direction: column; gap: 20px; }
-            .events-card-img { max-width: 100%; height: 200px; }
-            .events-card-info { min-width: 0; width: 100%; }
-            .events-card-info h3 { font-size: 1.35rem; }
-            .events-card-info ul { font-size: 14px; }
-
-            /* FOOTER */
-            .footer-cols { grid-template-columns: repeat(2, 1fr); gap: 20px; }
-            .footer-widgets { flex-direction: column; justify-content: center; gap: 18px; }
-            .payment-methods { justify-content: center; }
-            .footer-widgets > div { justify-content: center; }
-        }
 
         /* ==========================================
            RESPONSIVE — SMALL MOBILE (480px and below)
@@ -1266,7 +1303,8 @@
         const menuToggle = document.getElementById('mobileMenuToggle');
         const mainNav = document.getElementById('mainNav');
         if (menuToggle && mainNav) {
-            menuToggle.addEventListener('click', () => { mainNav.classList.toggle('active'); });
+            menuToggle.addEventListener('click', () => { mainNav.classList.toggle('active');
+                menuToggle.classList.toggle('open'); });
         }
 
         // Mobile dropdown toggle
@@ -1288,6 +1326,7 @@
             if (window.innerWidth <= 768 && mainNav && mainNav.classList.contains('active')) {
                 if (!mainNav.contains(e.target) && !menuToggle.contains(e.target)) {
                     mainNav.classList.remove('active');
+                    menuToggle.classList.remove('open');
                 }
             }
         });

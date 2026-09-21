@@ -246,13 +246,8 @@
         }
 
         /* Mobile Menu Toggle */
-        .mobile-menu-toggle {
-            display: none;
-            font-size: 24px;
-            color: #fff;
-            cursor: pointer;
-            padding: 5px;
-        }
+        .mobile-menu-toggle { display: none; font-size: 24px; color: #fff; cursor: pointer; padding: 5px; transition: transform 0.3s ease; }
+        .mobile-menu-toggle:active { transform: scale(0.9); }
 
         /* ==========================================
            HERO SECTION
@@ -1879,6 +1874,7 @@
         if (menuToggle && mainNav) {
             menuToggle.addEventListener('click', () => {
                 mainNav.classList.toggle('active');
+                menuToggle.classList.toggle('open');
             });
         }
 
@@ -1901,6 +1897,7 @@
             if (window.innerWidth <= 768 && mainNav && mainNav.classList.contains('active')) {
                 if (!mainNav.contains(e.target) && !menuToggle.contains(e.target)) {
                     mainNav.classList.remove('active');
+                    menuToggle.classList.remove('open');
                 }
             }
         });

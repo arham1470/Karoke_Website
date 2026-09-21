@@ -42,7 +42,8 @@
         .dropdown-content a { color: #ddd; padding: 10px 20px; text-decoration: none; display: block; font-size: 13px; font-weight: 500; }
         .dropdown-content a:hover { background-color: rgba(255, 255, 255, 0.05); color: #fff; }
         .dropdown:hover .dropdown-content { display: block; }
-        .mobile-menu-toggle { display: none; font-size: 24px; color: #fff; cursor: pointer; padding: 5px; }
+        .mobile-menu-toggle { display: none; font-size: 24px; color: #fff; cursor: pointer; padding: 5px; transition: transform 0.3s ease; }
+        .mobile-menu-toggle:active { transform: scale(0.9); }
 
         /* ==========================================
            HERO WRAPPER - AUTO-CHANGING BACKGROUND
@@ -290,41 +291,135 @@
             .header-buttons { justify-content: center; }
 
             /* HEADER + MOBILE NAV */
+            header { position: relative; z-index: 1000; }
             .mobile-menu-toggle { display: block; }
-            nav { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: rgba(3, 20, 41, 0.98); padding: 20px; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); gap: 15px; align-items: flex-start; z-index: 999; border-top: 1px solid rgba(255, 255, 255, 0.1); width: 100%; }
-            nav.active { display: flex; }
-            .dropdown { width: 100%; }
-            .dropdown-content { position: static; box-shadow: none; display: none; padding-left: 20px; border: none; background: transparent; width: 100%; }
+
+            nav {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(3, 20, 41, 0.98);
+                backdrop-filter: blur(16px);
+                -webkit-backdrop-filter: blur(16px);
+                padding: 0 20px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+                gap: 0;
+                align-items: stretch;
+                z-index: 9999;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+                width: 100%;
+                max-height: 0;
+                overflow: hidden;
+                opacity: 0;
+                transform: translateY(-12px);
+                transition: max-height 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+                            opacity 0.35s ease,
+                            transform 0.35s ease,
+                            padding 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+            }
+            nav.active {
+                max-height: 700px;
+                opacity: 1;
+                transform: translateY(0);
+                padding: 10px 20px;
+            }
+
+            /* ==========================================
+               EQUAL HEIGHT ROWS FOR ALL MENU ITEMS
+               ========================================== */
+            nav > a,
+            nav > .dropdown {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                height: 52px;                /* same fixed height for every row */
+                min-height: 52px;
+                padding: 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+                opacity: 0;
+                transform: translateX(-14px);
+                transition: opacity 0.35s ease, transform 0.35s ease, color 0.2s ease;
+                box-sizing: border-box;
+            }
+            nav > a:last-child { border-bottom: none; }
+            nav > .dropdown { border-bottom: none; }
+
+            nav > a,
+            nav > .dropdown > a {
+                color: #fff;
+                font-size: 15px;
+                font-weight: 600;
+                text-decoration: none;
+                padding: 0 4px;
+            }
+
+            /* The dropdown trigger row — same fixed height */
+            nav > .dropdown > a {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                height: 52px;
+                min-height: 52px;
+                padding: 0 4px;
+                box-sizing: border-box;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            }
+            nav > .dropdown:last-child > a { border-bottom: none; }
+
+            nav.active > a,
+            nav.active > .dropdown {
+                opacity: 1;
+                transform: translateX(0);
+            }
+
+            /* Staggered entrance */
+            nav.active > *:nth-child(1) { transition-delay: 0.06s; }
+            nav.active > *:nth-child(2) { transition-delay: 0.10s; }
+            nav.active > *:nth-child(3) { transition-delay: 0.14s; }
+            nav.active > *:nth-child(4) { transition-delay: 0.18s; }
+            nav.active > *:nth-child(5) { transition-delay: 0.22s; }
+            nav.active > *:nth-child(6) { transition-delay: 0.26s; }
+            nav.active > *:nth-child(7) { transition-delay: 0.30s; }
+
+            /* Hamburger icon animation */
+            .mobile-menu-toggle i {
+                transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+                display: inline-block;
+            }
+            .mobile-menu-toggle.open i {
+                transform: rotate(90deg);
+            }
+
+            /* Dropdown inside mobile nav */
+            .dropdown { position: relative; padding-bottom: 0; margin-bottom: 0; display: block; }
+            .dropdown-content {
+                position: static;
+                box-shadow: none;
+                display: none;
+                padding: 0 0 0 20px;
+                border: none;
+                background: transparent;
+                width: 100%;
+                overflow: hidden;
+            }
             .dropdown.open .dropdown-content { display: block; }
+            .dropdown-content a {
+                display: flex;
+                align-items: center;
+                height: 44px;               /* fixed height for sub-items too */
+                min-height: 44px;
+                padding: 0 4px;
+                font-size: 13px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+                opacity: 1;
+                transform: none;
+                box-sizing: border-box;
+            }
+            .dropdown-content a:last-child { border-bottom: none; }
 
-            /* SIGNUP CARD */
-            .signup-wrapper { padding: 25px 16px; }
-            .signup-card { padding: 30px 22px; border-radius: 14px; max-width: 100%; }
-            .form-logo img { width: 180px; }
-            .form-heading { font-size: 21px; letter-spacing: 1px; }
-            .form-subheading { font-size: 12.5px; margin-bottom: 22px; }
-
-            /* STACK COLUMNS */
-            .form-columns { grid-template-columns: 1fr; gap: 0; }
-            .form-columns::before { display: none; }
-
-            .section-divider { margin: 5px 0 16px 0; }
-            .section-divider span { font-size: 10.5px; }
-
-            .form-input { height: 44px; font-size: 13px; }
-            .form-label { font-size: 10.5px; margin-bottom: 7px; }
-            .form-group { margin-bottom: 15px; }
-
-            .btn-submit { font-size: 14px; padding: 14px 20px; letter-spacing: 1.2px; }
-            .terms-check { font-size: 11.5px; margin: 20px 0 16px 0; padding-top: 16px; }
-            .login-link { font-size: 12.5px; margin-top: 16px; }
-
-            /* FOOTER */
-            .footer-cols { grid-template-columns: repeat(2, 1fr); gap: 20px; }
-            .footer-widgets { flex-direction: column; justify-content: center; gap: 18px; }
-            .payment-methods { justify-content: center; }
-            .footer-widgets > div { justify-content: center; }
-        }
 
         /* ==========================================
            RESPONSIVE — SMALL MOBILE (480px and below)
@@ -920,6 +1015,7 @@
         if (menuToggle && mainNav) {
             menuToggle.addEventListener('click', () => {
                 mainNav.classList.toggle('active');
+                menuToggle.classList.toggle('open');
             });
         }
 
@@ -942,6 +1038,7 @@
             if (window.innerWidth <= 768 && mainNav && mainNav.classList.contains('active')) {
                 if (!mainNav.contains(e.target) && !menuToggle.contains(e.target)) {
                     mainNav.classList.remove('active');
+                    menuToggle.classList.remove('open');
                 }
             }
         });
