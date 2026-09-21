@@ -218,6 +218,20 @@
             .section-title { font-size: 11px; padding: 9px 10px; letter-spacing: 0.5px; }
         }
     </style>
+    <script src="js/auth.js"></script>
+    <script>
+        window.auth.verifySession(false).then(valid => {
+            if (valid) {
+                if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', () => {
+                        window.auth.updateTopBannerUI();
+                    });
+                } else {
+                    window.auth.updateTopBannerUI();
+                }
+            }
+        });
+    </script>
 </head>
 <body>
 

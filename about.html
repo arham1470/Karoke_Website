@@ -438,6 +438,20 @@
             .packages-box h3 { font-size: 1.1rem; }
         }
     </style>
+    <script src="js/auth.js"></script>
+    <script>
+        window.auth.verifySession(false).then(valid => {
+            if (valid) {
+                if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', () => {
+                        window.auth.updateTopBannerUI();
+                    });
+                } else {
+                    window.auth.updateTopBannerUI();
+                }
+            }
+        });
+    </script>
 </head>
 
 <body>

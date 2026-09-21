@@ -439,6 +439,9 @@
         </div>
     </div>
 
+    <!-- Authentication Client -->
+    <script src="js/auth.js"></script>
+
     <!-- Interactive Script -->
     <script>
         /* ==========================================
@@ -620,7 +623,7 @@
         /* ==========================================
            SIGN UP FORM SUBMISSION
            ========================================== */
-        function handleSignup(event) {
+        async function handleSignup(event) {
             event.preventDefault();
 
             const fullName = document.getElementById('fullName').value.trim();
@@ -630,6 +633,7 @@
             const password = document.getElementById('password').value;
             const confirmPassword = document.getElementById('confirmPassword').value;
             const terms = document.getElementById('terms').checked;
+            const submitBtn = document.querySelector('.btn-submit');
 
             if (!fullName || !email || !username || !password || !confirmPassword) {
                 showAlert('error', 'Please fill in all required fields marked with *');
@@ -646,7 +650,7 @@
                 const cleanWa = whatsapp.replace(/[\s\-()]/g, '');
                 const waRegex = /^\+?\d{7,15}$/;
                 if (!waRegex.test(cleanWa)) {
-                    showAlert('error', 'Please enter a valid WhatsApp number (7-15 digits, optional +).');
+                    showAlert('error', 'Please enter a valid WhatsApp number.');
                     return;
                 }
             }
@@ -656,26 +660,46 @@
                 return;
             }
 
-            if (password.length < 8) {
-                showAlert('error', 'Password must be at least 8 characters long.');
+            if (password.length < 6) {
+                showAlert('error', 'Password must be at least 6 characters long.');
                 return;
             }
 
             if (password !== confirmPassword) {
-                showAlert('error', 'Passwords do not match. Please try again.');
+                showAlert('error', 'Passwords do not match.');
                 return;
             }
 
             if (!terms) {
-                showAlert('error', 'Please agree to the Terms of Service and Privacy Policy.');
+                showAlert('error', 'You must agree to the Terms of Service & Privacy Policy.');
                 return;
             }
 
-            showAlert('success', '🎉 Account created successfully! Redirecting to login...');
+            // UI feedback while loading
+            const originalBtnText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Creating Account...';
+            submitBtn.disabled = true;
 
-            setTimeout(() => {
-                window.location.href = 'index.html';
-            }, 2000);
+            const result = await window.auth.signup({
+                name: fullName,
+                email: email,
+                whatsapp: whatsapp,
+                username: username,
+                password: password
+            });
+
+            submitBtn.innerHTML = originalBtnText;
+            submitBtn.disabled = false;
+
+            if (result.success) {
+                showAlert('success', 'Account created successfully! Redirecting to login...');
+                document.getElementById('signupForm').reset();
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 2000);
+            } else {
+                showAlert('error', result.message || 'Failed to create account. Please try again.');
+            }
         }
 
         function showAlert(type, message) {

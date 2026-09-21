@@ -269,6 +269,9 @@
         </div>
     </div>
 
+    <!-- Authentication Client -->
+    <script src="js/auth.js"></script>
+
     <!-- Interactive Script -->
     <script>
         function togglePasswordVisibility() {
@@ -283,23 +286,42 @@
             }
         }
 
-        function handleLogin(event) {
+        async function handleLogin(event) {
             event.preventDefault();
             const username = document.getElementById('username').value.trim();
             const password = document.getElementById('password').value.trim();
             const alertMsg = document.getElementById('alert-msg');
+            const submitBtn = document.querySelector('.btn-submit');
 
-            if ((username === 'admin@gmail.com' || username === 'admin') && password === 'admin123') {
+            // Simple validation
+            if (!username || !password) {
+                alertMsg.className = 'alert-box alert-error';
+                alertMsg.innerHTML = '<i class="fas fa-exclamation-circle" style="margin-right:8px;"></i> Please enter both email and password.';
+                alertMsg.style.display = 'block';
+                return;
+            }
+
+            // UI feedback while loading
+            const originalBtnText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Logging in...';
+            submitBtn.disabled = true;
+
+            const result = await window.auth.login(username, password);
+
+            submitBtn.innerHTML = originalBtnText;
+            submitBtn.disabled = false;
+
+            if (result.success) {
                 alertMsg.className = 'alert-box alert-success';
-                alertMsg.innerHTML = '<i class="fas fa-check-circle" style="margin-right:8px;"></i> Welcome back, ' + username + '! Logging in...';
+                alertMsg.innerHTML = '<i class="fas fa-check-circle" style="margin-right:8px;"></i> Login successful! Redirecting...';
                 alertMsg.style.display = 'block';
 
                 setTimeout(() => {
                     window.location.href = 'home.html';
-                }, 1500);
+                }, 1000);
             } else {
                 alertMsg.className = 'alert-box alert-error';
-                alertMsg.innerHTML = '<i class="fas fa-exclamation-circle" style="margin-right:8px;"></i> Invalid username or password.';
+                alertMsg.innerHTML = '<i class="fas fa-exclamation-circle" style="margin-right:8px;"></i> ' + (result.message || 'Invalid username or password.');
                 alertMsg.style.display = 'block';
             }
         }

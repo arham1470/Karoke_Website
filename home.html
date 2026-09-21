@@ -278,7 +278,7 @@
         }
 
         /* ==========================================
-           HERO SECTION
+           HERO SECTION — RESPONSIVE FIX
            ========================================== */
         .hero {
             position: relative;
@@ -1164,24 +1164,34 @@
                 border-bottom: none;
             }
 
-            /* Hero */
+            /* ==========================================
+               HERO — FULLY RESPONSIVE & BALANCED
+               ========================================== */
             .hero {
                 min-height: auto;
-                padding: 20px 15px 40px 15px;
+                padding: 25px 16px 40px 16px;
+                gap: 0;
             }
 
             .hero-inner {
                 flex-direction: column-reverse;
                 text-align: center;
-                gap: 25px;
+                gap: 20px;
             }
 
             .hero-content {
                 align-items: center;
+                width: 100%;
             }
 
             .hero-content h2 {
                 font-size: 2.4rem;
+                margin-bottom: 18px;
+                line-height: 1.15;
+            }
+
+            .hero-content h2 br {
+                display: none;
             }
 
             .specialist-box {
@@ -1189,27 +1199,44 @@
                 align-items: center;
                 text-align: center;
                 max-width: 100%;
+                padding-top: 18px;
+                margin-top: 18px;
+                gap: 12px;
             }
 
             .specialist-icon {
-                font-size: 45px;
+                font-size: 40px;
             }
 
             .specialist-text h3 {
-                font-size: 24px;
+                font-size: 22px;
                 justify-content: center;
+                gap: 8px;
+            }
+
+            .specialist-text p {
+                font-size: 14px;
+                line-height: 1.6;
             }
 
             .specialist-text p br {
                 display: none;
             }
 
+            /* HIDE HERO ARROWS ON MOBILE */
             .hero-arrow {
-                font-size: 40px;
+                display: none;
+            }
+
+            .hero-image {
+                justify-content: center;
+                width: 100%;
             }
 
             .hero-image img {
-                max-height: 320px;
+                max-height: 260px;
+                width: 85%;
+                max-width: 340px;
             }
 
             /* Carousels */
@@ -1313,30 +1340,34 @@
                 font-size: 18px;
             }
 
-            /* Hero */
+            /* Hero fine-tuning */
+            .hero {
+                padding: 20px 12px 35px 12px;
+            }
+
             .hero-content h2 {
                 font-size: 1.9rem;
+                margin-bottom: 14px;
             }
 
             .specialist-text h3 {
-                font-size: 20px;
+                font-size: 18px;
             }
 
             .karaoke-badge {
-                font-size: 15px;
-                padding: 3px 8px;
+                font-size: 14px;
+                padding: 3px 10px;
             }
 
             .specialist-text p {
                 font-size: 13px;
+                padding: 0 5px;
             }
 
             .hero-image img {
-                max-height: 240px;
-            }
-
-            .hero-arrow {
-                font-size: 32px;
+                max-height: 220px;
+                width: 90%;
+                max-width: 280px;
             }
 
             /* Carousels */
@@ -1411,8 +1442,30 @@
            RESPONSIVE — EXTRA SMALL (375px and below)
            ========================================== */
         @media (max-width: 375px) {
+            .hero {
+                padding: 18px 10px 30px 10px;
+            }
+
             .hero-content h2 {
                 font-size: 1.6rem;
+            }
+
+            .specialist-text h3 {
+                font-size: 17px;
+            }
+
+            .karaoke-badge {
+                font-size: 12px;
+                padding: 2px 8px;
+            }
+
+            .specialist-text p {
+                font-size: 12px;
+            }
+
+            .hero-image img {
+                max-height: 190px;
+                max-width: 240px;
             }
 
             .top-banner {
@@ -1462,8 +1515,17 @@
            RESPONSIVE — TINY (320px and below)
            ========================================== */
         @media (max-width: 320px) {
+            .hero {
+                padding: 15px 8px 25px 8px;
+            }
+
             .hero-content h2 {
                 font-size: 1.4rem;
+            }
+
+            .hero-image img {
+                max-height: 160px;
+                max-width: 200px;
             }
 
             .logo-area h1 {
@@ -1490,6 +1552,20 @@
             }
         }
     </style>
+    <script src="js/auth.js"></script>
+    <script>
+        window.auth.verifySession(true).then(valid => {
+            if (valid) {
+                if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', () => {
+                        window.auth.updateTopBannerUI();
+                    });
+                } else {
+                    window.auth.updateTopBannerUI();
+                }
+            }
+        });
+    </script>
 </head>
 
 <body>
