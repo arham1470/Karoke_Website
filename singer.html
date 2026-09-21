@@ -17,7 +17,7 @@
         .top-banner > div:first-child { display: flex; align-items: center; min-width: 0; }
         .top-banner img { flex-shrink: 0; }
         .welcome-text { color: #555; font-weight: 500; font-size: 14px; }
-        .welcome-text strong { background: linear-gradient(135deg, #0c101d, #4bb5f5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800; font-size: 15px; }
+        .welcome-text strong { background: linear-gradient(135deg, #0c101d, #4bb5f5); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800; font-size: 15px; }
         .welcome-text i { color: #ff3366; margin: 0 4px; font-size: 12px; }
         .social-icons { display: flex; align-items: center; gap: 15px; flex-wrap: wrap; }
         .social-icons a { display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; background: #f5f5f5; color: #444; text-decoration: none; border-radius: 50%; font-size: 16px; transition: all 0.3s ease; border: 1px solid #ddd; }
@@ -31,7 +31,7 @@
         /* ==========================================
            MAIN HEADER
            ========================================== */
-        header { padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 100; background: rgba(3, 20, 41, 0.95); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); gap: 15px; }
+        header { padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 1000; background: rgba(3, 20, 41, 0.95); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); gap: 15px; }
         .logo-area h1 { font-size: 26px; color: #fff; font-weight: 700; letter-spacing: 0.5px; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); white-space: nowrap; }
         nav { display: flex; gap: 30px; align-items: center; }
         nav a { color: #fff; text-decoration: none; font-weight: 600; font-size: 16px; transition: color 0.2s; white-space: nowrap; }
@@ -47,7 +47,7 @@
         /* ==========================================
            HERO WRAPPER
            ========================================== */
-        .hero-wrapper { background: linear-gradient(to bottom, rgba(3, 20, 41, 0.7) 0%, rgba(3, 20, 41, 0.95) 100%), url('https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=1470&auto=format&fit=crop') center center/cover; position: relative; overflow: hidden; border-bottom: 2px solid #005082; }
+        .hero-wrapper { background: linear-gradient(to bottom, rgba(3, 20, 41, 0.7) 0%, rgba(3, 20, 41, 0.95) 100%), url('https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=1470&auto=format&fit=crop') center center/cover; position: relative; overflow: visible; border-bottom: 2px solid #005082; }
 
         /* ==========================================
            WHITE CARD CONTAINER
@@ -269,7 +269,7 @@
                 display: flex;
                 align-items: center;
                 width: 100%;
-                height: 52px;                /* same fixed height for every row */
+                height: 52px;
                 min-height: 52px;
                 padding: 0;
                 border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -290,7 +290,6 @@
                 padding: 0 4px;
             }
 
-            /* The dropdown trigger row — same fixed height */
             nav > .dropdown > a {
                 display: flex;
                 align-items: center;
@@ -343,7 +342,7 @@
             .dropdown-content a {
                 display: flex;
                 align-items: center;
-                height: 44px;               /* fixed height for sub-items too */
+                height: 44px;
                 min-height: 44px;
                 padding: 0 4px;
                 font-size: 13px;
@@ -353,7 +352,7 @@
                 box-sizing: border-box;
             }
             .dropdown-content a:last-child { border-bottom: none; }
-
+        }
 
         /* ==========================================
            RESPONSIVE — SMALL MOBILE (480px and below)
@@ -866,22 +865,27 @@
             });
         }
 
-        // Mobile dropdown toggle (tap to open)
+        // Dropdown toggle (click to open)
         const dropdowns = document.querySelectorAll('.dropdown');
         dropdowns.forEach(dd => {
             const link = dd.querySelector('a');
             if (link) {
                 link.addEventListener('click', (e) => {
-                    if (window.innerWidth <= 768) {
-                        e.preventDefault();
-                        dd.classList.toggle('open');
-                    }
+                    e.preventDefault();
+                    dd.classList.toggle('open');
+                    dd.classList.toggle('show');
                 });
             }
         });
 
-        // Close mobile menu on outside click
+        // Close menus on outside click
         document.addEventListener('click', (e) => {
+            dropdowns.forEach(dd => {
+                if (!dd.contains(e.target)) {
+                    dd.classList.remove('open');
+                    dd.classList.remove('show');
+                }
+            });
             if (window.innerWidth <= 768 && mainNav && mainNav.classList.contains('active')) {
                 if (!mainNav.contains(e.target) && !menuToggle.contains(e.target)) {
                     mainNav.classList.remove('active');
