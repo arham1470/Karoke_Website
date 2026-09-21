@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -184,14 +184,14 @@
         .login-link a:hover { color: #00d2ff; text-decoration: underline; }
 
         /* ==========================================
-           RESPONSIVE — LARGE DESKTOP (1440px)
+           RESPONSIVE - LARGE DESKTOP (1440px)
            ========================================== */
         @media (max-width: 1440px) {
             .signup-wrapper { padding: 40px 20px; }
         }
 
         /* ==========================================
-           RESPONSIVE — DESKTOP (1280px)
+           RESPONSIVE - DESKTOP (1280px)
            ========================================== */
         @media (max-width: 1280px) {
             .signup-wrapper { padding: 35px 20px; }
@@ -199,7 +199,7 @@
         }
 
         /* ==========================================
-           RESPONSIVE — TABLET LANDSCAPE (1024px)
+           RESPONSIVE - TABLET LANDSCAPE (1024px)
            ========================================== */
         @media (max-width: 1024px) {
             .signup-wrapper { padding: 30px 20px; }
@@ -208,7 +208,7 @@
         }
 
         /* ==========================================
-           RESPONSIVE — TABLET PORTRAIT (900px)
+           RESPONSIVE - TABLET PORTRAIT (900px)
            ========================================== */
         @media (max-width: 900px) {
             .signup-wrapper { padding: 28px 18px; }
@@ -217,7 +217,7 @@
         }
 
         /* ==========================================
-           RESPONSIVE — MOBILE (768px and below)
+           RESPONSIVE - MOBILE (768px and below)
            ========================================== */
         @media (max-width: 768px) {
             /* Stack two columns into one */
@@ -243,7 +243,7 @@
         }
 
         /* ==========================================
-           RESPONSIVE — SMALL MOBILE (480px and below)
+           RESPONSIVE - SMALL MOBILE (480px and below)
            ========================================== */
         @media (max-width: 480px) {
             .signup-wrapper { padding: 20px 14px; }
@@ -269,7 +269,7 @@
         }
 
         /* ==========================================
-           RESPONSIVE — EXTRA SMALL (375px and below)
+           RESPONSIVE - EXTRA SMALL (375px and below)
            ========================================== */
         @media (max-width: 375px) {
             .signup-wrapper { padding: 18px 12px; }
@@ -286,7 +286,7 @@
         }
 
         /* ==========================================
-           RESPONSIVE — TINY (320px and below)
+           RESPONSIVE - TINY (320px and below)
            ========================================== */
         @media (max-width: 320px) {
             .signup-card { padding: 18px 12px; }
@@ -302,6 +302,12 @@
             .btn-submit { font-size: 12px; padding: 11px 14px; letter-spacing: 0.6px; }
             .terms-check { font-size: 10px; }
         }
+    </style>
+    <style>
+        /* Global paragraph justify without affecting UI components */
+        p { text-align: justify; }
+        .singer-info p { text-align: center; }
+        .video-info p, .small-yt-card-info p, .specialist-text p, footer p, .hero p { text-align: left; }
     </style>
 </head>
 
@@ -566,7 +572,7 @@
            ========================================== */
         document.getElementById('fullName').addEventListener('blur', function () {
             if (this.value.trim().length >= 3) {
-                setValidation('fullName', 'fullName-msg', true, '✓ Looks good!');
+                setValidation('fullName', 'fullName-msg', true, 'âœ“ Looks good!');
             } else if (this.value.trim().length > 0) {
                 setValidation('fullName', 'fullName-msg', false, 'Name must be at least 3 characters.');
             } else {
@@ -577,7 +583,7 @@
         document.getElementById('email').addEventListener('blur', function () {
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (emailRegex.test(this.value.trim())) {
-                setValidation('email', 'email-msg', true, '✓ Valid email address.');
+                setValidation('email', 'email-msg', true, 'âœ“ Valid email address.');
             } else if (this.value.trim().length > 0) {
                 setValidation('email', 'email-msg', false, 'Please enter a valid email address.');
             } else {
@@ -593,7 +599,7 @@
             }
             const waRegex = /^\+?\d{7,15}$/;
             if (waRegex.test(val)) {
-                setValidation('whatsapp', 'whatsapp-msg', true, '✓ Valid WhatsApp number.');
+                setValidation('whatsapp', 'whatsapp-msg', true, 'âœ“ Valid WhatsApp number.');
             } else {
                 setValidation('whatsapp', 'whatsapp-msg', false, 'Enter a valid number (7-15 digits, optional +).');
             }
@@ -601,7 +607,7 @@
 
         document.getElementById('username').addEventListener('blur', function () {
             if (this.value.trim().length >= 4) {
-                setValidation('username', 'username-msg', true, '✓ Username available.');
+                setValidation('username', 'username-msg', true, 'âœ“ Username available.');
             } else if (this.value.trim().length > 0) {
                 setValidation('username', 'username-msg', false, 'Username must be at least 4 characters.');
             } else {
@@ -614,7 +620,7 @@
             if (this.value.length === 0) {
                 clearValidation('confirmPassword', 'confirmPassword-msg');
             } else if (this.value === pwd) {
-                setValidation('confirmPassword', 'confirmPassword-msg', true, '✓ Passwords match.');
+                setValidation('confirmPassword', 'confirmPassword-msg', true, 'âœ“ Passwords match.');
             } else {
                 setValidation('confirmPassword', 'confirmPassword-msg', false, 'Passwords do not match.');
             }

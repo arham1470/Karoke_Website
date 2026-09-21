@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -130,8 +130,7 @@
         .payment-methods { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
         .payment-methods img { height: 34px; background: #fff; padding: 3px 8px; border-radius: 4px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); }
 
-        /* RESPONSIVE */
-        @media (max-width: 1280px) { .page-hero h2 { font-size: 2.8rem; } }
+        /* RESPONSIVE - media (max-width: 1280px) { .page-hero h2 { font-size: 2.8rem; } }
         @media (max-width: 1024px) {
             .top-banner { padding: 10px 20px; font-size: 13px; }
             header { padding: 15px 20px; }
@@ -252,6 +251,12 @@
             }
         });
     </script>
+    <style>
+        /* Global paragraph justify without affecting UI components */
+        p { text-align: justify; }
+        .singer-info p { text-align: center; }
+        .video-info p, .small-yt-card-info p, .specialist-text p, footer p, .hero p { text-align: left; }
+    </style>
 </head>
 <body>
 
@@ -320,7 +325,7 @@
             <ul class="info-list">
                 <li>
                     <span class="info-icon"><i class="fas fa-bolt"></i></span>
-                    <div><strong>Fast Response</strong><span>Most issues resolved within 24–48 hours.</span></div>
+                    <div><strong>Fast Response</strong><span>Most issues resolved within 24â€“48 hours.</span></div>
                 </li>
                 <li>
                     <span class="info-icon"><i class="fas fa-user-shield"></i></span>
@@ -416,7 +421,7 @@
 
                 <div class="form-group">
                     <label>Song Name / URL (optional)</label>
-                    <input type="text" class="form-control" placeholder="e.g., Munbe Vaa — Sillunu Oru Kaadhal">
+                    <input type="text" class="form-control" placeholder="e.g., Munbe Vaa â€” Sillunu Oru Kaadhal">
                 </div>
 
                 <button type="submit" class="submit-btn"><i class="fas fa-paper-plane"></i> Submit Report</button>

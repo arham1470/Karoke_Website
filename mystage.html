@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -270,14 +270,14 @@
         .payment-methods img { height: 34px; background: #fff; padding: 3px 8px; border-radius: 4px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); }
 
         /* ==========================================
-           RESPONSIVE — LARGE DESKTOP (1440px)
+           RESPONSIVE - LARGE DESKTOP (1440px)
            ========================================== */
         @media (max-width: 1440px) {
             .slide-right-text h2 { font-size: 4rem; }
         }
 
         /* ==========================================
-           RESPONSIVE — DESKTOP (1280px)
+           RESPONSIVE - DESKTOP (1280px)
            ========================================== */
         @media (max-width: 1280px) {
             .slide-right-text h2 { font-size: 3.6rem; }
@@ -286,7 +286,7 @@
         }
 
         /* ==========================================
-           RESPONSIVE — TABLET LANDSCAPE (1024px)
+           RESPONSIVE - TABLET LANDSCAPE (1024px)
            ========================================== */
         @media (max-width: 1024px) {
             .top-banner { padding: 10px 20px; font-size: 13px; }
@@ -318,7 +318,7 @@
         }
 
         /* ==========================================
-           RESPONSIVE — TABLET PORTRAIT (900px)
+           RESPONSIVE - TABLET PORTRAIT (900px)
            ========================================== */
         @media (max-width: 900px) {
             .hero-slider-section { height: 300px; }
@@ -342,7 +342,7 @@
         }
 
         /* ==========================================
-           RESPONSIVE — MOBILE (768px and below)
+           RESPONSIVE - MOBILE (768px and below)
            ========================================== */
         @media (max-width: 768px) {
             /* TOP BANNER */
@@ -417,7 +417,7 @@
                 padding: 0 4px;
             }
 
-            /* The dropdown trigger row — same fixed height */
+            /* The dropdown trigger row â€” same fixed height */
             nav > .dropdown > a {
                 display: flex;
                 align-items: center;
@@ -483,7 +483,7 @@
         }
 
         /* ==========================================
-           RESPONSIVE — SMALL MOBILE (480px and below)
+           RESPONSIVE - SMALL MOBILE (480px and below)
            ========================================== */
         @media (max-width: 480px) {
             .welcome-text { font-size: 12px; }
@@ -565,7 +565,7 @@
         }
 
         /* ==========================================
-           RESPONSIVE — EXTRA SMALL (375px and below)
+           RESPONSIVE - EXTRA SMALL (375px and below)
            ========================================== */
         @media (max-width: 375px) {
             .top-banner { padding: 10px; }
@@ -603,7 +603,7 @@
         }
 
         /* ==========================================
-           RESPONSIVE — TINY (320px and below)
+           RESPONSIVE - TINY (320px and below)
            ========================================== */
         @media (max-width: 320px) {
             .hero-slider-section { height: 340px; }
@@ -638,6 +638,12 @@
             }
         });
     </script>
+    <style>
+        /* Global paragraph justify without affecting UI components */
+        p { text-align: justify; }
+        .singer-info p { text-align: center; }
+        .video-info p, .small-yt-card-info p, .specialist-text p, footer p, .hero p { text-align: left; }
+    </style>
 </head>
 
 <body>
@@ -803,10 +809,10 @@
                     <div class="form-field-group">
                         <label for="categoryInput"><i class="fa-solid fa-users"></i> Performance Type</label>
                         <select id="categoryInput" class="select-box">
-                            <option value="Solo Vocalist">🎤 Solo Vocalist</option>
-                            <option value="Duet with Friends">👥 Duet Performance</option>
-                            <option value="Acoustic Cover">🎸 Acoustic Guitar & Vocals</option>
-                            <option value="Live Band Performance">🥁 Full Live Band</option>
+                            <option value="Solo Vocalist">ðŸŽ¤ Solo Vocalist</option>
+                            <option value="Duet with Friends">ðŸ‘¥ Duet Performance</option>
+                            <option value="Acoustic Cover">ðŸŽ¸ Acoustic Guitar & Vocals</option>
+                            <option value="Live Band Performance">ðŸ¥ Full Live Band</option>
                         </select>
                     </div>
 
@@ -1277,10 +1283,10 @@
             if (playerSection) playerSection.scrollIntoView({ behavior: 'smooth' });
         }
 
-        function likeStage() { document.getElementById('likeCounter').innerText = '1.3k'; alert('❤️ Thank you for liking this performance!'); }
+        function likeStage() { document.getElementById('likeCounter').innerText = '1.3k'; alert('â¤ï¸ Thank you for liking this performance!'); }
         function commentStage() { const msg = prompt('Leave a comment for this performer:'); if (msg && msg.trim()) { const el = document.getElementById('commentCounter'); el.innerText = parseInt(el.innerText) + 1; alert('Thank you! Your comment has been posted.'); } }
-        function subscribeStage() { alert('🌟 Thank you for subscribing to 3Stars Entertainers!'); }
-        function downloadStage() { alert('📥 Starting download for this karaoke track...'); }
+        function subscribeStage() { alert('ðŸŒŸ Thank you for subscribing to 3Stars Entertainers!'); }
+        function downloadStage() { alert('ðŸ“¥ Starting download for this karaoke track...'); }
 
         function toggleFullScreen() {
             const player = document.getElementById('mainStagePlayer');

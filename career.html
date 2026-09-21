@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -63,7 +63,7 @@
         .section-bar { background: linear-gradient(135deg, #0c101d, #1b5394); color: #fff; text-align: center; padding: 15px 20px; font-size: 1.3rem; font-weight: bold; margin: 40px auto 30px auto; width: 95%; max-width: 1200px; border-radius: 8px; box-shadow: 0 5px 15px rgba(27, 83, 148, 0.25); text-transform: uppercase; letter-spacing: 1.5px; border: 1px solid rgba(255, 255, 255, 0.1); }
 
         /* ==========================================
-           CAREER GRID & CARDS
+           CAREER GRID & CARDS (with images)
            ========================================== */
         .career-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; width: 95%; max-width: 1200px; margin: 0 auto 40px auto; align-items: stretch; }
 
@@ -73,17 +73,48 @@
             border-radius: 12px;
             overflow: hidden;
             text-align: left;
-            padding: 25px;
             transition: transform 0.3s, box-shadow 0.3s;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
             display: flex;
             flex-direction: column;
             height: 100%;
+            padding: 0; /* image sits flush at top */
         }
         .career-card:hover { transform: translateY(-5px); box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1); border-color: #4bb5f5; }
-        .career-card h3 { font-size: 1.3rem; color: #0c101d; margin-bottom: 15px; font-weight: 800; }
-        .career-card .exp-badge { display: inline-block; background: #eef5f9; color: #1b5394; padding: 6px 12px; font-size: 12px; border-radius: 20px; margin-bottom: 15px; font-weight: bold; border: 1px solid #b8dcf2; align-self: flex-start; }
-        .career-card p { font-size: 14px; color: #555; margin-bottom: 20px; line-height: 1.6; flex-grow: 1; }
+
+        /* Card image area */
+        .career-card-img {
+            width: 100%;
+            height: 180px;
+            overflow: hidden;
+            background: #eef5f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .career-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+        .career-card:hover .career-card-img img {
+            transform: scale(1.05);
+        }
+
+        /* Card text content wrapper */
+        .career-card-body {
+            padding: 22px 22px 25px 22px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .career-card-body h3 { font-size: 1.3rem; color: #0c101d; margin-bottom: 12px; font-weight: 800; }
+        .career-card-body .exp-badge { display: inline-block; background: #eef5f9; color: #1b5394; padding: 6px 12px; font-size: 12px; border-radius: 20px; margin-bottom: 15px; font-weight: bold; border: 1px solid #b8dcf2; align-self: flex-start; }
+        .career-card-body p { font-size: 14px; color: #555; margin-bottom: 20px; line-height: 1.6; flex-grow: 1; }
 
         /* Apply button wrapper — pinned to bottom */
         .apply-btn-wrap { margin-top: auto; }
@@ -124,14 +155,14 @@
         .payment-methods img { height: 34px; background: #fff; padding: 3px 8px; border-radius: 4px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); }
 
         /* ==========================================
-           RESPONSIVE — LARGE DESKTOP (1440px)
+           RESPONSIVE - LARGE DESKTOP (1440px)
            ========================================== */
         @media (max-width: 1440px) {
             .hero-text h2 { font-size: 2.8rem; }
         }
 
         /* ==========================================
-           RESPONSIVE — DESKTOP (1280px)
+           RESPONSIVE - DESKTOP (1280px)
            ========================================== */
         @media (max-width: 1280px) {
             .hero-text h2 { font-size: 2.6rem; }
@@ -139,7 +170,7 @@
         }
 
         /* ==========================================
-           RESPONSIVE — TABLET LANDSCAPE (1024px)
+           RESPONSIVE - TABLET LANDSCAPE (1024px)
            ========================================== */
         @media (max-width: 1024px) {
             .top-banner { padding: 10px 20px; font-size: 13px; }
@@ -152,8 +183,8 @@
 
             .section-bar { font-size: 1.1rem; padding: 13px 18px; margin: 32px auto 24px auto; }
             .career-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-            .career-card { padding: 22px; }
-            .career-card h3 { font-size: 1.2rem; }
+            .career-card-body { padding: 20px; }
+            .career-card-body h3 { font-size: 1.2rem; }
 
             .proposal-container { padding: 32px; }
             .proposal-container h3 { font-size: 1.35rem; }
@@ -163,7 +194,7 @@
         }
 
         /* ==========================================
-           RESPONSIVE — TABLET PORTRAIT (900px)
+           RESPONSIVE - TABLET PORTRAIT (900px)
            ========================================== */
         @media (max-width: 900px) {
             .hero-banner { height: 220px; }
@@ -173,7 +204,7 @@
         }
 
         /* ==========================================
-           RESPONSIVE — MOBILE (768px and below)
+           RESPONSIVE - MOBILE (768px and below)
            ========================================== */
         @media (max-width: 768px) {
             /* TOP BANNER */
@@ -219,15 +250,13 @@
                 padding: 10px 20px;
             }
 
-            /* ==========================================
-               EQUAL HEIGHT ROWS FOR ALL MENU ITEMS
-               ========================================== */
+            /* EQUAL HEIGHT ROWS FOR ALL MENU ITEMS */
             nav > a,
             nav > .dropdown {
                 display: flex;
                 align-items: center;
                 width: 100%;
-                height: 52px;                /* same fixed height for every row */
+                height: 52px;
                 min-height: 52px;
                 padding: 0;
                 border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -248,7 +277,6 @@
                 padding: 0 4px;
             }
 
-            /* The dropdown trigger row — same fixed height */
             nav > .dropdown > a {
                 display: flex;
                 align-items: center;
@@ -301,7 +329,7 @@
             .dropdown-content a {
                 display: flex;
                 align-items: center;
-                height: 44px;               /* fixed height for sub-items too */
+                height: 44px;
                 min-height: 44px;
                 padding: 0 4px;
                 font-size: 13px;
@@ -314,7 +342,7 @@
         }
 
         /* ==========================================
-           RESPONSIVE — SMALL MOBILE (480px and below)
+           RESPONSIVE - SMALL MOBILE (480px and below)
            ========================================== */
         @media (max-width: 480px) {
             .welcome-text { font-size: 12px; }
@@ -327,9 +355,10 @@
             .section-bar { font-size: 0.85rem; padding: 11px 14px; letter-spacing: 0.8px; margin: 22px auto 18px auto; }
 
             .career-grid { grid-template-columns: 1fr; gap: 16px; width: 95%; }
-            .career-card { padding: 18px; }
-            .career-card h3 { font-size: 1.05rem; }
-            .career-card p { font-size: 13px; }
+            .career-card-img { height: 160px; }
+            .career-card-body { padding: 16px; }
+            .career-card-body h3 { font-size: 1.05rem; }
+            .career-card-body p { font-size: 13px; }
             .apply-btn { padding: 11px 20px; font-size: 13px; }
 
             .proposal-container { padding: 22px 16px; width: 95%; }
@@ -345,7 +374,7 @@
         }
 
         /* ==========================================
-           RESPONSIVE — EXTRA SMALL (375px and below)
+           RESPONSIVE - EXTRA SMALL (375px and below)
            ========================================== */
         @media (max-width: 375px) {
             .top-banner { padding: 10px; }
@@ -358,9 +387,10 @@
 
             .section-bar { font-size: 0.78rem; padding: 10px 12px; }
 
-            .career-card { padding: 16px; }
-            .career-card h3 { font-size: 1rem; }
-            .career-card p { font-size: 12.5px; }
+            .career-card-img { height: 140px; }
+            .career-card-body { padding: 14px; }
+            .career-card-body h3 { font-size: 1rem; }
+            .career-card-body p { font-size: 12.5px; }
 
             .proposal-container { padding: 18px 14px; }
             .proposal-container h3 { font-size: 0.98rem; }
@@ -369,7 +399,7 @@
         }
 
         /* ==========================================
-           RESPONSIVE — TINY (320px and below)
+           RESPONSIVE - TINY (320px and below)
            ========================================== */
         @media (max-width: 320px) {
             .hero-text h2 { font-size: 1.1rem; }
@@ -377,9 +407,15 @@
             .header-buttons { flex-direction: column; width: 100%; }
             .login-btn, .signup-btn { width: 100%; justify-content: center; }
             .section-bar { font-size: 0.72rem; padding: 9px 10px; letter-spacing: 0.5px; }
-            .career-card h3 { font-size: 0.95rem; }
+            .career-card-body h3 { font-size: 0.95rem; }
             .proposal-container h3 { font-size: 0.92rem; }
         }
+
+        /* Global paragraph justify without affecting UI components */
+        p { text-align: justify; }
+        .singer-info p { text-align: center; }
+        .video-info p, .small-yt-card-info p, .specialist-text p, footer p, .hero p { text-align: left; }
+        .career-card-body p { text-align: left; }
     </style>
     <script src="js/auth.js"></script>
     <script>
@@ -460,33 +496,48 @@
     <div class="section-bar">Current Career Openings & Experience Levels</div>
 
     <div class="career-grid">
-        <!-- Position 1 -->
+        <!-- Position 1 — Graphic & UI/UX Designer -->
         <div class="career-card">
-            <h3>Graphic & UI/UX Designer</h3>
-            <span class="exp-badge">Experience: 1 - 3 Years</span>
-            <p>Looking for creative professionals skilled in Figma, Canva, and Adobe Express to design engaging branding and digital marketing visuals.</p>
-            <div class="apply-btn-wrap">
-                <a href="#applyForm" class="apply-btn">Apply Now</a>
+            <div class="career-card-img">
+                <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=1000&auto=format&fit=crop" alt="Graphic & UI/UX Designer">
+            </div>
+            <div class="career-card-body">
+                <h3>Graphic & UI/UX Designer</h3>
+                <span class="exp-badge">Experience: 1 - 3 Years</span>
+                <p>Looking for creative professionals skilled in Figma, Canva, and Adobe Express to design engaging branding and digital marketing visuals.</p>
+                <div class="apply-btn-wrap">
+                    <a href="#applyForm" class="apply-btn">Apply Now</a>
+                </div>
             </div>
         </div>
 
-        <!-- Position 2 -->
+        <!-- Position 2 — Digital Marketing Specialist -->
         <div class="career-card">
-            <h3>Digital Marketing Specialist</h3>
-            <span class="exp-badge">Experience: 2+ Years</span>
-            <p>Manage social media outreach, promotions, campaign management, and client growth strategies for entertainment events.</p>
-            <div class="apply-btn-wrap">
-                <a href="#applyForm" class="apply-btn">Apply Now</a>
+            <div class="career-card-img">
+                <img src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?q=80&w=1000&auto=format&fit=crop" alt="Digital Marketing Specialist">
+            </div>
+            <div class="career-card-body">
+                <h3>Digital Marketing Specialist</h3>
+                <span class="exp-badge">Experience: 2+ Years</span>
+                <p>Manage social media outreach, promotions, campaign management, and client growth strategies for entertainment events.</p>
+                <div class="apply-btn-wrap">
+                    <a href="#applyForm" class="apply-btn">Apply Now</a>
+                </div>
             </div>
         </div>
 
-        <!-- Position 3 -->
+        <!-- Position 3 — Video Editor & AI Content Creator -->
         <div class="career-card">
-            <h3>Video Editor & AI Content Creator</h3>
-            <span class="exp-badge">Experience: 1+ Years</span>
-            <p>Produce high-resolution promotional clips and text-to-video production using modern tools and editing platforms.</p>
-            <div class="apply-btn-wrap">
-                <a href="#applyForm" class="apply-btn">Apply Now</a>
+            <div class="career-card-img">
+                <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=1000&auto=format&fit=crop" alt="Video Editor & AI Content Creator">
+            </div>
+            <div class="career-card-body">
+                <h3>Video Editor & AI Content Creator</h3>
+                <span class="exp-badge">Experience: 1+ Years</span>
+                <p>Produce high-resolution promotional clips and text-to-video production using modern tools and editing platforms.</p>
+                <div class="apply-btn-wrap">
+                    <a href="#applyForm" class="apply-btn">Apply Now</a>
+                </div>
             </div>
         </div>
     </div>

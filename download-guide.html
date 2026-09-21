@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -108,8 +108,7 @@
         .payment-methods { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
         .payment-methods img { height: 34px; background: #fff; padding: 3px 8px; border-radius: 4px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); }
 
-        /* RESPONSIVE */
-        @media (max-width: 1280px) { .page-hero h2 { font-size: 2.8rem; } }
+        /* RESPONSIVE - media (max-width: 1280px) { .page-hero h2 { font-size: 2.8rem; } }
         @media (max-width: 1024px) {
             .top-banner { padding: 10px 20px; font-size: 13px; }
             header { padding: 15px 20px; }
@@ -232,6 +231,12 @@
             }
         });
     </script>
+    <style>
+        /* Global paragraph justify without affecting UI components */
+        p { text-align: justify; }
+        .singer-info p { text-align: center; }
+        .video-info p, .small-yt-card-info p, .specialist-text p, footer p, .hero p { text-align: left; }
+    </style>
 </head>
 <body>
 
@@ -288,7 +293,7 @@
         </section>
     </div>
 
-    <div class="section-title">Download Guide — Step by Step</div>
+    <div class="section-title">Download Guide â€” Step by Step</div>
 
     <div class="guide-wrap">
 
@@ -320,14 +325,14 @@
                 <div class="step-num">3</div>
                 <h4>Select Your Track</h4>
                 <p>Click on the song you want. You'll see the song details, singer, movie, and available formats (MP4 video / MP3 audio). Preview the track before downloading.</p>
-                <div class="step-tip"><i class="fas fa-lightbulb"></i> Preview is free — no download required.</div>
+                <div class="step-tip"><i class="fas fa-lightbulb"></i> Preview is free â€” no download required.</div>
             </div>
 
             <!-- Step 4 -->
             <div class="step-card">
                 <div class="step-num">4</div>
                 <h4>Choose Download Format</h4>
-                <p>Select your preferred format — MP4 for full lyrics video or MP3 for audio only. Some tracks also include a printable PDF lyrics sheet.</p>
+                <p>Select your preferred format â€” MP4 for full lyrics video or MP3 for audio only. Some tracks also include a printable PDF lyrics sheet.</p>
                 <div class="step-tip"><i class="fas fa-lightbulb"></i> MP4 is best for practice; MP3 is best for performance.</div>
             </div>
 
@@ -352,10 +357,10 @@
             <div class="info-box">
                 <h4><i class="fas fa-file-download"></i> Supported Formats</h4>
                 <ul>
-                    <li>MP4 — Full HD lyrics video</li>
-                    <li>MP3 — High-quality audio</li>
-                    <li>PDF — Printable lyrics sheet</li>
-                    <li>WAV — Studio-quality audio (select songs)</li>
+                    <li>MP4 â€” Full HD lyrics video</li>
+                    <li>MP3 â€” High-quality audio</li>
+                    <li>PDF â€” Printable lyrics sheet</li>
+                    <li>WAV â€” Studio-quality audio (select songs)</li>
                 </ul>
             </div>
             <div class="info-box">

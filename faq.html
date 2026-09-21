@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -103,8 +103,7 @@
         .payment-methods { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
         .payment-methods img { height: 34px; background: #fff; padding: 3px 8px; border-radius: 4px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); }
 
-        /* RESPONSIVE */
-        @media (max-width: 1280px) { .page-hero h2 { font-size: 2.8rem; } }
+        /* RESPONSIVE - media (max-width: 1280px) { .page-hero h2 { font-size: 2.8rem; } }
         @media (max-width: 1024px) {
             .top-banner { padding: 10px 20px; font-size: 13px; }
             header { padding: 15px 20px; }
@@ -225,6 +224,12 @@
             }
         });
     </script>
+    <style>
+        /* Global paragraph justify without affecting UI components */
+        p { text-align: justify; }
+        .singer-info p { text-align: center; }
+        .video-info p, .small-yt-card-info p, .specialist-text p, footer p, .hero p { text-align: left; }
+    </style>
 </head>
 <body>
 
@@ -281,7 +286,7 @@
         </section>
     </div>
 
-    <div class="section-title">Help Center — FAQ</div>
+    <div class="section-title">Help Center â€” FAQ</div>
 
     <div class="faq-container">
 
@@ -331,9 +336,9 @@
                     <div class="faq-answer">
                         <p>We provide:</p>
                         <ul>
-                            <li><strong>MP4</strong> — Full HD video with synchronized lyrics and audio.</li>
-                            <li><strong>MP3</strong> — High-quality audio-only version.</li>
-                            <li><strong>PDF</strong> — Printable lyrics sheets for select songs.</li>
+                            <li><strong>MP4</strong> â€” Full HD video with synchronized lyrics and audio.</li>
+                            <li><strong>MP3</strong> â€” High-quality audio-only version.</li>
+                            <li><strong>PDF</strong> â€” Printable lyrics sheets for select songs.</li>
                         </ul>
                     </div>
                 </div>
@@ -359,7 +364,7 @@
                 <div class="faq-item">
                     <div class="faq-question">How do I cancel my subscription? <span class="q-icon"><i class="fas fa-chevron-down"></i></span></div>
                     <div class="faq-answer">
-                        <p>Go to <strong>My Account → Subscription</strong> and click <strong>Cancel Subscription</strong>. Your access continues until the end of the current billing period. No further charges will apply.</p>
+                        <p>Go to <strong>My Account â†’ Subscription</strong> and click <strong>Cancel Subscription</strong>. Your access continues until the end of the current billing period. No further charges will apply.</p>
                     </div>
                 </div>
                 <div class="faq-item">

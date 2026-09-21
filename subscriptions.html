@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -139,8 +139,7 @@
         .payment-methods { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
         .payment-methods img { height: 34px; background: #fff; padding: 3px 8px; border-radius: 4px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); }
 
-        /* RESPONSIVE */
-        @media (max-width: 1280px) { .page-hero h2 { font-size: 2.8rem; } }
+        /* RESPONSIVE - media (max-width: 1280px) { .page-hero h2 { font-size: 2.8rem; } }
         @media (max-width: 1024px) {
             .top-banner { padding: 10px 20px; font-size: 13px; }
             header { padding: 15px 20px; }
@@ -266,6 +265,12 @@
             }
         });
     </script>
+    <style>
+        /* Global paragraph justify without affecting UI components */
+        p { text-align: justify; }
+        .singer-info p { text-align: center; }
+        .video-info p, .small-yt-card-info p, .specialist-text p, footer p, .hero p { text-align: left; }
+    </style>
 </head>
 <body>
 
@@ -424,13 +429,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr><td>Unlimited Streaming</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
+                    <tr><td>Unlimited Streaming</td><td class="check">âœ“</td><td class="check">âœ“</td><td class="check">âœ“</td></tr>
                     <tr><td>Monthly Downloads</td><td>50</td><td>200</td><td>Unlimited</td></tr>
-                    <tr><td>MP4 Video Downloads</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
-                    <tr><td>MP3 Audio Downloads</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
-                    <tr><td>PDF Lyrics Sheets</td><td class="cross">—</td><td class="check">✓</td><td class="check">✓</td></tr>
-                    <tr><td>Priority Support</td><td class="cross">—</td><td class="check">✓</td><td class="check">✓</td></tr>
-                    <tr><td>Free Trial</td><td class="cross">—</td><td class="check">7 Days</td><td class="check">7 Days</td></tr>
+                    <tr><td>MP4 Video Downloads</td><td class="check">âœ“</td><td class="check">âœ“</td><td class="check">âœ“</td></tr>
+                    <tr><td>MP3 Audio Downloads</td><td class="check">âœ“</td><td class="check">âœ“</td><td class="check">âœ“</td></tr>
+                    <tr><td>PDF Lyrics Sheets</td><td class="cross">â€”</td><td class="check">âœ“</td><td class="check">âœ“</td></tr>
+                    <tr><td>Priority Support</td><td class="cross">â€”</td><td class="check">âœ“</td><td class="check">âœ“</td></tr>
+                    <tr><td>Free Trial</td><td class="cross">â€”</td><td class="check">7 Days</td><td class="check">7 Days</td></tr>
                     <tr><td>Simultaneous Devices</td><td>1</td><td>3</td><td>5</td></tr>
                 </tbody>
             </table>
@@ -555,7 +560,7 @@
             }
         });
 
-        // Billing Toggle (visual only — prices set per plan)
+        // Billing Toggle (visual only â€” prices set per plan)
         const billingToggle = document.getElementById('billingToggle');
         const monthlyLabel = document.getElementById('monthlyLabel');
         const yearlyLabel = document.getElementById('yearlyLabel');

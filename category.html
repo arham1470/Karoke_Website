@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -70,7 +70,7 @@
         .category-container { width: 95%; max-width: 1200px; margin: 0 auto 40px auto; background: #eef5f9; color: #0c101d; padding: 40px; border-radius: 12px; }
         .categories-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; align-items: stretch; }
 
-        /* Card — flex column so button sticks to bottom */
+        /* Card â€” flex column so button sticks to bottom */
         .category-card {
             background: #fff;
             border: 1px solid #ddd;
@@ -98,7 +98,7 @@
             flex-grow: 1;              /* pushes button to bottom */
         }
 
-        /* Button wrapper — always aligned at bottom */
+        /* Button wrapper â€” always aligned at bottom */
         .card-btn-wrap {
             padding: 0 20px 25px 20px;
             display: flex;
@@ -143,14 +143,14 @@
         .payment-methods img { height: 34px; background: #fff; padding: 3px 8px; border-radius: 4px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); }
 
         /* ==========================================
-           RESPONSIVE — LARGE DESKTOP (1440px)
+           RESPONSIVE - LARGE DESKTOP (1440px)
            ========================================== */
         @media (max-width: 1440px) {
             .hero-content h2 { font-size: 3.2rem; }
         }
 
         /* ==========================================
-           RESPONSIVE — DESKTOP (1280px)
+           RESPONSIVE - DESKTOP (1280px)
            ========================================== */
         @media (max-width: 1280px) {
             .hero-content h2 { font-size: 3rem; }
@@ -158,7 +158,7 @@
         }
 
         /* ==========================================
-           RESPONSIVE — TABLET LANDSCAPE (1024px)
+           RESPONSIVE - TABLET LANDSCAPE (1024px)
            ========================================== */
         @media (max-width: 1024px) {
             .top-banner { padding: 10px 20px; font-size: 13px; }
@@ -180,7 +180,7 @@
         }
 
         /* ==========================================
-           RESPONSIVE — TABLET PORTRAIT (900px)
+           RESPONSIVE - TABLET PORTRAIT (900px)
            ========================================== */
         @media (max-width: 900px) {
             .hero { min-height: 260px; padding: 25px 20px; }
@@ -191,7 +191,7 @@
         }
 
         /* ==========================================
-           RESPONSIVE — MOBILE (768px and below)
+           RESPONSIVE - MOBILE (768px and below)
            ========================================== */
         @media (max-width: 768px) {
             /* TOP BANNER */
@@ -266,7 +266,7 @@
                 padding: 0 4px;
             }
 
-            /* The dropdown trigger row — same fixed height */
+            /* The dropdown trigger row â€” same fixed height */
             nav > .dropdown > a {
                 display: flex;
                 align-items: center;
@@ -332,7 +332,7 @@
         }
 
         /* ==========================================
-           RESPONSIVE — SMALL MOBILE (480px and below)
+           RESPONSIVE - SMALL MOBILE (480px and below)
            ========================================== */
         @media (max-width: 480px) {
             .welcome-text { font-size: 12px; }
@@ -359,7 +359,7 @@
         }
 
         /* ==========================================
-           RESPONSIVE — EXTRA SMALL (375px and below)
+           RESPONSIVE - EXTRA SMALL (375px and below)
            ========================================== */
         @media (max-width: 375px) {
             .top-banner { padding: 10px; }
@@ -382,7 +382,7 @@
         }
 
         /* ==========================================
-           RESPONSIVE — TINY (320px and below)
+           RESPONSIVE - TINY (320px and below)
            ========================================== */
         @media (max-width: 320px) {
             .hero-content h2 { font-size: 1.25rem; }
@@ -456,6 +456,12 @@
             }
         });
     </script>
+    <style>
+        /* Global paragraph justify without affecting UI components */
+        p { text-align: justify; }
+        .singer-info p { text-align: center; }
+        .video-info p, .small-yt-card-info p, .specialist-text p, footer p, .hero p { text-align: left; }
+    </style>
 </head>
 
 <body>
