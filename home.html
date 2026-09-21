@@ -1659,6 +1659,12 @@
         <div id="male-singers-rows"></div>
     </div>
 
+    <!-- Female Playback Singers Section -->
+    <div class="singers-section" id="female-singers-section">
+        <h2 class="section-title">Karaoke of Favorite Female Playback Singers Songs</h2>
+        <div id="female-singers-rows"></div>
+    </div>
+
     <script>
         const maleSingers = [
             { name: "S.P.B", img: "01 spb.jpg" },
@@ -1695,7 +1701,7 @@
             { name: "Udit Narayan", img: "32. Udit_Narayanan.jpg" },
             { name: "Dhanush", img: "33.Dhanush.jpg" },
             { name: "Gana Bala", img: "34. Gana Bala.jpg" },
-            { name: "Santhosh Narayanan", img: "35..jpg" }
+            { name: "Santhosh Narayanan", img: "35.jpg" }
         ];
 
         const container = document.getElementById('male-singers-rows');
@@ -1727,6 +1733,61 @@
             `;
 
             container.innerHTML += rowHtml;
+        }
+
+        const femaleSingers = [
+            { name: "Jikki", img: "01.jikki.jpg" },
+            { name: "P. Susheela", img: "02. suseela.jpg" },
+            { name: "L.R. Eswari", img: "03. lar eshwari.jpg" },
+            { name: "S. Janaki", img: "04. janakai.jpg" },
+            { name: "Vani Jayaram", img: "05.vani jayaram.jpg" },
+            { name: "Jency", img: "06. jency.jpg" },
+            { name: "Shailaja", img: "07. shailaja.jpg" },
+            { name: "Uma Ramanan", img: "08. uma ramana.jpg" },
+            { name: "Sunandha", img: "09. sunanthA.jpg" },
+            { name: "Sujatha", img: "10.sujatha.jpg" },
+            { name: "Chithra", img: "11. chithra.jpg" },
+            { name: "Swarnalatha", img: "12. swarna latha.jpg" },
+            { name: "Anuradha Sriram", img: "13. anuradha sri ram.jpg" },
+            { name: "Harini", img: "14. harini.jpg" },
+            { name: "Saindhavi", img: "15.saindavi.jpg" },
+            { name: "Shreya Ghoshal", img: "16. sHERYA gOSAL.jpg" },
+            { name: "Bombay Jayashri", img: "17. BOMBAY JAYASREE.jpg" },
+            { name: "Sadhana Sargam", img: "18. Sadhana-Sargam-Biography.jpg" },
+            { name: "Bhavatharini", img: "19.BHAVA THARANI.jpeg" },
+            { name: "Shakthisree Gopalan", img: "20. Shakthisree-Gopalan.jpg" },
+            { name: "Shweta Mohan", img: "21. shwetha-mohan.jpg" }
+        ];
+
+        const fContainer = document.getElementById('female-singers-rows');
+        const fItemsPerRow = Math.ceil(femaleSingers.length / 3);
+
+        for (let i = 0; i < femaleSingers.length; i += fItemsPerRow) {
+            const rowSingers = femaleSingers.slice(i, i + fItemsPerRow);
+            const rowId = 'f-row-' + (i / fItemsPerRow);
+
+            let rowHtml = `
+            <div class="carousel-row-container">
+                <div class="row-arrow left" onclick="scrollRow('${rowId}', -600)"><i class="fas fa-chevron-left"></i></div>
+                <div class="carousel-row" id="${rowId}">
+            `;
+
+            rowSingers.forEach(singer => {
+                rowHtml += `
+                    <div class="modern-singer-card" onclick="openPlayStorePage('${singer.name}', 'Female Playback')">
+                        <img src="images/female%20playback%20singers/${encodeURIComponent(singer.img)}" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150'" alt="${singer.name}">
+                        <div class="singer-info"><p>${singer.name}</p></div>
+                    </div>
+                `;
+            });
+
+            rowHtml += `
+                </div>
+                <div class="row-arrow right" onclick="scrollRow('${rowId}', 600)"><i class="fas fa-chevron-right"></i></div>
+            </div>
+            `;
+
+            fContainer.innerHTML += rowHtml;
         }
 
         function scrollRow(rowId, amount) {
