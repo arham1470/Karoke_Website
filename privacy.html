@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3Stars Entertainers - Privacy Policy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: Arial, sans-serif; background-color: #d8edf8; color: #000; overflow-x: hidden; }
+
+        .top-banner { background: #ffffff; color: #222; padding: 10px 40px; display: flex; justify-content: space-between; align-items: center; font-size: 14px; font-weight: 600; letter-spacing: 0.5px; border-bottom: 1px solid #e0e0e0; gap: 15px; flex-wrap: wrap; }
+        .top-banner > div:first-child { display: flex; align-items: center; min-width: 0; }
+        .top-banner img { flex-shrink: 0; }
+        .welcome-text { color: #555; font-weight: 500; font-size: 14px; }
+        .welcome-text strong { background: linear-gradient(135deg, #0c101d, #4bb5f5); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800; font-size: 15px; }
+        .welcome-text i { color: #ff3366; margin: 0 4px; font-size: 12px; }
+        .social-icons { display: flex; align-items: center; gap: 15px; flex-wrap: wrap; }
+        .social-icons a { display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; background: #f5f5f5; color: #444; text-decoration: none; border-radius: 50%; font-size: 16px; transition: all 0.3s ease; border: 1px solid #ddd; }
+        .social-icons a:hover { background: #ff3366; color: #fff; border-color: #ff3366; transform: translateY(-3px); box-shadow: 0 5px 12px rgba(255, 51, 102, 0.4); }
+        .login-btn { font-size: 14px; font-weight: bold; background: linear-gradient(135deg, #7cd3fc, #4bb5f5); color: #0c101d; padding: 8px 20px; border-radius: 30px; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(124, 211, 252, 0.3); display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+        .login-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(124, 211, 252, 0.5); filter: brightness(1.1); }
+        .signup-btn { font-size: 14px; font-weight: bold; background: linear-gradient(135deg, #ff3366, #ff7799); color: #fff; padding: 8px 20px; border-radius: 30px; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(255, 51, 102, 0.3); display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+        .signup-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(255, 51, 102, 0.5); filter: brightness(1.1); }
+        .header-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
+
+        .hero-wrapper { background: linear-gradient(to bottom, rgba(3, 20, 41, 0.7) 0%, rgba(3, 20, 41, 0.95) 100%), url('https://images.unsplash.com/photo-1598387993441-a364f854c3e1?q=80&w=1476&auto=format&fit=crop') center center/cover; position: relative; overflow: visible; border-bottom: 2px solid #005082; }
+
+        header { padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 1000; background: rgba(3, 20, 41, 0.95); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); gap: 15px; }
+        .logo-area h1 { font-size: 26px; color: #fff; font-weight: 700; letter-spacing: 0.5px; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); white-space: nowrap; }
+        nav { display: flex; gap: 30px; align-items: center; }
+        nav a { color: #fff; text-decoration: none; font-weight: 600; font-size: 16px; transition: color 0.2s; white-space: nowrap; }
+        nav a:hover, nav a.active { color: #00d2ff; }
+        .dropdown { position: relative; display: inline-block; padding-bottom: 10px; margin-bottom: -10px; }
+        .dropdown-content { display: none; position: absolute; background-color: rgba(6, 21, 41, 0.95); min-width: 200px; box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.6); z-index: 10; top: 100%; left: 0; border-radius: 4px; border: 1px solid rgba(255, 255, 255, 0.1); padding: 10px 0; backdrop-filter: blur(5px); }
+        .dropdown-content a { color: #ddd; padding: 10px 20px; text-decoration: none; display: block; font-size: 13px; font-weight: 500; }
+        .dropdown-content a:hover { background-color: rgba(255, 255, 255, 0.05); color: #fff; }
+        .dropdown.open .dropdown-content, .dropdown.show .dropdown-content { display: block; animation: fadeInDown 0.2s ease forwards; }
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
+        .mobile-menu-toggle { display: none; font-size: 24px; color: #fff; cursor: pointer; padding: 5px; transition: transform 0.3s ease; }
+        .mobile-menu-toggle:active { transform: scale(0.9); }
+
+        .page-hero { position: relative; min-height: 260px; display: flex; align-items: center; justify-content: center; text-align: center; padding: 40px 20px; color: #fff; z-index: 1; }
+        .page-hero h2 { font-size: 3rem; font-weight: 800; line-height: 1.15; text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5); word-wrap: break-word; overflow-wrap: break-word; }
+        .page-hero h2 span { color: #ff3366; display: block; margin-top: 8px; }
+        .page-hero p { margin-top: 15px; font-size: 15px; color: #dbeafe; max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+
+        .section-title { font-size: 20px; font-weight: 800; color: #fff; background: linear-gradient(135deg, #0c101d, #1b5394); display: block; width: 90%; max-width: 950px; padding: 16px 20px; box-sizing: border-box; border-radius: 10px; margin: 30px auto; box-shadow: 0 10px 20px rgba(27, 83, 148, 0.25); text-transform: uppercase; letter-spacing: 1.5px; border: 1px solid rgba(255, 255, 255, 0.1); position: relative; text-align: center; }
+        .section-title::after { content: ''; position: absolute; bottom: -1px; left: 10%; width: 80%; height: 3px; background: #ff3366; border-radius: 10px; }
+
+        .legal-container { width: 90%; max-width: 1000px; margin: 0 auto 40px auto; background: #fff; color: #0c101d; padding: 40px; border: 1px solid #eee; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); }
+        .legal-meta { text-align: center; color: #64748b; font-size: 13px; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 2px solid #eef5f9; }
+        .legal-meta i { color: #ff3366; margin-right: 6px; }
+        .legal-container h3 { color: #1b5394; font-size: 1.35rem; margin: 30px 0 15px 0; font-weight: 800; display: flex; align-items: center; gap: 10px; }
+        .legal-container h3:first-of-type { margin-top: 0; }
+        .legal-container h3 i { color: #ff3366; font-size: 1.1rem; }
+        .legal-container p { font-size: 15px; line-height: 1.75; color: #444; margin-bottom: 15px; }
+        .legal-container ul { margin: 0 0 20px 22px; }
+        .legal-container ul li { font-size: 15px; line-height: 1.75; color: #444; margin-bottom: 10px; }
+        .legal-container ul li strong { color: #0c101d; }
+        .legal-note { background: #f8fafc; border-left: 4px solid #ff3366; padding: 18px 22px; border-radius: 0 8px 8px 0; margin: 25px 0; }
+        .legal-note p { margin: 0; font-size: 14.5px; color: #334155; }
+
+        footer { background: rgba(3, 20, 41, 0.95); color: #fff; padding: 50px 40px 20px 40px; margin-top: 40px; border-top: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3); backdrop-filter: blur(10px); }
+        .footer-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; max-width: 1200px; margin: 0 auto; font-size: 14px; }
+        .footer-cols h4 { color: #fff; margin-bottom: 15px; border-bottom: 2px solid #005082; padding-bottom: 8px; font-weight: 700; letter-spacing: 0.5px; }
+        .footer-cols ul { list-style: none; }
+        .footer-cols ul li { margin-bottom: 10px; }
+        .footer-cols ul li a { color: #aaa; text-decoration: none; transition: color 0.3s; }
+        .footer-cols ul li a:hover { color: #00d2ff; }
+        .footer-bottom { text-align: center; margin-top: 30px; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 20px; font-size: 13px; color: #888; }
+        .footer-widgets { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 25px; padding-bottom: 25px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); gap: 15px; }
+        .footer-brand-links { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+        .footer-brand-links a { display: flex; align-items: center; justify-content: center; width: 42px; height: 42px; background: rgba(255, 255, 255, 0.1); color: #fff; text-decoration: none; border-radius: 50%; font-size: 18px; transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.2); }
+        .footer-brand-links a:hover { background: #00d2ff; color: #000; border-color: #00d2ff; transform: translateY(-3px); box-shadow: 0 5px 12px rgba(0, 210, 255, 0.4); }
+        .payment-methods { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+        .payment-methods img { height: 34px; background: #fff; padding: 3px 8px; border-radius: 4px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); }
+
+        @media (max-width: 1280px) { .page-hero h2 { font-size: 2.8rem; } }
+        @media (max-width: 1024px) {
+            .top-banner { padding: 10px 20px; font-size: 13px; }
+            header { padding: 15px 20px; }
+            nav { gap: 15px; }
+            nav a { font-size: 14px; }
+            .page-hero { min-height: 220px; padding: 30px 20px; }
+            .page-hero h2 { font-size: 2.3rem; }
+            .legal-container { padding: 32px; }
+            .footer-cols { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        }
+        @media (max-width: 900px) {
+            .page-hero h2 { font-size: 2rem; }
+            .legal-container h3 { font-size: 1.2rem; }
+        }
+        @media (max-width: 768px) {
+            .top-banner { flex-direction: column; text-align: center; gap: 12px; padding: 15px; }
+            .top-banner > div:first-child { flex-direction: column; gap: 8px; }
+            .social-icons { margin-top: 0; justify-content: center; }
+            .header-buttons { justify-content: center; }
+            header { position: relative; z-index: 1000; }
+            .mobile-menu-toggle { display: block; }
+            nav {
+                display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0;
+                background: rgba(3, 20, 41, 0.98); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                padding: 0 20px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); gap: 0; align-items: stretch;
+                z-index: 9999; border-top: 1px solid rgba(255, 255, 255, 0.1); width: 100%;
+                max-height: 0; overflow: hidden; opacity: 0; transform: translateY(-12px);
+                transition: max-height 0.5s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s ease, transform 0.35s ease, padding 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+            }
+            nav.active { max-height: 700px; opacity: 1; transform: translateY(0); padding: 10px 20px; }
+            nav > a, nav > .dropdown {
+                display: flex; align-items: center; width: 100%; height: 52px; min-height: 52px;
+                padding: 0; border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+                opacity: 0; transform: translateX(-14px);
+                transition: opacity 0.35s ease, transform 0.35s ease, color 0.2s ease;
+                box-sizing: border-box;
+            }
+            nav > a:last-child { border-bottom: none; }
+            nav > .dropdown { border-bottom: none; }
+            nav > a, nav > .dropdown > a { color: #fff; font-size: 15px; font-weight: 600; text-decoration: none; padding: 0 4px; }
+            nav > .dropdown > a {
+                display: flex; align-items: center; width: 100%; height: 52px; min-height: 52px;
+                padding: 0 4px; box-sizing: border-box; border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            }
+            nav > .dropdown:last-child > a { border-bottom: none; }
+            nav.active > a, nav.active > .dropdown { opacity: 1; transform: translateX(0); }
+            nav.active > *:nth-child(1) { transition-delay: 0.06s; }
+            nav.active > *:nth-child(2) { transition-delay: 0.10s; }
+            nav.active > *:nth-child(3) { transition-delay: 0.14s; }
+            nav.active > *:nth-child(4) { transition-delay: 0.18s; }
+            nav.active > *:nth-child(5) { transition-delay: 0.22s; }
+            nav.active > *:nth-child(6) { transition-delay: 0.26s; }
+            nav.active > *:nth-child(7) { transition-delay: 0.30s; }
+            .mobile-menu-toggle i { transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1); display: inline-block; }
+            .mobile-menu-toggle.open i { transform: rotate(90deg); }
+            .dropdown { position: relative; padding-bottom: 0; margin-bottom: 0; display: block; }
+            .dropdown-content { position: static; box-shadow: none; display: none; padding: 0 0 0 20px; border: none; background: transparent; width: 100%; overflow: hidden; }
+            .dropdown.open .dropdown-content { display: block; }
+            .dropdown-content a {
+                display: flex; align-items: center; height: 44px; min-height: 44px; padding: 0 4px;
+                font-size: 13px; border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+                opacity: 1; transform: none; box-sizing: border-box;
+            }
+            .dropdown-content a:last-child { border-bottom: none; }
+            .legal-container { padding: 24px 20px; width: 94%; }
+        }
+        @media (max-width: 480px) {
+            .welcome-text { font-size: 12px; }
+            .welcome-text strong { font-size: 13px; }
+            .logo-area h1 { font-size: 18px; }
+            .page-hero { min-height: 180px; padding: 25px 15px; }
+            .page-hero h2 { font-size: 1.5rem; }
+            .page-hero p { font-size: 13px; }
+            .section-title { font-size: 13px; padding: 11px 14px; letter-spacing: 0.8px; }
+            .legal-container { padding: 20px 16px; }
+            .legal-container h3 { font-size: 1.05rem; }
+            .legal-container p, .legal-container ul li { font-size: 13.5px; }
+            .footer-cols { grid-template-columns: 1fr; gap: 18px; }
+            .footer-widgets { flex-direction: column; gap: 15px; }
+            .payment-methods { justify-content: center; }
+            .footer-brand-links { justify-content: center; }
+        }
+        @media (max-width: 375px) {
+            .top-banner { padding: 10px; }
+            header { padding: 12px 10px; }
+            .welcome-text strong { display: block; margin-top: 4px; }
+            .logo-area h1 { font-size: 16px; }
+            .page-hero h2 { font-size: 1.3rem; }
+            .legal-container { padding: 16px 12px; }
+            .login-btn, .signup-btn { padding: 7px 14px; font-size: 12px; }
+        }
+        @media (max-width: 320px) {
+            .page-hero h2 { font-size: 1.15rem; }
+            .logo-area h1 { font-size: 15px; }
+            .header-buttons { flex-direction: column; width: 100%; }
+            .login-btn, .signup-btn { width: 100%; justify-content: center; }
+            .section-title { font-size: 11px; padding: 9px 10px; letter-spacing: 0.5px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-banner">
+        <div style="display: flex; align-items: center;">
+            <img src="images/logo/logo.png" alt="3Stars Logo" style="height: 45px; margin-right: 15px;">
+            <span class="welcome-text">Welcome to the official website of <i class="fas fa-star"></i> <strong>3Stars Entertainers Pvt Ltd</strong> <i class="fas fa-star"></i></span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap; justify-content: center;">
+            <div class="social-icons">
+                <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="#" title="Google"><i class="fab fa-google"></i></a>
+                <a href="#" title="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+            <div class="header-buttons">
+                <a href="index.html" class="login-btn"><i class="fas fa-user-circle"></i> Log In</a>
+                <a href="signup.html" class="signup-btn"><i class="fas fa-user-plus"></i> Sign Up</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero-wrapper">
+        <header>
+            <div class="logo-area"><h1>3 Stars Entertainers</h1></div>
+            <div class="mobile-menu-toggle" id="mobileMenuToggle"><i class="fas fa-bars"></i></div>
+            <nav id="mainNav">
+                <a href="home.html">Home</a>
+                <a href="about.html">About</a>
+                <div class="dropdown">
+                    <a href="category.html">Category ▾</a>
+                    <div class="dropdown-content">
+                        <a href="category.html?c=tamil">Tamil Movie Songs</a>
+                        <a href="category.html?c=gana">Gana Songs</a>
+                        <a href="category.html?c=devotional">Devotional Songs</a>
+                        <a href="category.html?c=remix">Remix and Folk Songs</a>
+                        <a href="category.html?c=cover">Cover Songs Karaoke</a>
+                    </div>
+                </div>
+                <a href="mystage.html">My Stage</a>
+                <a href="career.html">Career</a>
+                <a href="contact.html">Contact</a>
+                <a href="singer.html">Playstore</a>
+            </nav>
+        </header>
+
+        <section class="page-hero">
+            <div>
+                <h2>Privacy <span>Policy</span></h2>
+                <p>Your privacy is important to us. Learn how we collect, use, and protect your personal information.</p>
+            </div>
+        </section>
+    </div>
+
+    <div class="section-title">Privacy & Data Protection</div>
+
+    <div class="legal-container">
+        <div class="legal-meta">
+            <i class="fas fa-calendar-alt"></i> Last Updated: January 1, 2026 &nbsp;|&nbsp;
+            <i class="fas fa-shield-alt"></i> GDPR Compliant
+        </div>
+
+        <h3><i class="fas fa-info-circle"></i> 1. Introduction</h3>
+        <p>3Stars Entertainers Pvt Ltd ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our website, mobile application, and karaoke services.</p>
+
+        <h3><i class="fas fa-database"></i> 2. Information We Collect</h3>
+        <p>We may collect the following types of information:</p>
+        <ul>
+            <li><strong>Personal Information:</strong> Name, email address, phone number, WhatsApp number, and payment information when you register or subscribe.</li>
+            <li><strong>Account Information:</strong> Username, password (encrypted), and preferences.</li>
+            <li><strong>Usage Data:</strong> Songs played, downloads, search history, and interaction with the platform.</li>
+            <li><strong>Device Information:</strong> IP address, browser type, operating system, and device identifiers.</li>
+            <li><strong>Communication Data:</strong> Messages you send us via contact forms or email.</li>
+        </ul>
+
+        <h3><i class="fas fa-bullseye"></i> 3. How We Use Your Information</h3>
+        <p>We use the collected information for:</p>
+        <ul>
+            <li>Providing, maintaining, and improving our karaoke services.</li>
+            <li>Processing transactions and managing subscriptions.</li>
+            <li>Personalizing your experience and recommending songs.</li>
+            <li>Sending promotional emails, newsletters, and updates (with opt-out option).</li>
+            <li>Responding to your inquiries and customer support requests.</li>
+            <li>Detecting and preventing fraud, abuse, and security issues.</li>
+            <li>Complying with legal obligations.</li>
+        </ul>
+
+        <h3><i class="fas fa-cookie-bite"></i> 4. Cookies & Tracking</h3>
+        <p>We use cookies and similar tracking technologies to enhance your experience. You can control cookie settings through your browser. Disabling cookies may affect some features of the Service.</p>
+
+        <h3><i class="fas fa-share-alt"></i> 5. Information Sharing</h3>
+        <p>We do not sell your personal information. We may share your data with:</p>
+        <ul>
+            <li><strong>Service Providers:</strong> Payment processors, hosting providers, and email services.</li>
+            <li><strong>Legal Authorities:</strong> When required by law or to protect our rights.</li>
+            <li><strong>Business Transfers:</strong> In case of merger, acquisition, or sale of assets.</li>
+        </ul>
+
+        <h3><i class="fas fa-lock"></i> 6. Data Security</h3>
+        <p>We implement industry-standard security measures including SSL encryption, secure servers, and regular security audits. However, no method of transmission over the internet is 100% secure, and we cannot guarantee absolute security.</p>
+
+        <h3><i class="fas fa-user-shield"></i> 7. Your Rights</h3>
+        <p>Depending on your location, you may have the right to:</p>
+        <ul>
+            <li>Access, correct, or delete your personal information.</li>
+            <li>Object to or restrict processing of your data.</li>
+            <li>Request data portability.</li>
+            <li>Withdraw consent at any time.</li>
+            <li>Lodge a complaint with a supervisory authority.</li>
+        </ul>
+
+        <h3><i class="fas fa-child"></i> 8. Children's Privacy</h3>
+        <p>Our Service is not directed to children under 13. We do not knowingly collect personal information from children under 13. If you believe we have collected such information, please contact us immediately.</p>
+
+        <h3><i class="fas fa-globe"></i> 9. International Transfers</h3>
+        <p>Your information may be transferred to and processed in countries other than your own. We ensure appropriate safeguards are in place for such transfers.</p>
+
+        <h3><i class="fas fa-sync-alt"></i> 10. Changes to This Policy</h3>
+        <p>We may update this Privacy Policy from time to time. We will notify you of significant changes via email or a prominent notice on our website.</p>
+
+        <h3><i class="fas fa-envelope-open-text"></i> 11. Contact Us</h3>
+        <p>For privacy-related questions or to exercise your rights, contact us at:</p>
+        <div class="legal-note">
+            <p><strong>Email:</strong> privacy@3stars.com<br>
+            <strong>Phone:</strong> +94 77 123 4567<br>
+            <strong>Address:</strong> 123 Music Avenue, Sri Lanka</p>
+        </div>
+    </div>
+
+    <footer>
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div class="footer-widgets">
+                <div style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap;">
+                    <span style="color: #aaa; font-size: 15px; font-weight: 600;">Secure Payments:</span>
+                    <div class="payment-methods">
+                        <img src="https://img.icons8.com/color/48/000000/visa.png" alt="Visa">
+                        <img src="https://img.icons8.com/color/48/000000/mastercard.png" alt="MasterCard">
+                        <img src="https://img.icons8.com/color/48/000000/paypal.png" alt="PayPal">
+                        <img src="https://img.icons8.com/color/48/000000/amex.png" alt="Amex">
+                    </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap;">
+                    <span style="color: #aaa; font-size: 15px; font-weight: 600;">Follow Us:</span>
+                    <div class="footer-brand-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-cols">
+                <div>
+                    <h4>3Stars Entertainers</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="career.html">Careers</a></li>
+                        <li><a href="mystage.html">My Stage</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="refund.html">Refund Policy</a></li>
+                        <li><a href="copyright.html">Copyright Information</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Help & Support</h4>
+                    <ul>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="download-guide.html">How to Download</a></li>
+                        <li><a href="subscriptions.html">Subscription Plans</a></li>
+                        <li><a href="report-issue.html">Report an Issue</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Get In Touch</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt" style="margin-right:8px;"></i> 123 Music Avenue, SL</li>
+                        <li><i class="fas fa-phone-alt" style="margin-right:8px;"></i> +94 77 123 4567</li>
+                        <li><i class="fas fa-envelope" style="margin-right:8px;"></i> info@3stars.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 Music Platform. All Rights Reserved. | Designed & Developed by WebNest Private Limited.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('mobileMenuToggle');
+        const mainNav = document.getElementById('mainNav');
+        if (menuToggle && mainNav) {
+            menuToggle.addEventListener('click', () => {
+                mainNav.classList.toggle('active');
+                menuToggle.classList.toggle('open');
+            });
+        }
+        const dropdowns = document.querySelectorAll('.dropdown');
+        dropdowns.forEach(dd => {
+            const link = dd.querySelector('a');
+            if (link) {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    dd.classList.toggle('open');
+                    dd.classList.toggle('show');
+                });
+            }
+        });
+        document.addEventListener('click', (e) => {
+            dropdowns.forEach(dd => {
+                if (!dd.contains(e.target)) {
+                    dd.classList.remove('open');
+                    dd.classList.remove('show');
+                }
+            });
+            if (window.innerWidth <= 768 && mainNav && mainNav.classList.contains('active')) {
+                if (!mainNav.contains(e.target) && !menuToggle.contains(e.target)) {
+                    mainNav.classList.remove('active');
+                    menuToggle.classList.remove('open');
+                }
+            }
+        });
+    </script>
+</body>
+</html>

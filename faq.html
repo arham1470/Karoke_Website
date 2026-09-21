@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3Stars Entertainers - FAQ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: Arial, sans-serif; background-color: #d8edf8; color: #000; overflow-x: hidden; }
+
+        /* TOP BANNER */
+        .top-banner { background: #ffffff; color: #222; padding: 10px 40px; display: flex; justify-content: space-between; align-items: center; font-size: 14px; font-weight: 600; letter-spacing: 0.5px; border-bottom: 1px solid #e0e0e0; gap: 15px; flex-wrap: wrap; }
+        .top-banner > div:first-child { display: flex; align-items: center; min-width: 0; }
+        .top-banner img { flex-shrink: 0; }
+        .welcome-text { color: #555; font-weight: 500; font-size: 14px; }
+        .welcome-text strong { background: linear-gradient(135deg, #0c101d, #4bb5f5); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800; font-size: 15px; }
+        .welcome-text i { color: #ff3366; margin: 0 4px; font-size: 12px; }
+        .social-icons { display: flex; align-items: center; gap: 15px; flex-wrap: wrap; }
+        .social-icons a { display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; background: #f5f5f5; color: #444; text-decoration: none; border-radius: 50%; font-size: 16px; transition: all 0.3s ease; border: 1px solid #ddd; }
+        .social-icons a:hover { background: #ff3366; color: #fff; border-color: #ff3366; transform: translateY(-3px); box-shadow: 0 5px 12px rgba(255, 51, 102, 0.4); }
+        .login-btn { font-size: 14px; font-weight: bold; background: linear-gradient(135deg, #7cd3fc, #4bb5f5); color: #0c101d; padding: 8px 20px; border-radius: 30px; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(124, 211, 252, 0.3); display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+        .login-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(124, 211, 252, 0.5); filter: brightness(1.1); }
+        .signup-btn { font-size: 14px; font-weight: bold; background: linear-gradient(135deg, #ff3366, #ff7799); color: #fff; padding: 8px 20px; border-radius: 30px; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(255, 51, 102, 0.3); display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+        .signup-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(255, 51, 102, 0.5); filter: brightness(1.1); }
+        .header-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
+
+        /* HERO WRAPPER */
+        .hero-wrapper { background: linear-gradient(to bottom, rgba(3, 20, 41, 0.7) 0%, rgba(3, 20, 41, 0.95) 100%), url('https://images.unsplash.com/photo-1598387993441-a364f854c3e1?q=80&w=1476&auto=format&fit=crop') center center/cover; position: relative; overflow: visible; border-bottom: 2px solid #005082; }
+
+        /* MAIN HEADER */
+        header { padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 1000; background: rgba(3, 20, 41, 0.95); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); gap: 15px; }
+        .logo-area h1 { font-size: 26px; color: #fff; font-weight: 700; letter-spacing: 0.5px; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); white-space: nowrap; }
+        nav { display: flex; gap: 30px; align-items: center; }
+        nav a { color: #fff; text-decoration: none; font-weight: 600; font-size: 16px; transition: color 0.2s; white-space: nowrap; }
+        nav a:hover, nav a.active { color: #00d2ff; }
+        .dropdown { position: relative; display: inline-block; padding-bottom: 10px; margin-bottom: -10px; }
+        .dropdown-content { display: none; position: absolute; background-color: rgba(6, 21, 41, 0.95); min-width: 200px; box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.6); z-index: 10; top: 100%; left: 0; border-radius: 4px; border: 1px solid rgba(255, 255, 255, 0.1); padding: 10px 0; backdrop-filter: blur(5px); }
+        .dropdown-content a { color: #ddd; padding: 10px 20px; text-decoration: none; display: block; font-size: 13px; font-weight: 500; }
+        .dropdown-content a:hover { background-color: rgba(255, 255, 255, 0.05); color: #fff; }
+        .dropdown.open .dropdown-content, .dropdown.show .dropdown-content { display: block; animation: fadeInDown 0.2s ease forwards; }
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
+        .mobile-menu-toggle { display: none; font-size: 24px; color: #fff; cursor: pointer; padding: 5px; transition: transform 0.3s ease; }
+        .mobile-menu-toggle:active { transform: scale(0.9); }
+
+        /* PAGE HERO */
+        .page-hero { position: relative; min-height: 260px; display: flex; align-items: center; justify-content: center; text-align: center; padding: 40px 20px; color: #fff; z-index: 1; }
+        .page-hero h2 { font-size: 3rem; font-weight: 800; line-height: 1.15; text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5); word-wrap: break-word; overflow-wrap: break-word; }
+        .page-hero h2 span { color: #ff3366; display: block; margin-top: 8px; }
+        .page-hero p { margin-top: 15px; font-size: 15px; color: #dbeafe; max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+
+        /* SECTION TITLE */
+        .section-title { font-size: 20px; font-weight: 800; color: #fff; background: linear-gradient(135deg, #0c101d, #1b5394); display: block; width: 90%; max-width: 950px; padding: 16px 20px; box-sizing: border-box; border-radius: 10px; margin: 30px auto; box-shadow: 0 10px 20px rgba(27, 83, 148, 0.25); text-transform: uppercase; letter-spacing: 1.5px; border: 1px solid rgba(255, 255, 255, 0.1); position: relative; text-align: center; }
+        .section-title::after { content: ''; position: absolute; bottom: -1px; left: 10%; width: 80%; height: 3px; background: #ff3366; border-radius: 10px; }
+
+        /* FAQ CONTAINER */
+        .faq-container { width: 90%; max-width: 1000px; margin: 0 auto 40px auto; }
+        .faq-category { background: #fff; border: 1px solid #eee; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); margin-bottom: 25px; overflow: hidden; }
+        .faq-category-header { background: linear-gradient(135deg, #0c101d, #1b5394); color: #fff; padding: 16px 25px; font-size: 1.05rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
+        .faq-category-header i { color: #4bb5f5; font-size: 1.1rem; }
+        .faq-list { padding: 8px 0; }
+
+        .faq-item { border-bottom: 1px solid #eef5f9; }
+        .faq-item:last-child { border-bottom: none; }
+        .faq-question { display: flex; justify-content: space-between; align-items: center; gap: 15px; padding: 18px 25px; cursor: pointer; font-size: 15px; font-weight: 700; color: #0c101d; transition: background 0.2s, color 0.2s; }
+        .faq-question:hover { background: #f8fafc; color: #1b5394; }
+        .faq-question .q-icon { flex-shrink: 0; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; background: #eef5f9; color: #1b5394; border-radius: 50%; font-size: 13px; transition: all 0.3s ease; }
+        .faq-item.active .faq-question { background: #eef5f9; color: #1b5394; }
+        .faq-item.active .faq-question .q-icon { background: #ff3366; color: #fff; transform: rotate(180deg); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1), padding 0.3s ease; padding: 0 25px; }
+        .faq-item.active .faq-answer { max-height: 500px; padding: 0 25px 20px 25px; }
+        .faq-answer p { font-size: 14px; line-height: 1.7; color: #555; margin-bottom: 10px; }
+        .faq-answer p:last-child { margin-bottom: 0; }
+        .faq-answer ul { margin: 0 0 10px 20px; }
+        .faq-answer ul li { font-size: 14px; line-height: 1.7; color: #555; margin-bottom: 6px; }
+        .faq-answer a { color: #ff3366; font-weight: 700; text-decoration: none; }
+        .faq-answer a:hover { text-decoration: underline; }
+
+        /* STILL NEED HELP CTA */
+        .help-cta { width: 90%; max-width: 1000px; margin: 0 auto 40px auto; background: linear-gradient(135deg, #0c101d, #1b5394); color: #fff; padding: 35px 30px; border-radius: 12px; text-align: center; box-shadow: 0 10px 25px rgba(27, 83, 148, 0.3); }
+        .help-cta i.big-icon { font-size: 2.5rem; color: #4bb5f5; margin-bottom: 15px; display: block; }
+        .help-cta h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 10px; letter-spacing: 0.5px; }
+        .help-cta p { font-size: 14.5px; color: #cbd5e1; max-width: 550px; margin: 0 auto 22px auto; line-height: 1.6; }
+        .help-cta-btns { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+        .cta-btn-primary { background: #ff3366; color: #fff; padding: 12px 28px; border-radius: 30px; text-decoration: none; font-weight: bold; font-size: 14px; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(255, 51, 102, 0.4); display: inline-flex; align-items: center; gap: 8px; }
+        .cta-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(255, 51, 102, 0.6); filter: brightness(1.1); }
+        .cta-btn-secondary { background: rgba(255, 255, 255, 0.1); color: #fff; padding: 12px 28px; border-radius: 30px; text-decoration: none; font-weight: bold; font-size: 14px; transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.25); display: inline-flex; align-items: center; gap: 8px; }
+        .cta-btn-secondary:hover { background: rgba(255, 255, 255, 0.2); transform: translateY(-2px); }
+
+        /* FOOTER */
+        footer { background: rgba(3, 20, 41, 0.95); color: #fff; padding: 50px 40px 20px 40px; margin-top: 40px; border-top: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3); backdrop-filter: blur(10px); }
+        .footer-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; max-width: 1200px; margin: 0 auto; font-size: 14px; }
+        .footer-cols h4 { color: #fff; margin-bottom: 15px; border-bottom: 2px solid #005082; padding-bottom: 8px; font-weight: 700; letter-spacing: 0.5px; }
+        .footer-cols ul { list-style: none; }
+        .footer-cols ul li { margin-bottom: 10px; }
+        .footer-cols ul li a { color: #aaa; text-decoration: none; transition: color 0.3s; }
+        .footer-cols ul li a:hover { color: #00d2ff; }
+        .footer-bottom { text-align: center; margin-top: 30px; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 20px; font-size: 13px; color: #888; }
+        .footer-widgets { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 25px; padding-bottom: 25px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); gap: 15px; }
+        .footer-brand-links { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+        .footer-brand-links a { display: flex; align-items: center; justify-content: center; width: 42px; height: 42px; background: rgba(255, 255, 255, 0.1); color: #fff; text-decoration: none; border-radius: 50%; font-size: 18px; transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.2); }
+        .footer-brand-links a:hover { background: #00d2ff; color: #000; border-color: #00d2ff; transform: translateY(-3px); box-shadow: 0 5px 12px rgba(0, 210, 255, 0.4); }
+        .payment-methods { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+        .payment-methods img { height: 34px; background: #fff; padding: 3px 8px; border-radius: 4px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); }
+
+        /* RESPONSIVE */
+        @media (max-width: 1280px) { .page-hero h2 { font-size: 2.8rem; } }
+        @media (max-width: 1024px) {
+            .top-banner { padding: 10px 20px; font-size: 13px; }
+            header { padding: 15px 20px; }
+            nav { gap: 15px; }
+            nav a { font-size: 14px; }
+            .page-hero { min-height: 220px; padding: 30px 20px; }
+            .page-hero h2 { font-size: 2.3rem; }
+            .footer-cols { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        }
+        @media (max-width: 900px) {
+            .page-hero h2 { font-size: 2rem; }
+        }
+        @media (max-width: 768px) {
+            .top-banner { flex-direction: column; text-align: center; gap: 12px; padding: 15px; }
+            .top-banner > div:first-child { flex-direction: column; gap: 8px; }
+            .social-icons { margin-top: 0; justify-content: center; }
+            .header-buttons { justify-content: center; }
+
+            header { position: relative; z-index: 1000; }
+            .mobile-menu-toggle { display: block; }
+            nav {
+                display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0;
+                background: rgba(3, 20, 41, 0.98); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+                padding: 0 20px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); gap: 0; align-items: stretch;
+                z-index: 9999; border-top: 1px solid rgba(255, 255, 255, 0.1); width: 100%;
+                max-height: 0; overflow: hidden; opacity: 0; transform: translateY(-12px);
+                transition: max-height 0.5s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s ease, transform 0.35s ease, padding 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+            }
+            nav.active { max-height: 700px; opacity: 1; transform: translateY(0); padding: 10px 20px; }
+            nav > a, nav > .dropdown {
+                display: flex; align-items: center; width: 100%; height: 52px; min-height: 52px;
+                padding: 0; border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+                opacity: 0; transform: translateX(-14px);
+                transition: opacity 0.35s ease, transform 0.35s ease, color 0.2s ease;
+                box-sizing: border-box;
+            }
+            nav > a:last-child { border-bottom: none; }
+            nav > .dropdown { border-bottom: none; }
+            nav > a, nav > .dropdown > a { color: #fff; font-size: 15px; font-weight: 600; text-decoration: none; padding: 0 4px; }
+            nav > .dropdown > a {
+                display: flex; align-items: center; width: 100%; height: 52px; min-height: 52px;
+                padding: 0 4px; box-sizing: border-box; border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            }
+            nav > .dropdown:last-child > a { border-bottom: none; }
+            nav.active > a, nav.active > .dropdown { opacity: 1; transform: translateX(0); }
+            nav.active > *:nth-child(1) { transition-delay: 0.06s; }
+            nav.active > *:nth-child(2) { transition-delay: 0.10s; }
+            nav.active > *:nth-child(3) { transition-delay: 0.14s; }
+            nav.active > *:nth-child(4) { transition-delay: 0.18s; }
+            nav.active > *:nth-child(5) { transition-delay: 0.22s; }
+            nav.active > *:nth-child(6) { transition-delay: 0.26s; }
+            nav.active > *:nth-child(7) { transition-delay: 0.30s; }
+            .mobile-menu-toggle i { transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1); display: inline-block; }
+            .mobile-menu-toggle.open i { transform: rotate(90deg); }
+            .dropdown { position: relative; padding-bottom: 0; margin-bottom: 0; display: block; }
+            .dropdown-content { position: static; box-shadow: none; display: none; padding: 0 0 0 20px; border: none; background: transparent; width: 100%; overflow: hidden; }
+            .dropdown.open .dropdown-content { display: block; }
+            .dropdown-content a {
+                display: flex; align-items: center; height: 44px; min-height: 44px; padding: 0 4px;
+                font-size: 13px; border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+                opacity: 1; transform: none; box-sizing: border-box;
+            }
+            .dropdown-content a:last-child { border-bottom: none; }
+
+            .faq-container { width: 94%; }
+            .help-cta { width: 94%; padding: 30px 22px; }
+        }
+        @media (max-width: 480px) {
+            .welcome-text { font-size: 12px; }
+            .welcome-text strong { font-size: 13px; }
+            .logo-area h1 { font-size: 18px; }
+            .page-hero { min-height: 180px; padding: 25px 15px; }
+            .page-hero h2 { font-size: 1.5rem; }
+            .page-hero p { font-size: 13px; }
+            .section-title { font-size: 13px; padding: 11px 14px; letter-spacing: 0.8px; }
+            .faq-category-header { font-size: 0.88rem; padding: 14px 18px; }
+            .faq-question { font-size: 13.5px; padding: 15px 18px; gap: 10px; }
+            .faq-question .q-icon { width: 26px; height: 26px; font-size: 11px; }
+            .faq-answer { padding: 0 18px; }
+            .faq-item.active .faq-answer { padding: 0 18px 16px 18px; }
+            .faq-answer p, .faq-answer ul li { font-size: 13px; }
+            .help-cta h3 { font-size: 1.15rem; }
+            .help-cta p { font-size: 13px; }
+            .help-cta-btns { flex-direction: column; }
+            .cta-btn-primary, .cta-btn-secondary { width: 100%; justify-content: center; }
+            .footer-cols { grid-template-columns: 1fr; gap: 18px; }
+            .footer-widgets { flex-direction: column; gap: 15px; }
+            .payment-methods { justify-content: center; }
+            .footer-brand-links { justify-content: center; }
+        }
+        @media (max-width: 375px) {
+            .top-banner { padding: 10px; }
+            header { padding: 12px 10px; }
+            .welcome-text strong { display: block; margin-top: 4px; }
+            .logo-area h1 { font-size: 16px; }
+            .page-hero h2 { font-size: 1.3rem; }
+            .login-btn, .signup-btn { padding: 7px 14px; font-size: 12px; }
+        }
+        @media (max-width: 320px) {
+            .page-hero h2 { font-size: 1.15rem; }
+            .logo-area h1 { font-size: 15px; }
+            .header-buttons { flex-direction: column; width: 100%; }
+            .login-btn, .signup-btn { width: 100%; justify-content: center; }
+            .section-title { font-size: 11px; padding: 9px 10px; letter-spacing: 0.5px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Banner -->
+    <div class="top-banner">
+        <div style="display: flex; align-items: center;">
+            <img src="images/logo/logo.png" alt="3Stars Logo" style="height: 45px; margin-right: 15px;">
+            <span class="welcome-text">Welcome to the official website of <i class="fas fa-star"></i> <strong>3Stars Entertainers Pvt Ltd</strong> <i class="fas fa-star"></i></span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap; justify-content: center;">
+            <div class="social-icons">
+                <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="#" title="Google"><i class="fab fa-google"></i></a>
+                <a href="#" title="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+            <div class="header-buttons">
+                <a href="index.html" class="login-btn"><i class="fas fa-user-circle"></i> Log In</a>
+                <a href="signup.html" class="signup-btn"><i class="fas fa-user-plus"></i> Sign Up</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero-wrapper">
+        <header>
+            <div class="logo-area"><h1>3 Stars Entertainers</h1></div>
+            <div class="mobile-menu-toggle" id="mobileMenuToggle"><i class="fas fa-bars"></i></div>
+            <nav id="mainNav">
+                <a href="home.html">Home</a>
+                <a href="about.html">About</a>
+                <div class="dropdown">
+                    <a href="category.html">Category ▾</a>
+                    <div class="dropdown-content">
+                        <a href="category.html?c=tamil">Tamil Movie Songs</a>
+                        <a href="category.html?c=gana">Gana Songs</a>
+                        <a href="category.html?c=devotional">Devotional Songs</a>
+                        <a href="category.html?c=remix">Remix and Folk Songs</a>
+                        <a href="category.html?c=cover">Cover Songs Karaoke</a>
+                    </div>
+                </div>
+                <a href="mystage.html">My Stage</a>
+                <a href="career.html">Career</a>
+                <a href="contact.html">Contact</a>
+                <a href="singer.html">Playstore</a>
+            </nav>
+        </header>
+
+        <section class="page-hero">
+            <div>
+                <h2>Frequently Asked <span>Questions</span></h2>
+                <p>Find answers to the most common questions about our karaoke platform, subscriptions, and downloads.</p>
+            </div>
+        </section>
+    </div>
+
+    <div class="section-title">Help Center — FAQ</div>
+
+    <div class="faq-container">
+
+        <!-- Category: Getting Started -->
+        <div class="faq-category">
+            <div class="faq-category-header"><i class="fas fa-rocket"></i> Getting Started</div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">How do I create an account on 3Stars Entertainers? <span class="q-icon"><i class="fas fa-chevron-down"></i></span></div>
+                    <div class="faq-answer">
+                        <p>Click the <strong>Sign Up</strong> button at the top right of any page. Fill in your name, email address, and a secure password. Verify your email via the link we send you, and your account will be ready to use instantly.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Is there a free trial available? <span class="q-icon"><i class="fas fa-chevron-down"></i></span></div>
+                    <div class="faq-answer">
+                        <p>Yes! We offer a <strong>7-day free trial</strong> on all new subscriptions. You can explore our full karaoke library, download sample tracks, and test all premium features before committing to a paid plan.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">What devices are supported by your platform? <span class="q-icon"><i class="fas fa-chevron-down"></i></span></div>
+                    <div class="faq-answer">
+                        <p>Our platform works on:</p>
+                        <ul>
+                            <li>Desktop &amp; laptop (Windows, macOS, Linux)</li>
+                            <li>Smartphones &amp; tablets (Android &amp; iOS)</li>
+                            <li>Smart TVs via our mobile app casting</li>
+                        </ul>
+                        <p>For the best experience, we recommend using Chrome or Firefox on desktop, and our official mobile app on Android/iOS.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category: Downloads & Playback -->
+        <div class="faq-category">
+            <div class="faq-category-header"><i class="fas fa-download"></i> Downloads &amp; Playback</div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">How do I download karaoke tracks? <span class="q-icon"><i class="fas fa-chevron-down"></i></span></div>
+                    <div class="faq-answer">
+                        <p>Once logged in with an active subscription, browse to any song and click the <strong>Download</strong> button. Tracks are available in MP4 (video) and MP3 (audio) formats. See our <a href="download-guide.html">How to Download</a> guide for detailed steps.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">What format are the karaoke tracks in? <span class="q-icon"><i class="fas fa-chevron-down"></i></span></div>
+                    <div class="faq-answer">
+                        <p>We provide:</p>
+                        <ul>
+                            <li><strong>MP4</strong> — Full HD video with synchronized lyrics and audio.</li>
+                            <li><strong>MP3</strong> — High-quality audio-only version.</li>
+                            <li><strong>PDF</strong> — Printable lyrics sheets for select songs.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Can I download tracks on multiple devices? <span class="q-icon"><i class="fas fa-chevron-down"></i></span></div>
+                    <div class="faq-answer">
+                        <p>Yes. Your subscription allows downloads on up to <strong>3 devices</strong> simultaneously. Log in with the same account on each device and access your downloaded library.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category: Subscription & Billing -->
+        <div class="faq-category">
+            <div class="faq-category-header"><i class="fas fa-crown"></i> Subscription &amp; Billing</div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">What subscription plans do you offer? <span class="q-icon"><i class="fas fa-chevron-down"></i></span></div>
+                    <div class="faq-answer">
+                        <p>We offer three plans: <strong>Monthly</strong>, <strong>6-Month</strong>, and <strong>1-Year</strong>. Visit our <a href="subscriptions.html">Subscription Plans</a> page for detailed pricing and features.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">How do I cancel my subscription? <span class="q-icon"><i class="fas fa-chevron-down"></i></span></div>
+                    <div class="faq-answer">
+                        <p>Go to <strong>My Account → Subscription</strong> and click <strong>Cancel Subscription</strong>. Your access continues until the end of the current billing period. No further charges will apply.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">What payment methods are accepted? <span class="q-icon"><i class="fas fa-chevron-down"></i></span></div>
+                    <div class="faq-answer">
+                        <p>We accept Visa, Mastercard, American Express, PayPal, and select local payment methods. All transactions are SSL-encrypted and secure.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Can I get a refund? <span class="q-icon"><i class="fas fa-chevron-down"></i></span></div>
+                    <div class="faq-answer">
+                        <p>Yes, under certain conditions. Please review our <a href="refund.html">Refund Policy</a> for full eligibility details and timeframes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category: Technical Issues -->
+        <div class="faq-category">
+            <div class="faq-category-header"><i class="fas fa-tools"></i> Technical Issues</div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">The audio and lyrics are out of sync. How do I fix it? <span class="q-icon"><i class="fas fa-chevron-down"></i></span></div>
+                    <div class="faq-answer">
+                        <p>Try these steps:</p>
+                        <ul>
+                            <li>Refresh the page or restart the app.</li>
+                            <li>Clear your browser cache or app data.</li>
+                            <li>Ensure a stable internet connection.</li>
+                            <li>Use a wired connection if on desktop.</li>
+                        </ul>
+                        <p>If the issue persists, please <a href="report-issue.html">report the issue</a> with the song name.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">I can't log in to my account. What should I do? <span class="q-icon"><i class="fas fa-chevron-down"></i></span></div>
+                    <div class="faq-answer">
+                        <p>Use the <strong>Forgot Password</strong> link on the login page to reset. If you still can't log in, contact us at <a href="mailto:support@3stars.com">support@3stars.com</a> with your registered email.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Why is my download failing? <span class="q-icon"><i class="fas fa-chevron-down"></i></span></div>
+                    <div class="faq-answer">
+                        <p>Common causes include insufficient storage, unstable internet, or a full download queue. Free up storage space and retry. If the problem continues, <a href="report-issue.html">report the issue</a> with the song name and error message.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Still Need Help -->
+    <div class="help-cta">
+        <i class="fas fa-headset big-icon"></i>
+        <h3>Still Need Help?</h3>
+        <p>Can't find the answer you're looking for? Our support team is ready to assist you with any questions.</p>
+        <div class="help-cta-btns">
+            <a href="contact.html" class="cta-btn-primary"><i class="fas fa-envelope"></i> Contact Support</a>
+            <a href="report-issue.html" class="cta-btn-secondary"><i class="fas fa-flag"></i> Report an Issue</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div class="footer-widgets">
+                <div style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap;">
+                    <span style="color: #aaa; font-size: 15px; font-weight: 600;">Secure Payments:</span>
+                    <div class="payment-methods">
+                        <img src="https://img.icons8.com/color/48/000000/visa.png" alt="Visa">
+                        <img src="https://img.icons8.com/color/48/000000/mastercard.png" alt="MasterCard">
+                        <img src="https://img.icons8.com/color/48/000000/paypal.png" alt="PayPal">
+                        <img src="https://img.icons8.com/color/48/000000/amex.png" alt="Amex">
+                    </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap;">
+                    <span style="color: #aaa; font-size: 15px; font-weight: 600;">Follow Us:</span>
+                    <div class="footer-brand-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-cols">
+                <div>
+                    <h4>3Stars Entertainers</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="career.html">Careers</a></li>
+                        <li><a href="mystage.html">My Stage</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="refund.html">Refund Policy</a></li>
+                        <li><a href="copyright.html">Copyright Information</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Help & Support</h4>
+                    <ul>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="download-guide.html">How to Download</a></li>
+                        <li><a href="subscriptions.html">Subscription Plans</a></li>
+                        <li><a href="report-issue.html">Report an Issue</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Get In Touch</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt" style="margin-right:8px;"></i> 123 Music Avenue, SL</li>
+                        <li><i class="fas fa-phone-alt" style="margin-right:8px;"></i> +94 77 123 4567</li>
+                        <li><i class="fas fa-envelope" style="margin-right:8px;"></i> info@3stars.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 Music Platform. All Rights Reserved. | Designed & Developed by WebNest Private Limited.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('mobileMenuToggle');
+        const mainNav = document.getElementById('mainNav');
+        if (menuToggle && mainNav) {
+            menuToggle.addEventListener('click', () => {
+                mainNav.classList.toggle('active');
+                menuToggle.classList.toggle('open');
+            });
+        }
+
+        // Dropdown toggle
+        const dropdowns = document.querySelectorAll('.dropdown');
+        dropdowns.forEach(dd => {
+            const link = dd.querySelector('a');
+            if (link) {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    dd.classList.toggle('open');
+                    dd.classList.toggle('show');
+                });
+            }
+        });
+
+        // Close menus on outside click
+        document.addEventListener('click', (e) => {
+            dropdowns.forEach(dd => {
+                if (!dd.contains(e.target)) {
+                    dd.classList.remove('open');
+                    dd.classList.remove('show');
+                }
+            });
+            if (window.innerWidth <= 768 && mainNav && mainNav.classList.contains('active')) {
+                if (!mainNav.contains(e.target) && !menuToggle.contains(e.target)) {
+                    mainNav.classList.remove('active');
+                    menuToggle.classList.remove('open');
+                }
+            }
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(q => {
+            q.addEventListener('click', () => {
+                const item = q.parentElement;
+                const isActive = item.classList.contains('active');
+                // Close all in same category
+                item.parentElement.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                if (!isActive) item.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
