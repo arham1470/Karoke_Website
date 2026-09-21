@@ -2,22 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <title>3 Stars Entertainers – Stage | Mobile‑Ready Hero</title>
-  <!-- Google Fonts (same as original) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <title>3 Stars Entertainers – Stage | Fully Responsive</title>
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
-    /* ---------- ROOT & RESET ---------- */
+    /* ============================================================
+       ROOT, RESET & BASE
+       ============================================================ */
     :root {
       --bg-page: #d8edf8;
       --bg-card: #ffffff;
       --navy-primary: #112a4d;
+      --navy-dark: #07152b;
       --blue-accent: #0284c7;
       --cyan-primary: #38bdf8;
+      --cyan-border: #93c5fd;
       --yellow-accent: #f59e0b;
       --pink-accent: #ff3366;
       --red-button: #e62040;
@@ -33,42 +37,58 @@
       padding: 0;
     }
 
+    html {
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: 'Poppins', Arial, sans-serif;
       background-color: var(--bg-page);
       color: var(--text-dark);
       line-height: 1.5;
       overflow-x: hidden;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* ---------- TOP BANNER (simplified for mobile) ---------- */
+    /* ============================================================
+       TOP BANNER
+       ============================================================ */
     .top-banner {
       background: #ffffff;
       color: #222;
-      padding: 8px 20px;
+      padding: 10px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 600;
       border-bottom: 1px solid #e0e0e0;
+      gap: 12px;
       flex-wrap: wrap;
-      gap: 10px;
     }
+
     .top-banner > div:first-child {
       display: flex;
       align-items: center;
       gap: 10px;
       flex-wrap: wrap;
+      min-width: 0;
     }
+
     .top-banner img {
-      height: 35px;
+      height: 40px;
+      flex-shrink: 0;
     }
+
     .welcome-text {
       color: #555;
       font-weight: 500;
-      font-size: 12px;
+      font-size: 13px;
     }
+
     .welcome-text strong {
       background: linear-gradient(135deg, #0c101d, #4bb5f5);
       -webkit-background-clip: text;
@@ -76,58 +96,78 @@
       -webkit-text-fill-color: transparent;
       font-weight: 800;
     }
+
     .social-icons {
       display: flex;
       align-items: center;
       gap: 10px;
       flex-wrap: wrap;
     }
+
     .social-icons a {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 30px;
-      height: 30px;
+      width: 32px;
+      height: 32px;
       background: #f5f5f5;
       color: #444;
+      text-decoration: none;
       border-radius: 50%;
-      font-size: 14px;
+      font-size: 15px;
       transition: all 0.3s ease;
       border: 1px solid #ddd;
     }
+
     .social-icons a:hover {
       background: #ff3366;
       color: #fff;
       border-color: #ff3366;
     }
+
     .header-buttons {
       display: flex;
       gap: 8px;
       flex-wrap: wrap;
     }
-    .login-btn, .signup-btn {
-      font-size: 12px;
+
+    .login-btn,
+    .signup-btn {
+      font-size: 13px;
       font-weight: bold;
-      padding: 6px 14px;
+      padding: 7px 16px;
       border-radius: 30px;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
-      gap: 4px;
+      gap: 5px;
       white-space: nowrap;
+      transition: all 0.3s ease;
     }
+
     .login-btn {
       background: linear-gradient(135deg, #7cd3fc, #4bb5f5);
       color: #0c101d;
+      box-shadow: 0 4px 10px rgba(124, 211, 252, 0.3);
     }
+
     .signup-btn {
       background: linear-gradient(135deg, #ff3366, #ff7799);
       color: #fff;
+      box-shadow: 0 4px 10px rgba(255, 51, 102, 0.3);
     }
 
-    /* ---------- HEADER ---------- */
+    .login-btn:hover,
+    .signup-btn:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.1);
+    }
+
+    /* ============================================================
+       HEADER
+       ============================================================ */
     header {
-      padding: 15px 20px;
+      padding: 16px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -135,57 +175,76 @@
       z-index: 1000;
       background: rgba(3, 20, 41, 0.95);
       backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      gap: 12px;
       flex-wrap: wrap;
-      gap: 10px;
     }
+
     .logo-area h1 {
-      font-size: 20px;
+      font-size: 22px;
       color: #fff;
       font-weight: 700;
+      letter-spacing: 0.5px;
       white-space: nowrap;
     }
+
     .mobile-menu-toggle {
       display: none;
       font-size: 26px;
       color: #fff;
       cursor: pointer;
-      padding: 5px;
+      padding: 6px;
+      transition: transform 0.3s ease;
+      background: none;
+      border: none;
+      line-height: 1;
     }
+
+    .mobile-menu-toggle:active {
+      transform: scale(0.9);
+    }
+
     nav {
       display: flex;
-      gap: 20px;
+      gap: 22px;
       align-items: center;
       flex-wrap: wrap;
     }
+
     nav a {
       color: #fff;
       text-decoration: none;
       font-weight: 600;
-      font-size: 14px;
+      font-size: 15px;
       transition: color 0.2s;
       white-space: nowrap;
       cursor: pointer;
     }
-    nav a:hover, nav a.active {
+
+    nav a:hover,
+    nav a.active {
       color: #00d2ff;
     }
+
     .dropdown {
       position: relative;
       display: inline-block;
     }
+
     .dropdown-toggle {
       cursor: pointer;
       display: flex;
       align-items: center;
       gap: 4px;
     }
+
     .dropdown-content {
       display: none;
       position: absolute;
       background-color: rgba(6, 21, 41, 0.98);
-      min-width: 190px;
+      min-width: 200px;
       box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.6);
       z-index: 1000;
       top: 100%;
@@ -193,29 +252,40 @@
       border-radius: 6px;
       border: 1px solid rgba(255, 255, 255, 0.1);
       padding: 8px 0;
+      backdrop-filter: blur(6px);
     }
+
     .dropdown-content a {
       color: #ddd;
-      padding: 10px 18px;
+      padding: 10px 20px;
       text-decoration: none;
-      display: block;
+      display: flex;
+      align-items: center;
+      gap: 8px;
       font-size: 13px;
       font-weight: 500;
+      transition: all 0.2s;
     }
+
     .dropdown-content a:hover {
       background-color: rgba(255, 255, 255, 0.05);
       color: #fff;
+      padding-left: 24px;
     }
-    .dropdown.open .dropdown-content {
+
+    .dropdown.open .dropdown-content,
+    .dropdown.show .dropdown-content {
       display: block;
     }
 
-    /* ---------- HERO SLIDER (FULLY RESPONSIVE) ---------- */
+    /* ============================================================
+       HERO SLIDER – FULLY RESPONSIVE
+       ============================================================ */
     .hero-slider-section {
       position: relative;
       width: 100%;
-      height: 70vh;           /* flexible height */
-      min-height: 400px;
+      height: 70vh;
+      min-height: 420px;
       max-height: 700px;
       background: #000;
       overflow: hidden;
@@ -255,13 +325,21 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(3, 20, 41, 0.85) 0%, rgba(3, 20, 41, 0.3) 50%, rgba(3, 20, 41, 0.75) 100%);
+      background: linear-gradient(135deg, rgba(3, 20, 41, 0.88) 0%, rgba(3, 20, 41, 0.4) 50%, rgba(3, 20, 41, 0.85) 100%);
       z-index: 1;
     }
 
-    .slide-1 { background-image: url('https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=1500&auto=format&fit=crop'); }
-    .slide-2 { background-image: url('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=1500&auto=format&fit=crop'); }
-    .slide-3 { background-image: url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=1500&auto=format&fit=crop'); }
+    .slide-1 {
+      background-image: url('https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=1500&auto=format&fit=crop');
+    }
+
+    .slide-2 {
+      background-image: url('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=1500&auto=format&fit=crop');
+    }
+
+    .slide-3 {
+      background-image: url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=1500&auto=format&fit=crop');
+    }
 
     .slide-content-wrapper {
       display: flex;
@@ -272,25 +350,24 @@
       margin: 0 auto;
       z-index: 3;
       position: relative;
-      gap: 20px;
+      gap: 30px;
       flex-wrap: wrap;
       height: 100%;
       padding: 20px 0;
     }
 
-    /* Left glass card */
     .slide-left-text {
       position: relative;
       z-index: 3;
-      max-width: 480px;
+      max-width: 520px;
       width: 100%;
-      background: rgba(3, 20, 41, 0.65);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      padding: 28px 24px;
+      background: rgba(3, 20, 41, 0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 32px 28px;
       border-radius: 24px;
       border: 1px solid rgba(255, 255, 255, 0.15);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
     }
 
     .slide-left-text h2 {
@@ -299,18 +376,17 @@
       font-weight: 900;
       color: #ffffff;
       line-height: 1.2;
-      margin-bottom: 12px;
       letter-spacing: -0.5px;
+      margin-bottom: 12px;
     }
 
     .slide-left-text p {
-      font-size: clamp(0.9rem, 3vw, 1rem);
+      font-size: clamp(0.9rem, 3vw, 1.05rem);
       color: #e2e8f0;
       line-height: 1.5;
       font-weight: 400;
     }
 
-    /* Right big text — hidden on small screens to reduce clutter */
     .slide-right-text {
       position: relative;
       z-index: 3;
@@ -320,7 +396,7 @@
 
     .slide-right-text h2 {
       font-family: 'Montserrat', sans-serif;
-      font-size: clamp(2.4rem, 9vw, 4.5rem);
+      font-size: clamp(2.8rem, 10vw, 5rem);
       font-weight: 900;
       color: transparent;
       -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.7);
@@ -335,7 +411,6 @@
       text-shadow: 0 0 20px rgba(75, 181, 245, 0.6);
     }
 
-    /* Slider arrows — larger tap targets */
     .slider-arrow {
       position: absolute;
       top: 50%;
@@ -345,9 +420,10 @@
       font-weight: bold;
       color: #ffffff;
       background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(6px);
-      width: 44px;
-      height: 44px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      width: 46px;
+      height: 46px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -365,8 +441,13 @@
       transform: translateY(-50%) scale(1.1);
     }
 
-    .slider-arrow.prev { left: 15px; }
-    .slider-arrow.next { right: 15px; }
+    .slider-arrow.prev {
+      left: 20px;
+    }
+
+    .slider-arrow.next {
+      right: 20px;
+    }
 
     .slider-dots {
       position: absolute;
@@ -395,7 +476,9 @@
       box-shadow: 0 0 10px rgba(255, 51, 102, 0.6);
     }
 
-    /* ---------- SECTION BAR ---------- */
+    /* ============================================================
+       SECTION BAR
+       ============================================================ */
     .section-bar {
       background: var(--navy-primary);
       color: #ffffff;
@@ -408,28 +491,32 @@
       max-width: 1200px;
       border-radius: 6px;
       letter-spacing: 0.5px;
-      text-transform: uppercase;
       box-shadow: 0 4px 15px rgba(17, 42, 77, 0.2);
+      text-transform: uppercase;
     }
 
-    /* ---------- WHITE CARD CONTAINERS ---------- */
+    /* ============================================================
+       CARD CONTAINERS
+       ============================================================ */
     .white-card-container {
       width: 95%;
       max-width: 1200px;
       margin: 0 auto 28px auto;
       background: #ffffff;
-      border-radius: 12px;
-      padding: 30px 25px;
+      border-radius: 14px;
+      padding: 32px 28px;
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
       border: 1px solid #ddd;
     }
 
-    /* ---------- KARAOKE STAGE GRID ---------- */
+    /* ============================================================
+       KARAOKE STAGE GRID
+       ============================================================ */
     .karaoke-stage-grid {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 30px;
+      gap: 35px;
       flex-wrap: wrap;
     }
 
@@ -437,26 +524,31 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      min-width: 220px;
-      flex: 1;
+      min-width: 230px;
+      flex: 1 1 260px;
     }
 
     .join-now-header {
       font-family: 'Montserrat', sans-serif;
-      font-size: 2rem;
+      font-size: 2.1rem;
       font-weight: 900;
       line-height: 1.1;
       text-align: left;
       width: 100%;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
-    .join-now-header .join-txt { color: var(--navy-primary); }
-    .join-now-header .now-txt { color: #ff3366; }
+    .join-now-header .join-txt {
+      color: var(--navy-primary);
+    }
+
+    .join-now-header .now-txt {
+      color: #ff3366;
+    }
 
     .singer-female-img {
       width: 100%;
-      max-width: 230px;
+      max-width: 240px;
       height: auto;
       aspect-ratio: 1/1;
       object-fit: cover;
@@ -467,7 +559,7 @@
 
     .share-perf-title {
       font-family: 'Montserrat', sans-serif;
-      font-size: 1.4rem;
+      font-size: 1.45rem;
       font-weight: 900;
       color: #d97706;
       text-align: left;
@@ -477,12 +569,12 @@
     }
 
     .btn-open-upload {
-      margin-top: 14px;
+      margin-top: 16px;
       background: linear-gradient(135deg, #0c101d, #1b5394);
-      color: #fff;
+      color: #ffffff;
       border: none;
       border-radius: 30px;
-      padding: 12px 20px;
+      padding: 13px 24px;
       font-size: 14px;
       font-weight: bold;
       cursor: pointer;
@@ -492,28 +584,34 @@
       gap: 8px;
       width: 100%;
       box-shadow: 0 5px 15px rgba(27, 83, 148, 0.3);
+      transition: transform 0.2s ease;
+    }
+
+    .btn-open-upload:hover {
+      transform: translateY(-2px);
     }
 
     .stage-box-right {
-      flex: 2;
-      min-width: 280px;
+      flex: 2 1 320px;
+      min-width: 0;
     }
 
     .stage-benefits-list {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 18px;
+      gap: 20px;
     }
 
     .stage-benefits-list li {
-      font-size: 1.2rem;
+      font-size: 1.25rem;
       font-weight: 700;
       color: var(--navy-primary);
       line-height: 1.4;
       display: flex;
       align-items: flex-start;
       gap: 12px;
+      letter-spacing: -0.2px;
     }
 
     .stage-benefits-list li i {
@@ -523,68 +621,224 @@
       flex-shrink: 0;
     }
 
-    /* ---------- UPLOAD FORM (simple) ---------- */
+    /* ============================================================
+       UPLOAD FORM – FULLY RESPONSIVE
+       ============================================================ */
     .upload-header-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
       border-bottom: 2px solid #eef5f9;
       padding-bottom: 12px;
-      margin-bottom: 22px;
+      margin-bottom: 26px;
       flex-wrap: wrap;
       gap: 12px;
+    }
+
+    .upload-header-row h3 {
+      font-size: 1.4rem;
+      color: #0c101d;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .upload-header-row p {
+      font-size: 14px;
+      color: #555;
+      margin-top: 5px;
     }
 
     .upload-grid-fields {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 18px;
+      gap: 22px;
     }
 
     .form-field-group {
       display: flex;
       flex-direction: column;
       gap: 6px;
+      min-width: 0;
     }
 
     .form-field-group.full {
       grid-column: span 2;
     }
 
-    .input-box, .select-box, .textarea-box {
+    .form-field-group label {
+      font-size: 14px;
+      font-weight: 700;
+      color: #555;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+
+    .input-box,
+    .select-box,
+    .textarea-box {
       width: 100%;
       background: #f8fafc;
       border: 1px solid #ccc;
       color: #333;
-      padding: 12px;
-      border-radius: 6px;
+      padding: 13px 14px;
+      border-radius: 8px;
       font-size: 14px;
       outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
       font-family: inherit;
+      -webkit-appearance: none;
+      appearance: none;
     }
 
+    .select-box {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+    }
+
+    .input-box:focus,
+    .select-box:focus,
+    .textarea-box:focus {
+      border-color: #4bb5f5;
+      background: #ffffff;
+      box-shadow: 0 0 0 3px rgba(75, 181, 245, 0.15);
+    }
+
+    .textarea-box {
+      resize: vertical;
+      min-height: 70px;
+    }
+
+    /* Dropzone */
     .dropzone-container {
       border: 2px dashed #4bb5f5;
-      border-radius: 8px;
-      padding: 18px 12px;
+      border-radius: 10px;
+      padding: 22px 16px;
       text-align: center;
       background: #f8fafc;
       position: relative;
       cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .dropzone-container:hover {
+      border-color: #1b5394;
+      background: #eef5f9;
     }
 
     .dropzone-container input[type="file"] {
       position: absolute;
       inset: 0;
+      width: 100%;
+      height: 100%;
       opacity: 0;
       cursor: pointer;
+      z-index: 5;
+    }
+
+    .dropzone-icon {
+      font-size: 28px;
+      color: #4bb5f5;
+      margin-bottom: 6px;
+    }
+
+    .dropzone-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #333;
+    }
+
+    .dropzone-desc {
+      font-size: 12px;
+      color: #777;
+    }
+
+    /* Preview boxes */
+    .preview-box {
+      display: none;
+      margin-top: 10px;
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 12px 14px;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .preview-box.active {
+      display: flex;
+    }
+
+    .preview-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12.5px;
+      color: var(--blue-accent);
+      font-weight: 700;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .preview-clear-btn {
+      background: none;
+      border: none;
+      color: #ef4444;
+      cursor: pointer;
+      font-size: 12.5px;
+      font-weight: bold;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .preview-box audio,
+    .preview-box video {
+      width: 100%;
+      border-radius: 6px;
+      margin-top: 6px;
+    }
+
+    .preview-box video {
+      max-height: 180px;
+      background: #000;
+    }
+
+    .upload-submit-row {
+      grid-column: span 2;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 8px;
+    }
+
+    .consent-text {
+      font-size: 13px;
+      color: #555;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      cursor: pointer;
+      line-height: 1.4;
+    }
+
+    .consent-text input {
+      margin-top: 3px;
+      flex-shrink: 0;
     }
 
     .btn-publish-performance {
       background: linear-gradient(135deg, #0c101d, #1b5394);
-      color: #fff;
+      color: #ffffff;
       border: none;
-      padding: 14px 24px;
+      padding: 15px 30px;
       border-radius: 30px;
       font-size: 15px;
       font-weight: bold;
@@ -593,33 +847,55 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 5px 15px rgba(27, 83, 148, 0.3);
       width: 100%;
     }
 
-    /* ---------- FOOTER (simplified) ---------- */
+    .btn-publish-performance:hover {
+      transform: translateY(-2px);
+    }
+
+    .upload-alert-success {
+      display: none;
+      background: #ecfdf5;
+      border: 1.5px solid #10b981;
+      color: #065f46;
+      padding: 14px 20px;
+      border-radius: 8px;
+      font-size: 14px;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* ============================================================
+       FOOTER
+       ============================================================ */
     footer {
       background: rgba(3, 20, 41, 0.95);
       color: #fff;
-      padding: 30px 20px 15px;
+      padding: 40px 20px 18px;
       margin-top: 40px;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
     }
 
     .footer-cols {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 25px;
+      gap: 28px;
       max-width: 1200px;
       margin: 0 auto;
+      font-size: 14px;
     }
 
     .footer-cols h4 {
       color: #fff;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
       border-bottom: 2px solid #005082;
-      padding-bottom: 6px;
+      padding-bottom: 8px;
       font-weight: 700;
-      font-size: 1rem;
+      letter-spacing: 0.5px;
     }
 
     .footer-cols ul {
@@ -627,98 +903,177 @@
     }
 
     .footer-cols ul li {
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
     .footer-cols ul li a {
       color: #aaa;
       text-decoration: none;
-      font-size: 14px;
+      transition: color 0.3s;
+    }
+
+    .footer-cols ul li a:hover {
+      color: #00d2ff;
     }
 
     .footer-bottom {
       text-align: center;
-      margin-top: 25px;
+      margin-top: 30px;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
-      padding-top: 15px;
-      font-size: 12px;
+      padding-top: 20px;
+      font-size: 13px;
       color: #888;
     }
 
-    /* ========== RESPONSIVE BREAKPOINTS ========== */
+    /* ============================================================
+       RESPONSIVE BREAKPOINTS
+       ============================================================ */
 
-    /* Tablet & small desktop */
+    /* Tablet landscape */
     @media (max-width: 1024px) {
       .hero-slider-section {
         height: 65vh;
         min-height: 380px;
       }
+
       .slide-left-text {
-        max-width: 400px;
-        padding: 22px 20px;
+        max-width: 440px;
+        padding: 26px 24px;
       }
+
       .slide-right-text h2 {
-        font-size: clamp(2.2rem, 8vw, 3.5rem);
+        font-size: clamp(2.4rem, 9vw, 3.8rem);
       }
+
       .karaoke-stage-grid {
-        gap: 20px;
+        gap: 24px;
+      }
+
+      .stage-benefits-list li {
+        font-size: 1.15rem;
+      }
+
+      .upload-grid-fields {
+        gap: 18px;
       }
     }
 
-    /* Mobile landscape and below */
-    @media (max-width: 768px) {
-      .top-banner {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 10px 15px;
-      }
-      .header-buttons {
-        justify-content: center;
-      }
-      header {
-        padding: 12px 16px;
-      }
-      .mobile-menu-toggle {
-        display: block;
-      }
-      nav {
-        display: none; /* simplified: hidden on mobile for this demo */
-      }
-      /* Hero slider adjustments for mobile */
+    /* Tablet portrait */
+    @media (max-width: 900px) {
       .hero-slider-section {
         height: 60vh;
         min-height: 360px;
-        max-height: 550px;
       }
+
+      .slide-left-text {
+        max-width: 380px;
+        padding: 22px 20px;
+      }
+
+      .slide-right-text h2 {
+        font-size: clamp(2.2rem, 8vw, 3rem);
+      }
+
+      .stage-benefits-list li {
+        font-size: 1.05rem;
+      }
+
+      .upload-grid-fields {
+        grid-template-columns: 1fr;
+      }
+
+      .form-field-group.full,
+      .upload-submit-row {
+        grid-column: span 1;
+      }
+    }
+
+    /* Mobile landscape & below */
+    @media (max-width: 768px) {
+      /* Top banner */
+      .top-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 12px 16px;
+        gap: 10px;
+      }
+
+      .top-banner > div:first-child {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .social-icons {
+        justify-content: center;
+      }
+
+      .header-buttons {
+        justify-content: center;
+      }
+
+      /* Header */
+      header {
+        padding: 14px 16px;
+        flex-wrap: nowrap;
+      }
+
+      .mobile-menu-toggle {
+        display: block;
+        order: 3;
+      }
+
+      .logo-area {
+        flex: 1;
+      }
+
+      .logo-area h1 {
+        font-size: 18px;
+      }
+
+      nav {
+        display: none;
+      }
+
+      /* Hero slider */
+      .hero-slider-section {
+        height: 58vh;
+        min-height: 340px;
+        max-height: 520px;
+      }
+
       .slide {
         padding: 0 15px;
       }
+
       .slide-content-wrapper {
         flex-direction: column;
         justify-content: center;
         align-items: center;
         text-align: center;
-        gap: 15px;
-        padding: 20px 0;
+        gap: 16px;
+        padding: 16px 0;
       }
+
       .slide-left-text {
         max-width: 100%;
-        padding: 22px 18px;
+        padding: 24px 18px;
         text-align: center;
-        background: rgba(3, 20, 41, 0.75);
+        background: rgba(3, 20, 41, 0.78);
+        border-radius: 18px;
       }
+
       .slide-left-text h2 {
-        font-size: clamp(1.6rem, 7vw, 2.2rem);
+        font-size: clamp(1.5rem, 7vw, 2rem);
       }
+
       .slide-left-text p {
         font-size: 0.95rem;
       }
-      /* Right big text hidden on mobile to avoid clutter */
+
       .slide-right-text {
         display: none;
       }
-      /* Arrows: reposition and bigger */
+
       .slider-arrow {
         width: 40px;
         height: 40px;
@@ -727,34 +1082,88 @@
         bottom: 20px;
         transform: none;
       }
-      .slider-arrow.prev { left: 15px; }
-      .slider-arrow.next { right: 15px; }
-      .slider-dots {
-        bottom: 25px;
+
+      .slider-arrow.prev {
+        left: 15px;
       }
-      /* Grid stacking */
+
+      .slider-arrow.next {
+        right: 15px;
+      }
+
+      .slider-dots {
+        bottom: 26px;
+      }
+
+      /* Karaoke grid */
       .karaoke-stage-grid {
         flex-direction: column;
         align-items: stretch;
       }
+
       .stage-box-left {
         min-width: 100%;
+        align-items: center;
       }
+
+      .join-now-header {
+        text-align: center;
+        font-size: 1.8rem;
+      }
+
       .singer-female-img {
         max-width: 200px;
       }
+
+      .share-perf-title {
+        text-align: center;
+        font-size: 1.25rem;
+      }
+
       .stage-benefits-list li {
         font-size: 1rem;
+        gap: 10px;
       }
+
+      /* Upload form */
+      .upload-header-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+
+      .upload-header-row h3 {
+        font-size: 1.15rem;
+      }
+
       .upload-grid-fields {
-        grid-template-columns: 1fr;
+        gap: 16px;
       }
-      .form-field-group.full {
-        grid-column: span 1;
+
+      .form-field-group label {
+        font-size: 13px;
       }
+
+      .input-box,
+      .select-box,
+      .textarea-box {
+        padding: 12px;
+        font-size: 13.5px;
+      }
+
+      .dropzone-container {
+        padding: 18px 12px;
+      }
+
+      .btn-publish-performance {
+        font-size: 14px;
+        padding: 14px 20px;
+      }
+
+      /* Footer */
       .footer-cols {
         grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+        gap: 22px;
       }
     }
 
@@ -762,83 +1171,198 @@
     @media (max-width: 480px) {
       .hero-slider-section {
         height: 55vh;
-        min-height: 340px;
+        min-height: 320px;
+        max-height: 460px;
       }
+
       .slide-left-text {
         padding: 18px 14px;
+        border-radius: 16px;
       }
+
       .slide-left-text h2 {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
       }
+
       .slide-left-text p {
         font-size: 0.85rem;
       }
+
       .slider-arrow {
-        width: 36px;
-        height: 36px;
-        font-size: 16px;
-        bottom: 15px;
+        width: 34px;
+        height: 34px;
+        font-size: 15px;
+        bottom: 14px;
       }
+
+      .slider-arrow.prev {
+        left: 12px;
+      }
+
+      .slider-arrow.next {
+        right: 12px;
+      }
+
       .dot {
         width: 10px;
         height: 10px;
       }
-      .footer-cols {
-        grid-template-columns: 1fr;
-      }
+
       .section-bar {
-        font-size: 0.95rem;
+        font-size: 0.9rem;
         padding: 10px 14px;
+        letter-spacing: 0.3px;
       }
+
       .white-card-container {
         padding: 20px 16px;
+        border-radius: 12px;
+      }
+
+      .join-now-header {
+        font-size: 1.55rem;
+      }
+
+      .singer-female-img {
+        max-width: 170px;
+      }
+
+      .share-perf-title {
+        font-size: 1.1rem;
+      }
+
+      .btn-open-upload {
+        font-size: 13px;
+        padding: 11px 18px;
+      }
+
+      .stage-benefits-list li {
+        font-size: 0.92rem;
+      }
+
+      .stage-benefits-list li i {
+        font-size: 15px;
+      }
+
+      .upload-header-row h3 {
+        font-size: 1.05rem;
+      }
+
+      .dropzone-icon {
+        font-size: 24px;
+      }
+
+      .dropzone-title {
+        font-size: 13px;
+      }
+
+      .dropzone-desc {
+        font-size: 11px;
+      }
+
+      .preview-header {
+        font-size: 11.5px;
+      }
+
+      .consent-text {
+        font-size: 12px;
+      }
+
+      .footer-cols {
+        grid-template-columns: 1fr;
+        gap: 20px;
       }
     }
 
     /* Very small devices */
     @media (max-width: 360px) {
       .hero-slider-section {
-        min-height: 320px;
+        min-height: 300px;
       }
+
       .slide-left-text h2 {
-        font-size: 1.3rem;
+        font-size: 1.25rem;
       }
+
       .slide-left-text p {
         font-size: 0.8rem;
       }
+
       .slider-arrow {
-        width: 32px;
+        width: 30px;
+        height: 30px;
+        font-size: 13px;
+      }
+
+      .logo-area h1 {
+        font-size: 16px;
+      }
+
+      .top-banner img {
         height: 32px;
-        font-size: 14px;
+      }
+
+      .welcome-text {
+        font-size: 11px;
+      }
+
+      .login-btn,
+      .signup-btn {
+        font-size: 11px;
+        padding: 6px 12px;
+      }
+
+      .join-now-header {
+        font-size: 1.35rem;
+      }
+
+      .singer-female-img {
+        max-width: 145px;
+      }
+
+      .stage-benefits-list li {
+        font-size: 0.86rem;
+      }
+
+      .white-card-container {
+        padding: 16px 12px;
+      }
+
+      .upload-header-row h3 {
+        font-size: 0.98rem;
+      }
+
+      .btn-publish-performance {
+        font-size: 13px;
+        padding: 12px 16px;
       }
     }
 
-    /* Global paragraph justify fix */
+    /* Global paragraph justification */
     p {
       text-align: justify;
     }
-    .slide-left-text p {
-      text-align: left;
-    }
-    footer p {
+
+    .slide-left-text p,
+    .upload-header-row p {
       text-align: left;
     }
   </style>
 </head>
-<body>
 
+<body>
   <!-- ===== TOP BANNER ===== -->
   <div class="top-banner">
     <div style="display: flex; align-items: center;">
-      <a href="home.html"><img src="images/logo/logo.png" alt="3Stars Logo" style="height: 35px;"></a>
+      <a href="home.html"><img src="images/logo/logo.png" alt="3Stars Logo"></a>
       <span class="welcome-text">Welcome to <i class="fas fa-star"></i> <strong>3Stars Entertainers</strong> <i class="fas fa-star"></i></span>
     </div>
-    <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+    <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap; justify-content: center;">
       <div class="social-icons">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-youtube"></i></a>
-        <a href="#"><i class="fas fa-envelope"></i></a>
+        <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="#" title="Email"><i class="fas fa-envelope"></i></a>
       </div>
       <div class="header-buttons">
         <a href="index.html" class="login-btn"><i class="fas fa-user-circle"></i> Log In</a>
@@ -852,9 +1376,9 @@
     <div class="logo-area">
       <h1>3 Stars Entertainers</h1>
     </div>
-    <div class="mobile-menu-toggle" id="mobileMenuToggle">
+    <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
       <i class="fas fa-bars"></i>
-    </div>
+    </button>
     <nav id="mainNav">
       <a href="home.html">Home</a>
       <a href="about.html">About</a>
@@ -875,7 +1399,7 @@
     </nav>
   </header>
 
-  <!-- ===== HERO SLIDER (FULLY RESPONSIVE) ===== -->
+  <!-- ===== HERO SLIDER ===== -->
   <section class="hero-slider-section" id="slider">
     <div class="slides-container">
       <!-- Slide 1 -->
@@ -915,8 +1439,8 @@
         </div>
       </div>
     </div>
-    <div class="slider-arrow prev" onclick="prevSlide()">&lt;</div>
-    <div class="slider-arrow next" onclick="nextSlide()">&gt;</div>
+    <div class="slider-arrow prev" onclick="prevSlide()" aria-label="Previous slide">&lt;</div>
+    <div class="slider-arrow next" onclick="nextSlide()" aria-label="Next slide">&gt;</div>
     <div class="slider-dots">
       <span class="dot active" onclick="setSlide(0)"></span>
       <span class="dot" onclick="setSlide(1)"></span>
@@ -924,132 +1448,142 @@
     </div>
   </section>
 
-  <!-- ===== YOUR KARAOKE STAGE (excerpt, full content retained) ===== -->
-  <div id="view-performances" class="stage-dynamic-view active">
-    <div class="section-bar" id="karaoke-stage">Your Karaoke Stage</div>
+  <!-- ===== KARAOKE STAGE SECTION ===== -->
+  <div class="section-bar">Your Karaoke Stage</div>
 
-    <div class="white-card-container">
-      <div class="karaoke-stage-grid">
-        <div class="stage-box-left">
-          <div class="join-now-header">
-            <span class="join-txt">Join</span><br>
-            <span class="now-txt">NOW!</span>
+  <div class="white-card-container">
+    <div class="karaoke-stage-grid">
+      <div class="stage-box-left">
+        <div class="join-now-header">
+          <span class="join-txt">Join</span><br>
+          <span class="now-txt">NOW!</span>
+        </div>
+        <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=400&auto=format&fit=crop" alt="Singer with Mic" class="singer-female-img">
+        <div class="share-perf-title">
+          Share<br>Your Performance
+        </div>
+        <button class="btn-open-upload" onclick="scrollToUploadForm()">
+          <i class="fa-solid fa-microphone-lines"></i> Upload Your Song Now
+        </button>
+      </div>
+      <div class="stage-box-right">
+        <ul class="stage-benefits-list">
+          <li><i class="fa-solid fa-circle-check"></i> Sing Solo or invite friends for Duet</li>
+          <li><i class="fa-solid fa-circle-check"></i> Perform on our Online Stage</li>
+          <li><i class="fa-solid fa-circle-check"></i> We share your performance on our Social Media Platform.</li>
+          <li><i class="fa-solid fa-circle-check"></i> Record and Share your singing performance to our Karaoke community.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== UPLOAD FORM SECTION ===== -->
+  <div class="white-card-container" id="upload-song">
+    <div class="upload-header-row">
+      <div>
+        <h3><i class="fa-solid fa-compact-disc"></i> Upload Your Song Performance</h3>
+        <p>Sing a song solo or duet? Upload your audio track or video clip below to get published on Our Stage Player!</p>
+      </div>
+      <div>
+        <span style="background: #0284c7; color: #fff; padding: 6px 16px; border-radius: 20px; font-size: 12px; font-weight: bold; white-space: nowrap;">Audio & Video Form</span>
+      </div>
+    </div>
+
+    <form id="songSubmitForm" onsubmit="handleFormSubmission(event)">
+      <div class="upload-grid-fields">
+        <div class="form-field-group">
+          <label for="performerInput"><i class="fa-solid fa-user"></i> Performer / Singer Name *</label>
+          <input type="text" id="performerInput" class="input-box" placeholder="e.g. Shanuka Perera / Emily Rose" required>
+        </div>
+
+        <div class="form-field-group">
+          <label for="songTitleInput"><i class="fa-solid fa-music"></i> Song Title *</label>
+          <input type="text" id="songTitleInput" class="input-box" placeholder="e.g. Perfect (Cover) / Senkadagala Nuwara" required>
+        </div>
+
+        <div class="form-field-group">
+          <label for="categoryInput"><i class="fa-solid fa-users"></i> Performance Type</label>
+          <select id="categoryInput" class="select-box">
+            <option value="Solo Vocalist">🎤 Solo Vocalist</option>
+            <option value="Duet with Friends">👥 Duet Performance</option>
+            <option value="Acoustic Cover">🎸 Acoustic Guitar & Vocals</option>
+            <option value="Live Band Performance">🥁 Full Live Band</option>
+          </select>
+        </div>
+
+        <div class="form-field-group">
+          <label for="genreInput"><i class="fa-solid fa-sliders"></i> Genre / Language</label>
+          <select id="genreInput" class="select-box">
+            <option value="Pop">Pop</option>
+            <option value="Sinhala / Tamil">Sinhala / Tamil Regional</option>
+            <option value="Bollywood">Bollywood Hindi</option>
+            <option value="Rock / Melody">Rock / Melody</option>
+            <option value="R&B / Soul">R&B / Soul</option>
+            <option value="Acoustic">Acoustic Folk</option>
+          </select>
+        </div>
+
+        <!-- AUDIO UPLOAD -->
+        <div class="form-field-group">
+          <label><i class="fa-solid fa-file-audio"></i> Upload Sung Song (Audio: .mp3, .wav, .m4a)</label>
+          <div class="dropzone-container" id="audioZone">
+            <input type="file" id="audioUploadFile" accept="audio/*" onchange="previewAudioFile(this)">
+            <div class="dropzone-icon"><i class="fa-solid fa-microphone-lines"></i></div>
+            <div class="dropzone-title">Click or Drag & Drop Audio File</div>
+            <div class="dropzone-desc">MP3, WAV, AAC, M4A up to 50MB</div>
           </div>
-          <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=400&auto=format&fit=crop" alt="Singer with Mic" class="singer-female-img">
-          <div class="share-perf-title">
-            Share<br>Your Performance
+          <div class="preview-box" id="audioPreviewWrap">
+            <div class="preview-header">
+              <span id="audioFileNameDisplay"><i class="fa-solid fa-music"></i> song_recording.mp3</span>
+              <button type="button" class="preview-clear-btn" onclick="removeAudioFile()"><i class="fa-solid fa-trash"></i> Remove</button>
+            </div>
+            <audio id="audioPreviewElement" controls></audio>
           </div>
-          <button class="btn-open-upload" onclick="scrollToUploadForm()">
-            <i class="fa-solid fa-microphone-lines"></i> Upload Your Song Now
+        </div>
+
+        <!-- VIDEO UPLOAD -->
+        <div class="form-field-group">
+          <label><i class="fa-solid fa-file-video"></i> Upload Performance (Video: .mp4, .webm, .mov)</label>
+          <div class="dropzone-container" id="videoZone">
+            <input type="file" id="videoUploadFile" accept="video/*" onchange="previewVideoFile(this)">
+            <div class="dropzone-icon"><i class="fa-solid fa-video"></i></div>
+            <div class="dropzone-title">Click or Drag & Drop Video File</div>
+            <div class="dropzone-desc">MP4, WEBM, MOV up to 150MB</div>
+          </div>
+          <div class="preview-box" id="videoPreviewWrap">
+            <div class="preview-header">
+              <span id="videoFileNameDisplay"><i class="fa-solid fa-film"></i> performance.mp4</span>
+              <button type="button" class="preview-clear-btn" onclick="removeVideoFile()"><i class="fa-solid fa-trash"></i> Remove</button>
+            </div>
+            <video id="videoPreviewElement" controls></video>
+          </div>
+        </div>
+
+        <div class="form-field-group full">
+          <label for="notesInput"><i class="fa-solid fa-pen-nib"></i> Song Dedication / Notes (Optional)</label>
+          <textarea id="notesInput" class="textarea-box" rows="2" placeholder="Tell our audience or judges about this performance or song choice..."></textarea>
+        </div>
+
+        <div class="upload-submit-row">
+          <label class="consent-text">
+            <input type="checkbox" id="consentCheck" required checked style="accent-color: #0284c7;">
+            <span>I confirm that I sang this track and give 3 Stars Entertainers permission to stream and feature my performance.</span>
+          </label>
+
+          <button type="submit" class="btn-publish-performance" id="publishBtn">
+            <i class="fa-solid fa-circle-play"></i> Submit & Feature on Stage Player
           </button>
-        </div>
-        <div class="stage-box-right">
-          <ul class="stage-benefits-list">
-            <li><i class="fa-solid fa-circle-check"></i> Sing Solo or invite friends for Duet</li>
-            <li><i class="fa-solid fa-circle-check"></i> Perform on our Online Stage</li>
-            <li><i class="fa-solid fa-circle-check"></i> We share your performance on our Social Media Platform.</li>
-            <li><i class="fa-solid fa-circle-check"></i> Record and Share your singing performance to our Karaoke community.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
 
-    <!-- Upload form (simplified but fully functional) -->
-    <div class="white-card-container" id="upload-song">
-      <div class="upload-header-row">
-        <div>
-          <h3><i class="fa-solid fa-compact-disc"></i> Upload Your Song Performance</h3>
-          <p>Sing a song solo or duet? Upload your audio track or video clip below to get published on Our Stage Player!</p>
-        </div>
-        <div>
-          <span style="background: #0284c7; color: #fff; padding: 5px 14px; border-radius: 20px; font-size: 12px; font-weight: bold;">Audio & Video Form</span>
+          <div class="upload-alert-success" id="uploadSuccessAlert">
+            <i class="fa-solid fa-circle-check" style="font-size: 20px;"></i>
+            <div>
+              <strong>Congratulations! Your performance has been submitted successfully.</strong>
+              <p style="font-size: 12px; margin-top: 2px;">It is now playing in "Our Stage Player" right below!</p>
+            </div>
+          </div>
         </div>
       </div>
-      <form id="songSubmitForm" onsubmit="handleFormSubmission(event)">
-        <div class="upload-grid-fields">
-          <div class="form-field-group">
-            <label for="performerInput"><i class="fa-solid fa-user"></i> Performer / Singer Name *</label>
-            <input type="text" id="performerInput" class="input-box" placeholder="e.g. Shanuka Perera / Emily Rose" required>
-          </div>
-          <div class="form-field-group">
-            <label for="songTitleInput"><i class="fa-solid fa-music"></i> Song Title *</label>
-            <input type="text" id="songTitleInput" class="input-box" placeholder="e.g. Perfect (Cover) / Senkadagala Nuwara" required>
-          </div>
-          <div class="form-field-group">
-            <label for="categoryInput"><i class="fa-solid fa-users"></i> Performance Type</label>
-            <select id="categoryInput" class="select-box">
-              <option value="Solo Vocalist">🎤 Solo Vocalist</option>
-              <option value="Duet with Friends">👥 Duet Performance</option>
-              <option value="Acoustic Cover">🎸 Acoustic Guitar & Vocals</option>
-              <option value="Live Band Performance">🥁 Full Live Band</option>
-            </select>
-          </div>
-          <div class="form-field-group">
-            <label for="genreInput"><i class="fa-solid fa-sliders"></i> Genre / Language</label>
-            <select id="genreInput" class="select-box">
-              <option value="Pop">Pop</option>
-              <option value="Sinhala / Tamil">Sinhala / Tamil Regional</option>
-              <option value="Bollywood">Bollywood Hindi</option>
-              <option value="Rock / Melody">Rock / Melody</option>
-              <option value="R&B / Soul">R&B / Soul</option>
-              <option value="Acoustic">Acoustic Folk</option>
-            </select>
-          </div>
-          <div class="form-field-group">
-            <label><i class="fa-solid fa-file-audio"></i> Upload Sung Song (Audio)</label>
-            <div class="dropzone-container" id="audioZone">
-              <input type="file" id="audioUploadFile" accept="audio/*" onchange="previewAudioFile(this)">
-              <div class="dropzone-icon"><i class="fa-solid fa-microphone-lines"></i></div>
-              <div class="dropzone-title">Click or Drag & Drop Audio File</div>
-              <div class="dropzone-desc">MP3, WAV, AAC, M4A up to 50MB</div>
-            </div>
-            <div class="preview-box" id="audioPreviewWrap" style="display: none; margin-top: 10px; background: #f8fafc; padding: 10px; border-radius: 6px;">
-              <div class="preview-header" style="display: flex; justify-content: space-between;">
-                <span id="audioFileNameDisplay"><i class="fa-solid fa-music"></i> song_recording.mp3</span>
-                <button type="button" class="preview-clear-btn" onclick="removeAudioFile()" style="background: none; border: none; color: #ef4444; cursor: pointer;"><i class="fa-solid fa-trash"></i> Remove</button>
-              </div>
-              <audio id="audioPreviewElement" controls style="width: 100%; margin-top: 6px;"></audio>
-            </div>
-          </div>
-          <div class="form-field-group">
-            <label><i class="fa-solid fa-file-video"></i> Upload Performance (Video)</label>
-            <div class="dropzone-container" id="videoZone">
-              <input type="file" id="videoUploadFile" accept="video/*" onchange="previewVideoFile(this)">
-              <div class="dropzone-icon"><i class="fa-solid fa-video"></i></div>
-              <div class="dropzone-title">Click or Drag & Drop Video File</div>
-              <div class="dropzone-desc">MP4, WEBM, MOV up to 150MB</div>
-            </div>
-            <div class="preview-box" id="videoPreviewWrap" style="display: none; margin-top: 10px; background: #f8fafc; padding: 10px; border-radius: 6px;">
-              <div class="preview-header" style="display: flex; justify-content: space-between;">
-                <span id="videoFileNameDisplay"><i class="fa-solid fa-film"></i> performance.mp4</span>
-                <button type="button" class="preview-clear-btn" onclick="removeVideoFile()" style="background: none; border: none; color: #ef4444; cursor: pointer;"><i class="fa-solid fa-trash"></i> Remove</button>
-              </div>
-              <video id="videoPreviewElement" controls style="width: 100%; margin-top: 6px; max-height: 150px;"></video>
-            </div>
-          </div>
-          <div class="form-field-group full">
-            <label for="notesInput"><i class="fa-solid fa-pen-nib"></i> Song Dedication / Notes (Optional)</label>
-            <textarea id="notesInput" class="textarea-box" rows="2" placeholder="Tell our audience or judges about this performance..."></textarea>
-          </div>
-          <div class="upload-submit-row" style="grid-column: span 2; display: flex; flex-direction: column; gap: 12px;">
-            <label style="display: flex; align-items: center; gap: 8px; font-size: 13px;">
-              <input type="checkbox" id="consentCheck" required checked style="accent-color: #0284c7;">
-              <span>I confirm that I sang this track and give 3 Stars Entertainers permission to stream and feature my performance.</span>
-            </label>
-            <button type="submit" class="btn-publish-performance" id="publishBtn">
-              <i class="fa-solid fa-circle-play"></i> Submit & Feature on Stage Player
-            </button>
-            <div class="upload-alert-success" id="uploadSuccessAlert" style="display: none; background: #ecfdf5; border: 1.5px solid #10b981; color: #065f46; padding: 14px 20px; border-radius: 6px; align-items: center; gap: 12px;">
-              <i class="fa-solid fa-circle-check" style="font-size: 20px;"></i>
-              <div>
-                <strong>Congratulations! Your performance has been submitted successfully.</strong>
-                <p style="font-size: 12px; margin-top: 2px;">It is now playing in "Our Stage Player" right below!</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </form>
-    </div>
+    </form>
   </div>
 
   <!-- ===== FOOTER ===== -->
@@ -1071,6 +1605,7 @@
             <li><a href="terms.html">Terms of Service</a></li>
             <li><a href="privacy.html">Privacy Policy</a></li>
             <li><a href="refund.html">Refund Policy</a></li>
+            <li><a href="copyright.html">Copyright Information</a></li>
           </ul>
         </div>
         <div>
@@ -1078,6 +1613,7 @@
           <ul>
             <li><a href="faq.html">FAQ</a></li>
             <li><a href="download-guide.html">How to Download</a></li>
+            <li><a href="subscriptions.html">Subscription Plans</a></li>
             <li><a href="report-issue.html">Report an Issue</a></li>
           </ul>
         </div>
@@ -1091,14 +1627,14 @@
         </div>
       </div>
       <div class="footer-bottom">
-        &copy; 2026 Music Platform. All Rights Reserved.
+        &copy; 2026 Music Platform. All Rights Reserved. | Designed & Developed by WebNest Private Limited.
       </div>
     </div>
   </footer>
 
-  <!-- ===== JAVASCRIPT (Hero Slider & Form) ===== -->
+  <!-- ===== JAVASCRIPT ===== -->
   <script>
-    // HERO SLIDER
+    /* ---------- HERO SLIDER ---------- */
     let currentSlideIndex = 0;
     const slides = document.querySelectorAll('.slide');
     const dots = document.querySelectorAll('.dot');
@@ -1114,24 +1650,36 @@
       if (dots[currentSlideIndex]) dots[currentSlideIndex].classList.add('active');
     }
 
-    function nextSlide() { showSlide(currentSlideIndex + 1); resetSliderTimer(); }
-    function prevSlide() { showSlide(currentSlideIndex - 1); resetSliderTimer(); }
-    function setSlide(index) { showSlide(index); resetSliderTimer(); }
+    function nextSlide() {
+      showSlide(currentSlideIndex + 1);
+      resetSliderTimer();
+    }
+
+    function prevSlide() {
+      showSlide(currentSlideIndex - 1);
+      resetSliderTimer();
+    }
+
+    function setSlide(index) {
+      showSlide(index);
+      resetSliderTimer();
+    }
+
     function resetSliderTimer() {
       clearInterval(sliderTimer);
       sliderTimer = setInterval(nextSlide, 5000);
     }
+
     sliderTimer = setInterval(nextSlide, 5000);
 
-    // SCROLL TO UPLOAD
+    /* ---------- SCROLL TO UPLOAD ---------- */
     function scrollToUploadForm() {
       const el = document.getElementById('upload-song');
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
-    // AUDIO / VIDEO PREVIEW
+    /* ---------- AUDIO PREVIEW ---------- */
     let currentAudioBlob = null;
-    let currentVideoBlob = null;
 
     function previewAudioFile(input) {
       if (input.files && input.files[0]) {
@@ -1141,17 +1689,24 @@
         document.getElementById('audioFileNameDisplay').innerHTML =
           `<i class="fa-solid fa-music"></i> ${file.name} (${(file.size / (1024 * 1024)).toFixed(2)} MB)`;
         document.getElementById('audioPreviewElement').src = currentAudioBlob;
-        document.getElementById('audioPreviewWrap').style.display = 'block';
+        document.getElementById('audioPreviewWrap').classList.add('active');
       }
     }
 
     function removeAudioFile() {
       document.getElementById('audioUploadFile').value = "";
-      if (currentAudioBlob) { URL.revokeObjectURL(currentAudioBlob); currentAudioBlob = null; }
-      document.getElementById('audioPreviewElement').pause();
-      document.getElementById('audioPreviewElement').src = "";
-      document.getElementById('audioPreviewWrap').style.display = 'none';
+      if (currentAudioBlob) {
+        URL.revokeObjectURL(currentAudioBlob);
+        currentAudioBlob = null;
+      }
+      const player = document.getElementById('audioPreviewElement');
+      player.pause();
+      player.src = "";
+      document.getElementById('audioPreviewWrap').classList.remove('active');
     }
+
+    /* ---------- VIDEO PREVIEW ---------- */
+    let currentVideoBlob = null;
 
     function previewVideoFile(input) {
       if (input.files && input.files[0]) {
@@ -1161,20 +1716,26 @@
         document.getElementById('videoFileNameDisplay').innerHTML =
           `<i class="fa-solid fa-film"></i> ${file.name} (${(file.size / (1024 * 1024)).toFixed(2)} MB)`;
         document.getElementById('videoPreviewElement').src = currentVideoBlob;
-        document.getElementById('videoPreviewWrap').style.display = 'block';
+        document.getElementById('videoPreviewWrap').classList.add('active');
       }
     }
 
     function removeVideoFile() {
       document.getElementById('videoUploadFile').value = "";
-      if (currentVideoBlob) { URL.revokeObjectURL(currentVideoBlob); currentVideoBlob = null; }
-      document.getElementById('videoPreviewElement').pause();
-      document.getElementById('videoPreviewElement').src = "";
-      document.getElementById('videoPreviewWrap').style.display = 'none';
+      if (currentVideoBlob) {
+        URL.revokeObjectURL(currentVideoBlob);
+        currentVideoBlob = null;
+      }
+      const player = document.getElementById('videoPreviewElement');
+      player.pause();
+      player.src = "";
+      document.getElementById('videoPreviewWrap').classList.remove('active');
     }
 
+    /* ---------- FORM SUBMIT ---------- */
     function handleFormSubmission(event) {
       event.preventDefault();
+
       const performer = document.getElementById('performerInput').value.trim();
       const song = document.getElementById('songTitleInput').value.trim();
       const genre = document.getElementById('genreInput').value;
@@ -1191,25 +1752,46 @@
       setTimeout(() => {
         btn.disabled = false;
         btn.innerHTML = `<i class="fa-solid fa-circle-check"></i> Published Successfully!`;
+
         const alertBox = document.getElementById('uploadSuccessAlert');
         alertBox.style.display = 'flex';
-        setTimeout(() => { alertBox.style.display = 'none'; }, 6000);
+
+        setTimeout(() => {
+          alertBox.style.display = 'none';
+        }, 6000);
+
         setTimeout(() => {
           btn.innerHTML = `<i class="fa-solid fa-circle-play"></i> Submit & Feature on Stage Player`;
         }, 3500);
       }, 1000);
     }
 
-    // Mobile menu toggle (simple)
+    /* ---------- MOBILE MENU TOGGLE ---------- */
     const menuToggle = document.getElementById('mobileMenuToggle');
     const mainNav = document.getElementById('mainNav');
+
     if (menuToggle && mainNav) {
       menuToggle.addEventListener('click', () => {
-        mainNav.classList.toggle('active');
+        if (mainNav.style.display === 'flex') {
+          mainNav.style.display = 'none';
+        } else {
+          mainNav.style.display = 'flex';
+          mainNav.style.flexDirection = 'column';
+          mainNav.style.position = 'absolute';
+          mainNav.style.top = '100%';
+          mainNav.style.left = '0';
+          mainNav.style.right = '0';
+          mainNav.style.background = 'rgba(3, 20, 41, 0.98)';
+          mainNav.style.padding = '20px';
+          mainNav.style.zIndex = '9999';
+          mainNav.style.gap = '14px';
+          mainNav.style.borderTop = '1px solid rgba(255,255,255,0.1)';
+          mainNav.style.boxShadow = '0 10px 30px rgba(0,0,0,0.5)';
+        }
       });
     }
 
-    // Dropdown toggle
+    /* ---------- DROPDOWN TOGGLE ---------- */
     document.querySelectorAll('.dropdown').forEach(dd => {
       const link = dd.querySelector('a');
       if (link) {
@@ -1217,6 +1799,15 @@
           e.preventDefault();
           dd.classList.toggle('open');
         });
+      }
+    });
+
+    /* ---------- CLOSE MENU ON OUTSIDE CLICK ---------- */
+    document.addEventListener('click', (e) => {
+      if (window.innerWidth <= 768 && mainNav && mainNav.style.display === 'flex') {
+        if (!mainNav.contains(e.target) && !menuToggle.contains(e.target)) {
+          mainNav.style.display = 'none';
+        }
       }
     });
   </script>
