@@ -1790,14 +1790,14 @@
             <!-- Main Featured Video -->
             <div class="featured-poster-container">
                 <div class="yt-thumbnail">
-                    <img src="images/Thumbs%20for%20Favorite%20Singers%20Songs%20Karaoke%20SPB/Thumbs%20for%20Favorite%20Singers%20Songs%20Karaoke%20SPB/1%20Oru%20kadhal%20devadai.jpg"
+                    <img id="featured-img" src="images/Thumbs%20for%20Favorite%20Singers%20Songs%20Karaoke%20SPB/Thumbs%20for%20Favorite%20Singers%20Songs%20Karaoke%20SPB/1%20Oru%20kadhal%20devadai.jpg"
                         alt="Oru Kadhal Devadai">
                 </div>
 
                 <div class="video-info">
-                    <h3>Oru Kadhal Devadai (Karaoke)</h3>
+                    <h3 id="featured-title">Oru Kadhal Devadai (Karaoke)</h3>
                     <p>
-                        <span><b>Singers:</b> SPB</span>
+                        <span><b>Singers:</b> <span id="featured-singer">SPB</span></span>
                         <span><b>Category:</b> Solo / For Male</span>
                     </p>
                     <div class="video-actions">
@@ -2067,6 +2067,42 @@
                     menuToggle.classList.remove('open');
                 }
             }
+        });
+
+        // Weekly Top List Interaction
+        document.querySelectorAll('.small-yt-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const imgElement = this.querySelector('img');
+                const titleElement = this.querySelector('h4');
+                const pElement = this.querySelector('p');
+
+                const featuredImg = document.getElementById('featured-img');
+                const featuredTitle = document.getElementById('featured-title');
+                const featuredSinger = document.getElementById('featured-singer');
+
+                if(featuredImg && imgElement) {
+                    featuredImg.src = imgElement.src;
+                    featuredImg.alt = imgElement.alt;
+                }
+                if(featuredTitle && titleElement) {
+                    featuredTitle.innerText = titleElement.innerText + ' (Karaoke)';
+                }
+                if(featuredSinger && pElement) {
+                    let singerName = pElement.innerText;
+                    if(singerName.includes(' - ')) {
+                        singerName = singerName.split(' - ')[1];
+                    }
+                    featuredSinger.innerText = singerName;
+                }
+                
+                // Scroll to top of section on mobile
+                if(window.innerWidth <= 820) {
+                    const topSection = document.getElementById('weekly-top-section');
+                    if(topSection) {
+                        topSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
         });
     </script>
 </body>
